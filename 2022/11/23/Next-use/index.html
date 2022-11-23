@@ -1,0 +1,993 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" color-mode=light>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Next主题日常使用 - Hexo</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  
+  <meta name="description" content="文章摘要:Hexo-Next主题配置文件
+
+
+
+
+正文...">
+  <meta name="author" content="Veronica">
+  <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+<link rel="stylesheet" href="https://at.alicdn.com/t/font_1445822_p6ry5n7lrr.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+    
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xt256.min.css" name="highlight-style" mode="light">
+
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/sunburst.min.css" name="highlight-style" mode="dark">
+
+      
+  
+  
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      loading: {
+        gif: '/images/theme/loading.gif',
+        lottie: ''
+      },
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: {
+          gif: '/images/theme/loading.gif',
+          lottie: ''
+        }
+      },
+      donate: {
+        enable: false,
+        alipay: 'https://pic.izhaoo.com/alipay.jpg',
+        wechat: 'https://pic.izhaoo.com/wechat.jpg'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '',
+          api: ''
+        },
+        motto: {
+          default: '无论你心往何方，伊鲁席尔永是故乡。',
+          typing: true,
+          api: '',
+          data_contents: '["data","content"]'
+        },
+      },
+      qrcode: {
+        enable: false,
+        type: 'url',
+        image: 'https://pic.izhaoo.com/weapp-code.jpg',
+      },
+      toc: {
+        enable: true
+      },
+      scrollbar: {
+        type: 'default'
+      },
+      notification: {
+        enable: false,
+        delay: 4500,
+        list: '',
+        page_white_list: '',
+        page_black_list: ''
+      },
+      search: {
+        enable: true,
+        path: 'search.xml'
+      }
+    }
+  </script>
+
+  
+
+  
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="lock-screen">
+  <div class="loading" id="loading"></div>
+  
+    
+
+
+  <nav class="navbar">
+    <div class="left">
+      
+        <i class="iconfont iconhome j-navbar-back-home"></i>
+      
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
+      
+        <i class="iconfont iconsearch j-navbar-search"></i>
+      
+    </div>
+    <div class="center">Next主题日常使用</div>
+    <div class="right">
+      <i class="iconfont iconmenu j-navbar-menu"></i>
+    </div>
+    
+  </nav>
+
+  
+  
+
+<nav class="menu">
+  <div class="menu-container">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content"><li class="menu-item">
+        <a href="/ " class="underline "> 首页</a>
+      </li><li class="menu-item">
+        <a href="/galleries/ " class="underline "> 相册</a>
+      </li><li class="menu-item">
+        <a href="/archives/ " class="underline "> 归档</a>
+      </li><li class="menu-item">
+        <a href="/tags/ " class="underline "> 标签</a>
+      </li><li class="menu-item">
+        <a href="/categories/ " class="underline "> 分类</a>
+      </li><li class="menu-item">
+        <a href="/about/ " class="underline "> 关于</a>
+      </li></ul>
+    
+      <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+    
+  </div>
+</nav>
+  <main id="main">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">Next主题日常使用</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>十一月 23, 2022</span>
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>4630</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        
+          <p><p>文章摘要:Hexo-Next主题配置文件</p></p>
+        
+        <p>正文内容:</p>
+<p>Hexo-Next主题配置文件主要注释翻译：</p>
+<h1 id="5、Next主题日常使用"><a href="#5、Next主题日常使用" class="headerlink" title="5、Next主题日常使用"></a>5、Next主题日常使用</h1><h2 id="一、分类和文章"><a href="#一、分类和文章" class="headerlink" title="一、分类和文章"></a>一、分类和文章</h2><h3 id="1、创建分类页面"><a href="#1、创建分类页面" class="headerlink" title="1、创建分类页面"></a>1、创建分类页面</h3><html>
+<div class="warpper">
+    <div class="mac b1"></div>
+    <div class="mac b2"></div>
+    <div class="mac b3"></div>
+</div>
+<br>
+</html>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo new page categories<br></code></pre></td></tr></table></figure>
+
+<p>修改categories文件夹下的 index.md</p>
+<html>
+<div class="warpper">
+    <div class="mac b1"></div>
+    <div class="mac b2"></div>
+    <div class="mac b3"></div>
+</div>
+<br>
+</html>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js">---<br><span class="hljs-attr">title</span>: 文章分类<br><span class="hljs-attr">date</span>: <span class="hljs-number">2022</span>-<span class="hljs-number">11</span>-<span class="hljs-number">23</span> <span class="hljs-number">01</span>:<span class="hljs-number">03</span>:<span class="hljs-number">20</span><br><span class="hljs-attr">type</span>: <span class="hljs-string">&quot;categories&quot;</span><br>---<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="2、创建标签页面"><a href="#2、创建标签页面" class="headerlink" title="2、创建标签页面"></a>2、创建标签页面</h3><html>
+<div class="warpper">
+    <div class="mac b1"></div>
+    <div class="mac b2"></div>
+    <div class="mac b3"></div>
+</div>
+<br>
+</html>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo new page tags<br></code></pre></td></tr></table></figure>
+
+<p>修改tags文件夹下的 index.md</p>
+<html>
+<div class="warpper">
+    <div class="mac b1"></div>
+    <div class="mac b2"></div>
+    <div class="mac b3"></div>
+</div>
+<br>
+</html>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">---<br>title: 文章标签<br><span class="hljs-built_in">date</span>: 2022-11-23 01:03:20<br><span class="hljs-built_in">type</span>: <span class="hljs-string">&quot;tags&quot;</span><br>---<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="3、创建关于页面"><a href="#3、创建关于页面" class="headerlink" title="3、创建关于页面"></a>3、创建关于页面</h3><html>
+<div class="warpper">
+    <div class="mac b1"></div>
+    <div class="mac b2"></div>
+    <div class="mac b3"></div>
+</div>
+<br>
+</html>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo new page about<br></code></pre></td></tr></table></figure>
+
+<p>修改about文件夹下的 index.md</p>
+<html>
+<div class="warpper">
+    <div class="mac b1"></div>
+    <div class="mac b2"></div>
+    <div class="mac b3"></div>
+</div>
+<br>
+</html>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">---<br>title: 关于<br><span class="hljs-built_in">date</span>: 2022-11-23 01:03:20<br><span class="hljs-built_in">type</span>: <span class="hljs-string">&quot;about&quot;</span><br>---<br></code></pre></td></tr></table></figure>
+
+<h3 id="4、创建文章"><a href="#4、创建文章" class="headerlink" title="4、创建文章"></a>4、创建文章</h3><html>
+<div class="warpper">
+    <div class="mac b1"></div>
+    <div class="mac b2"></div>
+    <div class="mac b3"></div>
+</div>
+<br>
+</html>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo new 新文章<br></code></pre></td></tr></table></figure>
+
+<p>在_post文件夹下就出现了新文章了</p>
+<html>
+<div class="warpper">
+    <div class="mac b1"></div>
+    <div class="mac b2"></div>
+    <div class="mac b3"></div>
+</div>
+<br>
+</html>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash">---<br>title: 关于<br><span class="hljs-built_in">date</span>: 2022-11-23 01:03:20<br><span class="hljs-built_in">type</span>: <span class="hljs-string">&quot;about&quot;</span><br>---<br>我是摘要内容.<br>&lt;!-- more --&gt;<br>我是正文内容...<br><br>132123131321<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="二、运行Hexo"><a href="#二、运行Hexo" class="headerlink" title="二、运行Hexo"></a>二、运行Hexo</h2><p>安装服务器：Hexo 3.0 把服务器独立成了个别模块，我们必须得在站点文件夹根目录下安装之后才能使用。<br>在命令行中打开我们的工作站文件夹，键入以下命令，以将 hexo-server 安装到我们的工作站文件夹：</p>
+<html>
+<div class="warpper">
+    <div class="mac b1"></div>
+    <div class="mac b2"></div>
+    <div class="mac b3"></div>
+</div>
+<br>
+</html>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install hexo-server --save<br></code></pre></td></tr></table></figure>
+
+<p>cd进网站根目录，</p>
+<p>清除缓存文件</p>
+<html>
+<div class="warpper">
+    <div class="mac b1"></div>
+    <div class="mac b2"></div>
+    <div class="mac b3"></div>
+</div>
+<br>
+</html>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo clean<br></code></pre></td></tr></table></figure>
+
+<p>生成的静态网页以及相关资源</p>
+<html>
+<div class="warpper">
+    <div class="mac b1"></div>
+    <div class="mac b2"></div>
+    <div class="mac b3"></div>
+</div>
+<br>
+</html>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo generate<br></code></pre></td></tr></table></figure>
+
+<p>启动服务器</p>
+<html>
+<div class="warpper">
+    <div class="mac b1"></div>
+    <div class="mac b2"></div>
+    <div class="mac b3"></div>
+</div>
+<br>
+</html>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo server<br></code></pre></td></tr></table></figure>
+
+<p>指定端口启动服务器</p>
+<html>
+<div class="warpper">
+    <div class="mac b1"></div>
+    <div class="mac b2"></div>
+    <div class="mac b3"></div>
+</div>
+<br>
+</html>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo server -p 5000<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="三、利用pm2让Hexo后台运行"><a href="#三、利用pm2让Hexo后台运行" class="headerlink" title="三、利用pm2让Hexo后台运行"></a>三、利用<code>pm2</code>让Hexo后台运行</h2><p>1、安装：</p>
+<html>
+<div class="warpper">
+    <div class="mac b1"></div>
+    <div class="mac b2"></div>
+    <div class="mac b3"></div>
+</div>
+<br>
+</html>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install -g pm2<br></code></pre></td></tr></table></figure>
+
+<p>2、<strong>编写一个执行脚本 —— 在博客根目录下创建一个文件 run.js</strong></p>
+<html>
+<div class="warpper">
+    <div class="mac b1"></div>
+    <div class="mac b2"></div>
+    <div class="mac b3"></div>
+</div>
+<br>
+</html>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> &#123; exec &#125; = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;child_process&#x27;</span>)<br><span class="hljs-title function_">exec</span>(<span class="hljs-string">&#x27;hexo server -p 指定端口&#x27;</span>,<span class="hljs-function">(<span class="hljs-params">error, stdout, stderr</span>) =&gt;</span> &#123;<br><span class="hljs-keyword">if</span>(error)&#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;exec error: $&#123;error&#125;&#x27;</span>)<br>        <span class="hljs-keyword">return</span><br>&#125;<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;stdout: $&#123;stdout&#125;&#x27;</span>);<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;stderr: $&#123;stderr&#125;&#x27;</span>);<br>&#125;)<br></code></pre></td></tr></table></figure>
+
+<p><strong>3、使用pm2运行脚本 run.js</strong></p>
+<html>
+<div class="warpper">
+    <div class="mac b1"></div>
+    <div class="mac b2"></div>
+    <div class="mac b3"></div>
+</div>
+<br>
+</html>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pm2 start run.js<br></code></pre></td></tr></table></figure>
+
+<p>停止进程</p>
+<html>
+<div class="warpper">
+    <div class="mac b1"></div>
+    <div class="mac b2"></div>
+    <div class="mac b3"></div>
+</div>
+<br>
+</html>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pm2 stop pm的保护进程<span class="hljs-built_in">id</span><br></code></pre></td></tr></table></figure>
+
+<p>四、PM2相关命令</p>
+<p>1.安装pm2</p>
+<html>
+<div class="warpper">
+    <div class="mac b1"></div>
+    <div class="mac b2"></div>
+    <div class="mac b3"></div>
+</div>
+<br>
+</html>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ npm install pm2 -g<br></code></pre></td></tr></table></figure>
+
+<p>2.更新pm2</p>
+<html>
+<div class="warpper">
+    <div class="mac b1"></div>
+    <div class="mac b2"></div>
+    <div class="mac b3"></div>
+</div>
+<br>
+</html>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ pm2 update<br></code></pre></td></tr></table></figure>
+
+<p>3.启动进程</p>
+<html>
+<div class="warpper">
+    <div class="mac b1"></div>
+    <div class="mac b2"></div>
+    <div class="mac b3"></div>
+</div>
+<br>
+</html>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ pm2 start bin/www pm2 start app.js<br></code></pre></td></tr></table></figure>
+
+<p>4.重命名进程</p>
+<html>
+<div class="warpper">
+    <div class="mac b1"></div>
+    <div class="mac b2"></div>
+    <div class="mac b3"></div>
+</div>
+<br>
+</html>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ pm2 start app.js --name pro1<br></code></pre></td></tr></table></figure>
+
+<p>5.监控进程（当文件改变的时候，重启一个应用）</p>
+<html>
+<div class="warpper">
+    <div class="mac b1"></div>
+    <div class="mac b2"></div>
+    <div class="mac b3"></div>
+</div>
+<br>
+</html>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ pm2 start app.js --watch<br></code></pre></td></tr></table></figure>
+
+<p>6.结束指定pm2进程</p>
+<html>
+<div class="warpper">
+    <div class="mac b1"></div>
+    <div class="mac b2"></div>
+    <div class="mac b3"></div>
+</div>
+<br>
+</html>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ pm2 stop www<br></code></pre></td></tr></table></figure>
+
+<p>7.结束所有pm2进程</p>
+<html>
+<div class="warpper">
+    <div class="mac b1"></div>
+    <div class="mac b2"></div>
+    <div class="mac b3"></div>
+</div>
+<br>
+</html>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ pm2 stop all<br></code></pre></td></tr></table></figure>
+
+<p>8.删除指定pm2进程</p>
+<html>
+<div class="warpper">
+    <div class="mac b1"></div>
+    <div class="mac b2"></div>
+    <div class="mac b3"></div>
+</div>
+<br>
+</html>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ pm2 delete www<br></code></pre></td></tr></table></figure>
+
+<p>9.删除所有pm2进程</p>
+<html>
+<div class="warpper">
+    <div class="mac b1"></div>
+    <div class="mac b2"></div>
+    <div class="mac b3"></div>
+</div>
+<br>
+</html>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ pm2 delete all<br></code></pre></td></tr></table></figure>
+
+<p>10.列出所有用pm2启动的进程</p>
+<html>
+<div class="warpper">
+    <div class="mac b1"></div>
+    <div class="mac b2"></div>
+    <div class="mac b3"></div>
+</div>
+<br>
+</html>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ pm2 list<br></code></pre></td></tr></table></figure>
+
+<p>11.查看某个pm2进程具体情况</p>
+<html>
+<div class="warpper">
+    <div class="mac b1"></div>
+    <div class="mac b2"></div>
+    <div class="mac b3"></div>
+</div>
+<br>
+</html>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ pm2 monit<br></code></pre></td></tr></table></figure>
+
+<p>12.查看pm2所有进程占用的cpu和内存</p>
+<html>
+<div class="warpper">
+    <div class="mac b1"></div>
+    <div class="mac b2"></div>
+    <div class="mac b3"></div>
+</div>
+<br>
+</html>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ pm2 show www<br></code></pre></td></tr></table></figure>
+
+<p>13.显示指定pm2进程所有的信息</p>
+<html>
+<div class="warpper">
+    <div class="mac b1"></div>
+    <div class="mac b2"></div>
+    <div class="mac b3"></div>
+</div>
+<br>
+</html>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ pm2 show www<br></code></pre></td></tr></table></figure>
+
+<p>14.查看pm2所有进程的日志</p>
+<html>
+<div class="warpper">
+    <div class="mac b1"></div>
+    <div class="mac b2"></div>
+    <div class="mac b3"></div>
+</div>
+<br>
+</html>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ pm2 logs<br></code></pre></td></tr></table></figure>
+
+<p>15.查看pm2指定进程的日志</p>
+<html>
+<div class="warpper">
+    <div class="mac b1"></div>
+    <div class="mac b2"></div>
+    <div class="mac b3"></div>
+</div>
+<br>
+</html>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ pm2 logs www<br></code></pre></td></tr></table></figure>
+
+<p>16.json化日志</p>
+<html>
+<div class="warpper">
+    <div class="mac b1"></div>
+    <div class="mac b2"></div>
+    <div class="mac b3"></div>
+</div>
+<br>
+</html>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ pm2 logs --json<br></code></pre></td></tr></table></figure>
+
+<p>17.重新启动指定pm2进程</p>
+<html>
+<div class="warpper">
+    <div class="mac b1"></div>
+    <div class="mac b2"></div>
+    <div class="mac b3"></div>
+</div>
+<br>
+</html>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ pm2 restart www<br></code></pre></td></tr></table></figure>
+
+<p>18.重新启动所有pm2进程</p>
+<html>
+<div class="warpper">
+    <div class="mac b1"></div>
+    <div class="mac b2"></div>
+    <div class="mac b3"></div>
+</div>
+<br>
+</html>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ pm2 restart all<br></code></pre></td></tr></table></figure>
+
+<h3 id="四、用git把项目托管到github"><a href="#四、用git把项目托管到github" class="headerlink" title="四、用git把项目托管到github"></a>四、用git把项目托管到github</h3><h4 id="1、在GitHub创建个人仓库"><a href="#1、在GitHub创建个人仓库" class="headerlink" title="1、在GitHub创建个人仓库"></a>1、在GitHub创建个人仓库</h4><p>打开github并登录:<br>点开个人信息—-&gt; your repositories(你的存储库)—-&gt; 点击新建(新建一个xxxxx.github.io)<br>注意 这里xxxxx的仓库名必须和你的github账号名称相同,这里github默认只给这个名称的存储库提供免费域名</p>
+<p>OK,存储库建立完成之后,需要将服务器中之前安装的git让其生成一个SSH密钥<br>(git和github仓库是默认通过这个密钥进行用户权限身份识别的)<br>在命令行中输入:</p>
+<html>
+<div class="warpper">
+    <div class="mac b1"></div>
+    <div class="mac b2"></div>
+    <div class="mac b3"></div>
+</div>
+<br>
+</html>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">git config --global user.name <span class="hljs-string">&quot;yourname&quot;</span><br>git config --global user.email <span class="hljs-string">&quot;youremail&quot;</span><br></code></pre></td></tr></table></figure>
+
+
+<p>&#x2F; 这里的yourname输入你的GitHub用户名，youremail输入你GitHub的邮箱。&#x2F;</p>
+<p>这里的yourname输入你的GitHub用户名，youremail输入你GitHub的邮箱。</p>
+<p>##输入以下两条检验是否输入正确:</p>
+<html>
+<div class="warpper">
+    <div class="mac b1"></div>
+    <div class="mac b2"></div>
+    <div class="mac b3"></div>
+</div>
+<br>
+</html>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">git config user.name<br>git config user.email<br></code></pre></td></tr></table></figure>
+
+<p>生成密钥指令 :</p>
+<html>
+<div class="warpper">
+    <div class="mac b1"></div>
+    <div class="mac b2"></div>
+    <div class="mac b3"></div>
+</div>
+<br>
+</html>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh-keygen -t rsa -C <span class="hljs-string">&quot;youremail&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>然后一直回车，直到出现你能输入命令为止</p>
+<p>这时能看到存放位置：<code>root/_ssh/rsa</code></p>
+<p>ssh，简单来讲，就是一个秘钥，其中，id_rsa是你这台电脑的私人秘钥，不能给别人看的，id_rsa.pub是公共秘钥，可以随便给别人看。<br>把这个公钥放在GitHub上，这样当你链接GitHub自己的账户时，它就会根据公钥匹配你的私钥，当能够相互匹配时，才能够顺利的通过git上传你的文件到GitHub上。<br>进入目录，打开公钥文件，复制内容</p>
+<p>输入命令行:  </p>
+<html>
+<div class="warpper">
+    <div class="mac b1"></div>
+    <div class="mac b2"></div>
+    <div class="mac b3"></div>
+</div>
+<br>
+</html>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">vim id_rsa.pub <br></code></pre></td></tr></table></figure>
+
+<p>然后切换到本机的github网页,在github网页用户信息 —&gt; settings —– &gt; SSH &amp; GPJ密钥选项 —-&gt;<br>点击New SSH key把你的id_rsa.pub里面的信息复制进去。</p>
+<p>在终端查看连接是否成功</p>
+<html>
+<div class="warpper">
+    <div class="mac b1"></div>
+    <div class="mac b2"></div>
+    <div class="mac b3"></div>
+</div>
+<br>
+</html>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh -T git@github.com<br></code></pre></td></tr></table></figure>
+
+<p>将hexo部署到GitHub</p>
+<p>这一步，我们就可以将hexo和GitHub关联起来，也就是将hexo生成的文章部署到GitHub上</p>
+<p>进入hexo部署的根目录修改<code> _config.yml</code>。</p>
+<html>
+<div class="warpper">
+    <div class="mac b1"></div>
+    <div class="mac b2"></div>
+    <div class="mac b3"></div>
+</div>
+<br>
+</html>
+
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">deploy:</span><br>  <span class="hljs-attr">type:</span> <span class="hljs-string">git</span><br>  <span class="hljs-attr">repo:</span> <span class="hljs-string">https://github.com/YourgithubName/YourgithubName.github.io.git</span><br>  <span class="hljs-attr">branch:</span> <span class="hljs-string">master</span><br></code></pre></td></tr></table></figure>
+
+
+
+<p>###这个时候需要先安装deploy-git ，也就是部署的命令,这样你才能用命令部署到GitHub。</p>
+<html>
+<div class="warpper">
+    <div class="mac b1"></div>
+    <div class="mac b2"></div>
+    <div class="mac b3"></div>
+</div>
+<br>
+</html>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install hexo-deployer-git --save<br></code></pre></td></tr></table></figure>
+
+
+
+<p>###然后执行:</p>
+<p>&#x2F;&#x2F;清除缓存,建议更新代码前都执行下此操作。</p>
+<html>
+<div class="warpper">
+    <div class="mac b1"></div>
+    <div class="mac b2"></div>
+    <div class="mac b3"></div>
+</div>
+<br>
+</html>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo clean<br></code></pre></td></tr></table></figure>
+
+<p>生成静态文章，可以用 hexo g缩写</p>
+<html>
+<div class="warpper">
+    <div class="mac b1"></div>
+    <div class="mac b2"></div>
+    <div class="mac b3"></div>
+</div>
+<br>
+</html>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo generate<br></code></pre></td></tr></table></figure>
+
+<p>部署文章，可以用hexo d缩写</p>
+<html>
+<div class="warpper">
+    <div class="mac b1"></div>
+    <div class="mac b2"></div>
+    <div class="mac b3"></div>
+</div>
+<br>
+</html>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo deploy<br></code></pre></td></tr></table></figure>
+
+<p>然后会提示输入github登录名和密码</p>
+<p>输入成功后就开始部署了，但是我在这里出错了<code>err: Error: Spawn failed</code></p>
+<p>然后把repo地址从Http改为SSH的方式</p>
+<html>
+<div class="warpper">
+    <div class="mac b1"></div>
+    <div class="mac b2"></div>
+    <div class="mac b3"></div>
+</div>
+<br>
+</html>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">deploy:<br><span class="hljs-built_in">type</span>: git<br>repo: git@github.com:yourname/yourname.github.io.git<br>branch: master<br></code></pre></td></tr></table></figure>
+
+<p>然后再清除缓存，静态文章，部署文章，就成功了。</p>
+<p>部署成功后你就可以在<a href="http://yourname.github.io中看到你的个人博客了…(可能需要等待一段时间)">http://yourname.github.io中看到你的个人博客了…(可能需要等待一段时间)</a></p>
+      </section>
+      <section class="extra">
+        
+          <ul class="copyright">
+  
+    <li><strong>本文作者：</strong>Veronica</li>
+    <li><strong>本文链接：</strong><a href="https://axovi.github.io/2022/11/23/Next-use/index.html" title="https:&#x2F;&#x2F;axovi.github.io&#x2F;2022&#x2F;11&#x2F;23&#x2F;Next-use&#x2F;index.html">https:&#x2F;&#x2F;axovi.github.io&#x2F;2022&#x2F;11&#x2F;23&#x2F;Next-use&#x2F;index.html</a></li>
+    <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
+  
+</ul>
+        
+        
+        
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li></ul> 
+
+        
+  <nav class="nav">
+    <a href="/2022/11/23/MAC-Markdown/"><i class="iconfont iconleft"></i>实现MAC风格的Markdown代码块。</a>
+    <a href="/2022/11/22/Hexo-Next/">Hexo-Next主题配置文件<i class="iconfont iconright"></i></a>
+  </nav>
+
+      </section>
+      
+        <section class="comments">
+  
+    <div class="btn" id="comments-btn">查看评论</div>
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<div id="gitalk" class="gitalk"></div>
+<script defer src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  window.onload = function () {
+    var gitalk = new Gitalk({
+      clientID: '6631cedd0e191a024fe0',
+      clientSecret: 'f14d3f5cfe3fe6b626f550690bd3ab99426c31f9',
+      id: window.location.pathname,
+      repo: 'gitalk',
+      owner: 'Axovi',
+      admin: 'Axovi'
+    });
+    if ( true ) {
+      $("#comments-btn").on("click", function () {
+        $(this).hide();
+        gitalk.render('gitalk');
+      });
+    } else {
+      gitalk.render('gitalk');
+    }
+  }
+</script>
+
+</section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#5%E3%80%81Next%E4%B8%BB%E9%A2%98%E6%97%A5%E5%B8%B8%E4%BD%BF%E7%94%A8"><span class="toc-text">5、Next主题日常使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%88%86%E7%B1%BB%E5%92%8C%E6%96%87%E7%AB%A0"><span class="toc-text">一、分类和文章</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E5%88%9B%E5%BB%BA%E5%88%86%E7%B1%BB%E9%A1%B5%E9%9D%A2"><span class="toc-text">1、创建分类页面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E5%88%9B%E5%BB%BA%E6%A0%87%E7%AD%BE%E9%A1%B5%E9%9D%A2"><span class="toc-text">2、创建标签页面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81%E5%88%9B%E5%BB%BA%E5%85%B3%E4%BA%8E%E9%A1%B5%E9%9D%A2"><span class="toc-text">3、创建关于页面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E3%80%81%E5%88%9B%E5%BB%BA%E6%96%87%E7%AB%A0"><span class="toc-text">4、创建文章</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E8%BF%90%E8%A1%8CHexo"><span class="toc-text">二、运行Hexo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%88%A9%E7%94%A8pm2%E8%AE%A9Hexo%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C"><span class="toc-text">三、利用pm2让Hexo后台运行</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E7%94%A8git%E6%8A%8A%E9%A1%B9%E7%9B%AE%E6%89%98%E7%AE%A1%E5%88%B0github"><span class="toc-text">四、用git把项目托管到github</span></a></li></ol></li></ol></li></ol>
+  </aside>
+
+        
+      </div>
+    </div>
+  </div>
+</main>
+  
+
+<footer class="footer">
+  <div class="footer-social"><a 
+        href="tencent://message/?Menu=yes&uin=1552009725 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#12B7F5'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconQQ "></i>
+      </a><a 
+        href="javascript:; "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#09BB07'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconwechat-fill "></i>
+      </a><a 
+        href="https://github.com/Axovi "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#9f7be1'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  icongithub-fill "></i>
+      </a><a 
+        href="mailto:1552009725@qq.com "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#FF3B00" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconmail"></i>
+      </a></div>
+  
+    <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+  
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+  
+    
+<script src="/js/color-mode.js"></script>
+
+  
+  
+    <div class="search">
+  <div class="search-container">
+    <div class="search-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <div class="search-input-wrapper">
+      <i class="search-input-icon iconfont iconsearch"></i>
+      <input class="search-input" type="search" id="search-input" placeholder="Search..." autofocus autocomplete="off"
+        autocorrect="off" autocapitalize="off">
+    </div>
+    <div class="search-output" id="search-output"></div>
+  </div>
+</div>
+  
+</body>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+  <script>
+    (function () {
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script type="text/javascript" src="/js/clipboard.min.js"></script>  
+  <script type="text/javascript" src="/js/clipboard-use.js"></script>
+</html>
