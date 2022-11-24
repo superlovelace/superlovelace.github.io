@@ -2188,3 +2188,27 @@ br {
   border: none !important;
   background-color: #333;
 }
+.box1 {
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0,0,0,0);
+}
+.leftline {
+  height: 2px;
+  margin-right: 10px;
+  background-color: rgba(37,126,250,0.6);
+  flex-grow: 1;
+}
+.rightline {
+  height: 2px;
+  margin-left: 10px;
+  background-color: rgba(37,126,250,0.6);
+  flex-grow: 1;
+}
+.text {
+  top: 0;
+  font-weight: 700;
+  color: #257efa;
+}
