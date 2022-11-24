@@ -233,7 +233,7 @@
       <div class="post-top"><div>置顶</div></div>
     
     <a href="/2022/11/23/Next-use/" class="post-image">
-      <img   class="lazyload" data-original="/images/post/1015.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+      <img   class="lazyload" data-original="/images/post/1001.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
     </a>
     <div class="post-content">
       <div class="post-content-wrap">
@@ -266,7 +266,7 @@
       <div class="post-top"><div>置顶</div></div>
     
     <a href="/2022/11/22/Hexo-Next/" class="post-image">
-      <img   class="lazyload" data-original="/images/post/1007.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+      <img   class="lazyload" data-original="/images/post/1013.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
     </a>
     <div class="post-content">
       <div class="post-content-wrap">
@@ -299,7 +299,7 @@
       <div class="post-top"><div>置顶</div></div>
     
     <a href="/2022/11/24/Post-style/" class="post-image">
-      <img   class="lazyload" data-original="/images/post/1023.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+      <img   class="lazyload" data-original="/images/post/1007.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
     </a>
     <div class="post-content">
       <div class="post-content-wrap">
@@ -330,7 +330,7 @@
   <div class="post-wrap">
     
     <a href="/2022/11/23/MAC-Markdown/" class="post-image">
-      <img   class="lazyload" data-original="/images/post/1026.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+      <img   class="lazyload" data-original="/images/post/1011.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
     </a>
     <div class="post-content">
       <div class="post-content-wrap">
@@ -360,6 +360,58 @@
   
 </section>
   </div>
+<script type="text/javascript">
+    document.onkeydown = function(){
+    
+        if(window.event && window.event.keyCode == 123) {
+            event.keyCode=0;
+            event.returnValue=false;
+        }
+        if(window.event && window.event.keyCode == 13) {
+            window.event.keyCode = 505;
+        }
+        if(window.event && window.event.keyCode == 8) {
+            window.event.returnValue=false;
+        }
+    
+    }
+    
+    document.onselectstart = function (event){
+        if(window.event){
+        event = window.event;
+        }try{
+            var the = event.srcElement;
+            if (!((the.tagName == "INPUT" && the.type.toLowerCase() == "text") || the.tagName == "TEXTAREA")){
+            return false;
+        }
+        return true;
+        } catch (e) {
+            return false;
+        }
+    }
+
+
+    if (window.Event){
+    document.captureEvents(Event.MOUSEUP);
+    }
+    function nocontextmenu(){
+    event.cancelBubble = true
+    event.returnValue = false;
+    return false;
+    }
+    function norightclick(e) {
+    if (window.Event) {
+    if (e.which == 2 || e.which == 3)
+    return false;
+    } else if (event.button == 2 || event.button == 3){
+    event.cancelBubble = true
+    event.returnValue = false;
+    return false;
+    }
+    }
+    document.oncontextmenu = nocontextmenu; // for IE5+
+    document.onmousedown = norightclick; // for all others
+</script>
 </main>
   
 
