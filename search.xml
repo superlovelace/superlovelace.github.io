@@ -689,6 +689,40 @@
       </tags>
   </entry>
   <entry>
+    <title>GitHub使用自己域名实现https。</title>
+    <url>/2022/11/25/github-https/</url>
+    <content><![CDATA[<p><strong>文章摘要</strong>：Hexo托管到GitHub并使用自己域名实现https。</p>
+<span id="more"></span>
+
+<html>
+<div class="box1">
+         <span class="leftline"></span>
+         <span class="text">正文部分</span>
+         <span class="rightline"></span>
+     </div>
+</html>
+
+<p>域名解析<br>以阿里云为例：<br>新增解析：<br>记录类型	主机记录	记录值<br>CNAME	@	username.github.io<br>CNAME	www	username.github.io</p>
+<p>然后去Github，在个人系统仓库设置里，找到GitHub Pages，在Custom domain里输入你新买的域名，保存。</p>
+<p>然后在系统根目录Source下新增无后缀的CNAME文件，文件内写上你的新域名。</p>
+<p>然后用git把项目更新托管到github</p>
+<p>回到GitHub Pages，在<code>Custom domain</code>的DNS确认无误后，勾上下面的<code>Enforce HTTPS checkbox</code>，从而强制执行<code>HTTPS</code></p>
+<html>
+<div class="box1">
+         <span class="leftline"></span>
+         <span class="text">更多内容请在评论区留言讨论</span>
+         <span class="rightline"></span>
+     </div>
+</html>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>实现MAC风格的Markdown代码块。</title>
     <url>/2022/11/23/MAC-Markdown/</url>
     <content><![CDATA[<p><strong>文章摘要</strong>：用html语法实现Markdown代码块MAC风格。</p>
