@@ -6,12 +6,16 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>文章标签 - Axovi</title>
+  <title>Hexo-自定义404文件 - Axovi</title>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="google" content="notranslate" />
   <meta name="keywords" content="Axovi,axovi_blog,axovi,博客">
-  <meta name="description" content="Axovi的个人博客">
+  <meta name="description" content="文章摘要: Hexo-404自定义文件
+
+
+
+    ...">
   <meta name="author" content="Axovi">
   <link rel="icon" href="/images/icons/favicon16.ico" type="image/png" sizes="16x16">
   <link rel="icon" href="/images/icons/favicon32.ico" type="image/png" sizes="32x32">
@@ -152,7 +156,7 @@
         <i class="iconfont iconsearch j-navbar-search"></i>
       
     </div>
-    <div class="center">文章标签</div>
+    <div class="center">Hexo-自定义404文件</div>
     <div class="right">
       <i class="iconfont iconmenu j-navbar-menu"></i>
     </div>
@@ -174,7 +178,7 @@
       </li><li class="menu-item">
         <a href="/archives/ " class="underline "> 归档</a>
       </li><li class="menu-item">
-        <a href="/tags/ " class="underline active"> 标签</a>
+        <a href="/tags/ " class="underline "> 标签</a>
       </li><li class="menu-item">
         <a href="/categories/ " class="underline "> 分类</a>
       </li><li class="menu-item">
@@ -186,15 +190,125 @@
   </div>
 </nav>
   <main id="main">
-  <section class="tags">
-    <header class="header">
-  <h1 class="header-title">标签</h1>
-  <p class="header-subtitle">共: 2 个</p>
-</header>
-    <div class="tags-container">
-      <a href="/tags/Hexo/" style="font-size: 36px; color: #212121">Hexo</a> <a href="/tags/Markdown/" style="font-size: 14px; color: #666">Markdown</a>
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="/images/post/1002.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">Hexo-自定义404文件</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>十一月 27, 2022</span>
+      
+        <span class="post-info-item">
+          <i class="iconfont iconeye"></i><span id="/2022/11/27/Hexo-404/" class="leancloud-counter" data-flag-title="Hexo-自定义404文件"></span>
+        </span>
+        <span class="post-info-item">
+          <i class="iconfont iconheart"></i><span id="/2022/11/27/Hexo-404/" class="leancloud-like" data-flag-title="Hexo-自定义404文件"></span>
+        </span>
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>384</span>
     </div>
-  </section>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        
+          <p><p><strong>文章摘要</strong>: Hexo-404自定义文件</p></p>
+        
+        <html>
+<div class="box1">
+         <span class="leftline"></span>
+         <span class="text">正文部分</span>
+         <span class="rightline"></span>
+     </div>
+</html>
+
+<p>自定义404文件非常简单，你需要去source文件夹下，创建一个404文件夹，然后创建index.md<br>然后写入文件头信息：</p>
+<html>
+<div class="warpper">
+    <div class="mac b1"></div>
+    <div class="mac b2"></div>
+    <div class="mac b3"></div>
+</div>
+<br>
+</html>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs shell">---<br>title: &#x27;404&#x27;<br>layout: false<br>permalink: /404.html<br>---<br>上面是文档标题，不使用主题布局，permalink: 是404页面必须的<br><br>这里把你写的404HTML代码复制过来就好了，注意不要外链引入相对地址的css，<br>不然容易在其他页面找不到引入的相关文件。<br>代码标签别有大换行，不然下面会被md识别成代码块，从而导致网页不完整。<br></code></pre></td></tr></table></figure>
+
+<html>
+<div class="box1">
+    <span class="leftline"></span>
+    <span class="text">更多内容请在评论区留言讨论</span>
+    <span class="rightline"></span>
+</div>
+</html>
+      </section>
+      <section class="extra">
+        
+          <ul class="copyright">
+  
+    <li><strong>本文作者：</strong>Axovi</li>
+    <li><strong>本文链接：</strong><a href="https://axovi.online/2022/11/27/Hexo-404/index.html" title="https:&#x2F;&#x2F;axovi.online&#x2F;2022&#x2F;11&#x2F;27&#x2F;Hexo-404&#x2F;index.html">https:&#x2F;&#x2F;axovi.online&#x2F;2022&#x2F;11&#x2F;27&#x2F;Hexo-404&#x2F;index.html</a></li>
+    <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
+  
+</ul>
+        
+        
+        
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li></ul> 
+
+        
+  <nav class="nav">
+    <a></a>
+    <a href="/2022/11/25/github-https/">GitHub使用自己域名实现https<i class="iconfont iconright"></i></a>
+  </nav>
+
+      </section>
+      
+        <section class="comments">
+  
+    <div class="btn" id="comments-btn">查看评论</div>
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<div id="gitalk" class="gitalk"></div>
+<script defer src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  window.onload = function () {
+    var gitalk = new Gitalk({
+      clientID: '6631cedd0e191a024fe0',
+      clientSecret: 'f14d3f5cfe3fe6b626f550690bd3ab99426c31f9',
+      id: window.location.pathname,
+      repo: 'gitalk',
+      owner: 'Axovi',
+      admin: 'Axovi'
+    });
+    if ( true ) {
+      $("#comments-btn").on("click", function () {
+        $(this).hide();
+        gitalk.render('gitalk');
+      });
+    } else {
+      gitalk.render('gitalk');
+    }
+  }
+</script>
+
+</section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+        
+      </div>
+    </div>
+  </div>
 </main>
   
 
@@ -236,6 +350,10 @@
       <div class="fab fab-plus">
     <i class="iconfont iconplus"></i>
   </div>
+  
+    <div class="fab fab-like">
+      <i class="iconfont iconheart"></i>
+    </div>
   
   
     <div class="fab fab-daovoice">

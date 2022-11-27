@@ -1,9 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hexo-自定义404文件</title>
+    <url>/2022/11/27/Hexo-404/</url>
+    <content><![CDATA[<p><strong>文章摘要</strong>: Hexo-404自定义文件</p>
+<span id="more"></span>
+<html>
+<div class="box1">
+         <span class="leftline"></span>
+         <span class="text">正文部分</span>
+         <span class="rightline"></span>
+     </div>
+</html>
+
+<p>自定义404文件非常简单，你需要去source文件夹下，创建一个404文件夹，然后创建index.md<br>然后写入文件头信息：</p>
+<html>
+<div class="warpper">
+    <div class="mac b1"></div>
+    <div class="mac b2"></div>
+    <div class="mac b3"></div>
+</div>
+<br>
+</html>
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell">---<br>title: &#x27;404&#x27;<br>layout: false<br>permalink: /404.html<br>---<br>上面是文档标题，不使用主题布局，permalink: 是404页面必须的<br><br>这里把你写的404HTML代码复制过来就好了，注意不要外链引入相对地址的css，<br>不然容易在其他页面找不到引入的相关文件。<br>代码标签别有大换行，不然下面会被md识别成代码块，从而导致网页不完整。<br></code></pre></td></tr></table></figure>
+
+<html>
+<div class="box1">
+    <span class="leftline"></span>
+    <span class="text">更多内容请在评论区留言讨论</span>
+    <span class="rightline"></span>
+</div>
+</html>]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Next主题日常使用</title>
     <url>/2022/11/23/Next-use/</url>
-    <content><![CDATA[<p><strong>文章摘要</strong>: Hexo-Next主题配置文件</p>
+    <content><![CDATA[<p><strong>文章摘要</strong>: Hexo-Next主题日常使用</p>
 <span id="more"></span>
 <html>
 <div class="box1">
@@ -646,7 +685,7 @@
       </tags>
   </entry>
   <entry>
-    <title>实现有文章正文内容的水平线</title>
+    <title>实现中间有内容的水平线分割线</title>
     <url>/2022/11/24/Post-style/</url>
     <content><![CDATA[<p><strong>文章摘要</strong>：用html语法实现实现有文章正文内容的水平分隔线。</p>
 <span id="more"></span>
@@ -689,7 +728,7 @@
       </tags>
   </entry>
   <entry>
-    <title>GitHub使用自己域名实现https。</title>
+    <title>GitHub使用自己域名实现https</title>
     <url>/2022/11/25/github-https/</url>
     <content><![CDATA[<p><strong>文章摘要</strong>：Hexo托管到GitHub并使用自己域名实现https。</p>
 <span id="more"></span>
@@ -723,7 +762,7 @@
       </tags>
   </entry>
   <entry>
-    <title>实现MAC风格的Markdown代码块。</title>
+    <title>实现MAC风格的Markdown代码块</title>
     <url>/2022/11/23/MAC-Markdown/</url>
     <content><![CDATA[<p><strong>文章摘要</strong>：用html语法实现Markdown代码块MAC风格。</p>
 <span id="more"></span>
