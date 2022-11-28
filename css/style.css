@@ -2212,3 +2212,24 @@ br {
   font-weight: 700;
   color: #257efa;
 }
+.alertNotify {
+  width: 25%;
+  position: fixed;
+  top: 3%;
+  right: -30%;
+  z-index: 1030;
+}
+.alert-success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb !important;
+}
+.alert {
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
