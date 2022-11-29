@@ -2169,8 +2169,9 @@ body input {
 }
 .warpper {
   user-select: none !important;
-  border-radius: 5px;
   width: auto;
+  background: #21252b;
+  height: 30px;
 }
 br {
   user-select: none !important;
