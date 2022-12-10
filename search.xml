@@ -469,7 +469,7 @@
   <entry>
     <title>Hexo-自定义404文件</title>
     <url>/2022/11/27/Hexo-404/</url>
-    <content><![CDATA[<p><strong>文章摘要</strong>: Hexo-404自定义文件</p>
+    <content><![CDATA[<p>Hexo-自定义404文件</p>
 <span id="more"></span>
 <html>
 <div class="box1">
@@ -507,7 +507,7 @@
   <entry>
     <title>Next主题日常使用</title>
     <url>/2022/11/23/Next-use/</url>
-    <content><![CDATA[<p><strong>文章摘要</strong>: Hexo-Next主题日常使用</p>
+    <content><![CDATA[<p>Hexo-Next主题日常使用操作指令</p>
 <span id="more"></span>
 <html>
 <div class="box1">
@@ -1067,7 +1067,7 @@
   <entry>
     <title>Hexo-Next主题配置文件</title>
     <url>/2022/11/22/Hexo-Next/</url>
-    <content><![CDATA[<p><strong>文章摘要</strong>: Hexo-Next主题配置文件</p>
+    <content><![CDATA[<p>Hexo-Next主题配置文件注释翻译</p>
 <span id="more"></span>
 <html>
 <div class="box1">
@@ -1104,7 +1104,7 @@
   <entry>
     <title>实现中间有内容的水平线分割线</title>
     <url>/2022/11/24/Post-style/</url>
-    <content><![CDATA[<p><strong>文章摘要</strong>：用html语法实现实现有文章正文内容的水平分隔线。</p>
+    <content><![CDATA[<p>用html语法实现实现有文章正文内容的水平分隔线。</p>
 <span id="more"></span>
 
 <html>
@@ -1146,7 +1146,7 @@
   <entry>
     <title>Git deploy 部署报错</title>
     <url>/2022/11/29/git-error/</url>
-    <content><![CDATA[<p><strong>文章摘要</strong>：Git deploy 部署报错：ssh_exchange_identification: Connection closed by remote host<br>fatal: Could not read from remote repository.</p>
+    <content><![CDATA[<p>Git deploy 部署报错：ssh_exchange_identification: Connection closed by remote host<br>fatal: Could not read from remote repository.</p>
 <span id="more"></span>
 <html>
 <div class="box1">
@@ -1212,7 +1212,7 @@
   <entry>
     <title>GitHub使用自己域名实现https</title>
     <url>/2022/11/25/github-https/</url>
-    <content><![CDATA[<p><strong>文章摘要</strong>：Hexo托管到GitHub并使用自己域名实现https。</p>
+    <content><![CDATA[<p>Hexo托管到GitHub并使用自己域名实现https。</p>
 <span id="more"></span>
 
 <html>
@@ -1246,7 +1246,7 @@
   <entry>
     <title>实现MAC风格的Markdown代码块</title>
     <url>/2022/11/23/MAC-Markdown/</url>
-    <content><![CDATA[<p><strong>文章摘要</strong>：用html语法实现Markdown代码块MAC风格。</p>
+    <content><![CDATA[<p>用html语法实现Markdown代码块MAC风格。</p>
 <span id="more"></span>
 
 <html>
