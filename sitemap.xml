@@ -2,7 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://axovi.online/2022/12/10/LinkList/</loc>
+    <loc>https://superlovelace.top/about/index.html</loc>
+    
+    <lastmod>2023-09-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://superlovelace.top/2022/12/10/LinkList/</loc>
     
     <lastmod>2022-12-10</lastmod>
     
@@ -11,7 +20,7 @@
   </url>
   
   <url>
-    <loc>https://axovi.online/2022/12/10/SqList/</loc>
+    <loc>https://superlovelace.top/2022/12/10/SqList/</loc>
     
     <lastmod>2022-12-10</lastmod>
     
@@ -20,7 +29,7 @@
   </url>
   
   <url>
-    <loc>https://axovi.online/2022/11/25/github-https/</loc>
+    <loc>https://superlovelace.top/2022/11/25/github-https/</loc>
     
     <lastmod>2022-12-10</lastmod>
     
@@ -29,7 +38,7 @@
   </url>
   
   <url>
-    <loc>https://axovi.online/2022/11/29/git-error/</loc>
+    <loc>https://superlovelace.top/2022/11/29/git-error/</loc>
     
     <lastmod>2022-12-10</lastmod>
     
@@ -38,7 +47,7 @@
   </url>
   
   <url>
-    <loc>https://axovi.online/2022/11/24/Post-style/</loc>
+    <loc>https://superlovelace.top/2022/11/24/Post-style/</loc>
     
     <lastmod>2022-12-10</lastmod>
     
@@ -47,7 +56,7 @@
   </url>
   
   <url>
-    <loc>https://axovi.online/2022/11/23/Next-use/</loc>
+    <loc>https://superlovelace.top/2022/11/23/Next-use/</loc>
     
     <lastmod>2022-12-10</lastmod>
     
@@ -56,7 +65,7 @@
   </url>
   
   <url>
-    <loc>https://axovi.online/2022/11/23/MAC-Markdown/</loc>
+    <loc>https://superlovelace.top/2022/11/23/MAC-Markdown/</loc>
     
     <lastmod>2022-12-10</lastmod>
     
@@ -65,7 +74,7 @@
   </url>
   
   <url>
-    <loc>https://axovi.online/2022/11/22/Hexo-Next/</loc>
+    <loc>https://superlovelace.top/2022/11/22/Hexo-Next/</loc>
     
     <lastmod>2022-12-10</lastmod>
     
@@ -74,7 +83,7 @@
   </url>
   
   <url>
-    <loc>https://axovi.online/2022/11/27/Hexo-404/</loc>
+    <loc>https://superlovelace.top/2022/11/27/Hexo-404/</loc>
     
     <lastmod>2022-12-10</lastmod>
     
@@ -83,7 +92,7 @@
   </url>
   
   <url>
-    <loc>https://axovi.online/2022/12/10/Graph/</loc>
+    <loc>https://superlovelace.top/2022/12/10/Graph/</loc>
     
     <lastmod>2022-12-10</lastmod>
     
@@ -92,16 +101,7 @@
   </url>
   
   <url>
-    <loc>https://axovi.online/about/index.html</loc>
-    
-    <lastmod>2022-12-06</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://axovi.online/404.html</loc>
+    <loc>https://superlovelace.top/404.html</loc>
     
     <lastmod>2022-11-27</lastmod>
     
@@ -110,7 +110,7 @@
   </url>
   
   <url>
-    <loc>https://axovi.online/galleries/Diary/index.html</loc>
+    <loc>https://superlovelace.top/galleries/Diary/index.html</loc>
     
     <lastmod>2022-11-25</lastmod>
     
@@ -119,7 +119,7 @@
   </url>
   
   <url>
-    <loc>https://axovi.online/tags/index.html</loc>
+    <loc>https://superlovelace.top/tags/index.html</loc>
     
     <lastmod>2022-11-22</lastmod>
     
@@ -128,7 +128,7 @@
   </url>
   
   <url>
-    <loc>https://axovi.online/galleries/index.html</loc>
+    <loc>https://superlovelace.top/galleries/index.html</loc>
     
     <lastmod>2022-11-22</lastmod>
     
@@ -137,7 +137,7 @@
   </url>
   
   <url>
-    <loc>https://axovi.online/categories/index.html</loc>
+    <loc>https://superlovelace.top/categories/index.html</loc>
     
     <lastmod>2022-11-22</lastmod>
     
@@ -146,7 +146,7 @@
   </url>
   
   <url>
-    <loc>https://axovi.online/galleries/Game/index.html</loc>
+    <loc>https://superlovelace.top/galleries/Game/index.html</loc>
     
     <lastmod>2022-11-22</lastmod>
     
@@ -156,37 +156,37 @@
   
 
   <url>
-    <loc>https://axovi.online/</loc>
-    <lastmod>2023-04-13</lastmod>
+    <loc>https://superlovelace.top/</loc>
+    <lastmod>2023-09-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
-    <loc>https://axovi.online/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
-    <lastmod>2023-04-13</lastmod>
+    <loc>https://superlovelace.top/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
+    <lastmod>2023-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://axovi.online/tags/Hexo/</loc>
-    <lastmod>2023-04-13</lastmod>
+    <loc>https://superlovelace.top/tags/Hexo/</loc>
+    <lastmod>2023-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://axovi.online/tags/Markdown/</loc>
-    <lastmod>2023-04-13</lastmod>
+    <loc>https://superlovelace.top/tags/Markdown/</loc>
+    <lastmod>2023-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://axovi.online/tags/git/</loc>
-    <lastmod>2023-04-13</lastmod>
+    <loc>https://superlovelace.top/tags/git/</loc>
+    <lastmod>2023-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -194,15 +194,15 @@
 
   
   <url>
-    <loc>https://axovi.online/categories/%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2023-04-13</lastmod>
+    <loc>https://superlovelace.top/categories/%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2023-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://axovi.online/categories/%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/</loc>
-    <lastmod>2023-04-13</lastmod>
+    <loc>https://superlovelace.top/categories/%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/</loc>
+    <lastmod>2023-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
