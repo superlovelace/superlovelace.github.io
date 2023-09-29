@@ -16,16 +16,16 @@
   <meta name="author" content="棱境">
   <meta name="keywords" content="棱境,superlovelace,超爱蕾丝,超爱蕾丝个人博客,超爱蕾丝博客站点,棱境的个人博客,SuperLovelace,superlovelace博客站点,superlovelace个人博客,SuperLovelace博客站点,SuperLovelace个人博客">
   
-    <meta name="description" content="堆排序（Heap）的介绍，包括堆排序的特点、原理和完整代码实现。">
+    <meta name="description" content="堆排序（Heap Sort）的介绍，包括堆排序的特点、原理和完整代码实现。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="堆排序（Heap）">
+<meta property="og:title" content="选择排序之堆排序（Heap Sort）">
 <meta property="og:url" content="https://superlovelace.top/2023/09/29/HeapSort/index.html">
 <meta property="og:site_name" content="superlovelace">
-<meta property="og:description" content="堆排序（Heap）的介绍，包括堆排序的特点、原理和完整代码实现。">
+<meta property="og:description" content="堆排序（Heap Sort）的介绍，包括堆排序的特点、原理和完整代码实现。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://superlovelace.top/img/post/1012.jpg">
 <meta property="article:published_time" content="2023-09-28T16:41:40.000Z">
-<meta property="article:modified_time" content="2023-09-29T00:41:49.380Z">
+<meta property="article:modified_time" content="2023-09-29T09:32:23.512Z">
 <meta property="article:author" content="棱境">
 <meta property="article:tag" content="数据结构">
 <meta property="article:tag" content="算法">
@@ -34,7 +34,7 @@
   
   
   
-  <title>堆排序（Heap） - superlovelace</title>
+  <title>选择排序之堆排序（Heap Sort） - superlovelace</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -212,7 +212,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="堆排序（Heap）"></span>
+            <span id="subtitle" data-typed-text="选择排序之堆排序（Heap Sort）"></span>
           
         </div>
 
@@ -283,17 +283,17 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">堆排序（Heap）</h1>
+            <h1 id="seo-header">选择排序之堆排序（Heap Sort）</h1>
             
             
               <div class="markdown-body">
                 
                 <blockquote>
-<p>堆排序（Heap）的介绍，包括堆排序的特点、原理和完整代码实现。</p>
+<p>堆排序（Heap Sort）的介绍，包括堆排序的特点、原理和完整代码实现。</p>
 </blockquote>
 <span id="more"></span>
 
-<h1 id="堆排序（Heap）"><a href="#堆排序（Heap）" class="headerlink" title="堆排序（Heap）"></a>堆排序（Heap）</h1><h2 id="1、堆"><a href="#1、堆" class="headerlink" title="1、堆"></a>1、堆</h2><ul>
+<h1 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h1><h2 id="1、堆"><a href="#1、堆" class="headerlink" title="1、堆"></a>1、堆</h2><ul>
 <li>顺序存储地 “ 完全二叉树 ”<ul>
 <li>结点 <code>i</code> 地左孩子是<code>2i</code>；右孩子是<code>2i+1</code>；父结点是<code>i/2</code></li>
 </ul>
@@ -319,10 +319,14 @@
 <li>稳定性：不稳定</li>
 <li>基于大根堆的堆排序得到 “ 递增序列 ”，基于小根堆的堆排序得到 “ 递减序列 ”</li>
 </ul>
-<h2 id="4、实现代码"><a href="#4、实现代码" class="headerlink" title="4、实现代码"></a>4、实现代码</h2><p>大根堆：按升序排列</p>
+<h2 id="4、完整代码实现"><a href="#4、完整代码实现" class="headerlink" title="4、完整代码实现"></a>4、完整代码实现</h2><blockquote>
+<p>大根堆：按升序排列</p>
+</blockquote>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;string&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-comment">/* 堆排序 */</span><br><br><span class="hljs-comment">//将以k为根的子树调整为大根堆</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">HeadAdjust</span><span class="hljs-params">(<span class="hljs-type">int</span> A[], <span class="hljs-type">int</span> k, <span class="hljs-type">int</span> len)</span></span><br><span class="hljs-function"></span>&#123;<br>	A[<span class="hljs-number">0</span>] = A[k];  <span class="hljs-comment">//A[0]暂存子树的根结点</span><br>	<span class="hljs-comment">//沿key较大的子结点向下筛选</span><br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">2</span>*k; i &lt;= len; i*=<span class="hljs-number">2</span>)<br>	&#123;<br>		<span class="hljs-keyword">if</span> (i&lt;len&amp;&amp;A[i]&lt;A[i+<span class="hljs-number">1</span>]) <br>		&#123;<br>			i++; <span class="hljs-comment">//取key较大的子结点的下标</span><br>		&#125;<br>		<span class="hljs-keyword">if</span> (A[<span class="hljs-number">0</span>]&gt;=A[i])<br>		&#123;<br>			<span class="hljs-keyword">break</span>;<span class="hljs-comment">//筛选结束</span><br>		&#125;<br>		<span class="hljs-keyword">else</span> <br>		&#123;<br>			A[k] = A[i]; <span class="hljs-comment">//将A[i]调整到双亲结点上</span><br>			k = i;  <span class="hljs-comment">//修改k值，以便继续向下筛选</span><br>		&#125;<br>	&#125;<br>	A[k] = A[<span class="hljs-number">0</span>];<span class="hljs-comment">//被筛选结点的值放入最终位置</span><br>&#125;<br><br><span class="hljs-comment">//建立大根堆</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">BuildMaxHeap</span><span class="hljs-params">(<span class="hljs-type">int</span> A[], <span class="hljs-type">int</span> len)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-comment">//从后往前调整所有非终端结点</span><br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = len / <span class="hljs-number">2</span>; i &gt; <span class="hljs-number">0</span>; i--)<br>	&#123;<br>		<span class="hljs-built_in">HeadAdjust</span>(A, i, len);<br>	&#125;<br>&#125;<br><br><span class="hljs-comment">//堆排序</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">HeapSort</span><span class="hljs-params">(<span class="hljs-type">int</span> A[],<span class="hljs-type">int</span> len)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-built_in">BuildMaxHeap</span>(A,len);  <span class="hljs-comment">//初始建堆</span><br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = len; i &gt; <span class="hljs-number">1</span>; i--) <span class="hljs-comment">//n-1 趟的交换和建堆过程</span><br>	&#123;<br>		<span class="hljs-built_in">swap</span>(A[i], A[<span class="hljs-number">1</span>]);   <span class="hljs-comment">//堆顶元素和堆底元素交换</span><br>		<span class="hljs-built_in">HeadAdjust</span>(A, <span class="hljs-number">1</span>, i - <span class="hljs-number">1</span>); <span class="hljs-comment">//把剩余的待排序元素整理成堆</span><br>	&#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-comment">//有哨兵的数组</span><br>	<span class="hljs-type">int</span> A[] = &#123;<span class="hljs-number">0</span>,<span class="hljs-number">3</span>,<span class="hljs-number">5</span>,<span class="hljs-number">2</span>,<span class="hljs-number">6</span>,<span class="hljs-number">1</span>,<span class="hljs-number">4</span>,<span class="hljs-number">9</span>,<span class="hljs-number">8</span> &#125;;<br>	<span class="hljs-built_in">HeapSort</span>(A, <span class="hljs-number">8</span>);<br>	cout &lt;&lt; <span class="hljs-string">&quot;堆排序后：&quot;</span> &lt;&lt; endl;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">8</span>; i++)<br>	&#123;<br>		cout &lt;&lt; A[i];<br>		<span class="hljs-keyword">if</span> (i == <span class="hljs-number">8</span>)<br>		&#123;<br>			cout &lt;&lt;endl;;<br>		&#125;<br>		<span class="hljs-keyword">else</span><br>		&#123;<br>			cout &lt;&lt; <span class="hljs-string">&quot;,&quot;</span>;<br>		&#125;<br>	&#125;<br>	<span class="hljs-built_in">system</span>(<span class="hljs-string">&quot;pause&quot;</span>);<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
+<blockquote>
 <p>小根堆：按降序排列</p>
+</blockquote>
 <p>修改部分：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">//将以k为根的子树调整为小根堆</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">MinHeadAdjust</span><span class="hljs-params">(<span class="hljs-type">int</span> A[], <span class="hljs-type">int</span> k, <span class="hljs-type">int</span> len)</span></span><br><span class="hljs-function"></span>&#123;<br>	A[<span class="hljs-number">0</span>] = A[k];  <span class="hljs-comment">//A[0]暂存子树的根结点</span><br>	<span class="hljs-comment">//沿key较大的子结点向下筛选</span><br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">2</span> * k; i &lt;= len; i *= <span class="hljs-number">2</span>)<br>	&#123;<br>		<span class="hljs-keyword">if</span> (i &lt; len &amp;&amp; A[i] &gt; A[i + <span class="hljs-number">1</span>]) <span class="hljs-comment">//大根堆改小根堆第一步把小于号改为大于</span><br>		&#123;<br>			i++; <span class="hljs-comment">//取key较小的子结点的下标</span><br>		&#125;<br>		<span class="hljs-keyword">if</span> (A[<span class="hljs-number">0</span>] &lt;= A[i]) <span class="hljs-comment">////大根堆改小根堆第二步把大于等于号改为小于等于</span><br>		&#123;<br>			<span class="hljs-keyword">break</span>;<span class="hljs-comment">//筛选结束</span><br>		&#125;<br>		<span class="hljs-keyword">else</span><br>		&#123;<br>			A[k] = A[i]; <span class="hljs-comment">//将A[i]调整到双亲结点上</span><br>			k = i;  <span class="hljs-comment">//修改k值，以便继续向下筛选</span><br>		&#125;<br>	&#125;<br>	A[k] = A[<span class="hljs-number">0</span>];<span class="hljs-comment">//被筛选结点的值放入最终位置</span><br>&#125;<br></code></pre></td></tr></table></figure>
 
@@ -374,7 +378,7 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>堆排序（Heap）</div>
+      <div>选择排序之堆排序（Heap Sort）</div>
       <div>https://superlovelace.top/2023/09/29/HeapSort/</div>
     </div>
     <div class="license-meta">
@@ -431,12 +435,18 @@
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/2023/09/29/BubbleSort/" title="交换排序之冒泡排序（Bubble Sort）">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">交换排序之冒泡排序（Bubble Sort）</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/09/28/SelectSort/" title="简单选择排序算法（Select Sort）">
-                        <span class="hidden-mobile">简单选择排序算法（Select Sort）</span>
+                      <a href="/2023/09/28/SelectSort/" title="选择排序之简单选择排序（Select Sort）">
+                        <span class="hidden-mobile">选择排序之简单选择排序（Select Sort）</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

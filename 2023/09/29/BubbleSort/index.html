@@ -16,25 +16,25 @@
   <meta name="author" content="棱境">
   <meta name="keywords" content="棱境,superlovelace,超爱蕾丝,超爱蕾丝个人博客,超爱蕾丝博客站点,棱境的个人博客,SuperLovelace,superlovelace博客站点,superlovelace个人博客,SuperLovelace博客站点,SuperLovelace个人博客">
   
-    <meta name="description" content="简单选择排序的介绍，包括选择排序的特点、原理和完整代码实现。">
+    <meta name="description" content="冒泡排序的介绍，包括选择排序的特点、原理和完整代码实现。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="选择排序之简单选择排序（Select Sort）">
-<meta property="og:url" content="https://superlovelace.top/2023/09/28/SelectSort/index.html">
+<meta property="og:title" content="交换排序之冒泡排序（Bubble Sort）">
+<meta property="og:url" content="https://superlovelace.top/2023/09/29/BubbleSort/index.html">
 <meta property="og:site_name" content="superlovelace">
-<meta property="og:description" content="简单选择排序的介绍，包括选择排序的特点、原理和完整代码实现。">
+<meta property="og:description" content="冒泡排序的介绍，包括选择排序的特点、原理和完整代码实现。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://superlovelace.top/img/post/1011.jpg">
-<meta property="article:published_time" content="2023-09-28T15:57:32.000Z">
-<meta property="article:modified_time" content="2023-09-29T09:32:05.663Z">
+<meta property="og:image" content="https://superlovelace.top/img/post/1013.jpg">
+<meta property="article:published_time" content="2023-09-29T01:10:43.000Z">
+<meta property="article:modified_time" content="2023-09-29T09:56:21.417Z">
 <meta property="article:author" content="棱境">
 <meta property="article:tag" content="数据结构">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://superlovelace.top/img/post/1011.jpg">
+<meta name="twitter:image" content="https://superlovelace.top/img/post/1013.jpg">
   
   
   
-  <title>选择排序之简单选择排序（Select Sort） - superlovelace</title>
+  <title>交换排序之冒泡排序（Bubble Sort） - superlovelace</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -212,7 +212,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="选择排序之简单选择排序（Select Sort）"></span>
+            <span id="subtitle" data-typed-text="交换排序之冒泡排序（Bubble Sort）"></span>
           
         </div>
 
@@ -223,8 +223,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-09-28 23:57" pubdate>
-          2023年9月28日 晚上
+        <time datetime="2023-09-29 09:10" pubdate>
+          2023年9月29日 上午
         </time>
       </span>
     
@@ -235,7 +235,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          565 字
+          445 字
         
       </span>
     
@@ -246,7 +246,7 @@
         
         
         
-          5 分钟
+          4 分钟
         
       </span>
     
@@ -283,23 +283,23 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">选择排序之简单选择排序（Select Sort）</h1>
+            <h1 id="seo-header">交换排序之冒泡排序（Bubble Sort）</h1>
             
             
               <div class="markdown-body">
                 
                 <blockquote>
-<p>简单选择排序的介绍，包括选择排序的特点、原理和完整代码实现。</p>
+<p>冒泡排序的介绍，包括选择排序的特点、原理和完整代码实现。</p>
 </blockquote>
 <span id="more"></span>
 
-<h1 id="简单选择排序"><a href="#简单选择排序" class="headerlink" title="简单选择排序"></a>简单选择排序</h1><h2 id="1、特点"><a href="#1、特点" class="headerlink" title="1、特点"></a>1、特点</h2><ul>
-<li>交换记录导致排序方法是不稳定的</li>
-<li>可用于链式存储结构</li>
-<li>移动记录次数较少，当每一记录占用的空间较多时，此方法比直接插入排序快</li>
+<h1 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h1><h2 id="1、过程"><a href="#1、过程" class="headerlink" title="1、过程"></a>1、过程</h2><p>从后往前两两比较相邻元素值，若为逆序就交换，直到序列比较完成。每一趟可以使一个元素移动到最终位置，已经确定的元素，之后无需再次对比。若一趟下来未发生交换，则算法可提前结束。</p>
+<h2 id="2、特点"><a href="#2、特点" class="headerlink" title="2、特点"></a>2、特点</h2><ul>
+<li>空间复杂度：O(1)</li>
+<li>平均时间复杂度：O(n^2)</li>
+<li>算法稳定，顺序表和链表都可用</li>
 </ul>
-<h2 id="2、过程-原理"><a href="#2、过程-原理" class="headerlink" title="2、过程(原理)"></a>2、过程(原理)</h2><p>首先在未排序序列中找到最小（大）元素，存放到排序序列的起始位置，然后，再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾。以此类推，直到所有元素均排序完毕。</p>
-<h2 id="3、完整代码实现"><a href="#3、完整代码实现" class="headerlink" title="3、完整代码实现"></a>3、完整代码实现</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">SelectSort</span><span class="hljs-params">(<span class="hljs-type">int</span> arr[],<span class="hljs-type">int</span> len)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; len<span class="hljs-number">-1</span>; i++)<br>	&#123;<br>		<span class="hljs-type">int</span> min = i;<span class="hljs-comment">//标志位</span><br>		<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = i+<span class="hljs-number">1</span>; j &lt; len; j++)<br>		&#123;<br>			<span class="hljs-keyword">if</span> (arr[min] &gt; arr[j])<span class="hljs-comment">//比较大小，如果比最小值小，就获取对方的下标给min</span><br>			&#123;<br>				min = j;<br>			&#125;<br>		&#125;<br>        <span class="hljs-keyword">if</span>(min == i)<span class="hljs-comment">//一轮搜索后最小值仍然是标志位，则直接进行下一轮比对</span><br>        &#123;<br>            <span class="hljs-keyword">continue</span>;<br>        &#125;<br>        <span class="hljs-comment">//把最小值和刚开始的标志位交换</span><br>		<span class="hljs-type">int</span> temp = arr[i];<br>		arr[i] = arr[min];<br>		arr[min] = temp;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="3、完整代码实现"><a href="#3、完整代码实现" class="headerlink" title="3、完整代码实现"></a>3、完整代码实现</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">/* 冒泡排序 */</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">BubbleSort</span><span class="hljs-params">(<span class="hljs-type">int</span> * arr ,<span class="hljs-type">int</span> len)</span><span class="hljs-comment">//升序排列</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; len<span class="hljs-number">-1</span>; i++) <br>    &#123;<br>		<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; len - <span class="hljs-number">1</span> - i; j++) <span class="hljs-comment">//每次确定一个最大值在后面</span><br>        &#123;<br>			<span class="hljs-keyword">if</span> (arr[j] &gt; arr[j+<span class="hljs-number">1</span>]) <span class="hljs-comment">//前一个比后一个大就交换</span><br>            &#123;<br>				<span class="hljs-type">int</span> temp = arr[j];<br>				arr[j] = arr[j+<span class="hljs-number">1</span>];<br>				arr[j+<span class="hljs-number">1</span>] = temp;<br>			&#125;<br>		&#125;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h1 id="补充内容"><a href="#补充内容" class="headerlink" title="补充内容"></a>补充内容</h1><p><a target="_blank" rel="noopener" href="https://visualgo.net/zh/sorting">排序动画演示</a></p>
 
@@ -349,8 +349,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>选择排序之简单选择排序（Select Sort）</div>
-      <div>https://superlovelace.top/2023/09/28/SelectSort/</div>
+      <div>交换排序之冒泡排序（Bubble Sort）</div>
+      <div>https://superlovelace.top/2023/09/29/BubbleSort/</div>
     </div>
     <div class="license-meta">
       
@@ -362,7 +362,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年9月28日</div>
+          <div>2023年9月29日</div>
         </div>
       
       
@@ -406,9 +406,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/09/29/HeapSort/" title="选择排序之堆排序（Heap Sort）">
+                      <a href="/2023/09/29/QuickSort/" title="交换排序之快速排序（Quick Sort）">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">选择排序之堆排序（Heap Sort）</span>
+                        <span class="hidden-mobile">交换排序之快速排序（Quick Sort）</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -416,8 +416,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/12/10/LinkList/" title="数据结构 - 链表 - 单链表">
-                        <span class="hidden-mobile">数据结构 - 链表 - 单链表</span>
+                      <a href="/2023/09/29/HeapSort/" title="选择排序之堆排序（Heap Sort）">
+                        <span class="hidden-mobile">选择排序之堆排序（Heap Sort）</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -440,7 +440,7 @@
         var options = Object.assign(
           {"clientID":"6d64389efece8b9c1308","clientSecret":"f04c4adce3a9521c1fa339ac3af8fc085157328a","repo":"gitalk","owner":"superlovelace","admin":["superlovelace"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
           {
-            id: '4088a4d3f09d7366103a61e17ed38198'
+            id: 'f05683a8ba40d2ea194b9dcf3b978315'
           }
         )
         var gitalk = new Gitalk(options);
