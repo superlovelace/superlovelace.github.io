@@ -467,6 +467,57 @@
       </tags>
   </entry>
   <entry>
+    <title>堆排序（Heap）</title>
+    <url>/2023/09/29/HeapSort/</url>
+    <content><![CDATA[<blockquote>
+<p>堆排序（Heap）的介绍，包括堆排序的特点、原理和完整代码实现。</p>
+</blockquote>
+<span id="more"></span>
+
+<h1 id="堆排序（Heap）"><a href="#堆排序（Heap）" class="headerlink" title="堆排序（Heap）"></a>堆排序（Heap）</h1><h2 id="1、堆"><a href="#1、堆" class="headerlink" title="1、堆"></a>1、堆</h2><ul>
+<li>顺序存储地 “ 完全二叉树 ”<ul>
+<li>结点 <code>i</code> 地左孩子是<code>2i</code>；右孩子是<code>2i+1</code>；父结点是<code>i/2</code></li>
+</ul>
+</li>
+<li>大根堆（根&gt;&#x3D;左、右）；小根堆（根&lt;&#x3D;左、右）；</li>
+</ul>
+<h2 id="2、算法思想"><a href="#2、算法思想" class="headerlink" title="2、算法思想"></a>2、算法思想</h2><ul>
+<li>建堆<ul>
+<li>编号&lt;&#x3D; n&#x2F;2 的所有结点依次 “ 下坠 ”调整（自底向上处理各分支结点）</li>
+<li>调整规则：小元素逐层 “ 下坠 ”（与关键字更大的孩子交换）</li>
+</ul>
+</li>
+<li>排序<ul>
+<li>将堆顶元素加入有序子序列（堆顶元素与堆底元素交换）</li>
+<li>堆底元素换到堆顶后，需要进行“ 下坠 ”调整，恢复“ 大根堆 ”的特性</li>
+<li>上述过程重复 n~1 趟</li>
+</ul>
+</li>
+</ul>
+<h2 id="3、特性"><a href="#3、特性" class="headerlink" title="3、特性"></a>3、特性</h2><ul>
+<li>空间复杂度：O(1)</li>
+<li>时间复杂度：建堆O(n)、排序O(nlogn)；总的时间复杂度&#x3D; O(nlogn)</li>
+<li>稳定性：不稳定</li>
+<li>基于大根堆的堆排序得到 “ 递增序列 ”，基于小根堆的堆排序得到 “ 递减序列 ”</li>
+</ul>
+<h2 id="4、实现代码"><a href="#4、实现代码" class="headerlink" title="4、实现代码"></a>4、实现代码</h2><p>大根堆：按升序排列</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;string&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-comment">/* 堆排序 */</span><br><br><span class="hljs-comment">//将以k为根的子树调整为大根堆</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">HeadAdjust</span><span class="hljs-params">(<span class="hljs-type">int</span> A[], <span class="hljs-type">int</span> k, <span class="hljs-type">int</span> len)</span></span><br><span class="hljs-function"></span>&#123;<br>	A[<span class="hljs-number">0</span>] = A[k];  <span class="hljs-comment">//A[0]暂存子树的根结点</span><br>	<span class="hljs-comment">//沿key较大的子结点向下筛选</span><br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">2</span>*k; i &lt;= len; i*=<span class="hljs-number">2</span>)<br>	&#123;<br>		<span class="hljs-keyword">if</span> (i&lt;len&amp;&amp;A[i]&lt;A[i+<span class="hljs-number">1</span>]) <br>		&#123;<br>			i++; <span class="hljs-comment">//取key较大的子结点的下标</span><br>		&#125;<br>		<span class="hljs-keyword">if</span> (A[<span class="hljs-number">0</span>]&gt;=A[i])<br>		&#123;<br>			<span class="hljs-keyword">break</span>;<span class="hljs-comment">//筛选结束</span><br>		&#125;<br>		<span class="hljs-keyword">else</span> <br>		&#123;<br>			A[k] = A[i]; <span class="hljs-comment">//将A[i]调整到双亲结点上</span><br>			k = i;  <span class="hljs-comment">//修改k值，以便继续向下筛选</span><br>		&#125;<br>	&#125;<br>	A[k] = A[<span class="hljs-number">0</span>];<span class="hljs-comment">//被筛选结点的值放入最终位置</span><br>&#125;<br><br><span class="hljs-comment">//建立大根堆</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">BuildMaxHeap</span><span class="hljs-params">(<span class="hljs-type">int</span> A[], <span class="hljs-type">int</span> len)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-comment">//从后往前调整所有非终端结点</span><br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = len / <span class="hljs-number">2</span>; i &gt; <span class="hljs-number">0</span>; i--)<br>	&#123;<br>		<span class="hljs-built_in">HeadAdjust</span>(A, i, len);<br>	&#125;<br>&#125;<br><br><span class="hljs-comment">//堆排序</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">HeapSort</span><span class="hljs-params">(<span class="hljs-type">int</span> A[],<span class="hljs-type">int</span> len)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-built_in">BuildMaxHeap</span>(A,len);  <span class="hljs-comment">//初始建堆</span><br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = len; i &gt; <span class="hljs-number">1</span>; i--) <span class="hljs-comment">//n-1 趟的交换和建堆过程</span><br>	&#123;<br>		<span class="hljs-built_in">swap</span>(A[i], A[<span class="hljs-number">1</span>]);   <span class="hljs-comment">//堆顶元素和堆底元素交换</span><br>		<span class="hljs-built_in">HeadAdjust</span>(A, <span class="hljs-number">1</span>, i - <span class="hljs-number">1</span>); <span class="hljs-comment">//把剩余的待排序元素整理成堆</span><br>	&#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-comment">//有哨兵的数组</span><br>	<span class="hljs-type">int</span> A[] = &#123;<span class="hljs-number">0</span>,<span class="hljs-number">3</span>,<span class="hljs-number">5</span>,<span class="hljs-number">2</span>,<span class="hljs-number">6</span>,<span class="hljs-number">1</span>,<span class="hljs-number">4</span>,<span class="hljs-number">9</span>,<span class="hljs-number">8</span> &#125;;<br>	<span class="hljs-built_in">HeapSort</span>(A, <span class="hljs-number">8</span>);<br>	cout &lt;&lt; <span class="hljs-string">&quot;堆排序后：&quot;</span> &lt;&lt; endl;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">8</span>; i++)<br>	&#123;<br>		cout &lt;&lt; A[i];<br>		<span class="hljs-keyword">if</span> (i == <span class="hljs-number">8</span>)<br>		&#123;<br>			cout &lt;&lt;endl;;<br>		&#125;<br>		<span class="hljs-keyword">else</span><br>		&#123;<br>			cout &lt;&lt; <span class="hljs-string">&quot;,&quot;</span>;<br>		&#125;<br>	&#125;<br>	<span class="hljs-built_in">system</span>(<span class="hljs-string">&quot;pause&quot;</span>);<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>小根堆：按降序排列</p>
+<p>修改部分：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">//将以k为根的子树调整为小根堆</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">MinHeadAdjust</span><span class="hljs-params">(<span class="hljs-type">int</span> A[], <span class="hljs-type">int</span> k, <span class="hljs-type">int</span> len)</span></span><br><span class="hljs-function"></span>&#123;<br>	A[<span class="hljs-number">0</span>] = A[k];  <span class="hljs-comment">//A[0]暂存子树的根结点</span><br>	<span class="hljs-comment">//沿key较大的子结点向下筛选</span><br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">2</span> * k; i &lt;= len; i *= <span class="hljs-number">2</span>)<br>	&#123;<br>		<span class="hljs-keyword">if</span> (i &lt; len &amp;&amp; A[i] &gt; A[i + <span class="hljs-number">1</span>]) <span class="hljs-comment">//大根堆改小根堆第一步把小于号改为大于</span><br>		&#123;<br>			i++; <span class="hljs-comment">//取key较小的子结点的下标</span><br>		&#125;<br>		<span class="hljs-keyword">if</span> (A[<span class="hljs-number">0</span>] &lt;= A[i]) <span class="hljs-comment">////大根堆改小根堆第二步把大于等于号改为小于等于</span><br>		&#123;<br>			<span class="hljs-keyword">break</span>;<span class="hljs-comment">//筛选结束</span><br>		&#125;<br>		<span class="hljs-keyword">else</span><br>		&#123;<br>			A[k] = A[i]; <span class="hljs-comment">//将A[i]调整到双亲结点上</span><br>			k = i;  <span class="hljs-comment">//修改k值，以便继续向下筛选</span><br>		&#125;<br>	&#125;<br>	A[k] = A[<span class="hljs-number">0</span>];<span class="hljs-comment">//被筛选结点的值放入最终位置</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>完整实现：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;string&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-comment">/* 堆排序 */</span><br><br><span class="hljs-comment">//将以k为根的子树调整为小根堆</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">MinHeadAdjust</span><span class="hljs-params">(<span class="hljs-type">int</span> A[], <span class="hljs-type">int</span> k, <span class="hljs-type">int</span> len)</span></span><br><span class="hljs-function"></span>&#123;<br>	A[<span class="hljs-number">0</span>] = A[k];  <span class="hljs-comment">//A[0]暂存子树的根结点</span><br>	<span class="hljs-comment">//沿key较大的子结点向下筛选</span><br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">2</span> * k; i &lt;= len; i *= <span class="hljs-number">2</span>)<br>	&#123;<br>		<span class="hljs-keyword">if</span> (i &lt; len &amp;&amp; A[i] &gt; A[i + <span class="hljs-number">1</span>]) <span class="hljs-comment">//大根堆改小根堆第一步把小于号改为大于</span><br>		&#123;<br>			i++; <span class="hljs-comment">//取key较小的子结点的下标</span><br>		&#125;<br>		<span class="hljs-keyword">if</span> (A[<span class="hljs-number">0</span>] &lt;= A[i]) <span class="hljs-comment">////大根堆改小根堆第二步把大于等于号改为小于等于</span><br>		&#123;<br>			<span class="hljs-keyword">break</span>;<span class="hljs-comment">//筛选结束</span><br>		&#125;<br>		<span class="hljs-keyword">else</span><br>		&#123;<br>			A[k] = A[i]; <span class="hljs-comment">//将A[i]调整到双亲结点上</span><br>			k = i;  <span class="hljs-comment">//修改k值，以便继续向下筛选</span><br>		&#125;<br>	&#125;<br>	A[k] = A[<span class="hljs-number">0</span>];<span class="hljs-comment">//被筛选结点的值放入最终位置</span><br>&#125;<br><br><span class="hljs-comment">//建立小根堆</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">BuildMinHeap</span><span class="hljs-params">(<span class="hljs-type">int</span> A[], <span class="hljs-type">int</span> len)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-comment">//从后往前调整所有非终端结点</span><br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = len / <span class="hljs-number">2</span>; i &gt; <span class="hljs-number">0</span>; i--)<br>	&#123;<br>		<span class="hljs-built_in">MinHeadAdjust</span>(A, i, len);<br>	&#125;<br>&#125;<br><br><span class="hljs-comment">//堆排序</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">HeapSort</span><span class="hljs-params">(<span class="hljs-type">int</span> A[],<span class="hljs-type">int</span> len)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-built_in">BuildMinHeap</span>(A,len);  <span class="hljs-comment">//初始建堆</span><br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = len; i &gt; <span class="hljs-number">1</span>; i--) <span class="hljs-comment">//n-1 趟的交换和建堆过程</span><br>	&#123;<br>		<span class="hljs-built_in">swap</span>(A[i], A[<span class="hljs-number">1</span>]);   <span class="hljs-comment">//堆顶元素和堆底元素交换</span><br>		<span class="hljs-built_in">MinHeadAdjust</span>(A, <span class="hljs-number">1</span>, i - <span class="hljs-number">1</span>); <span class="hljs-comment">//把剩余的待排序元素整理成堆</span><br>	&#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-comment">//有哨兵的数组</span><br>	<span class="hljs-type">int</span> A[] = &#123;<span class="hljs-number">0</span>,<span class="hljs-number">3</span>,<span class="hljs-number">5</span>,<span class="hljs-number">2</span>,<span class="hljs-number">6</span>,<span class="hljs-number">1</span>,<span class="hljs-number">4</span>,<span class="hljs-number">9</span>,<span class="hljs-number">8</span> &#125;;<br>	<span class="hljs-built_in">HeapSort</span>(A, <span class="hljs-number">8</span>);<br>	cout &lt;&lt; <span class="hljs-string">&quot;堆排序后：&quot;</span> &lt;&lt; endl;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">8</span>; i++)<br>	&#123;<br>		cout &lt;&lt; A[i];<br>		<span class="hljs-keyword">if</span> (i == <span class="hljs-number">8</span>)<br>		&#123;<br>			cout &lt;&lt;endl;;<br>		&#125;<br>		<span class="hljs-keyword">else</span><br>		&#123;<br>			cout &lt;&lt; <span class="hljs-string">&quot;,&quot;</span>;<br>		&#125;<br>	&#125;<br>	<span class="hljs-built_in">system</span>(<span class="hljs-string">&quot;pause&quot;</span>);<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo-自定义404文件</title>
     <url>/2022/11/27/Hexo-404/</url>
     <content><![CDATA[<p>Hexo-自定义404文件</p>
@@ -1253,6 +1304,31 @@
       <tags>
         <tag>Hexo</tag>
         <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>简单选择排序算法（Select Sort）</title>
+    <url>/2023/09/28/SelectSort/</url>
+    <content><![CDATA[<blockquote>
+<p>简单选择排序的介绍，包括选择排序的特点、原理和完整代码实现。</p>
+</blockquote>
+<span id="more"></span>
+
+<h1 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h1><h2 id="1、简单选择排序特点"><a href="#1、简单选择排序特点" class="headerlink" title="1、简单选择排序特点"></a>1、简单选择排序特点</h2><ul>
+<li>交换记录导致排序方法是不稳定的</li>
+<li>可用于链式存储结构</li>
+<li>移动记录次数较少，当每一记录占用的空间较多时，此方法比直接插入排序快</li>
+</ul>
+<h2 id="2、简单选择排序过程-原理"><a href="#2、简单选择排序过程-原理" class="headerlink" title="2、简单选择排序过程(原理)"></a>2、简单选择排序过程(原理)</h2><p>首先在未排序序列中找到最小（大）元素，存放到排序序列的起始位置，然后，再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾。以此类推，直到所有元素均排序完毕。</p>
+<h2 id="3、简单选择排序算法实现"><a href="#3、简单选择排序算法实现" class="headerlink" title="3、简单选择排序算法实现"></a>3、简单选择排序算法实现</h2><figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">SelectSort</span><span class="hljs-params">(<span class="hljs-type">int</span> arr[],<span class="hljs-type">int</span> len)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; len<span class="hljs-number">-1</span>; i++)<br>	&#123;<br>		<span class="hljs-type">int</span> min = i;<span class="hljs-comment">//标志位</span><br>		<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = i+<span class="hljs-number">1</span>; j &lt; len; j++)<br>		&#123;<br>			<span class="hljs-keyword">if</span> (arr[min] &gt; arr[j])<span class="hljs-comment">//比较大小，如果比最小值小，就获取对方的下标给min</span><br>			&#123;<br>				min = j;<br>			&#125;<br>		&#125;<br>        <span class="hljs-keyword">if</span>(min == i)<span class="hljs-comment">//一轮搜索后最小值仍然是标志位，则直接进行下一轮比对</span><br>        &#123;<br>            <span class="hljs-keyword">continue</span>;<br>        &#125;<br>        <span class="hljs-comment">//把最小值和刚开始的标志位交换</span><br>		<span class="hljs-type">int</span> temp = arr[i];<br>		arr[i] = arr[min];<br>		arr[min] = temp;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+        <tag>算法</tag>
       </tags>
   </entry>
   <entry>
