@@ -1,0 +1,737 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/1.jpg">
+  <link rel="icon" href="/img/1.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="棱境">
+  <meta name="keywords" content="棱境,superlovelace,超爱蕾丝,超爱蕾丝个人博客,超爱蕾丝博客站点,棱境的个人博客,SuperLovelace,superlovelace博客站点,superlovelace个人博客,SuperLovelace博客站点,SuperLovelace个人博客">
+  
+    <meta name="description" content="Vue的安装总结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue安装指南">
+<meta property="og:url" content="https://superlovelace.top/2023/10/01/Vue-install/index.html">
+<meta property="og:site_name" content="superlovelace | 棱境的个人博客">
+<meta property="og:description" content="Vue的安装总结">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://superlovelace.top/img/post/1018.jpg">
+<meta property="article:published_time" content="2023-10-01T01:07:06.000Z">
+<meta property="article:modified_time" content="2023-10-01T09:09:00.908Z">
+<meta property="article:author" content="棱境">
+<meta property="article:tag" content="安装工具">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://superlovelace.top/img/post/1018.jpg">
+  
+  
+  
+  <title>Vue安装指南 - superlovelace | 棱境的个人博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"superlovelace.top","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":"G-V7XHLRYKFR"},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=G-V7XHLRYKFR", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', 'G-V7XHLRYKFR');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>superlovelace</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/bg7.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Vue安装指南"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-10-01 09:07" pubdate>
+          2023年10月1日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          16k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          132 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Vue安装指南</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <blockquote>
+<p>Vue的安装总结</p>
+</blockquote>
+<span id="more"></span>
+<hr>
+<h1 id="安装-Vue-CLI"><a href="#安装-Vue-CLI" class="headerlink" title="安装 | Vue CLI"></a>安装 | Vue CLI</h1><p> <code>Vue CLI</code>官网地址：<a target="_blank" rel="noopener" href="https://cli.vuejs.org/zh/guide/installation.html">https://cli.vuejs.org/zh/guide/installation.html</a></p>
+<p>在<code>cmd</code>输入以下命令进行安装：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">cnpm install -g @vue/cli<br></code></pre></td></tr></table></figure>
+
+<p>稍等片刻，出现以下信息，即安装成功。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br></pre></td><td class="code"><pre><code class="hljs shell">C:\Users\user&gt;cnpm install -g @vue/cli<br>Downloading @vue/cli to C:\Users\user\AppData\Roaming\npm\node_modules\@vue\cli_tmp<br>Copying C:\Users\user\AppData\Roaming\npm\node_modules\@vue\cli_tmp\.store\@vue+cli@5.0.8\node_modules\@vue\cli to C:\Users\user\AppData\Roaming\npm\node_modules\@vue\cli<br>Installing @vue/cli&#x27;s dependencies to C:\Users\user\AppData\Roaming\npm\node_modules\@vue\cli/node_modules<br>[1/35] @types/ejs@^3.0.6 installed at node_modules\.store\@types+ejs@3.1.2\node_modules\@types\ejs<br>[2/35] ini@^2.0.0 installed at node_modules\.store\ini@2.0.0\node_modules\ini<br>[3/35] commander@^7.1.0 installed at node_modules\.store\commander@7.2.0\node_modules\commander<br>[4/35] leven@^3.1.0 installed at node_modules\.store\leven@3.1.0\node_modules\leven<br>[5/35] isbinaryfile@^4.0.6 installed at node_modules\.store\isbinaryfile@4.0.10\node_modules\isbinaryfile<br>[6/35] slash@^3.0.0 installed at node_modules\.store\slash@3.0.0\node_modules\slash<br>[7/35] lodash.clonedeep@^4.5.0 installed at node_modules\.store\lodash.clonedeep@4.5.0\node_modules\lodash.clonedeep<br>[8/35] envinfo@^7.7.4 installed at node_modules\.store\envinfo@7.8.1\node_modules\envinfo<br>[9/35] deepmerge@^4.2.2 installed at node_modules\.store\deepmerge@4.3.1\node_modules\deepmerge<br>[10/35] javascript-stringify@^2.0.1 installed at node_modules\.store\javascript-stringify@2.1.0\node_modules\javascript-stringify<br>[11/35] minimist@^1.2.5 installed at node_modules\.store\minimist@1.2.8\node_modules\minimist<br>[12/35] @vue/cli-ui-addon-widgets@^5.0.8 installed at node_modules\.store\@vue+cli-ui-addon-widgets@5.0.8\node_modules\@vue\cli-ui-addon-widgets<br>[13/35] @vue/cli-ui-addon-webpack@^5.0.8 installed at node_modules\.store\@vue+cli-ui-addon-webpack@5.0.8\node_modules\@vue\cli-ui-addon-webpack<br>[14/35] strip-ansi@^6.0.0 installed at node_modules\.store\strip-ansi@6.0.1\node_modules\strip-ansi<br>[15/35] debug@^4.1.0 installed at node_modules\.store\debug@4.3.4\node_modules\debug<br>[16/35] lru-cache@^6.0.0 installed at node_modules\.store\lru-cache@6.0.0\node_modules\lru-cache<br>[17/35] validate-npm-package-name@^3.0.0 installed at node_modules\.store\validate-npm-package-name@3.0.0\node_modules\validate-npm-package-name<br>[18/35] import-global@^0.1.0 installed at node_modules\.store\import-global@0.1.0\node_modules\import-global<br>[19/35] shortid@^2.2.15 installed at node_modules\.store\shortid@2.2.16\node_modules\shortid<br>[20/35] fs-extra@^9.1.0 installed at node_modules\.store\fs-extra@9.1.0\node_modules\fs-extra<br>[21/35] js-yaml@^4.0.0 installed at node_modules\.store\js-yaml@4.1.0\node_modules\js-yaml<br>[22/35] boxen@^5.0.0 installed at node_modules\.store\boxen@5.1.2\node_modules\boxen<br>[23/35] pkg-dir@^5.0.0 installed at node_modules\.store\pkg-dir@5.0.0\node_modules\pkg-dir<br>[24/35] recast@^0.20.3 installed at node_modules\.store\recast@0.20.5\node_modules\recast<br>[25/35] yaml-front-matter@^4.1.0 installed at node_modules\.store\yaml-front-matter@4.1.1\node_modules\yaml-front-matter<br>[26/35] @vue/cli-shared-utils@^5.0.8 installed at node_modules\.store\@vue+cli-shared-utils@5.0.8\node_modules\@vue\cli-shared-utils<br>[27/35] resolve@^1.20.0 installed at node_modules\.store\resolve@1.22.2\node_modules\resolve<br>[28/35] globby@^11.0.2 installed at node_modules\.store\globby@11.1.0\node_modules\globby<br>[29/35] download-git-repo@^3.0.2 installed at node_modules\.store\download-git-repo@3.0.2\node_modules\download-git-repo<br>[30/35] ejs@^3.1.6 installed at node_modules\.store\ejs@3.1.9\node_modules\ejs<br>[31/35] vue@^2.6.14 installed at node_modules\.store\vue@2.7.14\node_modules\vue<br>[32/35] @vue/cli-ui@^5.0.8 installed at node_modules\.store\@vue+cli-ui@5.0.8\node_modules\@vue\cli-ui<br>[33/35] @types/inquirer@^8.1.3 installed at node_modules\.store\@types+inquirer@8.2.6\node_modules\@types\inquirer<br>[34/35] inquirer@^8.0.0 installed at node_modules\.store\inquirer@8.2.5\node_modules\inquirer<br>[35/35] vue-codemod@^0.0.5 installed at node_modules\.store\vue-codemod@0.0.5\node_modules\vue-codemod<br>deprecate vue-codemod@0.0.5 › jscodeshift@0.11.0 › micromatch@3.1.10 › snapdragon@0.8.2 › source-map-resolve@^0.5.0 See https://github.com/lydell/source-map-resolve#deprecated<br>deprecate vue-codemod@0.0.5 › jscodeshift@0.11.0 › micromatch@3.1.10 › snapdragon@0.8.2 › source-map-resolve@0.5.3 › source-map-url@^0.4.0 See https://github.com/lydell/source-map-url#deprecated<br>deprecate vue-codemod@0.0.5 › jscodeshift@0.11.0 › micromatch@3.1.10 › snapdragon@0.8.2 › source-map-resolve@0.5.3 › urix@^0.1.0 Please see https://github.com/lydell/urix#deprecated<br>deprecate vue-codemod@0.0.5 › jscodeshift@0.11.0 › micromatch@3.1.10 › snapdragon@0.8.2 › source-map-resolve@0.5.3 › resolve-url@^0.2.1 https://github.com/lydell/resolve-url#deprecated<br>deprecate @vue/cli-ui@5.0.8 › apollo-server-express@^3.9.0 The `apollo-server-express` package is part of Apollo Server v2 and v3, which are now deprecated (end-of-life October 22nd 2023). This package&#x27;s functionality is now found in the `@apollo/server` package. See https://www.apollographql.com/docs/apollo-server/previous-versions/ for more details.<br>anti semver @vue/cli-ui@5.0.8 › apollo-server-express@3.12.0 › @types/express@4.17.14 › @types/express-serve-static-core@^4.17.18 delcares @types/express-serve-static-core@^4.17.18(resolved as 4.17.35) but using ancestor(apollo-server-express)&#x27;s dependency @types/express-serve-static-core@4.17.31(resolved as 4.17.31)<br>deprecate @vue/cli-ui@5.0.8 › apollo-server-express@3.12.0 › apollo-server-types@^3.8.0 The `apollo-server-types` package is part of Apollo Server v2 and v3, which are now deprecated (end-of-life October 22nd 2023). This package&#x27;s functionality is now found in the `@apollo/server` package. See https://www.apollographql.com/docs/apollo-server/previous-versions/ for more details.<br>deprecate @vue/cli-ui@5.0.8 › subscriptions-transport-ws@^0.11.0 The `subscriptions-transport-ws` package is no longer maintained. We recommend you use `graphql-ws` instead. For help migrating Apollo software to `graphql-ws`, see https://www.apollographql.com/docs/apollo-server/data/subscriptions/#switching-from-subscriptions-transport-ws    For general help using `graphql-ws`, see https://github.com/enisdenjo/graphql-ws/blob/master/README.md<br>deprecate @vue/cli-ui@5.0.8 › apollo-server-express@3.12.0 › apollo-server-types@3.8.0 › apollo-reporting-protobuf@^3.4.0 The `apollo-reporting-protobuf` package is part of Apollo Server v2 and v3, which are now deprecated (end-of-life October 22nd 2023). This package&#x27;s functionality is now found in the `@apollo/usage-reporting-protobuf` package. See https://www.apollographql.com/docs/apollo-server/previous-versions/ for more details.<br>deprecate @vue/cli-ui@5.0.8 › apollo-server-express@3.12.0 › apollo-server-types@3.8.0 › apollo-server-env@^4.2.1 The `apollo-server-env` package is part of Apollo Server v2 and v3, which are now deprecated (end-of-life October 22nd 2023). This package&#x27;s functionality is now found in the `@apollo/utils.fetcher` package. See https://www.apollographql.com/docs/apollo-server/previous-versions/ for more details.<br>deprecate @vue/cli-ui@5.0.8 › apollo-server-express@3.12.0 › apollo-server-core@^3.12.0 The `apollo-server-core` package is part of Apollo Server v2 and v3, which are now deprecated (end-of-life October 22nd 2023). This package&#x27;s functionality is now found in the `@apollo/server` package. See https://www.apollographql.com/docs/apollo-server/previous-versions/ for more details.<br>deprecate @vue/cli-ui@5.0.8 › apollo-server-express@3.12.0 › apollo-server-core@3.12.0 › apollo-server-errors@^3.3.1 The `apollo-server-errors` package is part of Apollo Server v2 and v3, which are now deprecated (end-of-life October 22nd 2023). This package&#x27;s functionality is now found in the `@apollo/server` package. See https://www.apollographql.com/docs/apollo-server/previous-versions/ for more details.<br>deprecate @vue/cli-ui@5.0.8 › apollo-server-express@3.12.0 › apollo-server-core@3.12.0 › apollo-datasource@^3.3.2 The `apollo-datasource` package is part of Apollo Server v2 and v3, which are now deprecated (end-of-life October 22nd 2023). See https://www.apollographql.com/docs/apollo-server/previous-versions/ for more details.<br>deprecate @vue/cli-ui@5.0.8 › apollo-server-express@3.12.0 › apollo-server-core@3.12.0 › apollo-server-plugin-base@^3.7.2 The `apollo-server-plugin-base` package is part of Apollo Server v2 and v3, which are now deprecated (end-of-life October 22nd 2023). This package&#x27;s functionality is now found in the `@apollo/server` package. See https://www.apollographql.com/docs/apollo-server/previous-versions/ for more details.<br>Recently updated (since 2023-05-20): 47 packages (detail see file C:\Users\user\AppData\Roaming\npm\node_modules\@vue\cli\node_modules\.recently_updates.txt)<br>  Today:<br>    → vue-codemod@0.0.5 › @babel/preset-env@^7.10.3(7.22.2) (01:52:00)<br>    → vue-codemod@0.0.5 › @babel/preset-env@7.22.2 › @babel/plugin-transform-private-methods@^7.22.0(7.22.3) (18:11:00)<br>    → vue-codemod@0.0.5 › @babel/preset-env@7.22.2 › @babel/plugin-transform-dynamic-import@^7.22.1(7.22.1) (00:34:50)<br>    → vue-codemod@0.0.5 › @babel/preset-env@7.22.2 › @babel/plugin-transform-logical-assignment-operators@^7.22.0(7.22.3) (18:10:56)<br>    → vue-codemod@0.0.5 › @babel/preset-env@7.22.2 › @babel/plugin-transform-unicode-sets-regex@^7.22.0(7.22.3) (18:11:03)<br>    → vue-codemod@0.0.5 › @babel/preset-env@7.22.2 › @babel/plugin-transform-new-target@^7.22.0(7.22.3) (18:10:56)<br>    → vue-codemod@0.0.5 › @babel/preset-env@7.22.2 › @babel/plugin-transform-unicode-property-regex@^7.22.0(7.22.3) (18:11:01)<br>    → vue-codemod@0.0.5 › @babel/preset-env@7.22.2 › @babel/plugin-syntax-import-attributes@^7.22.0(7.22.3) (18:10:53)<br>    → vue-codemod@0.0.5 › @babel/preset-env@7.22.2 › @babel/plugin-transform-named-capturing-groups-regex@^7.22.0(7.22.3) (18:10:56)<br>    → vue-codemod@0.0.5 › @babel/preset-env@7.22.2 › @babel/plugin-transform-json-strings@^7.22.0(7.22.3) (18:10:55)<br>    → vue-codemod@0.0.5 › @babel/preset-env@7.22.2 › @babel/plugin-transform-class-properties@^7.22.0(7.22.3) (18:10:54)<br>    → vue-codemod@0.0.5 › @babel/preset-env@7.22.2 › @babel/plugin-transform-export-namespace-from@^7.22.0(7.22.3) (18:10:55)<br>    → vue-codemod@0.0.5 › @babel/preset-env@7.22.2 › @babel/plugin-transform-nullish-coalescing-operator@^7.22.0(7.22.3) (18:10:57)<br>    → vue-codemod@0.0.5 › @babel/preset-env@7.22.2 › @babel/plugin-transform-optional-catch-binding@^7.22.0(7.22.3) (18:10:58)<br>    → vue-codemod@0.0.5 › @babel/preset-env@7.22.2 › @babel/plugin-transform-numeric-separator@^7.22.0(7.22.3) (18:10:58)<br>    → vue-codemod@0.0.5 › @babel/preset-env@7.22.2 › @babel/plugin-transform-modules-systemjs@^7.22.0(7.22.3) (18:10:56)<br>    → vue-codemod@0.0.5 › @babel/preset-env@7.22.2 › @babel/plugin-transform-class-static-block@^7.22.0(7.22.3) (18:10:55)<br>    → vue-codemod@0.0.5 › @babel/preset-env@7.22.2 › @babel/plugin-transform-private-property-in-object@^7.22.0(7.22.3) (18:11:00)<br>    → vue-codemod@0.0.5 › @babel/preset-env@7.22.2 › @babel/plugin-transform-async-generator-functions@^7.22.0(7.22.3) (18:10:54)<br>    → vue-codemod@0.0.5 › @babel/preset-env@7.22.2 › @babel/plugin-transform-object-rest-spread@^7.22.0(7.22.3) (18:11:09)<br>    → vue-codemod@0.0.5 › @babel/preset-env@7.22.2 › @babel/plugin-bugfix-v8-spread-parameters-in-optional-chaining@^7.22.0(7.22.3) (18:11:08)<br>    → vue-codemod@0.0.5 › @babel/preset-env@7.22.2 › babel-plugin-polyfill-corejs2@^0.4.2(0.4.3) (02:07:04)<br>    → vue-codemod@0.0.5 › @babel/preset-env@7.22.2 › @babel/plugin-transform-optional-chaining@^7.22.0(7.22.3) (18:10:58)<br>    → vue-codemod@0.0.5 › @babel/preset-env@7.22.2 › @babel/plugin-transform-parameters@^7.22.0(7.22.3) (18:10:58)<br>    → vue-codemod@0.0.5 › @babel/preset-env@7.22.2 › @babel/compat-data@^7.22.0(7.22.3) (18:10:50)<br>    → vue-codemod@0.0.5 › @babel/preset-env@7.22.2 › @babel/helper-compilation-targets@^7.22.1(7.22.1) (00:34:49)<br>    → vue-codemod@0.0.5 › @babel/preset-env@7.22.2 › @babel/plugin-transform-object-super@7.18.6 › @babel/helper-replace-supers@^7.18.6(7.22.1) (00:34:55)<br>    → vue-codemod@0.0.5 › @babel/preset-env@7.22.2 › @babel/plugin-transform-async-generator-functions@7.22.3 › @babel/helper-environment-visitor@^7.22.1(7.22.1) (00:34:49)<br>    → vue-codemod@0.0.5 › @babel/preset-env@7.22.2 › @babel/plugin-transform-unicode-regex@7.18.6 › @babel/helper-create-regexp-features-plugin@^7.18.6(7.22.1) (00:34:49)<br>    → vue-codemod@0.0.5 › @babel/preset-env@7.22.2 › @babel/plugin-transform-exponentiation-operator@7.18.6 › @babel/helper-builder-binary-assignment-operator-visitor@^7.18.6(7.22.3) (18:11:07)<br>    → vue-codemod@0.0.5 › @babel/preset-env@7.22.2 › @babel/plugin-transform-modules-umd@7.18.6 › @babel/helper-module-transforms@^7.18.6(7.22.1) (00:34:55)<br>    → vue-codemod@0.0.5 › @babel/preset-env@7.22.2 › @babel/plugin-transform-private-methods@7.22.3 › @babel/helper-create-class-features-plugin@^7.22.1(7.22.1) (00:34:57)<br>    → vue-codemod@0.0.5 › jscodeshift@0.11.0 › @babel/preset-typescript@7.21.5 › @babel/plugin-transform-typescript@^7.21.3(7.22.3) (18:11:01)<br>    → vue-codemod@0.0.5 › @babel/preset-env@7.22.2 › @babel/plugin-transform-object-super@7.18.6 › @babel/helper-replace-supers@7.22.1 › @babel/helper-member-expression-to-functions@^7.22.0(7.22.3) (18:11:08)<br>    → vue-codemod@0.0.5 › @babel/core@^7.10.3(7.22.1) (00:34:57)<br>    → vue-codemod@0.0.5 › @babel/preset-env@7.22.2 › @babel/helper-compilation-targets@7.22.1 › browserslist@4.21.5 › electron-to-chromium@^1.4.284(1.4.411) (10:02:21)<br>    → @types/inquirer@8.2.6 › @types/through@0.0.30 › @types/node@*(20.2.5) (04:33:01)<br>    → vue-codemod@0.0.5 › @babel/preset-env@7.22.2 › @babel/plugin-transform-object-super@7.18.6 › @babel/helper-replace-supers@7.22.1 › @babel/traverse@^7.22.1(7.22.1) (00:34:54)<br>    → vue-codemod@0.0.5 › @vue/compiler-core@3.3.4 › @babel/parser@^7.21.3(7.22.3) (18:10:51)<br>    → vue-codemod@0.0.5 › @babel/core@7.22.1 › @babel/generator@^7.22.0(7.22.3) (18:11:08)<br>    → vue-codemod@0.0.5 › @babel/types@^7.12.12(7.22.3) (18:11:04)<br>    → vue-codemod@0.0.5 › @babel/core@7.22.1 › @babel/helpers@^7.22.0(7.22.3) (18:11:07)<br>    → vue-codemod@0.0.5 › @babel/preset-env@7.22.2 › @babel/plugin-transform-regenerator@7.21.5 › regenerator-transform@0.15.1 › @babel/runtime@^7.8.4(7.22.3) (18:11:03)<br>  2023-05-26<br>    → vue-codemod@0.0.5 › jscodeshift@0.11.0 › flow-parser@0.*(0.207.0) (11:19:57)<br>  2023-05-24<br>    → vue-codemod@0.0.5 › @babel/preset-env@7.22.2 › @babel/helper-compilation-targets@7.22.1 › browserslist@4.21.5 › node-releases@^2.0.8(2.0.12) (10:05:03)<br>  2023-05-22<br>    → vue-codemod@0.0.5 › @babel/preset-env@7.22.2 › @babel/plugin-transform-computed-properties@7.21.5 › @babel/template@^7.20.7(7.21.9) (18:02:21)<br>    → vue-codemod@0.0.5 › @babel/preset-env@7.22.2 › @babel/helper-compilation-targets@7.22.1 › browserslist@4.21.5 › caniuse-lite@^1.0.30001449(1.0.30001489) (17:47:42)<br>Run 2 script(s) in 4s.<br>All packages installed (778 packages installed from npm registry, used 1m(network 1m), speed 557.5KB/s, json 680(8.43MB), tarball 33.89MB, manifests cache hit 0, etag hit 0 / miss 0)<br>[@vue/cli@5.0.8] link C:\Users\user\AppData\Roaming\npm\vue@ -&gt; C:\Users\user\AppData\Roaming\npm\node_modules\@vue\cli\bin\vue.js<br><br><br>C:\Users\user&gt;<br></code></pre></td></tr></table></figure>
+
+<p>验证安装，在<code>cmd</code>输入<code>vue</code>，出现以下信息即安装成功：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs shell">C:\Users\user&gt;vue<br>Usage: vue &lt;command&gt; [options]<br><br>Options:<br>  -V, --version                              output the version number<br>  -h, --help                                 display help for command<br><br>Commands:<br>  create [options] &lt;app-name&gt;                create a new project powered by vue-cli-service<br>  add [options] &lt;plugin&gt; [pluginOptions]     install a plugin and invoke its generator in an already created project<br>  invoke [options] &lt;plugin&gt; [pluginOptions]  invoke the generator of a plugin in an already created project<br>  inspect [options] [paths...]               inspect the webpack config in a project with vue-cli-service<br>  serve                                      alias of &quot;npm run serve&quot; in the current project<br>  build                                      alias of &quot;npm run build&quot; in the current project<br>  ui [options]                               start and open the vue-cli ui<br>  init [options] &lt;template&gt; &lt;app-name&gt;       generate a project from a remote template (legacy API, requires<br>                                             @vue/cli-init)<br>  config [options] [value]                   inspect and modify the config<br>  outdated [options]                         (experimental) check for outdated vue cli service / plugins<br>  upgrade [options] [plugin-name]            (experimental) upgrade vue cli service / plugins<br>  migrate [options] [plugin-name]            (experimental) run migrator for an already-installed cli plugin<br>  info                                       print debugging information about your environment<br>  help [command]                             display help for command<br><br>  Run vue &lt;command&gt; --help for detailed usage of given command.<br><br><br>C:\Users\user&gt;<br></code></pre></td></tr></table></figure>
+
+<p>当然还可以查看下版本：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">C:\Users\user&gt;vue --version<br>@vue/cli 5.0.8<br><br>C:\Users\user&gt;<br></code></pre></td></tr></table></figure>
+
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%AC%94%E8%AE%B0/" class="category-chain-item">笔记</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%AE%89%E8%A3%85%E5%B7%A5%E5%85%B7/" class="print-no-link">#安装工具</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Vue安装指南</div>
+      <div>https://superlovelace.top/2023/10/01/Vue-install/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>棱境</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年10月1日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/10/01/C++ConsoleTextColor/" title="优化C++控制台输出字体颜色方法">
+                        <span class="hidden-mobile">优化C++控制台输出字体颜色方法</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.8.0/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"6d64389efece8b9c1308","clientSecret":"f04c4adce3a9521c1fa339ac3af8fc085157328a","repo":"gitalk","owner":"superlovelace","admin":["superlovelace"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: '05477b93f6913dffb5a4a0e53fcf5873'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
