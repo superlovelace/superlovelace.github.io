@@ -33,7 +33,7 @@
 <p>C++的系统调用输出颜色的方法参数很冗长，而且没有中文注释，很不方便，所以进行了优化处理，各位可以直接复制保存使用。</p>
 </blockquote>
 <span id="more"></span>
-<hr>
+
 <h2 id="优化C-控制台输出字体颜色方法"><a href="#优化C-控制台输出字体颜色方法" class="headerlink" title="优化C++控制台输出字体颜色方法"></a>优化C++控制台输出字体颜色方法</h2><blockquote>
 <p>所用工具为：Microsoft Virtual Studio</p>
 </blockquote>
@@ -159,17 +159,17 @@
       </tags>
   </entry>
   <entry>
-    <title>CNPM安装指南</title>
+    <title>CNPM安装指南（Windows）</title>
     <url>/2023/10/01/Cnpm-install/</url>
     <content><![CDATA[<blockquote>
 <p>npm在国内使用总会出现些问题，例如下载速度慢，连接失败等；所以今天分享在Windows系统下安装在国内的CNPM。</p>
 </blockquote>
 <span id="more"></span>
-<hr>
+
 <h2 id="CNPM安装教程（Windows系统版）"><a href="#CNPM安装教程（Windows系统版）" class="headerlink" title="CNPM安装教程（Windows系统版）"></a>CNPM安装教程（Windows系统版）</h2><p><strong>CNPM淘宝镜像官网：</strong><a href="https://npmmirror.com/">https://npmmirror.com/</a></p>
 <h3 id="1、打开CNPM淘宝镜像官网"><a href="#1、打开CNPM淘宝镜像官网" class="headerlink" title="1、打开CNPM淘宝镜像官网"></a>1、打开CNPM淘宝镜像官网</h3><p>有很多信息：</p>
 <ul>
-<li>当前 <a href="https://npmmirror.com/">npmmirror.com</a> 运行版本是: <a href="mailto:&#x63;&#110;&#112;&#x6d;&#99;&#111;&#114;&#x65;&#x40;&#x33;&#x2e;&#50;&#48;&#46;&#51;">&#x63;&#110;&#112;&#x6d;&#99;&#111;&#114;&#x65;&#x40;&#x33;&#x2e;&#50;&#48;&#46;&#51;</a></li>
+<li>当前 <a href="https://npmmirror.com/">npmmirror.com</a> 运行版本是: <a href="mailto:&#99;&#110;&#112;&#109;&#x63;&#x6f;&#114;&#x65;&#64;&#51;&#x2e;&#x32;&#48;&#x2e;&#51;">&#99;&#110;&#112;&#109;&#x63;&#x6f;&#114;&#x65;&#64;&#51;&#x2e;&#x32;&#48;&#x2e;&#51;</a></li>
 <li>本系统运行在 <a href="https://nodejs.org/?spm=a2c6h.24755359.0.0.6d446e513fj62f">Node.js</a>@v18.16.0 上</li>
 <li>开源镜像: <a href="https://npmmirror.com/mirrors/">https://npmmirror.com/mirrors/</a></li>
 <li>Node.js 镜像: <a href="https://npmmirror.com/mirrors/node/">https://npmmirror.com/mirrors/node/</a></li>
@@ -204,7 +204,7 @@
         <category>笔记</category>
       </categories>
       <tags>
-        <tag>安装工具</tag>
+        <tag>安装指南</tag>
       </tags>
   </entry>
   <entry>
@@ -214,9 +214,8 @@
 <p>英语语法学习笔记，包括谓语动词、非谓语动词、句子成分、词类和时态等。</p>
 </blockquote>
 <span id="more"></span>
-<hr>
+
 <p>注：本文为学习笔记，视频学习地址为：<a href="https://www.bilibili.com/video/BV1XY411J7aG/">英语语法精讲合集 (全面, 通俗, 有趣 | 从零打造系统语法体系)</a>，更多英语学习视频请关注B站UP主：<a href="https://space.bilibili.com/483162496">英语兔</a></p>
-<hr>
 <h1 id="英语语法综述"><a href="#英语语法综述" class="headerlink" title="英语语法综述"></a>英语语法综述</h1><p>当句子拆分到不能拆的时候，大都是以下此类句型：</p>
 <p>主语(人&#x2F;物) + 谓语(动作&#x2F;发生了什么事)</p>
 <p>此刻的动作是广义的动作，即动词</p>
@@ -310,7 +309,9 @@
   <entry>
     <title>Git deploy 部署报错</title>
     <url>/2022/11/29/Git-error/</url>
-    <content><![CDATA[<p>Git deploy 部署报错：ssh_exchange_identification: Connection closed by remote host<br>fatal: Could not read from remote repository.</p>
+    <content><![CDATA[<blockquote>
+<p>Git deploy 部署报错：ssh_exchange_identification: Connection closed by remote host<br>fatal: Could not read from remote repository.</p>
+</blockquote>
 <span id="more"></span>
 <html>
 <div class="box1">
@@ -376,7 +377,9 @@
   <entry>
     <title>GitHub使用自己域名实现https</title>
     <url>/2022/11/25/Github-https/</url>
-    <content><![CDATA[<p>Hexo托管到GitHub并使用自己域名实现https。</p>
+    <content><![CDATA[<blockquote>
+<p>Hexo托管到GitHub并使用自己域名实现https。</p>
+</blockquote>
 <span id="more"></span>
 
 <html>
@@ -410,7 +413,9 @@
   <entry>
     <title>数据结构 - 图</title>
     <url>/2022/12/10/Graph/</url>
-    <content><![CDATA[<p>数据结构第六章图的学习笔记。</p>
+    <content><![CDATA[<blockquote>
+<p>数据结构第六章图的学习笔记。</p>
+</blockquote>
 <span id="more"></span>
 <html>
 <div class="box1">
@@ -931,7 +936,9 @@
   <entry>
     <title>Hexo-自定义404文件</title>
     <url>/2022/11/27/Hexo-404/</url>
-    <content><![CDATA[<p>Hexo-自定义404文件</p>
+    <content><![CDATA[<blockquote>
+<p>Hexo-自定义404文件</p>
+</blockquote>
 <span id="more"></span>
 <html>
 <div class="box1">
@@ -969,7 +976,9 @@
   <entry>
     <title>Hexo-Next主题配置文件</title>
     <url>/2022/11/22/Hexo-Next/</url>
-    <content><![CDATA[<p>Hexo-Next主题配置文件注释翻译</p>
+    <content><![CDATA[<blockquote>
+<p>Hexo-Next主题配置文件注释翻译</p>
+</blockquote>
 <span id="more"></span>
 <html>
 <div class="box1">
@@ -1006,7 +1015,9 @@
   <entry>
     <title>数据结构 - 链表 - 单链表</title>
     <url>/2022/12/10/LinkList/</url>
-    <content><![CDATA[<p>数据结构第二章线性表 - 链表 - 单链表的完整代码实现。</p>
+    <content><![CDATA[<blockquote>
+<p>数据结构第二章线性表 - 链表 - 单链表的完整代码实现。</p>
+</blockquote>
 <span id="more"></span>
 <html>
 <div class="box1">
@@ -1075,7 +1086,9 @@
   <entry>
     <title>实现MAC风格的Markdown代码块</title>
     <url>/2022/11/23/MAC-Markdown/</url>
-    <content><![CDATA[<p>用html语法实现Markdown代码块MAC风格。</p>
+    <content><![CDATA[<blockquote>
+<p>用html语法实现Markdown代码块MAC风格。</p>
+</blockquote>
 <span id="more"></span>
 
 <html>
@@ -1116,9 +1129,55 @@
       </tags>
   </entry>
   <entry>
+    <title>NTP时间同步服务安装指南（Linux）</title>
+    <url>/2023/10/02/NTP/</url>
+    <content><![CDATA[<blockquote>
+<p>Linux系统每次启动时间都不正确，若每次手动修改则很不便，安装NTP时间同步服务即可自动同步时间。</p>
+</blockquote>
+<span id="more"></span>
+
+<h1 id="Linux安装NTP时间同步服务"><a href="#Linux安装NTP时间同步服务" class="headerlink" title="Linux安装NTP时间同步服务"></a>Linux安装NTP时间同步服务</h1><h3 id="安装命令："><a href="#安装命令：" class="headerlink" title="安装命令："></a>安装命令：</h3><figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell">yum -y install ntp<br></code></pre></td></tr></table></figure>
+
+<h3 id="启动NTP服务："><a href="#启动NTP服务：" class="headerlink" title="启动NTP服务："></a>启动NTP服务：</h3><figure class="highlight nsis"><table><tr><td class="code"><pre><code class="hljs nsis"><span class="hljs-params">system</span>ctl start ntpd<br><span class="hljs-params">system</span>ctl enable ntpd<br></code></pre></td></tr></table></figure>
+
+<h3 id="查看NTP服务运行状态："><a href="#查看NTP服务运行状态：" class="headerlink" title="查看NTP服务运行状态："></a>查看NTP服务运行状态：</h3><figure class="highlight ebnf"><table><tr><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">systemctl status ntpd</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="修改配置文件："><a href="#修改配置文件：" class="headerlink" title="修改配置文件："></a>修改配置文件：</h3><p>我这里没有安装<code>vim</code>，所以用<code>vi</code>，<code>vim</code>也一样只是换个名。</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">vi <span class="hljs-regexp">/etc/</span>ntp.conf<br></code></pre></td></tr></table></figure>
+
+<p>我这里有个问题，找不到配置文件，但是用文件查找命令发现就在那里，也许是被隐藏了吧。<br>ntp配置文件查找命令：</p>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><code class="hljs routeros">sudo <span class="hljs-built_in">find</span> / -name ntp.conf<br></code></pre></td></tr></table></figure>
+
+
+<p>修改内容：新增阿里云时间服务器</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><code class="hljs stylus">server ntp<span class="hljs-selector-class">.aliyun</span><span class="hljs-selector-class">.com</span> iburst<br></code></pre></td></tr></table></figure>
+
+<h3 id="查看配置文件中设置的NTP授时服务器"><a href="#查看配置文件中设置的NTP授时服务器" class="headerlink" title="查看配置文件中设置的NTP授时服务器"></a>查看配置文件中设置的NTP授时服务器</h3><figure class="highlight gradle"><table><tr><td class="code"><pre><code class="hljs gradle"><span class="hljs-keyword">grep</span> server <span class="hljs-regexp">/etc/</span>ntp.conf <br></code></pre></td></tr></table></figure>
+<p>终端显示：</p>
+<figure class="highlight pgsql"><table><tr><td class="code"><pre><code class="hljs pgsql"># Use <span class="hljs-built_in">public</span> servers <span class="hljs-keyword">from</span> the pool.ntp.org project.<br><span class="hljs-keyword">server</span> <span class="hljs-number">0.</span>centos.pool.ntp.org iburst<br><span class="hljs-keyword">server</span> <span class="hljs-number">1.</span>centos.pool.ntp.org iburst<br><span class="hljs-keyword">server</span> <span class="hljs-number">2.</span>centos.pool.ntp.org iburst<br><span class="hljs-keyword">server</span> <span class="hljs-number">3.</span>centos.pool.ntp.org iburst<br><span class="hljs-keyword">server</span> ntp.aliyun.com iburst<br><span class="hljs-meta">#broadcast 192.168.1.255 autokey        # broadcast server</span><br><span class="hljs-meta">#broadcast 224.0.1.1 autokey            # multicast server</span><br><span class="hljs-meta">#manycastserver 239.255.254.254         # manycast server</span><br></code></pre></td></tr></table></figure>
+
+
+<h3 id="重启NTP服务："><a href="#重启NTP服务：" class="headerlink" title="重启NTP服务："></a>重启NTP服务：</h3><figure class="highlight ebnf"><table><tr><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">systemctl restart ntpd</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="查看同步状态："><a href="#查看同步状态：" class="headerlink" title="查看同步状态："></a>查看同步状态：</h3><figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css">ntpq -<span class="hljs-selector-tag">p</span><br></code></pre></td></tr></table></figure>
+
+<p>这样再次重启，时间也不会乱了。</p>
+<hr>
+<p>详细安装信息：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell">[root@localhost ~]# yum -y install ntp<br>已加载插件：fastestmirror<br>Determining fastest mirrors<br> * base: ftp.sjtu.edu.cn<br> * extras: mirrors.bfsu.edu.cn<br> * updates: mirrors.bfsu.edu.cn<br>base                                                                                                                                                            | 3.6 kB  00:00:00     <br>extras                                                                                                                                                          | 2.9 kB  00:00:00     <br>updates                                                                                                                                                         | 2.9 kB  00:00:00     <br>updates/7/x86_64/primary_db                                                                                                                                     |  23 MB  00:00:02     <br>软件包 ntp-4.2.6p5-29.el7.centos.2.x86_64 已安装并且是最新版本<br>无须任何处理<br>[root@localhost ~]# systemctl start  ntpd<br>[root@localhost ~]# systemctl enable  ntpd<br>Created symlink from /etc/systemd/system/multi-user.target.wants/ntpd.service to /usr/lib/systemd/system/ntpd.service.<br>[root@localhost ~]# systemctl status ntpd<br>● ntpd.service - Network Time Service<br>   Loaded: loaded (/usr/lib/systemd/system/ntpd.service; enabled; vendor preset: disabled)<br>   Active: active (running) since 一 2023-10-02 09:06:57 CST; 29s ago<br> Main PID: 2705 (ntpd)<br>   CGroup: /system.slice/ntpd.service<br>           └─2705 /usr/sbin/ntpd -u ntp:ntp -g<br><br>10月 02 09:06:57 localhost.localdomain ntpd[2705]: Listen and drop on 1 v6wildcard :: UDP 123<br>10月 02 09:06:57 localhost.localdomain ntpd[2705]: Listen normally on 2 lo 127.0.0.1 UDP 123<br>10月 02 09:06:57 localhost.localdomain ntpd[2705]: Listen normally on 3 ens33 192.168.175.131 UDP 123<br>10月 02 09:06:57 localhost.localdomain ntpd[2705]: Listen normally on 4 lo ::1 UDP 123<br>10月 02 09:06:57 localhost.localdomain ntpd[2705]: Listen normally on 5 ens33 fe80::62:fd49:3a6c:994c UDP 123<br>10月 02 09:06:57 localhost.localdomain ntpd[2705]: Listening on routing socket on fd #22 for interface updates<br>10月 02 09:06:57 localhost.localdomain ntpd[2705]: 0.0.0.0 c016 06 restart<br>10月 02 09:06:57 localhost.localdomain ntpd[2705]: 0.0.0.0 c012 02 freq_set kernel 0.000 PPM<br>10月 02 09:06:57 localhost.localdomain ntpd[2705]: 0.0.0.0 c011 01 freq_not_set<br>10月 02 09:07:04 localhost.localdomain ntpd[2705]: 0.0.0.0 c614 04 freq_mode<br>[root@localhost ~]# <br>[root@localhost ~]# vi /etc/ntp.conf<br>[root@localhost ~]# grep server /etc/ntp.conf <br><span class="hljs-meta prompt_"># </span><span class="language-bash">Use public servers from the pool.ntp.org project.</span><br>server 0.centos.pool.ntp.org iburst<br>server 1.centos.pool.ntp.org iburst<br>server 2.centos.pool.ntp.org iburst<br>server 3.centos.pool.ntp.org iburst<br>server ntp.aliyun.com iburst<br><span class="hljs-meta prompt_">#</span><span class="language-bash">broadcast 192.168.1.255 autokey        <span class="hljs-comment"># broadcast server</span></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">broadcast 224.0.1.1 autokey            <span class="hljs-comment"># multicast server</span></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">manycastserver 239.255.254.254         <span class="hljs-comment"># manycast server</span></span><br>[root@localhost ~]# systemctl restart ntpd<br>[root@localhost ~]# ntpq -p<br>     remote           refid      st t when poll reach   delay   offset  jitter<br>==============================================================================<br>*ntp8.flashdance 194.58.202.20    2 u    1   64    1  350.605   69.011  11.779<br> 111.230.189.174 100.122.36.196   2 u    2   64    1   64.256   38.951   7.296<br> a.chl.la        131.188.3.222    2 u    1   64    1  215.988   15.178  12.127<br> 203.107.6.88    100.107.25.114   2 u    -   64    1   26.506   39.602   7.992<br>[root@localhost ~]# <br></code></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>安装指南</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Next主题日常使用</title>
     <url>/2022/11/23/Next-use/</url>
-    <content><![CDATA[<p>Hexo-Next主题日常使用操作指令</p>
+    <content><![CDATA[<blockquote>
+<p>Hexo-Next主题日常使用操作指令</p>
+</blockquote>
 <span id="more"></span>
 <html>
 <div class="box1">
@@ -1678,7 +1737,9 @@
   <entry>
     <title>实现中间有内容的水平线分割线</title>
     <url>/2022/11/24/Post-style/</url>
-    <content><![CDATA[<p>用html语法实现实现有文章正文内容的水平分隔线。</p>
+    <content><![CDATA[<blockquote>
+<p>用html语法实现实现有文章正文内容的水平分隔线。</p>
+</blockquote>
 <span id="more"></span>
 
 <html>
@@ -1772,7 +1833,9 @@
   <entry>
     <title>数据结构 - 线性表 - 顺序表</title>
     <url>/2022/12/10/SqList/</url>
-    <content><![CDATA[<p>数据结构第二章线性表的定义、特点和存储结构。顺序表的定义、特点和存储结构。附加完整代码实现</p>
+    <content><![CDATA[<blockquote>
+<p>数据结构第二章线性表的定义、特点和存储结构。顺序表的定义、特点和存储结构。附加完整代码实现</p>
+</blockquote>
 <span id="more"></span>
 <html>
 <div class="box1">
@@ -1863,13 +1926,50 @@
       </tags>
   </entry>
   <entry>
-    <title>Vue安装指南</title>
-    <url>/2023/10/01/Vue-install/</url>
+    <title>动词分类</title>
+    <url>/2023/10/02/VerbCategories/</url>
     <content><![CDATA[<blockquote>
-<p>Vue的安装总结</p>
+<p>在此了解动词的基本分类</p>
 </blockquote>
 <span id="more"></span>
-<hr>
+
+<p>注：本文为学习笔记，视频学习地址为：<a href="https://www.bilibili.com/video/BV1XY411J7aG/">英语语法精讲合集 (全面, 通俗, 有趣 | 从零打造系统语法体系)</a></p>
+<h1 id="动词分类"><a href="#动词分类" class="headerlink" title="动词分类"></a>动词分类</h1><h2 id="一、可做谓语动词"><a href="#一、可做谓语动词" class="headerlink" title="一、可做谓语动词"></a>一、可做谓语动词</h2><h3 id="1、实义动词"><a href="#1、实义动词" class="headerlink" title="1、实义动词"></a>1、实义动词</h3><ul>
+<li>（按动作承受者划分）<ul>
+<li>及物动词</li>
+<li>不及物动词</li>
+</ul>
+</li>
+<li>（按状态动作划分）<ul>
+<li>动作动词（eat）</li>
+<li>状态动词（have、feel、own、believe等，这些词并没有真正动起来的意思）</li>
+</ul>
+</li>
+</ul>
+<h3 id="2、-连-系动词"><a href="#2、-连-系动词" class="headerlink" title="2、(连)系动词"></a>2、(连)系动词</h3><p>有些会把<strong>系动词</strong>划在<strong>不及物动词</strong>里，而且也可被看作<strong>状态动词</strong>。</p>
+<h2 id="二、可辅助构成谓语动词"><a href="#二、可辅助构成谓语动词" class="headerlink" title="二、可辅助构成谓语动词"></a>二、可辅助构成谓语动词</h2><h3 id="1、助动词"><a href="#1、助动词" class="headerlink" title="1、助动词"></a>1、助动词</h3><h3 id="2、情态动词"><a href="#2、情态动词" class="headerlink" title="2、情态动词"></a>2、情态动词</h3><p><strong>情态动词</strong>也被视为<strong>助动词</strong>的一种</p>
+<h2 id="三、不可做谓语动词"><a href="#三、不可做谓语动词" class="headerlink" title="三、不可做谓语动词"></a>三、不可做谓语动词</h2><h3 id="1、非谓语动词"><a href="#1、非谓语动词" class="headerlink" title="1、非谓语动词"></a>1、非谓语动词</h3><ul>
+<li>不定式</li>
+<li>过去分词</li>
+<li>现在分词</li>
+<li>动名词</li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>英语语法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vue安装指南（Windows）</title>
+    <url>/2023/10/01/Vue-install/</url>
+    <content><![CDATA[<blockquote>
+<p>Windows系统下，记录在线安装Vue。</p>
+</blockquote>
+<span id="more"></span>
+
 <h1 id="安装-Vue-CLI"><a href="#安装-Vue-CLI" class="headerlink" title="安装 | Vue CLI"></a>安装 | Vue CLI</h1><p> <code>Vue CLI</code>官网地址：<a href="https://cli.vuejs.org/zh/guide/installation.html">https://cli.vuejs.org/zh/guide/installation.html</a></p>
 <p>在<code>cmd</code>输入以下命令进行安装：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell">cnpm install -g @vue/cli<br></code></pre></td></tr></table></figure>
@@ -1888,7 +1988,7 @@
         <category>笔记</category>
       </categories>
       <tags>
-        <tag>安装工具</tag>
+        <tag>安装指南</tag>
       </tags>
   </entry>
 </search>
