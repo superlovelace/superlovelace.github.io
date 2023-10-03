@@ -34,10 +34,10 @@
 </blockquote>
 <span id="more"></span>
 
-<h2 id="优化C-控制台输出字体颜色方法"><a href="#优化C-控制台输出字体颜色方法" class="headerlink" title="优化C++控制台输出字体颜色方法"></a>优化C++控制台输出字体颜色方法</h2><blockquote>
+<h1 id="优化C-控制台输出字体颜色方法"><a href="#优化C-控制台输出字体颜色方法" class="headerlink" title="优化C++控制台输出字体颜色方法"></a>优化C++控制台输出字体颜色方法</h1><blockquote>
 <p>所用工具为：Microsoft Virtual Studio</p>
 </blockquote>
-<h3 id="1、原版"><a href="#1、原版" class="headerlink" title="1、原版"></a>1、原版</h3><h4 id="1-1、字体颜色："><a href="#1-1、字体颜色：" class="headerlink" title="1.1、字体颜色："></a>1.1、字体颜色：</h4><p>使用方法：先包含windows头文件<code>Windows.h</code></p>
+<h2 id="原版"><a href="#原版" class="headerlink" title="原版"></a>原版</h2><h3 id="字体颜色："><a href="#字体颜色：" class="headerlink" title="字体颜色："></a>字体颜色：</h3><p>使用方法：先包含windows头文件<code>Windows.h</code></p>
 <p>必须在方法体内：</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">//调用此方法设置参数</span><br><span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), FOREGROUND_RED);<br><span class="hljs-comment">//颜色参数之间用|分隔</span><br><span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_RED);<br></code></pre></td></tr></table></figure>
 
@@ -83,7 +83,7 @@
 <td align="center">FOREGROUND_INTENSITY</td>
 </tr>
 </tbody></table>
-<h4 id="1-2、字体背景颜色："><a href="#1-2、字体背景颜色：" class="headerlink" title="1.2、字体背景颜色："></a>1.2、字体背景颜色：</h4><p>使用方法同字体颜色，主要是参数不一样</p>
+<h3 id="字体背景颜色："><a href="#字体背景颜色：" class="headerlink" title="字体背景颜色："></a>字体背景颜色：</h3><p>使用方法同字体颜色，主要是参数不一样</p>
 <p>使用方法：先包含windows头文件<code>Windows.h</code></p>
 <p>必须在方法体内：</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">//调用此方法设置参数</span><br><span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), BACKGROUND_RED);<br><span class="hljs-comment">//颜色参数之间用|分隔</span><br><span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), BACKGROUND_BLUE | BACKGROUND_GREEN | BACKGROUND_RED);<br></code></pre></td></tr></table></figure>
@@ -139,7 +139,7 @@
 
 
 
-<h3 id="2、简化版："><a href="#2、简化版：" class="headerlink" title="2、简化版："></a>2、简化版：</h3><p>由于方法参数很长，不便使用，因此进行了简化。</p>
+<h2 id="简化版"><a href="#简化版" class="headerlink" title="简化版"></a>简化版</h2><p>由于方法参数很长，不便使用，因此进行了简化。</p>
 <p>使用方法：</p>
 <ul>
 <li>只需要创建个头文件，名称自定义，例如<code>printcolor</code>，然后复制下面的代码粘贴。</li>
@@ -169,7 +169,7 @@
 <h2 id="CNPM安装教程（Windows系统版）"><a href="#CNPM安装教程（Windows系统版）" class="headerlink" title="CNPM安装教程（Windows系统版）"></a>CNPM安装教程（Windows系统版）</h2><p><strong>CNPM淘宝镜像官网：</strong><a href="https://npmmirror.com/">https://npmmirror.com/</a></p>
 <h3 id="1、打开CNPM淘宝镜像官网"><a href="#1、打开CNPM淘宝镜像官网" class="headerlink" title="1、打开CNPM淘宝镜像官网"></a>1、打开CNPM淘宝镜像官网</h3><p>有很多信息：</p>
 <ul>
-<li>当前 <a href="https://npmmirror.com/">npmmirror.com</a> 运行版本是: <a href="mailto:&#99;&#x6e;&#x70;&#109;&#99;&#111;&#x72;&#x65;&#64;&#51;&#46;&#50;&#48;&#x2e;&#x33;">&#99;&#x6e;&#x70;&#109;&#99;&#111;&#x72;&#x65;&#64;&#51;&#46;&#50;&#48;&#x2e;&#x33;</a></li>
+<li>当前 <a href="https://npmmirror.com/">npmmirror.com</a> 运行版本是: <a href="mailto:&#99;&#x6e;&#112;&#109;&#99;&#111;&#x72;&#x65;&#64;&#x33;&#x2e;&#x32;&#48;&#46;&#x33;">&#99;&#x6e;&#112;&#109;&#99;&#111;&#x72;&#x65;&#64;&#x33;&#x2e;&#x32;&#48;&#46;&#x33;</a></li>
 <li>本系统运行在 <a href="https://nodejs.org/?spm=a2c6h.24755359.0.0.6d446e513fj62f">Node.js</a>@v18.16.0 上</li>
 <li>开源镜像: <a href="https://npmmirror.com/mirrors/">https://npmmirror.com/mirrors/</a></li>
 <li>Node.js 镜像: <a href="https://npmmirror.com/mirrors/node/">https://npmmirror.com/mirrors/node/</a></li>
@@ -2041,7 +2041,7 @@
 </blockquote>
 <span id="more"></span>
 
-<h2 id="Vue-UI-在VS-Code终端启动失败"><a href="#Vue-UI-在VS-Code终端启动失败" class="headerlink" title="Vue UI 在VS Code终端启动失败"></a>Vue UI 在VS Code终端启动失败</h2><h3 id="1、问题分析"><a href="#1、问题分析" class="headerlink" title="1、问题分析"></a>1、问题分析</h3><p>错误信息：</p>
+<h1 id="Vue-UI-在VS-Code终端启动失败"><a href="#Vue-UI-在VS-Code终端启动失败" class="headerlink" title="Vue UI 在VS Code终端启动失败"></a>Vue UI 在VS Code终端启动失败</h1><h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h2><p>错误信息：</p>
 <figure class="highlight powershell"><table><tr><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">PS</span> F:\myblog\myblog&gt; vue ui<br>vue : 无法加载文件 C:\Users\user\AppData\Roaming\npm\vue.ps1，因为在此系统上禁止运行脚本。有关详细信息，请参 <br>阅 https:/go.microsoft.com/fwlink/?LinkID=<span class="hljs-number">135170</span> 中的 about_Execution_Policies。<br>所在位置 行:<span class="hljs-number">1</span> 字符: <span class="hljs-number">1</span><br>+ vue ui<br>+ ~~~<br>    + CategoryInfo          : SecurityError: (:) []，PSSecurityException<br>    + FullyQualifiedErrorId : UnauthorizedAccess<br><span class="hljs-built_in">PS</span> F:\myblog\myblog&gt; <br></code></pre></td></tr></table></figure>
 
 <p>分析：</p>
@@ -2061,7 +2061,7 @@
 </ul>
 <p>上面说  配置文件 () <code>.ps1</code> 的文件也会被阻止运行，而我们需要运行的<code>vue.ps1</code>正好属于此项。</p>
 <p>OK，问题已查明，要解决问题需要更改执行策略。</p>
-<h3 id="2、问题解决"><a href="#2、问题解决" class="headerlink" title="2、问题解决"></a>2、问题解决</h3><p>查看其他几个策略，寻找允许脚本运行的策略：</p>
+<h2 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h2><p>查看其他几个策略，寻找允许脚本运行的策略：</p>
 <h3 id="AllSigned"><a href="#AllSigned" class="headerlink" title="AllSigned"></a>AllSigned</h3><ul>
 <li>脚本可以运行。</li>
 <li>要求所有脚本和配置文件都由受信任的发布者签名，包括在本地计算机上编写的脚本。</li>
