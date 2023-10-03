@@ -169,7 +169,7 @@
 <h2 id="CNPM安装教程（Windows系统版）"><a href="#CNPM安装教程（Windows系统版）" class="headerlink" title="CNPM安装教程（Windows系统版）"></a>CNPM安装教程（Windows系统版）</h2><p><strong>CNPM淘宝镜像官网：</strong><a href="https://npmmirror.com/">https://npmmirror.com/</a></p>
 <h3 id="1、打开CNPM淘宝镜像官网"><a href="#1、打开CNPM淘宝镜像官网" class="headerlink" title="1、打开CNPM淘宝镜像官网"></a>1、打开CNPM淘宝镜像官网</h3><p>有很多信息：</p>
 <ul>
-<li>当前 <a href="https://npmmirror.com/">npmmirror.com</a> 运行版本是: <a href="mailto:&#99;&#110;&#112;&#109;&#x63;&#x6f;&#114;&#x65;&#64;&#51;&#x2e;&#x32;&#48;&#x2e;&#51;">&#99;&#110;&#112;&#109;&#x63;&#x6f;&#114;&#x65;&#64;&#51;&#x2e;&#x32;&#48;&#x2e;&#51;</a></li>
+<li>当前 <a href="https://npmmirror.com/">npmmirror.com</a> 运行版本是: <a href="mailto:&#x63;&#110;&#x70;&#x6d;&#x63;&#111;&#x72;&#x65;&#x40;&#51;&#46;&#x32;&#x30;&#x2e;&#51;">&#x63;&#110;&#x70;&#x6d;&#x63;&#111;&#x72;&#x65;&#x40;&#51;&#46;&#x32;&#x30;&#x2e;&#51;</a></li>
 <li>本系统运行在 <a href="https://nodejs.org/?spm=a2c6h.24755359.0.0.6d446e513fj62f">Node.js</a>@v18.16.0 上</li>
 <li>开源镜像: <a href="https://npmmirror.com/mirrors/">https://npmmirror.com/mirrors/</a></li>
 <li>Node.js 镜像: <a href="https://npmmirror.com/mirrors/node/">https://npmmirror.com/mirrors/node/</a></li>
@@ -1926,6 +1926,48 @@
       </tags>
   </entry>
   <entry>
+    <title>VSCode弹窗警告</title>
+    <url>/2023/10/03/VSCodeAlert/</url>
+    <content><![CDATA[<blockquote>
+<p>VSCode启动后弹窗警告：The environment variable ‘Path’ seems to…</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="警告详细信息："><a href="#警告详细信息：" class="headerlink" title="警告详细信息："></a>警告详细信息：</h2><blockquote>
+<p>The environment variable ‘Path’ seems to have some paths containing the ‘“‘ character. The existence of such a character is known to have caused the Python extension to not load. If the extension fails to load please modify your paths to remove this ‘“‘ character.</p>
+</blockquote>
+<p>中文含义：</p>
+<blockquote>
+<p>环境变量“Path”的某些路径似乎包含“”字符。已知存在这样的字符导致Python扩展无法加载。如果扩展无法加载，请修改路径以删除此“”字符。</p>
+</blockquote>
+<p>这里的 “ “指的是环境变量存在引号，这里可以通过启动<code>cmd</code>命令提示符，输入命令<code>path</code>查看。</p>
+<p>示例：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell">Microsoft Windows [版本 10.0.19044.2728]<br>(c) Microsoft Corporation。保留所有权利。<br><br>C:\Users\user&gt;path<br>PATH=C:\Program Files\Java\jdk1.8.0_251\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\System32;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Windows\System32;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;D:\mysql\bin;C:\WINDOWS\System32\OpenSSH\;D:\Program Files\MongoDB\bin;D:\Program Files\Git\cmd;D:\Program Files\微信web开发者工具\dll;D:\Program Files\MATLAB\R2017a\runtime\win64;D:\Program Files\MATLAB\R2017a\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;&quot;;D:\Program Files\MATLAB\R2017a\runtime\win64;D:\Program Files\MATLAB\R2017a\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\&quot;;D:\python\;D:\python\Scripts\;D:\anaconda3;D:\anaconda3\Library\mingw-w64\bin;D:\anaconda3\Library\usr\bin;D:\anaconda3\Library\bin;D:\anaconda3\Scripts;C:\Users\user\AppData\Local\Microsoft\WindowsApps;D:\web\apache-maven-3.6.0\bin;D:\Program Files\Microsoft VS Code\bin;C:\Program Files (x86)\Tencent\QQGameTempest\Hall.57938\;<br><br>C:\Users\user&gt;<br></code></pre></td></tr></table></figure>
+
+<p>仔细观察一下，即可看到有路径被引号包括了。这里之所以被引号包括是因为在<code>path</code>编辑环境变量里，有一行或多行的路径栏里，把众多路径用<code>;</code>给合并到一栏了，类似这样：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell">;D:\Program Files\MATLAB\R2017a\runtime\win64;D:\Program Files\MATLAB\R2017a\bin;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;%SYSTEMROOT%\System32\OpenSSH\<br></code></pre></td></tr></table></figure>
+
+<h2 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h2><p>去系统Path环境变量，将合并在一起的路径拆分成单个的，分别新建一栏存放，然后点击确定，重启<code>VSCode</code>即可。</p>
+<p>示例：</p>
+<ul>
+<li>拆分前（一栏就这么多）：</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell">;D:\Program Files\MATLAB\R2017a\runtime\win64;D:\Program Files\MATLAB\R2017a\bin;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;%SYSTEMROOT%\System32\OpenSSH\<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>拆分后（分成了七栏）：</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell">D:\Program Files\MATLAB\R2017a\runtime\win64<br>D:\Program Files\MATLAB\R2017a\bin<br><span class="hljs-meta prompt_">%</span><span class="language-bash">SystemRoot%\system32</span><br><span class="hljs-meta prompt_">%</span><span class="language-bash">SystemRoot%</span><br><span class="hljs-meta prompt_">%</span><span class="language-bash">SystemRoot%\System32\Wbem</span><br><span class="hljs-meta prompt_">%</span><span class="language-bash">SYSTEMROOT%\System32\WindowsPowerShell\v1.0\</span><br><span class="language-bash">%SYSTEMROOT%\System32\OpenSSH\</span><br></code></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>异常处理</category>
+      </categories>
+      <tags>
+        <tag>安装指南</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>动词分类</title>
     <url>/2023/10/02/VerbCategories/</url>
     <content><![CDATA[<blockquote>
@@ -1989,6 +2031,73 @@
       </categories>
       <tags>
         <tag>安装指南</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vue启动失败（VSCode）</title>
+    <url>/2023/10/03/VueStartFail/</url>
+    <content><![CDATA[<blockquote>
+<p>Vue UI 在VS Code终端启动失败</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="Vue-UI-在VS-Code终端启动失败"><a href="#Vue-UI-在VS-Code终端启动失败" class="headerlink" title="Vue UI 在VS Code终端启动失败"></a>Vue UI 在VS Code终端启动失败</h2><h3 id="1、问题分析"><a href="#1、问题分析" class="headerlink" title="1、问题分析"></a>1、问题分析</h3><p>错误信息：</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">PS</span> F:\myblog\myblog&gt; vue ui<br>vue : 无法加载文件 C:\Users\user\AppData\Roaming\npm\vue.ps1，因为在此系统上禁止运行脚本。有关详细信息，请参 <br>阅 https:/go.microsoft.com/fwlink/?LinkID=<span class="hljs-number">135170</span> 中的 about_Execution_Policies。<br>所在位置 行:<span class="hljs-number">1</span> 字符: <span class="hljs-number">1</span><br>+ vue ui<br>+ ~~~<br>    + CategoryInfo          : SecurityError: (:) []，PSSecurityException<br>    + FullyQualifiedErrorId : UnauthorizedAccess<br><span class="hljs-built_in">PS</span> F:\myblog\myblog&gt; <br></code></pre></td></tr></table></figure>
+
+<p>分析：</p>
+<p>点开地址：https:&#x2F;go.microsoft.com&#x2F;fwlink&#x2F;?LinkID&#x3D;135170</p>
+<p>发现此处信息</p>
+<h3 id="Default"><a href="#Default" class="headerlink" title="Default"></a>Default</h3><ul>
+<li>设置默认执行策略。</li>
+<li><strong>Restricted</strong> 适用于 Windows 客户端的 。</li>
+<li>适用于 Windows 服务器的 <strong>RemoteSigned</strong>。</li>
+</ul>
+<p>此处说明，在Windows 客户端，我们的策略默认是<strong>Restricted</strong></p>
+<p>查看相应文本信息：</p>
+<h3 id="Restricted"><a href="#Restricted" class="headerlink" title="Restricted"></a>Restricted</h3><ul>
+<li>Windows 客户端计算机的默认执行策略。</li>
+<li>允许单个命令，但不允许脚本。</li>
+<li>阻止运行所有脚本文件，包括格式化和配置文件 () <code>.ps1xml</code> 、模块脚本文件 (<code>.psm1</code>) ，以及 PowerShell 配置文件 () <code>.ps1</code> 。</li>
+</ul>
+<p>上面说  配置文件 () <code>.ps1</code> 的文件也会被阻止运行，而我们需要运行的<code>vue.ps1</code>正好属于此项。</p>
+<p>OK，问题已查明，要解决问题需要更改执行策略。</p>
+<h3 id="2、问题解决"><a href="#2、问题解决" class="headerlink" title="2、问题解决"></a>2、问题解决</h3><p>查看其他几个策略，寻找允许脚本运行的策略：</p>
+<h3 id="AllSigned"><a href="#AllSigned" class="headerlink" title="AllSigned"></a>AllSigned</h3><ul>
+<li>脚本可以运行。</li>
+<li>要求所有脚本和配置文件都由受信任的发布者签名，包括在本地计算机上编写的脚本。</li>
+<li>从尚未分类为受信任或不受信任的发布者运行脚本之前，会提示你。</li>
+<li>运行已签名但恶意脚本的风险。</li>
+</ul>
+<h3 id="RemoteSigned"><a href="#RemoteSigned" class="headerlink" title="RemoteSigned"></a>RemoteSigned</h3><ul>
+<li>Windows Server 计算机的默认执行策略。</li>
+<li>脚本可以运行。</li>
+<li>需要受信任的发布者对从 Internet 下载的脚本和配置文件（包括电子邮件和即时消息程序）的数字签名。</li>
+<li>不需要在本地计算机上编写且未从 Internet 下载的脚本上使用数字签名。</li>
+<li>如果未阻止脚本（例如使用 cmdlet），则运行从 Internet 下载且未签名的 <code>Unblock-File</code> 脚本。</li>
+<li>运行来自 Internet 以外的源的未签名脚本以及可能是恶意的已签名脚本的风险。</li>
+</ul>
+<p><strong>RemoteSigned</strong>  为服务器端的默认执行策略，我们需要选择把策略改成这个</p>
+<p><strong>用管理员身份打开PowerShell</strong></p>
+<p>输入命令（设置执行策略为：RemoteSigned）：</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">set-ExecutionPolicy</span> RemoteSigned<br></code></pre></td></tr></table></figure>
+
+<p>然后输入Y，确定更改。</p>
+<p>示例：</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><code class="hljs powershell">Windows PowerShell<br>版权所有 (C) Microsoft Corporation。保留所有权利。<br><br>尝试新的跨平台 PowerShell https://aka.ms/pscore6<br><br><span class="hljs-built_in">PS</span> C:\WINDOWS\system32&gt; <span class="hljs-built_in">set-ExecutionPolicy</span> RemoteSigned<br><br>执行策略更改<br>执行策略可帮助你防止执行不信任的脚本。更改执行策略可能会产生安全风险，如 https:/go.microsoft.com/fwlink/?LinkID=<span class="hljs-number">135170</span><br>中的 about_Execution_Policies 帮助主题所述。是否要更改执行策略?<br>[<span class="hljs-type">Y</span>] 是(Y)  [<span class="hljs-type">A</span>] 全是(A)  [<span class="hljs-type">N</span>] 否(N)  [<span class="hljs-type">L</span>] 全否(L)  [<span class="hljs-type">S</span>] 暂停(S)  [?] 帮助 (默认值为“N”): Y<br><span class="hljs-built_in">PS</span> C:\WINDOWS\system32&gt;<br></code></pre></td></tr></table></figure>
+
+<p>OK，再次在VSCode中执行终端命令：</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">PS</span> F:\myblog\myblog&gt; vue ui<br>🚀  Starting GUI...<br>🌠  Ready on http://localhost:<span class="hljs-number">8000</span><br><br></code></pre></td></tr></table></figure>
+
+<p>发现已成功启动！</p>
+<p>OK，问题已解决，去开启你的奇妙之旅吧！</p>
+<hr>
+<p>注：以上内容为本人实践总结，如有疏漏或错误的地方，还请评论区指正；如果您觉得写的还不错或者对您有帮助的话，欢迎点赞收藏。</p>
+]]></content>
+      <categories>
+        <category>异常处理</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
       </tags>
   </entry>
 </search>
