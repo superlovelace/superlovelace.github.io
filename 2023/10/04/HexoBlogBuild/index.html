@@ -16,26 +16,26 @@
   <meta name="author" content="棱境">
   <meta name="keywords" content="棱境,superlovelace,超爱蕾丝,超爱蕾丝个人博客,超爱蕾丝博客站点,棱境的个人博客,SuperLovelace,superlovelace博客站点,superlovelace个人博客,SuperLovelace博客站点,SuperLovelace个人博客">
   
-    <meta name="description" content="VSCode启动后弹窗警告：The environment variable ‘Path’ seems to…">
+    <meta name="description" content="Hexo静态博客搭建，从准备阶段安装nodej.s到正式安装Hexo博客框架，最后安装主题并开始使用。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="VSCode弹窗警告">
-<meta property="og:url" content="https://superlovelace.top/2023/10/03/VSCodeAlert/index.html">
+<meta property="og:title" content="Hexo博客搭建">
+<meta property="og:url" content="https://superlovelace.top/2023/10/04/HexoBlogBuild/index.html">
 <meta property="og:site_name" content="superlovelace | 棱境的个人博客">
-<meta property="og:description" content="VSCode启动后弹窗警告：The environment variable ‘Path’ seems to…">
+<meta property="og:description" content="Hexo静态博客搭建，从准备阶段安装nodej.s到正式安装Hexo博客框架，最后安装主题并开始使用。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://superlovelace.top/img/post/1022.png">
-<meta property="article:published_time" content="2023-10-03T00:32:19.000Z">
-<meta property="article:modified_time" content="2023-10-03T00:39:25.705Z">
+<meta property="og:image" content="https://superlovelace.top/img/post/1023.png">
+<meta property="article:published_time" content="2023-10-04T00:30:49.000Z">
+<meta property="article:modified_time" content="2023-10-04T00:33:38.488Z">
 <meta property="article:author" content="棱境">
-<meta property="article:tag" content="安装指南">
+<meta property="article:tag" content="Hexo">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://superlovelace.top/img/post/1022.png">
+<meta name="twitter:image" content="https://superlovelace.top/img/post/1023.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>VSCode弹窗警告 - superlovelace | 棱境的个人博客</title>
+  <title>Hexo博客搭建 - superlovelace | 棱境的个人博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -240,7 +240,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="VSCode弹窗警告"></span>
+            <span id="subtitle" data-typed-text="Hexo博客搭建"></span>
           
         </div>
 
@@ -251,8 +251,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-10-03 08:32" pubdate>
-          2023年10月3日 早上
+        <time datetime="2023-10-04 08:30" pubdate>
+          2023年10月4日 早上
         </time>
       </span>
     
@@ -263,7 +263,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.5k 字
+          1.8k 字
         
       </span>
     
@@ -274,7 +274,7 @@
         
         
         
-          21 分钟
+          16 分钟
         
       </span>
     
@@ -319,42 +319,84 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">VSCode弹窗警告</h1>
+            <h1 id="seo-header">Hexo博客搭建</h1>
             
             
               <div class="markdown-body">
                 
                 <blockquote>
-<p>VSCode启动后弹窗警告：The environment variable ‘Path’ seems to…</p>
+<p>Hexo静态博客搭建，从准备阶段安装<code>nodej.s</code>到正式安装Hexo博客框架，最后安装主题并开始使用。</p>
 </blockquote>
 <span id="more"></span>
 
-<h2 id="警告详细信息："><a href="#警告详细信息：" class="headerlink" title="警告详细信息："></a>警告详细信息：</h2><blockquote>
-<p>The environment variable ‘Path’ seems to have some paths containing the ‘“‘ character. The existence of such a character is known to have caused the Python extension to not load. If the extension fails to load please modify your paths to remove this ‘“‘ character.</p>
-</blockquote>
-<p>中文含义：</p>
-<blockquote>
-<p>环境变量“Path”的某些路径似乎包含“”字符。已知存在这样的字符导致Python扩展无法加载。如果扩展无法加载，请修改路径以删除此“”字符。</p>
-</blockquote>
-<p>这里的 “ “指的是环境变量存在引号，这里可以通过启动<code>cmd</code>命令提示符，输入命令<code>path</code>查看。</p>
-<p>示例：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell">Microsoft Windows [版本 10.0.19044.2728]<br>(c) Microsoft Corporation。保留所有权利。<br><br>C:\Users\user&gt;path<br>PATH=C:\Program Files\Java\jdk1.8.0_251\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\System32;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Windows\System32;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;D:\mysql\bin;C:\WINDOWS\System32\OpenSSH\;D:\Program Files\MongoDB\bin;D:\Program Files\Git\cmd;D:\Program Files\微信web开发者工具\dll;D:\Program Files\MATLAB\R2017a\runtime\win64;D:\Program Files\MATLAB\R2017a\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;&quot;;D:\Program Files\MATLAB\R2017a\runtime\win64;D:\Program Files\MATLAB\R2017a\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\&quot;;D:\python\;D:\python\Scripts\;D:\anaconda3;D:\anaconda3\Library\mingw-w64\bin;D:\anaconda3\Library\usr\bin;D:\anaconda3\Library\bin;D:\anaconda3\Scripts;C:\Users\user\AppData\Local\Microsoft\WindowsApps;D:\web\apache-maven-3.6.0\bin;D:\Program Files\Microsoft VS Code\bin;C:\Program Files (x86)\Tencent\QQGameTempest\Hall.57938\;<br><br>C:\Users\user&gt;<br></code></pre></td></tr></table></figure>
+<h1 id="Hexo静态博客搭建"><a href="#Hexo静态博客搭建" class="headerlink" title="Hexo静态博客搭建"></a>Hexo静态博客搭建</h1><h2 id="准备阶段"><a href="#准备阶段" class="headerlink" title="准备阶段"></a>准备阶段</h2><p>首先安装<code>node.js</code></p>
+<p>在应用商店安装Node.js版本管理器 1.7</p>
+<p>安装成功后，选择安装Node.js  v16.18.1 </p>
+<p>安装成功后测试</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">node -verson<br></code></pre></td></tr></table></figure>
 
-<p>仔细观察一下，即可看到有路径被引号包括了。这里之所以被引号包括是因为在<code>path</code>编辑环境变量里，有一行或多行的路径栏里，把众多路径用<code>;</code>给合并到一栏了，类似这样：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">;D:\Program Files\MATLAB\R2017a\runtime\win64;D:\Program Files\MATLAB\R2017a\bin;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;%SYSTEMROOT%\System32\OpenSSH\<br></code></pre></td></tr></table></figure>
+<p>发现找不到命令，打开Node.js版本管理器，修改环境变量</p>
+<p>第一条是环境变量后面加上&#x2F;bin；第二条是下载地址，改成国内镜像；第三条不用动；第四条在前面加–</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c++">prefix = /www/server/nodejs/v16<span class="hljs-number">.18</span><span class="hljs-number">.1</span>/bin<br>registry = https:<span class="hljs-comment">//registry.npm.taobao.org</span><br>cache = /www/server/nodejs/cache/<br>--init-<span class="hljs-keyword">module</span> = /www/server/nodejs/v16<span class="hljs-number">.18</span><span class="hljs-number">.1</span>/etc/init-<span class="hljs-keyword">module</span>.js<br></code></pre></td></tr></table></figure>
 
-<h2 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h2><p>去系统Path环境变量，将合并在一起的路径拆分成单个的，分别新建一栏存放，然后点击确定，重启<code>VSCode</code>即可。</p>
-<p>示例：</p>
-<ul>
-<li>拆分前（一栏就这么多）：</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">;D:\Program Files\MATLAB\R2017a\runtime\win64;D:\Program Files\MATLAB\R2017a\bin;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;%SYSTEMROOT%\System32\OpenSSH\<br></code></pre></td></tr></table></figure>
+<hr>
+<p>修改环境变量，打开文件</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">vi  <span class="hljs-regexp">/etc/</span>profile<br></code></pre></td></tr></table></figure>
 
-<ul>
-<li>拆分后（分成了七栏）：</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell">D:\Program Files\MATLAB\R2017a\runtime\win64<br>D:\Program Files\MATLAB\R2017a\bin<br><span class="hljs-meta prompt_">%</span><span class="language-bash">SystemRoot%\system32</span><br><span class="hljs-meta prompt_">%</span><span class="language-bash">SystemRoot%</span><br><span class="hljs-meta prompt_">%</span><span class="language-bash">SystemRoot%\System32\Wbem</span><br><span class="hljs-meta prompt_">%</span><span class="language-bash">SYSTEMROOT%\System32\WindowsPowerShell\v1.0\</span><br><span class="language-bash">%SYSTEMROOT%\System32\OpenSSH\</span><br></code></pre></td></tr></table></figure>
+<p>添加数据</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">export PATH=<span class="hljs-regexp">/www/</span>server<span class="hljs-regexp">/nodejs/</span>v16.<span class="hljs-number">18.1</span>/bin:<span class="hljs-variable">$PATH</span><br></code></pre></td></tr></table></figure>
 
+<p>让文件生效</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">source /etc/profile<br></code></pre></td></tr></table></figure>
+
+<p>再次测试，成功显示版本号。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">node -verson<br></code></pre></td></tr></table></figure>
+
+<p>安装git</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo yum install git-core<br></code></pre></td></tr></table></figure>
+
+<h2 id="正式安装"><a href="#正式安装" class="headerlink" title="正式安装"></a>正式安装</h2><h3 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">npm install -g hexo-cli<br></code></pre></td></tr></table></figure>
+
+<p>报错：npm WARN config init.module Use <code>--init-module</code> instead.</p>
+<p>进入应用程序的环境变量，把<code>init.module </code>修改为<code>--init.module </code>，保存</p>
+<p>再次安装，安装成功</p>
+<ol>
+<li>将 Hexo 所在的目录下的 <code>node_modules</code> 添加到环境变量之中即可直接使用 <code>hexo &lt;command&gt;</code>：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">echo</span> <span class="hljs-string">&#x27;PATH=&quot;$PATH:./node_modules/.bin&quot;&#x27;</span> &gt;&gt; ~/.profile<br></code></pre></td></tr></table></figure>
+
+<h2 id="配置文件："><a href="#配置文件：" class="headerlink" title="配置文件："></a>配置文件：</h2><p>安装 Hexo 完成后，新建个要作为网站的文件夹</p>
+<p>请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件。&#x2F;www&#x2F;wwwroot&#x2F;hexo为网站目录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">hexo init /www/wwwroot/hexo</span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash"><span class="hljs-built_in">cd</span> /www/wwwroot/hexo</span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash">npm install</span><br></code></pre></td></tr></table></figure>
+
+<p>期间报错依赖安装失败，让执行<code>npm install</code>，就继续执行就可以</p>
+<p>新建完成后，指定文件夹的目录如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs shell">.<br>├── _config.yml<br>├── package.json<br>├── scaffolds<br>├── source<br>|   ├── _drafts<br>|   └── _posts<br>└── themes<br></code></pre></td></tr></table></figure>
+
+<h2 id="以-zhaoo-主题为例进行主题安装"><a href="#以-zhaoo-主题为例进行主题安装" class="headerlink" title="以 zhaoo 主题为例进行主题安装"></a>以 zhaoo 主题为例进行主题安装</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">git clone https://github.com/zhaoo/hexo-theme-zhaoo.git themes/zhaoo<br></code></pre></td></tr></table></figure>
+
+<p>修改 Hexo 根目录下的 <code>_config.yml</code> 文件启用 zhaoo 主题：</p>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs avrasm"><span class="hljs-symbol">theme:</span> zhaoo<br></code></pre></td></tr></table></figure>
+
+<p>建议将文章数量改为<strong>9</strong>篇，启用代码高亮效果：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">index_generator:</span><br>  <span class="hljs-attr">path:</span> <span class="hljs-string">&#x27;&#x27;</span><br>  <span class="hljs-attr">per_page:</span> <span class="hljs-number">9</span><br>  <span class="hljs-attr">order_by:</span> <span class="hljs-string">-date</span><br><br><span class="hljs-attr">highlight:</span><br>  <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span><br>  <span class="hljs-attr">line_number:</span> <span class="hljs-literal">true</span><br>  <span class="hljs-attr">auto_detect:</span> <span class="hljs-literal">true</span><br>  <span class="hljs-attr">hljs:</span> <span class="hljs-literal">true</span><br>  <span class="hljs-attr">tab_replace:</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="运行服务器"><a href="#运行服务器" class="headerlink" title="运行服务器"></a>运行服务器</h2><p>发布网站<br>安装服务器：Hexo 3.0 把服务器独立成了个别模块，我们必须得在站点文件夹根目录下安装之后才能使用。<br>在命令行中打开我们的工作站文件夹，键入以下命令，以将 hexo-server 安装到我们的工作站文件夹：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">npm install hexo-server --save<br></code></pre></td></tr></table></figure>
+
+<p>清除缓存文件<br>为了避免不必要的错误，在生成静态文件前，强烈建议每次发布网站前先运行以下命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">hexo clean<br></code></pre></td></tr></table></figure>
+
+<p>首先执行下列命令生成相应的静态网页，生成的静态网页以及相关资源都会在public目录下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">hexo generate<br></code></pre></td></tr></table></figure>
+
+<p>hexo-server模块的主要命令如下，输入以下命令以启动服务器，在浏览器进入 <a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000</a> 就可以看到我们的网站了！</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">hexo server<br></code></pre></td></tr></table></figure>
+
+<p>如果您想要更改端口，或是在执行时遇到了 EADDRINUSE 错误，可以在执行时使用 -p 选项指定其他端口，如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">hexo server -p 5000<br></code></pre></td></tr></table></figure>
+
+<h2 id="日常使用："><a href="#日常使用：" class="headerlink" title="日常使用："></a>日常使用：</h2><p><a target="_blank" rel="noopener" href="https://www.izhaoo.com/2020/05/05/hexo-theme-zhaoo-doc/">主题配置文档</a></p>
 
                 
               </div>
@@ -373,7 +415,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" class="category-chain-item">异常处理</a>
+  <a href="/categories/%E7%AC%94%E8%AE%B0/" class="category-chain-item">笔记</a>
   
   
 
@@ -388,7 +430,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/" class="print-no-link">#安装指南</a>
+        <a href="/tags/Hexo/" class="print-no-link">#Hexo</a>
       
     </div>
   
@@ -400,8 +442,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>VSCode弹窗警告</div>
-      <div>https://superlovelace.top/2023/10/03/VSCodeAlert/</div>
+      <div>Hexo博客搭建</div>
+      <div>https://superlovelace.top/2023/10/04/HexoBlogBuild/</div>
     </div>
     <div class="license-meta">
       
@@ -413,7 +455,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年10月3日</div>
+          <div>2023年10月4日</div>
         </div>
       
       
@@ -457,18 +499,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/10/03/HexoWebsite/" title="Hexo网站地图">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Hexo网站地图</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/10/03/VueStartFail/" title="Vue启动失败（VSCode）">
-                        <span class="hidden-mobile">Vue启动失败（VSCode）</span>
+                      <a href="/2023/10/03/HexoWebsite/" title="Hexo网站地图">
+                        <span class="hidden-mobile">Hexo网站地图</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -491,7 +527,7 @@
         var options = Object.assign(
           {"clientID":"6d64389efece8b9c1308","clientSecret":"f04c4adce3a9521c1fa339ac3af8fc085157328a","repo":"gitalk","owner":"superlovelace","admin":["superlovelace"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
           {
-            id: 'a5504c02e83aa20f8522f36c85b81cbc'
+            id: '04a38ee78dbd8f154c1396e9cd5acdd7'
           }
         )
         var gitalk = new Gitalk(options);
