@@ -169,7 +169,7 @@
 <h2 id="CNPM安装教程（Windows系统版）"><a href="#CNPM安装教程（Windows系统版）" class="headerlink" title="CNPM安装教程（Windows系统版）"></a>CNPM安装教程（Windows系统版）</h2><p><strong>CNPM淘宝镜像官网：</strong><a href="https://npmmirror.com/">https://npmmirror.com/</a></p>
 <h3 id="1、打开CNPM淘宝镜像官网"><a href="#1、打开CNPM淘宝镜像官网" class="headerlink" title="1、打开CNPM淘宝镜像官网"></a>1、打开CNPM淘宝镜像官网</h3><p>有很多信息：</p>
 <ul>
-<li>当前 <a href="https://npmmirror.com/">npmmirror.com</a> 运行版本是: <a href="mailto:&#99;&#x6e;&#x70;&#109;&#x63;&#111;&#x72;&#101;&#64;&#x33;&#46;&#x32;&#48;&#x2e;&#51;">&#99;&#x6e;&#x70;&#109;&#x63;&#111;&#x72;&#101;&#64;&#x33;&#46;&#x32;&#48;&#x2e;&#51;</a></li>
+<li>当前 <a href="https://npmmirror.com/">npmmirror.com</a> 运行版本是: <a href="mailto:&#99;&#110;&#x70;&#109;&#x63;&#x6f;&#x72;&#x65;&#64;&#x33;&#x2e;&#50;&#x30;&#46;&#x33;">&#99;&#110;&#x70;&#109;&#x63;&#x6f;&#x72;&#x65;&#64;&#x33;&#x2e;&#50;&#x30;&#46;&#x33;</a></li>
 <li>本系统运行在 <a href="https://nodejs.org/?spm=a2c6h.24755359.0.0.6d446e513fj62f">Node.js</a>@v18.16.0 上</li>
 <li>开源镜像: <a href="https://npmmirror.com/mirrors/">https://npmmirror.com/mirrors/</a></li>
 <li>Node.js 镜像: <a href="https://npmmirror.com/mirrors/node/">https://npmmirror.com/mirrors/node/</a></li>
@@ -205,6 +205,93 @@
       </categories>
       <tags>
         <tag>安装指南</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>VsCode启动警告：无法导入Django</title>
+    <url>/2023/10/05/DjangoStartError/</url>
+    <content><![CDATA[<blockquote>
+<p>ImportError: Couldn’t import Django. Are you sure it’s installed and available on your PYTHONPATH environment variable? Did you forget to activate a virtual environment?</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="错误信息："><a href="#错误信息：" class="headerlink" title="错误信息："></a>错误信息：</h2><figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python">PS F:\mysite\mysite&gt; python manage.py runserver<br>Traceback (most recent call last):<br>  File <span class="hljs-string">&quot;manage.py&quot;</span>, line <span class="hljs-number">8</span>, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    <span class="hljs-keyword">from</span> django.core.management <span class="hljs-keyword">import</span> execute_from_command_line<br>ModuleNotFoundError: No module named <span class="hljs-string">&#x27;django&#x27;</span><br><br>The above exception was the direct cause of the following exception:<br><br>Traceback (most recent call last):<br>  File <span class="hljs-string">&quot;manage.py&quot;</span>, line <span class="hljs-number">10</span>, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    <span class="hljs-keyword">raise</span> ImportError(<br>ImportError: Couldn<span class="hljs-string">&#x27;t import Django. Are you sure it&#x27;</span>s installed <span class="hljs-keyword">and</span> available on your PYTHONPATH environment variable? Did you forget to activate a virtual environment?<br>PS F:\mysite\mysite&gt; <br></code></pre></td></tr></table></figure>
+
+<p>错误信息翻译：</p>
+<p>不能导入Django，您确定PYTHONPATH环境变量已安装并可用吗？您是否忘记激活虚拟环境？</p>
+<hr>
+<h2 id="查看环境变量"><a href="#查看环境变量" class="headerlink" title="查看环境变量"></a>查看环境变量</h2><p>发现系统的环境变量PATH里没有python，然后去用户环境变量，发现PAYH内容如下：</p>
+<table>
+<thead>
+<tr>
+<th>用户PATH内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>D:\anaconda3</td>
+</tr>
+<tr>
+<td>D:\anaconda3\Library\mingw-w64\bin</td>
+</tr>
+<tr>
+<td>D:\anaconda3\Library\usr\bin</td>
+</tr>
+<tr>
+<td>D:\anaconda3\Library\bin</td>
+</tr>
+<tr>
+<td>D:\anaconda3\Scripts</td>
+</tr>
+<tr>
+<td>D:\python\Scripts\</td>
+</tr>
+<tr>
+<td>D:\python\</td>
+</tr>
+</tbody></table>
+<p>这样先找的就是anaconda里的python</p>
+<hr>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>将D:\python\上移到第一个，然后确定。</p>
+<table>
+<thead>
+<tr>
+<th>用户PATH更改后</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>D:\python\</td>
+</tr>
+<tr>
+<td>D:\anaconda3</td>
+</tr>
+<tr>
+<td>D:\anaconda3\Library\mingw-w64\bin</td>
+</tr>
+<tr>
+<td>D:\anaconda3\Library\usr\bin</td>
+</tr>
+<tr>
+<td>D:\anaconda3\Library\bin</td>
+</tr>
+<tr>
+<td>D:\anaconda3\Scripts</td>
+</tr>
+<tr>
+<td>D:\python\Scripts\</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="重启VSCode"><a href="#重启VSCode" class="headerlink" title="重启VSCode"></a>重启VSCode</h2><figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python">PS F:\mysite\mysite&gt; python manage.py runserver<br>Watching <span class="hljs-keyword">for</span> file changes <span class="hljs-keyword">with</span> StatReloader<br>Performing system checks...<br><br>System check identified no issues (<span class="hljs-number">0</span> silenced).<br>October <span class="hljs-number">13</span>, <span class="hljs-number">2021</span> - <span class="hljs-number">11</span>:<span class="hljs-number">25</span>:<span class="hljs-number">26</span><br>Django version <span class="hljs-number">3.0</span>, using settings <span class="hljs-string">&#x27;mysite.settings&#x27;</span> <br>Starting development server at http://<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">8000</span>/<br>Quit the server <span class="hljs-keyword">with</span> CTRL-BREAK.<br><br></code></pre></td></tr></table></figure>
+
+<p>OK，启动成功！</p>
+]]></content>
+      <categories>
+        <category>异常处理</category>
+      </categories>
+      <tags>
+        <tag>Django</tag>
       </tags>
   </entry>
   <entry>
@@ -1243,6 +1330,41 @@
       </tags>
   </entry>
   <entry>
+    <title>归并排序（Merge Sort）</title>
+    <url>/2023/10/05/MergeSort/</url>
+    <content><![CDATA[<blockquote>
+<p>归并排序的介绍，包括归并排序的特点、原理和完整代码实现。</p>
+</blockquote>
+<span id="more"></span>
+<h1 id="归并排序（Merge-Sort）"><a href="#归并排序（Merge-Sort）" class="headerlink" title="归并排序（Merge Sort）"></a>归并排序（Merge Sort）</h1><p>把两个或多个有序的子序列合并为一个</p>
+<p>2路归并：二合一</p>
+<p>k路归并：k合一</p>
+<h2 id="归并排序特点"><a href="#归并排序特点" class="headerlink" title="归并排序特点"></a>归并排序特点</h2><ul>
+<li>是稳定排序</li>
+<li>可用于链式结构，且不需要附加存储空间，但递归实现时仍需要开辟相应的递归工作栈</li>
+<li>空间复杂度：O（n）</li>
+<li>时间复杂度：O（nlogn）</li>
+</ul>
+<h2 id="归并排序过程-原理"><a href="#归并排序过程-原理" class="headerlink" title="归并排序过程(原理)"></a>归并排序过程(原理)</h2><ol>
+<li>若low &gt; high ，则将序列分从中间mid &#x3D; (low + high)&#x2F;2</li>
+<li>对左半部分【low，mid】递归地进行归并排序</li>
+<li>对右半部分【mid+1，high】递归地进行归并排序</li>
+<li>将左右两个有序子序列Merge为一个</li>
+</ol>
+<h2 id="完整代码实现"><a href="#完整代码实现" class="headerlink" title="完整代码实现"></a>完整代码实现</h2><figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;string&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-comment">/* 辅助数组B */</span><br><span class="hljs-type">int</span> n = <span class="hljs-number">10</span>;<br><span class="hljs-type">int</span>* B = (<span class="hljs-type">int</span>*)<span class="hljs-built_in">malloc</span>(n * <span class="hljs-built_in">sizeof</span>(<span class="hljs-type">int</span>)); <span class="hljs-comment">//方式一</span><br><span class="hljs-type">int</span>* B2 = <span class="hljs-keyword">new</span> <span class="hljs-type">int</span>[n]; <span class="hljs-comment">//方式二</span><br><br><span class="hljs-comment">/* </span><br><span class="hljs-comment">	归并</span><br><span class="hljs-comment">	A[low...mid]和A[mid+1...high]各自有序，将两个部分归并</span><br><span class="hljs-comment">*/</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Merge</span><span class="hljs-params">(<span class="hljs-type">int</span> A[],<span class="hljs-type">int</span> low,<span class="hljs-type">int</span> mid,<span class="hljs-type">int</span> high)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-type">int</span> i, j, k;<br>	<span class="hljs-keyword">for</span> ( k = low; k &lt;= high; k++)<br>	&#123;<br>		B[k] = A[k];  <span class="hljs-comment">//将A中所有元素复制到B中</span><br>	&#125;<br>	<span class="hljs-keyword">for</span> (i = low,j = mid+<span class="hljs-number">1</span>,k = i;i&lt;=mid&amp;&amp;j&lt;=high; k++)<br>	&#123;<br>		<span class="hljs-keyword">if</span> (B[i] &lt;= B[j]) &#123;<br>			A[k] = B[i++];<span class="hljs-comment">//将较小值复制到A中</span><br>		&#125;<br>		<span class="hljs-keyword">else</span><br>		&#123;<br>			A[k] = B[j++];<br>		&#125;<br>	&#125;<br>	<span class="hljs-keyword">while</span> (i&lt;=mid)<br>	&#123;<br>		A[k++] = B[i++];<br>	&#125;<br>	<span class="hljs-keyword">while</span> (j &lt;= high)<br>	&#123;<br>		A[k++] = B[j++];<br>	&#125;<br>&#125;<br><br><span class="hljs-comment">/* 归并排序 */</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">MergeSort</span><span class="hljs-params">(<span class="hljs-type">int</span> A[],<span class="hljs-type">int</span> low,<span class="hljs-type">int</span> high)</span> </span>&#123;<br>	<span class="hljs-keyword">if</span> (low&lt;high) &#123;<br>		<span class="hljs-type">int</span> mid = (low + high) / <span class="hljs-number">2</span>; <span class="hljs-comment">//从中间划分</span><br>		<span class="hljs-built_in">MergeSort</span>(A, low, mid);  <span class="hljs-comment">//对左半部分归并排序</span><br>		<span class="hljs-built_in">MergeSort</span>(A, mid+<span class="hljs-number">1</span>, high); <span class="hljs-comment">//右半部分归并排序</span><br>		<span class="hljs-built_in">Merge</span>(A, low, mid, high); <span class="hljs-comment">//归并</span><br>	&#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-type">int</span> a[] = &#123; <span class="hljs-number">3</span>,<span class="hljs-number">5</span>,<span class="hljs-number">2</span>,<span class="hljs-number">6</span>,<span class="hljs-number">1</span>,<span class="hljs-number">4</span>,<span class="hljs-number">9</span>,<span class="hljs-number">8</span> &#125;;<br>	<span class="hljs-built_in">MergeSort</span>(a, <span class="hljs-number">0</span>, <span class="hljs-number">7</span>);<br>	cout &lt;&lt; <span class="hljs-string">&quot;归并排序后：&quot;</span> &lt;&lt; endl;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">8</span>; i++)<br>	&#123;<br>		cout &lt;&lt; a[i];<br>		<span class="hljs-keyword">if</span> (i == <span class="hljs-number">7</span>)<br>		&#123;<br>			cout &lt;&lt;endl;;<br>		&#125;<br>		<span class="hljs-keyword">else</span><br>		&#123;<br>			cout &lt;&lt; <span class="hljs-string">&quot;,&quot;</span>;<br>		&#125;<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>运行结果：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell">归并排序后：<br>1,2,3,4,5,6,8,9<br><br>按任意键关闭此窗口. . .<br></code></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>NTP时间同步服务安装指南（Linux）</title>
     <url>/2023/10/02/NTP/</url>
     <content><![CDATA[<blockquote>
@@ -1896,7 +2018,7 @@
     <title>交换排序之快速排序（Quick Sort）</title>
     <url>/2023/09/29/QuickSort/</url>
     <content><![CDATA[<blockquote>
-<p>快速排序的介绍，包括选择排序的特点、原理和完整代码实现。</p>
+<p>快速排序的介绍，包括快速排序的特点、原理和完整代码实现。</p>
 </blockquote>
 <span id="more"></span>
 
