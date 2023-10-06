@@ -202,7 +202,7 @@
 <h2 id="CNPM安装教程（Windows系统版）"><a href="#CNPM安装教程（Windows系统版）" class="headerlink" title="CNPM安装教程（Windows系统版）"></a>CNPM安装教程（Windows系统版）</h2><p><strong>CNPM淘宝镜像官网：</strong><a href="https://npmmirror.com/">https://npmmirror.com/</a></p>
 <h3 id="1、打开CNPM淘宝镜像官网"><a href="#1、打开CNPM淘宝镜像官网" class="headerlink" title="1、打开CNPM淘宝镜像官网"></a>1、打开CNPM淘宝镜像官网</h3><p>有很多信息：</p>
 <ul>
-<li>当前 <a href="https://npmmirror.com/">npmmirror.com</a> 运行版本是: <a href="mailto:&#x63;&#x6e;&#112;&#109;&#99;&#x6f;&#x72;&#x65;&#x40;&#51;&#x2e;&#x32;&#x30;&#x2e;&#x33;">&#x63;&#x6e;&#112;&#109;&#99;&#x6f;&#x72;&#x65;&#x40;&#51;&#x2e;&#x32;&#x30;&#x2e;&#x33;</a></li>
+<li>当前 <a href="https://npmmirror.com/">npmmirror.com</a> 运行版本是: <a href="mailto:&#99;&#x6e;&#x70;&#x6d;&#99;&#111;&#x72;&#x65;&#64;&#51;&#x2e;&#x32;&#48;&#x2e;&#51;">&#99;&#x6e;&#x70;&#x6d;&#99;&#111;&#x72;&#x65;&#64;&#51;&#x2e;&#x32;&#48;&#x2e;&#51;</a></li>
 <li>本系统运行在 <a href="https://nodejs.org/?spm=a2c6h.24755359.0.0.6d446e513fj62f">Node.js</a>@v18.16.0 上</li>
 <li>开源镜像: <a href="https://npmmirror.com/mirrors/">https://npmmirror.com/mirrors/</a></li>
 <li>Node.js 镜像: <a href="https://npmmirror.com/mirrors/node/">https://npmmirror.com/mirrors/node/</a></li>
