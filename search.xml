@@ -202,7 +202,7 @@
 <h2 id="CNPM安装教程（Windows系统版）"><a href="#CNPM安装教程（Windows系统版）" class="headerlink" title="CNPM安装教程（Windows系统版）"></a>CNPM安装教程（Windows系统版）</h2><p><strong>CNPM淘宝镜像官网：</strong><a href="https://npmmirror.com/">https://npmmirror.com/</a></p>
 <h3 id="1、打开CNPM淘宝镜像官网"><a href="#1、打开CNPM淘宝镜像官网" class="headerlink" title="1、打开CNPM淘宝镜像官网"></a>1、打开CNPM淘宝镜像官网</h3><p>有很多信息：</p>
 <ul>
-<li>当前 <a href="https://npmmirror.com/">npmmirror.com</a> 运行版本是: <a href="mailto:&#99;&#110;&#112;&#109;&#99;&#x6f;&#114;&#101;&#x40;&#51;&#46;&#50;&#48;&#x2e;&#x33;">&#99;&#110;&#112;&#109;&#99;&#x6f;&#114;&#101;&#x40;&#51;&#46;&#50;&#48;&#x2e;&#x33;</a></li>
+<li>当前 <a href="https://npmmirror.com/">npmmirror.com</a> 运行版本是: <a href="mailto:&#x63;&#x6e;&#112;&#109;&#99;&#x6f;&#x72;&#x65;&#x40;&#51;&#x2e;&#x32;&#x30;&#x2e;&#x33;">&#x63;&#x6e;&#112;&#109;&#99;&#x6f;&#x72;&#x65;&#x40;&#51;&#x2e;&#x32;&#x30;&#x2e;&#x33;</a></li>
 <li>本系统运行在 <a href="https://nodejs.org/?spm=a2c6h.24755359.0.0.6d446e513fj62f">Node.js</a>@v18.16.0 上</li>
 <li>开源镜像: <a href="https://npmmirror.com/mirrors/">https://npmmirror.com/mirrors/</a></li>
 <li>Node.js 镜像: <a href="https://npmmirror.com/mirrors/node/">https://npmmirror.com/mirrors/node/</a></li>
@@ -2058,7 +2058,7 @@
       </tags>
   </entry>
   <entry>
-    <title>线性表之顺序表</title>
+    <title>线性表之顺序表（SqList）</title>
     <url>/2022/12/10/SqList/</url>
     <content><![CDATA[<blockquote>
 <p>数据结构第二章线性表的定义、特点和存储结构。顺序表的定义、特点和存储结构。附加完整代码实现</p>
