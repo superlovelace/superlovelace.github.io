@@ -16,16 +16,16 @@
   <meta name="author" content="棱境">
   <meta name="keywords" content="棱境,superlovelace,超爱蕾丝,超爱蕾丝个人博客,超爱蕾丝博客站点,棱境的个人博客,SuperLovelace,superlovelace博客站点,superlovelace个人博客,SuperLovelace博客站点,SuperLovelace个人博客">
   
-    <meta name="description" content="用html语法实现实现有文章正文内容的水平分隔线。">
+    <meta name="description" content="用html语法实现文章前提示中间有正文内容的水平分隔线。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="实现中间有内容的水平线分割线">
+<meta property="og:title" content="实现中间有正文内容的水平线分割线">
 <meta property="og:url" content="https://superlovelace.top/2022/11/24/Post-style/index.html">
 <meta property="og:site_name" content="superlovelace | 棱境的个人博客">
-<meta property="og:description" content="用html语法实现实现有文章正文内容的水平分隔线。">
+<meta property="og:description" content="用html语法实现文章前提示中间有正文内容的水平分隔线。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://superlovelace.top/img/post/1007.jpg">
 <meta property="article:published_time" content="2022-11-24T08:41:32.000Z">
-<meta property="article:modified_time" content="2023-10-02T03:09:53.902Z">
+<meta property="article:modified_time" content="2023-10-07T02:43:35.969Z">
 <meta property="article:author" content="棱境">
 <meta property="article:tag" content="Hexo">
 <meta property="article:tag" content="Markdown">
@@ -36,7 +36,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>实现中间有内容的水平线分割线 - superlovelace | 棱境的个人博客</title>
+  <title>实现中间有正文内容的水平线分割线 - superlovelace | 棱境的个人博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -241,7 +241,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="实现中间有内容的水平线分割线"></span>
+            <span id="subtitle" data-typed-text="实现中间有正文内容的水平线分割线"></span>
           
           <h1></h1>
         </div>
@@ -265,7 +265,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          733 字
+          705 字
         
       </span>
     
@@ -276,7 +276,7 @@
         
         
         
-          7 分钟
+          6 分钟
         
       </span>
     
@@ -321,27 +321,16 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">实现中间有内容的水平线分割线</h1>
+            <h1 id="seo-header">实现中间有正文内容的水平线分割线</h1>
             
             
               <div class="markdown-body">
                 
                 <blockquote>
-<p>用html语法实现实现有文章正文内容的水平分隔线。</p>
+<p>用html语法实现文章前提示中间有正文内容的水平分隔线。</p>
 </blockquote>
 <span id="more"></span>
-
-<html>
-<div class="box1">
-         <span class="leftline"></span>
-         <span class="text">正文部分</span>
-         <span class="rightline"></span>
-     </div>
-</html>
-
-
-<p>效果正如当前页面所展示的这样。<br>在markdown前添加即可<br>完整代码：</p>
-<html>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><html>
 <div class="warpper">
     <div class="mac b1"></div>
     <div class="mac b2"></div>
@@ -350,14 +339,7 @@
 </html>
 
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="language-css"></span><br><span class="language-css"><span class="hljs-selector-class">.box1</span>&#123;</span><br><span class="language-css">    <span class="hljs-attribute">height</span>:<span class="hljs-number">40px</span>;</span><br><span class="language-css">    <span class="hljs-attribute">display</span>:flex;</span><br><span class="language-css">    <span class="hljs-attribute">justify-content</span>:space-between;</span><br><span class="language-css">    <span class="hljs-attribute">align-items</span>:center;</span><br><span class="language-css">    <span class="hljs-attribute">background-color</span>:<span class="hljs-number">#00000000</span>;</span><br><span class="language-css">&#125;</span><br><span class="language-css"><span class="hljs-selector-class">.leftline</span>&#123;</span><br><span class="language-css">    <span class="hljs-attribute">height</span>:<span class="hljs-number">2px</span>;</span><br><span class="language-css">    <span class="hljs-attribute">margin-right</span>:<span class="hljs-number">10px</span>;</span><br><span class="language-css">    <span class="hljs-attribute">background-color</span>:<span class="hljs-number">#257efa99</span>;</span><br><span class="language-css">    <span class="hljs-attribute">flex-grow</span>:<span class="hljs-number">1</span>;</span><br><span class="language-css">&#125;</span><br><span class="language-css"><span class="hljs-selector-class">.rightline</span>&#123;</span><br><span class="language-css">    <span class="hljs-attribute">height</span>:<span class="hljs-number">2px</span>;</span><br><span class="language-css">    <span class="hljs-attribute">margin-left</span>:<span class="hljs-number">10px</span>;</span><br><span class="language-css">    <span class="hljs-attribute">background-color</span>:<span class="hljs-number">#257efa99</span>;</span><br><span class="language-css">    <span class="hljs-attribute">flex-grow</span>:<span class="hljs-number">1</span>;</span><br><span class="language-css">&#125;</span><br><span class="language-css"><span class="hljs-selector-class">.text</span>&#123;</span><br><span class="language-css">    <span class="hljs-attribute">top</span>:<span class="hljs-number">0</span>;</span><br><span class="language-css">    <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">700</span>;</span><br><span class="language-css">    <span class="hljs-attribute">color</span>:<span class="hljs-number">#257efa</span>;</span><br><span class="language-css">&#125;</span><br><span class="language-css"></span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;box1&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;leftline&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;text&quot;</span>&gt;</span>正文部分<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;rightline&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
-<html>
-<div class="box1">
-    <span class="leftline"></span>
-    <span class="text">更多内容请在评论区留言讨论</span>
-    <span class="rightline"></span>
-</div>
-</html>
+<p>注：在markdown前添加即可</p>
 
                 
               </div>
@@ -405,7 +387,7 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>实现中间有内容的水平线分割线</div>
+      <div>实现中间有正文内容的水平线分割线</div>
       <div>https://superlovelace.top/2022/11/24/Post-style/</div>
     </div>
     <div class="license-meta">
@@ -518,6 +500,19 @@
 
     <div class="side-col d-none d-lg-block col-lg-2">
       
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
 
     </div>
   </div>
@@ -643,6 +638,46 @@
   
 
 
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
 
 
   <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>

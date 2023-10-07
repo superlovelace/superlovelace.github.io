@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://superlovelace.top/img/post/1010.jpg">
 <meta property="article:published_time" content="2022-11-25T05:25:32.000Z">
-<meta property="article:modified_time" content="2023-10-02T03:08:58.833Z">
+<meta property="article:modified_time" content="2023-10-07T02:38:22.081Z">
 <meta property="article:author" content="棱境">
 <meta property="article:tag" content="Hexo">
 <meta name="twitter:card" content="summary_large_image">
@@ -264,7 +264,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          317 字
+          308 字
         
       </span>
     
@@ -329,27 +329,9 @@
 <p>Hexo托管到GitHub并使用自己域名实现https。</p>
 </blockquote>
 <span id="more"></span>
-
-<html>
-<div class="box1">
-         <span class="leftline"></span>
-         <span class="text">正文部分</span>
-         <span class="rightline"></span>
-     </div>
-</html>
-
-<p>域名解析<br>以阿里云为例：<br>新增解析：<br>记录类型	主机记录	记录值<br>CNAME	@	username.github.io<br>CNAME	www	username.github.io</p>
-<p>然后去Github，在个人系统仓库设置里，找到GitHub Pages，在Custom domain里输入你新买的域名，保存。</p>
-<p>然后在系统根目录Source下新增无后缀的CNAME文件，文件内写上你的新域名。</p>
-<p>然后用git把项目更新托管到github</p>
-<p>回到GitHub Pages，在<code>Custom domain</code>的DNS确认无误后，勾上下面的<code>Enforce HTTPS checkbox</code>，从而强制执行<code>HTTPS</code></p>
-<html>
-<div class="box1">
-         <span class="leftline"></span>
-         <span class="text">更多内容请在评论区留言讨论</span>
-         <span class="rightline"></span>
-     </div>
-</html>
+<h1 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h1><h2 id="域名解析"><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h2><p>以阿里云为例，新增解析：</p>
+<p>记录类型	主机记录	记录值<br>CNAME	@	username.github.io<br>CNAME	www	username.github.io</p>
+<h2 id="Github配置"><a href="#Github配置" class="headerlink" title="Github配置"></a>Github配置</h2><p>然后去Github，在个人系统仓库设置里，找到GitHub Pages，在Custom domain里输入你新买的域名，保存。<br>在系统根目录Source下新增无后缀的CNAME文件，文件内写上你的新域名。<br>然后用git把项目更新托管到github<br>回到GitHub Pages，在<code>Custom domain</code>的DNS确认无误后，勾上下面的<code>Enforce HTTPS checkbox</code>，从而强制执行<code>HTTPS</code></p>
 
                 
               </div>
@@ -462,8 +444,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/11/24/Post-style/" title="实现中间有内容的水平线分割线">
-                        <span class="hidden-mobile">实现中间有内容的水平线分割线</span>
+                      <a href="/2022/11/24/Post-style/" title="实现中间有正文内容的水平线分割线">
+                        <span class="hidden-mobile">实现中间有正文内容的水平线分割线</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -508,6 +490,19 @@
 
     <div class="side-col d-none d-lg-block col-lg-2">
       
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
 
     </div>
   </div>
@@ -633,6 +628,46 @@
   
 
 
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
 
 
   <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>

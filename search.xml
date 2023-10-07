@@ -202,7 +202,7 @@
 <h2 id="CNPM安装教程（Windows系统版）"><a href="#CNPM安装教程（Windows系统版）" class="headerlink" title="CNPM安装教程（Windows系统版）"></a>CNPM安装教程（Windows系统版）</h2><p><strong>CNPM淘宝镜像官网：</strong><a href="https://npmmirror.com/">https://npmmirror.com/</a></p>
 <h3 id="1、打开CNPM淘宝镜像官网"><a href="#1、打开CNPM淘宝镜像官网" class="headerlink" title="1、打开CNPM淘宝镜像官网"></a>1、打开CNPM淘宝镜像官网</h3><p>有很多信息：</p>
 <ul>
-<li>当前 <a href="https://npmmirror.com/">npmmirror.com</a> 运行版本是: <a href="mailto:&#x63;&#110;&#112;&#x6d;&#99;&#x6f;&#x72;&#101;&#64;&#x33;&#x2e;&#50;&#48;&#46;&#x33;">&#x63;&#110;&#112;&#x6d;&#99;&#x6f;&#x72;&#101;&#64;&#x33;&#x2e;&#50;&#48;&#46;&#x33;</a></li>
+<li>当前 <a href="https://npmmirror.com/">npmmirror.com</a> 运行版本是: <a href="mailto:&#x63;&#110;&#x70;&#x6d;&#x63;&#x6f;&#114;&#x65;&#64;&#51;&#46;&#50;&#48;&#46;&#x33;">&#x63;&#110;&#x70;&#x6d;&#x63;&#x6f;&#114;&#x65;&#64;&#51;&#46;&#50;&#48;&#46;&#x33;</a></li>
 <li>本系统运行在 <a href="https://nodejs.org/?spm=a2c6h.24755359.0.0.6d446e513fj62f">Node.js</a>@v18.16.0 上</li>
 <li>开源镜像: <a href="https://npmmirror.com/mirrors/">https://npmmirror.com/mirrors/</a></li>
 <li>Node.js 镜像: <a href="https://npmmirror.com/mirrors/node/">https://npmmirror.com/mirrors/node/</a></li>
@@ -526,27 +526,9 @@
 <p>Hexo托管到GitHub并使用自己域名实现https。</p>
 </blockquote>
 <span id="more"></span>
-
-<html>
-<div class="box1">
-         <span class="leftline"></span>
-         <span class="text">正文部分</span>
-         <span class="rightline"></span>
-     </div>
-</html>
-
-<p>域名解析<br>以阿里云为例：<br>新增解析：<br>记录类型	主机记录	记录值<br>CNAME	@	username.github.io<br>CNAME	www	username.github.io</p>
-<p>然后去Github，在个人系统仓库设置里，找到GitHub Pages，在Custom domain里输入你新买的域名，保存。</p>
-<p>然后在系统根目录Source下新增无后缀的CNAME文件，文件内写上你的新域名。</p>
-<p>然后用git把项目更新托管到github</p>
-<p>回到GitHub Pages，在<code>Custom domain</code>的DNS确认无误后，勾上下面的<code>Enforce HTTPS checkbox</code>，从而强制执行<code>HTTPS</code></p>
-<html>
-<div class="box1">
-         <span class="leftline"></span>
-         <span class="text">更多内容请在评论区留言讨论</span>
-         <span class="rightline"></span>
-     </div>
-</html>
+<h1 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h1><h2 id="域名解析"><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h2><p>以阿里云为例，新增解析：</p>
+<p>记录类型	主机记录	记录值<br>CNAME	@	username.github.io<br>CNAME	www	username.github.io</p>
+<h2 id="Github配置"><a href="#Github配置" class="headerlink" title="Github配置"></a>Github配置</h2><p>然后去Github，在个人系统仓库设置里，找到GitHub Pages，在Custom domain里输入你新买的域名，保存。<br>在系统根目录Source下新增无后缀的CNAME文件，文件内写上你的新域名。<br>然后用git把项目更新托管到github<br>回到GitHub Pages，在<code>Custom domain</code>的DNS确认无误后，勾上下面的<code>Enforce HTTPS checkbox</code>，从而强制执行<code>HTTPS</code></p>
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -1308,34 +1290,9 @@
 </blockquote>
 <span id="more"></span>
 
-<html>
-<div class="box1">
-         <span class="leftline"></span>
-         <span class="text">正文部分</span>
-         <span class="rightline"></span>
-     </div>
-</html>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>用html语法实现Markdown代码块MAC风格，使用时只需要在代码块前粘贴这段代码即可；在typora里看不到效果，在VSCode和网页上可以看到。</p>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="language-css"></span><br><span class="language-css">    <span class="hljs-selector-class">.mac</span> &#123;</span><br><span class="language-css">    <span class="hljs-attribute">width</span>:<span class="hljs-number">10px</span>;</span><br><span class="language-css">    <span class="hljs-attribute">height</span>:<span class="hljs-number">10px</span>;</span><br><span class="language-css">    <span class="hljs-attribute">border-radius</span>:<span class="hljs-number">5px</span>;</span><br><span class="language-css">    <span class="hljs-attribute">float</span><span class="hljs-selector-pseudo">:left</span>;</span><br><span class="language-css">    <span class="hljs-attribute">margin</span>:<span class="hljs-number">10px</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">5px</span>;</span><br><span class="language-css">    &#125;</span><br><span class="language-css">    <span class="hljs-selector-class">.b1</span> &#123;</span><br><span class="language-css">        <span class="hljs-attribute">background</span>:<span class="hljs-number">#E0443E</span>;</span><br><span class="language-css">        <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">10px</span>;</span><br><span class="language-css">    &#125;</span><br><span class="language-css">    <span class="hljs-selector-class">.b2</span> &#123; <span class="hljs-attribute">background</span>:<span class="hljs-number">#DEA123</span>; &#125;</span><br><span class="language-css">    <span class="hljs-selector-class">.b3</span> &#123; <span class="hljs-attribute">background</span>:<span class="hljs-number">#1AAB29</span>; &#125;</span><br><span class="language-css">    <span class="hljs-selector-class">.warpper</span>&#123;</span><br><span class="language-css">        user-select: none <span class="hljs-meta">!important</span>;</span><br><span class="language-css">        <span class="hljs-attribute">border-radius</span>:<span class="hljs-number">5px</span>;</span><br><span class="language-css">        <span class="hljs-attribute">width</span>:auto;</span><br><span class="language-css">    &#125;</span><br><span class="language-css">    br &#123; user-select: none <span class="hljs-meta">!important</span>; &#125;</span><br><span class="language-css">    <span class="hljs-selector-class">.line</span> &#123; </span><br><span class="language-css">        <span class="hljs-attribute">position</span>: sticky;</span><br><span class="language-css">        <span class="hljs-attribute">left</span>: <span class="hljs-number">18px</span>;</span><br><span class="language-css">        <span class="hljs-attribute">text-align</span><span class="hljs-selector-pseudo">:right</span> !important; </span><br><span class="language-css">    &#125;</span><br><span class="language-css">    <span class="hljs-selector-class">.gutter</span> &#123;</span><br><span class="language-css">        <span class="hljs-attribute">color</span>: <span class="hljs-number">#999</span>;</span><br><span class="language-css">        <span class="hljs-attribute">width</span>: <span class="hljs-number">26px</span>;</span><br><span class="language-css">        user-select: none <span class="hljs-meta">!important</span>;</span><br><span class="language-css">        <span class="hljs-attribute">display</span>: table-cell <span class="hljs-meta">!important</span>;</span><br><span class="language-css">        <span class="hljs-attribute">border</span>: none <span class="hljs-meta">!important</span>;</span><br><span class="language-css">        <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#333</span>;</span><br><span class="language-css">    &#125;</span><br><span class="language-css"></span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;warpper&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mac b1&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mac b2&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mac b3&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
-<p>用html语法实现Markdown代码块MAC风格。</p>
-<p>使用时只需要在代码块前粘贴这段代码即可</p>
-<p>在typora里看不到效果，在VSCode和网页上可以看到</p>
-<html>
-<div class="warpper">
-    <div class="mac b1"></div>
-    <div class="mac b2"></div>
-    <div class="mac b3"></div>
-</div>
-</html>
-
-<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="language-css"></span><br><span class="language-css">    <span class="hljs-selector-class">.mac</span> &#123;</span><br><span class="language-css">    <span class="hljs-attribute">width</span>:<span class="hljs-number">10px</span>;</span><br><span class="language-css">    <span class="hljs-attribute">height</span>:<span class="hljs-number">10px</span>;</span><br><span class="language-css">    <span class="hljs-attribute">border-radius</span>:<span class="hljs-number">5px</span>;</span><br><span class="language-css">    <span class="hljs-attribute">float</span><span class="hljs-selector-pseudo">:left</span>;</span><br><span class="language-css">    <span class="hljs-attribute">margin</span>:<span class="hljs-number">10px</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">5px</span>;</span><br><span class="language-css">    &#125;</span><br><span class="language-css">    <span class="hljs-selector-class">.b1</span> &#123;</span><br><span class="language-css">        <span class="hljs-attribute">background</span>:<span class="hljs-number">#E0443E</span>;</span><br><span class="language-css">        <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">10px</span>;</span><br><span class="language-css">    &#125;</span><br><span class="language-css">    <span class="hljs-selector-class">.b2</span> &#123; <span class="hljs-attribute">background</span>:<span class="hljs-number">#DEA123</span>; &#125;</span><br><span class="language-css">    <span class="hljs-selector-class">.b3</span> &#123; <span class="hljs-attribute">background</span>:<span class="hljs-number">#1AAB29</span>; &#125;</span><br><span class="language-css">    <span class="hljs-selector-class">.warpper</span>&#123;</span><br><span class="language-css">        user-select: none <span class="hljs-meta">!important</span>;</span><br><span class="language-css">        <span class="hljs-attribute">border-radius</span>:<span class="hljs-number">5px</span>;</span><br><span class="language-css">        <span class="hljs-attribute">width</span>:auto;</span><br><span class="language-css">    &#125;</span><br><span class="language-css">    br &#123; user-select: none <span class="hljs-meta">!important</span>; &#125;</span><br><span class="language-css">    <span class="hljs-selector-class">.line</span> &#123; </span><br><span class="language-css">        <span class="hljs-attribute">position</span>: sticky;</span><br><span class="language-css">        <span class="hljs-attribute">left</span>: <span class="hljs-number">18px</span>;</span><br><span class="language-css">        <span class="hljs-attribute">text-align</span><span class="hljs-selector-pseudo">:right</span> !important; </span><br><span class="language-css">    &#125;</span><br><span class="language-css">    <span class="hljs-selector-class">.gutter</span> &#123;</span><br><span class="language-css">        <span class="hljs-attribute">color</span>: <span class="hljs-number">#999</span>;</span><br><span class="language-css">        <span class="hljs-attribute">width</span>: <span class="hljs-number">26px</span>;</span><br><span class="language-css">        user-select: none <span class="hljs-meta">!important</span>;</span><br><span class="language-css">        <span class="hljs-attribute">display</span>: table-cell <span class="hljs-meta">!important</span>;</span><br><span class="language-css">        <span class="hljs-attribute">border</span>: none <span class="hljs-meta">!important</span>;</span><br><span class="language-css">        <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#333</span>;</span><br><span class="language-css">    &#125;</span><br><span class="language-css"></span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;warpper&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mac b1&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mac b2&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mac b3&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
-<html>
-<div class="box1">
-         <span class="leftline"></span>
-         <span class="text">更多内容请在评论区留言讨论</span>
-         <span class="rightline"></span>
-     </div>
-</html>
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -1987,24 +1944,13 @@
       </tags>
   </entry>
   <entry>
-    <title>实现中间有内容的水平线分割线</title>
+    <title>实现中间有正文内容的水平线分割线</title>
     <url>/2022/11/24/Post-style/</url>
     <content><![CDATA[<blockquote>
-<p>用html语法实现实现有文章正文内容的水平分隔线。</p>
+<p>用html语法实现文章前提示中间有正文内容的水平分隔线。</p>
 </blockquote>
 <span id="more"></span>
-
-<html>
-<div class="box1">
-         <span class="leftline"></span>
-         <span class="text">正文部分</span>
-         <span class="rightline"></span>
-     </div>
-</html>
-
-
-<p>效果正如当前页面所展示的这样。<br>在markdown前添加即可<br>完整代码：</p>
-<html>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><html>
 <div class="warpper">
     <div class="mac b1"></div>
     <div class="mac b2"></div>
@@ -2013,14 +1959,7 @@
 </html>
 
 <figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="language-css"></span><br><span class="language-css"><span class="hljs-selector-class">.box1</span>&#123;</span><br><span class="language-css">    <span class="hljs-attribute">height</span>:<span class="hljs-number">40px</span>;</span><br><span class="language-css">    <span class="hljs-attribute">display</span>:flex;</span><br><span class="language-css">    <span class="hljs-attribute">justify-content</span>:space-between;</span><br><span class="language-css">    <span class="hljs-attribute">align-items</span>:center;</span><br><span class="language-css">    <span class="hljs-attribute">background-color</span>:<span class="hljs-number">#00000000</span>;</span><br><span class="language-css">&#125;</span><br><span class="language-css"><span class="hljs-selector-class">.leftline</span>&#123;</span><br><span class="language-css">    <span class="hljs-attribute">height</span>:<span class="hljs-number">2px</span>;</span><br><span class="language-css">    <span class="hljs-attribute">margin-right</span>:<span class="hljs-number">10px</span>;</span><br><span class="language-css">    <span class="hljs-attribute">background-color</span>:<span class="hljs-number">#257efa99</span>;</span><br><span class="language-css">    <span class="hljs-attribute">flex-grow</span>:<span class="hljs-number">1</span>;</span><br><span class="language-css">&#125;</span><br><span class="language-css"><span class="hljs-selector-class">.rightline</span>&#123;</span><br><span class="language-css">    <span class="hljs-attribute">height</span>:<span class="hljs-number">2px</span>;</span><br><span class="language-css">    <span class="hljs-attribute">margin-left</span>:<span class="hljs-number">10px</span>;</span><br><span class="language-css">    <span class="hljs-attribute">background-color</span>:<span class="hljs-number">#257efa99</span>;</span><br><span class="language-css">    <span class="hljs-attribute">flex-grow</span>:<span class="hljs-number">1</span>;</span><br><span class="language-css">&#125;</span><br><span class="language-css"><span class="hljs-selector-class">.text</span>&#123;</span><br><span class="language-css">    <span class="hljs-attribute">top</span>:<span class="hljs-number">0</span>;</span><br><span class="language-css">    <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">700</span>;</span><br><span class="language-css">    <span class="hljs-attribute">color</span>:<span class="hljs-number">#257efa</span>;</span><br><span class="language-css">&#125;</span><br><span class="language-css"></span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;box1&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;leftline&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;text&quot;</span>&gt;</span>正文部分<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;rightline&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
-<html>
-<div class="box1">
-    <span class="leftline"></span>
-    <span class="text">更多内容请在评论区留言讨论</span>
-    <span class="rightline"></span>
-</div>
-</html>
+<p>注：在markdown前添加即可</p>
 ]]></content>
       <categories>
         <category>笔记</category>
