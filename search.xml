@@ -202,7 +202,7 @@
 <h2 id="CNPM安装教程（Windows系统版）"><a href="#CNPM安装教程（Windows系统版）" class="headerlink" title="CNPM安装教程（Windows系统版）"></a>CNPM安装教程（Windows系统版）</h2><p><strong>CNPM淘宝镜像官网：</strong><a href="https://npmmirror.com/">https://npmmirror.com/</a></p>
 <h3 id="1、打开CNPM淘宝镜像官网"><a href="#1、打开CNPM淘宝镜像官网" class="headerlink" title="1、打开CNPM淘宝镜像官网"></a>1、打开CNPM淘宝镜像官网</h3><p>有很多信息：</p>
 <ul>
-<li>当前 <a href="https://npmmirror.com/">npmmirror.com</a> 运行版本是: <a href="mailto:&#x63;&#110;&#112;&#109;&#99;&#111;&#x72;&#101;&#x40;&#51;&#46;&#x32;&#x30;&#x2e;&#51;">&#x63;&#110;&#112;&#109;&#99;&#111;&#x72;&#101;&#x40;&#51;&#46;&#x32;&#x30;&#x2e;&#51;</a></li>
+<li>当前 <a href="https://npmmirror.com/">npmmirror.com</a> 运行版本是: <a href="mailto:&#x63;&#x6e;&#112;&#109;&#x63;&#x6f;&#114;&#x65;&#x40;&#51;&#x2e;&#x32;&#48;&#46;&#51;">&#x63;&#x6e;&#112;&#109;&#x63;&#x6f;&#114;&#x65;&#x40;&#51;&#x2e;&#x32;&#48;&#46;&#51;</a></li>
 <li>本系统运行在 <a href="https://nodejs.org/?spm=a2c6h.24755359.0.0.6d446e513fj62f">Node.js</a>@v18.16.0 上</li>
 <li>开源镜像: <a href="https://npmmirror.com/mirrors/">https://npmmirror.com/mirrors/</a></li>
 <li>Node.js 镜像: <a href="https://npmmirror.com/mirrors/node/">https://npmmirror.com/mirrors/node/</a></li>
@@ -455,62 +455,33 @@
     <title>Git deploy 部署报错</title>
     <url>/2022/11/29/Git-error/</url>
     <content><![CDATA[<blockquote>
-<p>Git deploy 部署报错：ssh_exchange_identification: Connection closed by remote host<br>fatal: Could not read from remote repository.</p>
+<p>ssh_exchange_identification: Connection closed by remote host. fatal: Could not read from remote repository.</p>
 </blockquote>
 <span id="more"></span>
-<html>
-<div class="box1">
-         <span class="leftline"></span>
-         <span class="text">正文部分</span>
-         <span class="rightline"></span>
-     </div>
-</html>
 
+<h1 id="背景："><a href="#背景：" class="headerlink" title="背景："></a>背景：</h1><p>今天部署到GitHub时，出现此错误。昨天还正常，今天突然这样。</p>
+<h2 id="详细错误信息："><a href="#详细错误信息：" class="headerlink" title="详细错误信息："></a>详细错误信息：</h2><figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell">[root@192 hexo]# hexo deploy<br>INFO  Validating config<br>INFO  Deploying: git<br>INFO  Clearing .deploy_git folder...<br>INFO  Copying files from public folder...<br>INFO  Copying files from extend dirs...<br><span class="hljs-meta prompt_"># </span><span class="language-bash">位于分支 master</span><br>无文件要提交，干净的工作区<br>ssh_exchange_identification: Connection closed by remote host<br>fatal: Could not read from remote repository.<br><br>Please make sure you have the correct access rights<br>and the repository exists.<br>FATAL Something&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html<br>Error: Spawn failed<br>    at ChildProcess.&lt;anonymous&gt; (/www/wwwroot/hexo/node_modules/hexo-util/lib/spawn.js:51:21)<br>    at ChildProcess.emit (node:events:513:28)<br>    at Process.ChildProcess._handle.onexit (node:internal/child_process:293:12)<br>[root@192 hexo]# <br></code></pre></td></tr></table></figure>
 
-
-<h3 id="1、背景："><a href="#1、背景：" class="headerlink" title="1、背景："></a>1、背景：</h3><p>今天部署到GitHub时，出现此错误。昨天还正常，今天突然这样。</p>
-<h3 id="2、详细错误信息："><a href="#2、详细错误信息：" class="headerlink" title="2、详细错误信息："></a>2、详细错误信息：</h3><html>
-<div class="warpper">
-    <div class="mac b1"></div>
-    <div class="mac b2"></div>
-    <div class="mac b3"></div>
-</div>
-</html>
-
-<figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell">[root@192 hexo]# hexo deploy<br>INFO  Validating config<br>INFO  Deploying: git<br>INFO  Clearing .deploy_git folder...<br>INFO  Copying files from public folder...<br>INFO  Copying files from extend dirs...<br><span class="hljs-meta prompt_"># </span><span class="language-bash">位于分支 master</span><br>无文件要提交，干净的工作区<br>ssh_exchange_identification: Connection closed by remote host<br>fatal: Could not read from remote repository.<br><br>Please make sure you have the correct access rights<br>and the repository exists.<br>FATAL Something&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html<br>Error: Spawn failed<br>    at ChildProcess.&lt;anonymous&gt; (/www/wwwroot/hexo/node_modules/hexo-util/lib/spawn.js:51:21)<br>    at ChildProcess.emit (node:events:513:28)<br>    at Process.ChildProcess._handle.onexit (node:internal/child_process:293:12)<br>[root@192 hexo]# <br></code></pre></td></tr></table></figure>
-
-<h3 id="3、解析错误信息："><a href="#3、解析错误信息：" class="headerlink" title="3、解析错误信息："></a>3、解析错误信息：</h3><p>错误信息翻译成中文后：</p>
-<html>
-<div class="warpper">
-    <div class="mac b1"></div>
-    <div class="mac b2"></div>
-    <div class="mac b3"></div>
-</div>
-</html>
-
+<h2 id="解析错误信息："><a href="#解析错误信息：" class="headerlink" title="解析错误信息："></a>解析错误信息：</h2><p>错误信息翻译成中文后：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell">SSH交换识别:连接被远程主机关闭<br>致命的:无法从远程存储库读取。<br>请确保您拥有正确的访问权限<br>而且存储库已经存在。<br>致命错误。也许你可以在这里找到解决方案:https://hexo.io/docs/troubleshooting.html<br>错误:生成失败<br>	at ChildProcess.&lt;anonymous&gt; (/www/wwwroot/hexo/node_modules/hexo-util/lib/spawn.js:51:21)<br>    at ChildProcess.emit (node:events:513:28)<br>    at Process.ChildProcess._handle.onexit (node:internal/child_process:293:12)<br></code></pre></td></tr></table></figure>
 
 <p>通过以上可知：</p>
 <p>系统连接不到GitHub，因此无法用SSH密钥进行识别。 —-&gt;   说明是网络问题。</p>
-<h3 id="4、实践探索-解决过程："><a href="#4、实践探索-解决过程：" class="headerlink" title="4、实践探索 - 解决过程："></a>4、实践探索 - 解决过程：</h3><p>出现错误的时候，我又多次部署了几次，依然这样。</p>
-<p>然后，我打开了手机热点，让电脑连接。</p>
-<p>再次部署，部署成功。</p>
-<p>然后我关闭热点，换回无线网。</p>
-<p>再次部署，部署失败，无法连接，同样的错误。</p>
-<p>再打开热点，再部署，这次用手机热点部署失败，依旧报这个错误。</p>
-<p>关闭手机热点，再部署，部署成功…</p>
-<h3 id="5、总结"><a href="#5、总结" class="headerlink" title="5、总结"></a>5、总结</h3><p>经过多次实践可知，这就是网络波动导致的问题，GitHub在国内连接本来就有时能连上有时连不上，而且我昨天部署过多次，都可以成功。这是今天突然发生的问题，而且我也没修改过其他东西，那么错误就不在自己这。</p>
-<h3 id="6、解决方案"><a href="#6、解决方案" class="headerlink" title="6、解决方案"></a>6、解决方案</h3><ol>
+<h2 id="实践探索-解决过程："><a href="#实践探索-解决过程：" class="headerlink" title="实践探索 - 解决过程："></a>实践探索 - 解决过程：</h2><ul>
+<li>出现错误的时候，我又多次部署了几次，依然这样。</li>
+<li>然后，我打开了手机热点，让电脑连接。</li>
+<li>再次部署，部署成功。</li>
+<li>然后我关闭热点，换回无线网。</li>
+<li>再次部署，部署失败，无法连接，同样的错误。</li>
+<li>再打开热点，再部署，这次用手机热点部署失败，依旧报这个错误。</li>
+<li>关闭手机热点，再部署，部署成功…</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>经过多次实践可知，这就是网络波动导致的问题，GitHub在国内连接本来就有时能连上有时连不上，而且我昨天部署过多次，都可以成功。这是今天突然发生的问题，而且我也没修改过其他东西，那么错误就不在自己这。</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><ol>
 <li>尝试更换其他网络。</li>
 <li>过一段时间再试。</li>
 </ol>
-<html>
-<div class="box1">
-         <span class="leftline"></span>
-         <span class="text">更多内容请在评论区留言讨论</span>
-         <span class="rightline"></span>
-     </div>
-</html>]]></content>
+]]></content>
       <categories>
         <category>异常处理</category>
       </categories>
