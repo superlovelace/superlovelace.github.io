@@ -16,26 +16,27 @@
   <meta name="author" content="棱境">
   <meta name="keywords" content="棱境,superlovelace,超爱蕾丝,超爱蕾丝个人博客,超爱蕾丝博客站点,棱境的个人博客,SuperLovelace,superlovelace博客站点,superlovelace个人博客,SuperLovelace博客站点,SuperLovelace个人博客">
   
-    <meta name="description" content="npm在国内使用总会出现些问题，例如下载速度慢，连接失败等；所以今天分享在Windows系统下安装在国内的CNPM。">
+    <meta name="description" content="折半插入排序的特点和折半插入排序的完整代码实现。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CNPM安装指南（Windows）">
-<meta property="og:url" content="https://superlovelace.top/2023/10/01/Cnpm-install/index.html">
+<meta property="og:title" content="折半插入排序（BInsertSort）">
+<meta property="og:url" content="https://superlovelace.top/2023/10/09/BInsertSort/index.html">
 <meta property="og:site_name" content="superlovelace | 棱境的个人博客">
-<meta property="og:description" content="npm在国内使用总会出现些问题，例如下载速度慢，连接失败等；所以今天分享在Windows系统下安装在国内的CNPM。">
+<meta property="og:description" content="折半插入排序的特点和折半插入排序的完整代码实现。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://superlovelace.top/img/post/1016.jpg">
-<meta property="article:published_time" content="2023-10-01T00:38:01.000Z">
-<meta property="article:modified_time" content="2023-10-02T03:08:11.188Z">
+<meta property="og:image" content="https://superlovelace.top/img/post/1030.jpg">
+<meta property="article:published_time" content="2023-10-09T03:30:55.000Z">
+<meta property="article:modified_time" content="2023-10-09T03:33:22.403Z">
 <meta property="article:author" content="棱境">
-<meta property="article:tag" content="安装指南">
+<meta property="article:tag" content="数据结构">
+<meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://superlovelace.top/img/post/1016.jpg">
+<meta name="twitter:image" content="https://superlovelace.top/img/post/1030.jpg">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>CNPM安装指南（Windows） - superlovelace | 棱境的个人博客</title>
+  <title>折半插入排序（BInsertSort） - superlovelace | 棱境的个人博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -240,7 +241,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="CNPM安装指南（Windows）"></span>
+            <span id="subtitle" data-typed-text="折半插入排序（BInsertSort）"></span>
           
           <h1></h1>
         </div>
@@ -252,8 +253,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-10-01 08:38" pubdate>
-          2023年10月1日 早上
+        <time datetime="2023-10-09 11:30" pubdate>
+          2023年10月9日 中午
         </time>
       </span>
     
@@ -264,7 +265,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4k 字
+          1.1k 字
         
       </span>
     
@@ -275,7 +276,7 @@
         
         
         
-          34 分钟
+          10 分钟
         
       </span>
     
@@ -320,49 +321,19 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">CNPM安装指南（Windows）</h1>
+            <h1 id="seo-header">折半插入排序（BInsertSort）</h1>
             
             
               <div class="markdown-body">
                 
                 <blockquote>
-<p>npm在国内使用总会出现些问题，例如下载速度慢，连接失败等；所以今天分享在Windows系统下安装在国内的CNPM。</p>
+<p>折半插入排序的特点和折半插入排序的完整代码实现。</p>
 </blockquote>
 <span id="more"></span>
 
-<h2 id="CNPM安装教程（Windows系统版）"><a href="#CNPM安装教程（Windows系统版）" class="headerlink" title="CNPM安装教程（Windows系统版）"></a>CNPM安装教程（Windows系统版）</h2><p><strong>CNPM淘宝镜像官网：</strong><a target="_blank" rel="noopener" href="https://npmmirror.com/">https://npmmirror.com/</a></p>
-<h3 id="1、打开CNPM淘宝镜像官网"><a href="#1、打开CNPM淘宝镜像官网" class="headerlink" title="1、打开CNPM淘宝镜像官网"></a>1、打开CNPM淘宝镜像官网</h3><p>有很多信息：</p>
-<ul>
-<li>当前 <a target="_blank" rel="noopener" href="https://npmmirror.com/">npmmirror.com</a> 运行版本是: <a href="mailto:&#99;&#x6e;&#x70;&#x6d;&#x63;&#x6f;&#x72;&#101;&#64;&#x33;&#x2e;&#50;&#48;&#x2e;&#51;">&#99;&#x6e;&#x70;&#x6d;&#x63;&#x6f;&#x72;&#101;&#64;&#x33;&#x2e;&#50;&#48;&#x2e;&#51;</a></li>
-<li>本系统运行在 <a target="_blank" rel="noopener" href="https://nodejs.org/?spm=a2c6h.24755359.0.0.6d446e513fj62f">Node.js</a>@v18.16.0 上</li>
-<li>开源镜像: <a target="_blank" rel="noopener" href="https://npmmirror.com/mirrors/">https://npmmirror.com/mirrors/</a></li>
-<li>Node.js 镜像: <a target="_blank" rel="noopener" href="https://npmmirror.com/mirrors/node/">https://npmmirror.com/mirrors/node/</a></li>
-<li>alinode 镜像: <a target="_blank" rel="noopener" href="https://npmmirror.com/mirrors/alinode/">https://npmmirror.com/mirrors/alinode/</a></li>
-<li>ChromeDriver 镜像: <a target="_blank" rel="noopener" href="https://npmmirror.com/mirrors/chromedriver/">https://npmmirror.com/mirrors/chromedriver/</a></li>
-<li>OperaDriver 镜像: <a target="_blank" rel="noopener" href="https://npmmirror.com/mirrors/operadriver/">https://npmmirror.com/mirrors/operadriver/</a></li>
-<li>Selenium 镜像: <a target="_blank" rel="noopener" href="https://npmmirror.com/mirrors/selenium/">https://npmmirror.com/mirrors/selenium/</a></li>
-<li>electron 镜像: <a target="_blank" rel="noopener" href="https://npmmirror.com/mirrors/electron/">https://npmmirror.com/mirrors/electron/</a></li>
-</ul>
-<p>注意：主要查看–&gt;<strong>本系统运行在 <a target="_blank" rel="noopener" href="https://nodejs.org/?spm=a2c6h.24755359.0.0.6d446e513fj62f">Node.js</a>@v18.16.0 上</strong></p>
-<p><strong>这里不同时间会有所不同，具体以你当前打开的官网这里写的为准，一定要匹配，不然后期安装CNMP会出现一堆错误。例如什么操作被系统拒绝，需要权限允许等等，网上的方法我都试过，什么删除npmrc文件，更改文件权限之类的，都没用…</strong></p>
-<h3 id="2、打开Node-js官网"><a href="#2、打开Node-js官网" class="headerlink" title="2、打开Node.js官网"></a>2、打开Node.js官网</h3><p><strong>Node,js中文官网地址</strong>：<a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn">https://nodejs.org/zh-cn</a></p>
-<p>选择CNPM支持的版本下载（我现在是v18.16.0），下载会有些慢，请耐心等待，然后安装。</p>
-<p>安装就没什么特别的，就安装路径根据需要改一下，其他的都默认。</p>
-<p>安装成功后，打开cmd命令提示符，输入<code>npm</code>，会出现以下信息：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs shell">C:\Users\user&gt;npm<br>npm &lt;command&gt;<br><br>Usage:<br><br>npm install        install all the dependencies in your project<br>npm install &lt;foo&gt;  add the &lt;foo&gt; dependency to your project<br>npm test           run this project&#x27;s tests<br>npm run &lt;foo&gt;      run the script named &lt;foo&gt;<br>npm &lt;command&gt; -h   quick help on &lt;command&gt;<br>npm -l             display usage info for all commands<br>npm help &lt;term&gt;    search for help on &lt;term&gt; (in a browser)<br>npm help npm       more involved overview (in a browser)<br><br>All commands:<br><br>    access, adduser, audit, bugs, cache, ci, completion,<br>    config, dedupe, deprecate, diff, dist-tag, docs, doctor,<br>    edit, exec, explain, explore, find-dupes, fund, get, help,<br>    hook, init, install, install-ci-test, install-test, link,<br>    ll, login, logout, ls, org, outdated, owner, pack, ping,<br>    pkg, prefix, profile, prune, publish, query, rebuild, repo,<br>    restart, root, run-script, search, set, shrinkwrap, star,<br>    stars, start, stop, team, test, token, uninstall, unpublish,<br>    unstar, update, version, view, whoami<br><br>Specify configs in the ini-formatted file:<br>    C:\Users\user\.npmrc<br>or on the command line via: npm &lt;command&gt; --key=value<br><br>More configuration info: npm help config<br>Configuration fields: npm help 7 config<br><br>npm@9.5.1 D:\nodejs\node_modules\npm<br><br>C:\Users\user&gt;<br></code></pre></td></tr></table></figure>
-
-<p>证明已安装成功。</p>
-<h3 id="3、安装CNPM"><a href="#3、安装CNPM" class="headerlink" title="3、安装CNPM"></a>3、安装CNPM</h3><p>CNPM淘宝镜像官网有详细说明：</p>
-<p>在<code>cmd</code>输入以下命令进行安装：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">npm install -g cnpm --registry=https://registry.npmmirror.com<br></code></pre></td></tr></table></figure>
-
-<p>稍等片刻，成功后出现如下信息：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs shell">C:\Users\user&gt;npm install -g cnpm --registry=https://registry.npmmirror.com<br>npm WARN deprecated @npmcli/move-file@2.0.1: This functionality has been moved to @npmcli/fs<br><br>added 470 packages in 42s<br><br>27 packages are looking for funding<br>  run `npm fund` for details<br>npm notice<br>npm notice New minor version of npm available! 9.5.1 -&gt; 9.6.7<br>npm notice Changelog: https://github.com/npm/cli/releases/tag/v9.6.7<br>npm notice Run npm install -g npm@9.6.7 to update!<br>npm notice<br><br>C:\Users\user&gt;<br></code></pre></td></tr></table></figure>
-
-<p>在<code>cmd</code>输入<code>cnpm</code>已验证可用性，成功则出现以下信息：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs shell">C:\Users\user&gt;cnpm<br>Usage: cnpm [option] &lt;command&gt;<br>Help: http://cnpmjs.org/help/cnpm<br><br>  Extend command<br>    web                            open cnpm web (ex.: cnpm web)<br>    check [ingoreupdate]           check project dependencies, add ignoreupdate will not check modules&#x27; latest version(ex.: cnpm check, cnpm check -i)<br>    doc [moduleName]               open document page (ex.: cnpm doc egg)<br>    sync [moduleName]              sync module from source npm (ex.: cnpm sync egg)<br>    user [username]                open user profile page (ex.: cnpm user fengmk2)<br><br>  npm command use --registry=https://registry.npmmirror.com<br>    where &lt;command&gt; is one of:<br>    add-user, adduser, apihelp, author, bin, bugs, c, cache,<br>    completion, config, ddp, dedupe, deprecate, docs, edit,<br>    explore, faq, find, find-dupes, get, help, help-search,<br>    home, i, info, init, install, isntall, la, link, list, ll,<br>    ln, login, ls, outdated, owner, pack, prefix, prune,<br>    publish, r, rb, rebuild, remove, restart, rm, root,<br>    run-script, s, se, search, set, show, shrinkwrap, star,<br>    start, stop, submodule, tag, test, tst, un, uninstall,<br>    unlink, unpublish, unstar, up, update, v, version, view,<br>    whoami<br>      npm &lt;cmd&gt; -h     quick help on &lt;cmd&gt;<br>      npm -l           display full usage info<br>      npm faq          commonly asked questions<br>      npm help &lt;term&gt;  search for help on &lt;term&gt;<br>      npm help npm     involved overview<br><br>      Specify configs in the ini-formatted file:<br>          C:\Users\user\.cnpmrc<br>      or on the command line via: npm &lt;command&gt; --key value<br>      Config info can be viewed via: npm help config<br><br>C:\Users\user&gt;<br></code></pre></td></tr></table></figure>
-
-<p>OK，到此CNPM就安装完成了，去开启你的奇妙之旅吧！</p>
+<h1 id="折半插入排序"><a href="#折半插入排序" class="headerlink" title="折半插入排序"></a>折半插入排序</h1><h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><p>折半查找找到应插入的位置，仅适用于顺序表。时间复杂度O(n^2)，并没有比插入排序快多少。</p>
+<p>注意：一直到low&gt;high时才停止折半查找。当mid所指元素等于当前元素时，应继续令low &#x3D; mid +1,以保证“稳定性”。最终应将当前元素插入到low所指位置（即high+1）</p>
+<h2 id="完整代码实现"><a href="#完整代码实现" class="headerlink" title="完整代码实现"></a>完整代码实现</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;string&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-comment">/* 折半插入排序 */</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">BInsertSort</span><span class="hljs-params">(<span class="hljs-type">int</span> A[],<span class="hljs-type">int</span> len)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-type">int</span> i, j, low, mid, high;<br>	<span class="hljs-keyword">for</span> (i = <span class="hljs-number">2</span>; i &lt;= len; i++)<span class="hljs-comment">//依次将A[2]~A[n]插入前面的已排序序列</span><br>	&#123;<br>		A[<span class="hljs-number">0</span>] = A[i];<span class="hljs-comment">//将A[i]暂存到A[0]</span><br>		low = <span class="hljs-number">1</span>; <span class="hljs-comment">//设置折半查找的范围</span><br>		high = i - <span class="hljs-number">1</span>;<br>		<span class="hljs-keyword">while</span> (low&lt;=high)<span class="hljs-comment">//折半查找（默认递增有序）</span><br>		&#123;<br>			mid = (low + high) / <span class="hljs-number">2</span>;<span class="hljs-comment">//取中间点</span><br>			<span class="hljs-keyword">if</span> (A[mid]&gt;A[<span class="hljs-number">0</span>])<br>			&#123;<br>				high = mid - <span class="hljs-number">1</span>;<span class="hljs-comment">//查找左半子表</span><br>			&#125;<br>			<span class="hljs-keyword">else</span><br>			&#123;<br>				low = mid + <span class="hljs-number">1</span>;<span class="hljs-comment">//查找右半子表</span><br>			&#125;<br>		&#125;<br>		<span class="hljs-keyword">for</span> (j = i<span class="hljs-number">-1</span>; j &gt;= high+<span class="hljs-number">1</span>; --j)<br>		&#123;<br>			A[j + <span class="hljs-number">1</span>] = A[j]; <span class="hljs-comment">//统一后移元素，空出插入位置</span><br>		&#125;<br>		A[high + <span class="hljs-number">1</span>] = A[<span class="hljs-number">0</span>];<span class="hljs-comment">//插入操作</span><br>	&#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-comment">//哨兵是用来判断程序何时结束的</span><br>	<span class="hljs-comment">//有暂存单元的数组，第一个是暂存单元</span><br>	<span class="hljs-type">int</span> A[] = &#123;<span class="hljs-number">0</span>,<span class="hljs-number">3</span>,<span class="hljs-number">5</span>,<span class="hljs-number">2</span>,<span class="hljs-number">6</span>,<span class="hljs-number">1</span>,<span class="hljs-number">4</span>,<span class="hljs-number">9</span>,<span class="hljs-number">8</span> &#125;;<br>	<span class="hljs-built_in">BInsertSort</span>(A, <span class="hljs-number">8</span>);<br>	cout &lt;&lt; <span class="hljs-string">&quot;折半插入排序后：&quot;</span> &lt;&lt; endl;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">8</span>; i++)<br>	&#123;<br>		cout &lt;&lt; A[i];<br>		<span class="hljs-keyword">if</span> (i == <span class="hljs-number">8</span>)<br>		&#123;<br>			cout &lt;&lt;endl;;<br>		&#125;<br>		<span class="hljs-keyword">else</span><br>		&#123;<br>			cout &lt;&lt; <span class="hljs-string">&quot;,&quot;</span>;<br>		&#125;<br>	&#125;<br>	<span class="hljs-built_in">system</span>(<span class="hljs-string">&quot;pause&quot;</span>);<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -396,7 +367,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/" class="print-no-link">#安装指南</a>
+        <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="print-no-link">#数据结构</a>
+      
+        <a href="/tags/%E7%AE%97%E6%B3%95/" class="print-no-link">#算法</a>
       
     </div>
   
@@ -408,8 +381,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>CNPM安装指南（Windows）</div>
-      <div>https://superlovelace.top/2023/10/01/Cnpm-install/</div>
+      <div>折半插入排序（BInsertSort）</div>
+      <div>https://superlovelace.top/2023/10/09/BInsertSort/</div>
     </div>
     <div class="license-meta">
       
@@ -421,7 +394,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年10月1日</div>
+          <div>2023年10月9日</div>
         </div>
       
       
@@ -465,18 +438,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/10/01/C++ConsoleTextColor/" title="优化C++控制台输出字体颜色方法">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">优化C++控制台输出字体颜色方法</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/09/30/EnglishGrammar/" title="英语语法综述">
-                        <span class="hidden-mobile">英语语法综述</span>
+                      <a href="/2023/10/08/InsertSort/" title="插入排序（InsertSort）">
+                        <span class="hidden-mobile">插入排序（InsertSort）</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -499,7 +466,7 @@
         var options = Object.assign(
           {"clientID":"6d64389efece8b9c1308","clientSecret":"f04c4adce3a9521c1fa339ac3af8fc085157328a","repo":"gitalk","owner":"superlovelace","admin":["superlovelace"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
           {
-            id: 'b88af0b6e72a17c8dfce4ca9e1842e86'
+            id: 'be857f5d536f2a8bdd7a40c2f6e28331'
           }
         )
         var gitalk = new Gitalk(options);
