@@ -222,7 +222,7 @@
 <h2 id="CNPM安装教程（Windows系统版）"><a href="#CNPM安装教程（Windows系统版）" class="headerlink" title="CNPM安装教程（Windows系统版）"></a>CNPM安装教程（Windows系统版）</h2><p><strong>CNPM淘宝镜像官网：</strong><a href="https://npmmirror.com/">https://npmmirror.com/</a></p>
 <h3 id="1、打开CNPM淘宝镜像官网"><a href="#1、打开CNPM淘宝镜像官网" class="headerlink" title="1、打开CNPM淘宝镜像官网"></a>1、打开CNPM淘宝镜像官网</h3><p>有很多信息：</p>
 <ul>
-<li>当前 <a href="https://npmmirror.com/">npmmirror.com</a> 运行版本是: <a href="mailto:&#99;&#x6e;&#x70;&#x6d;&#x63;&#x6f;&#x72;&#101;&#64;&#x33;&#x2e;&#50;&#48;&#x2e;&#51;">&#99;&#x6e;&#x70;&#x6d;&#x63;&#x6f;&#x72;&#101;&#64;&#x33;&#x2e;&#50;&#48;&#x2e;&#51;</a></li>
+<li>当前 <a href="https://npmmirror.com/">npmmirror.com</a> 运行版本是: <a href="mailto:&#99;&#x6e;&#112;&#109;&#x63;&#x6f;&#x72;&#101;&#x40;&#51;&#46;&#x32;&#48;&#46;&#51;">&#99;&#x6e;&#112;&#109;&#x63;&#x6f;&#x72;&#101;&#x40;&#51;&#46;&#x32;&#48;&#46;&#51;</a></li>
 <li>本系统运行在 <a href="https://nodejs.org/?spm=a2c6h.24755359.0.0.6d446e513fj62f">Node.js</a>@v18.16.0 上</li>
 <li>开源镜像: <a href="https://npmmirror.com/mirrors/">https://npmmirror.com/mirrors/</a></li>
 <li>Node.js 镜像: <a href="https://npmmirror.com/mirrors/node/">https://npmmirror.com/mirrors/node/</a></li>
@@ -2029,6 +2029,32 @@
 <h2 id="3、完整代码实现"><a href="#3、完整代码实现" class="headerlink" title="3、完整代码实现"></a>3、完整代码实现</h2><figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">SelectSort</span><span class="hljs-params">(<span class="hljs-type">int</span> arr[],<span class="hljs-type">int</span> len)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; len<span class="hljs-number">-1</span>; i++)<br>	&#123;<br>		<span class="hljs-type">int</span> min = i;<span class="hljs-comment">//标志位</span><br>		<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = i+<span class="hljs-number">1</span>; j &lt; len; j++)<br>		&#123;<br>			<span class="hljs-keyword">if</span> (arr[min] &gt; arr[j])<span class="hljs-comment">//比较大小，如果比最小值小，就获取对方的下标给min</span><br>			&#123;<br>				min = j;<br>			&#125;<br>		&#125;<br>        <span class="hljs-keyword">if</span>(min == i)<span class="hljs-comment">//一轮搜索后最小值仍然是标志位，则直接进行下一轮比对</span><br>        &#123;<br>            <span class="hljs-keyword">continue</span>;<br>        &#125;<br>        <span class="hljs-comment">//把最小值和刚开始的标志位交换</span><br>		<span class="hljs-type">int</span> temp = arr[i];<br>		arr[i] = arr[min];<br>		arr[min] = temp;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h1 id="补充内容"><a href="#补充内容" class="headerlink" title="补充内容"></a>补充内容</h1><p><a href="https://visualgo.net/zh/sorting">排序动画演示</a></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>希尔排序（Shell Sort）</title>
+    <url>/2023/10/09/ShellSort/</url>
+    <content><![CDATA[<blockquote>
+<p>希尔排序的原理、特点和完整代码实现。</p>
+</blockquote>
+<span id="more"></span>
+
+<h1 id="希尔排序（Shell-Sort）"><a href="#希尔排序（Shell-Sort）" class="headerlink" title="希尔排序（Shell Sort）"></a>希尔排序（Shell Sort）</h1><h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>先将待排序表分割成若干形如L[i, i+d, i+2d, … , i+kd]的特殊子表，对各个子表分别进行直接插入排序。缩小增量d，重复上述过程，直到d &#x3D; 1为止。</p>
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ul>
+<li>空间复杂度：O(1)</li>
+<li>时间复杂度：未知，但优于直接插入排序</li>
+<li>稳定性：不稳定</li>
+<li>适用性：仅可用于顺序表</li>
+</ul>
+<p>高频题型：给出增量序列，分析每一趟排序后的状态</p>
+<h2 id="完整代码实现"><a href="#完整代码实现" class="headerlink" title="完整代码实现"></a>完整代码实现</h2><figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;string&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-comment">/* 希尔排序 */</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">ShellSort</span><span class="hljs-params">(<span class="hljs-type">int</span> A[], <span class="hljs-type">int</span> len)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-type">int</span> d,i,j;<br>	<span class="hljs-comment">//A[0]为暂存单元，当j&lt;=0时，就到插入位置了</span><br>	<span class="hljs-keyword">for</span> (d = len/<span class="hljs-number">2</span>; d &gt;=<span class="hljs-number">1</span>; d=d/<span class="hljs-number">2</span>)<span class="hljs-comment">//步长变化</span><br>	&#123;<br>		<span class="hljs-keyword">for</span> (i = d+<span class="hljs-number">1</span>; i &lt;= len; i++)<br>		&#123;<br>			<span class="hljs-keyword">if</span> (A[i]&lt;A[i-d]) &#123;<span class="hljs-comment">//需将A[i]插入有序增量子表</span><br>				A[<span class="hljs-number">0</span>] = A[i];  <span class="hljs-comment">//暂存在A[0]</span><br>				<span class="hljs-keyword">for</span>(j = i-d; j &gt;<span class="hljs-number">0</span> &amp;&amp; A[<span class="hljs-number">0</span>]&lt;A[j]; j-=d)<br>				&#123;<br>					A[j + d] = A[j];  <span class="hljs-comment">//记录后移，查找插入位置</span><br>				&#125;<br>				A[j + d] = A[<span class="hljs-number">0</span>];  <span class="hljs-comment">//插入</span><br>			&#125;<br>		&#125;<br>	&#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-comment">//哨兵是用来判断程序何时结束的</span><br>	<span class="hljs-comment">//有暂存单元的数组，第一个是暂存单元</span><br>	<span class="hljs-type">int</span> A[] = &#123;<span class="hljs-number">0</span>,<span class="hljs-number">3</span>,<span class="hljs-number">5</span>,<span class="hljs-number">2</span>,<span class="hljs-number">6</span>,<span class="hljs-number">1</span>,<span class="hljs-number">4</span>,<span class="hljs-number">9</span>,<span class="hljs-number">8</span> &#125;;<br>	<span class="hljs-built_in">ShellSort</span>(A, <span class="hljs-number">8</span>);<br>	cout &lt;&lt; <span class="hljs-string">&quot;希尔排序后：&quot;</span> &lt;&lt; endl;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">8</span>; i++)<br>	&#123;<br>		cout &lt;&lt; A[i];<br>		<span class="hljs-keyword">if</span> (i == <span class="hljs-number">8</span>)<br>		&#123;<br>			cout &lt;&lt;endl;;<br>		&#125;<br>		<span class="hljs-keyword">else</span><br>		&#123;<br>			cout &lt;&lt; <span class="hljs-string">&quot;,&quot;</span>;<br>		&#125;<br>	&#125;<br>	<span class="hljs-built_in">system</span>(<span class="hljs-string">&quot;pause&quot;</span>);<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>笔记</category>
