@@ -16,26 +16,26 @@
   <meta name="author" content="棱境">
   <meta name="keywords" content="棱境,superlovelace,超爱蕾丝,超爱蕾丝个人博客,超爱蕾丝博客站点,棱境的个人博客,SuperLovelace,superlovelace博客站点,superlovelace个人博客,SuperLovelace博客站点,SuperLovelace个人博客">
   
-    <meta name="description" content="顺序栈的特点和完整代码实现。">
+    <meta name="description" content="共享顺序栈的特点和完整代码实现。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="顺序栈（SqStack）">
-<meta property="og:url" content="https://superlovelace.top/2023/10/11/SqStack/index.html">
+<meta property="og:title" content="共享顺序栈">
+<meta property="og:url" content="https://superlovelace.top/2023/10/11/ShareSqStack/index.html">
 <meta property="og:site_name" content="superlovelace | 棱境的个人博客">
-<meta property="og:description" content="顺序栈的特点和完整代码实现。">
+<meta property="og:description" content="共享顺序栈的特点和完整代码实现。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://superlovelace.top/img/post/1002.jpg">
-<meta property="article:published_time" content="2023-10-11T00:54:43.000Z">
-<meta property="article:modified_time" content="2023-10-11T01:14:49.676Z">
+<meta property="og:image" content="https://superlovelace.top/img/post/1003.jpg">
+<meta property="article:published_time" content="2023-10-11T01:21:25.000Z">
+<meta property="article:modified_time" content="2023-10-11T01:29:11.931Z">
 <meta property="article:author" content="棱境">
 <meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://superlovelace.top/img/post/1002.jpg">
+<meta name="twitter:image" content="https://superlovelace.top/img/post/1003.jpg">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>顺序栈（SqStack） - superlovelace | 棱境的个人博客</title>
+  <title>共享顺序栈 - superlovelace | 棱境的个人博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -240,7 +240,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="顺序栈（SqStack）"></span>
+            <span id="subtitle" data-typed-text="共享顺序栈"></span>
           
           <h1></h1>
         </div>
@@ -252,8 +252,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-10-11 08:54" pubdate>
-          2023年10月11日 早上
+        <time datetime="2023-10-11 09:21" pubdate>
+          2023年10月11日 上午
         </time>
       </span>
     
@@ -264,7 +264,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.5k 字
+          2.2k 字
         
       </span>
     
@@ -275,7 +275,7 @@
         
         
         
-          13 分钟
+          19 分钟
         
       </span>
     
@@ -320,32 +320,18 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">顺序栈（SqStack）</h1>
+            <h1 id="seo-header">共享顺序栈</h1>
             
             
               <div class="markdown-body">
                 
                 <blockquote>
-<p>顺序栈的特点和完整代码实现。</p>
+<p>共享顺序栈的特点和完整代码实现。</p>
 </blockquote>
 <span id="more"></span>
 
-<h1 id="顺序栈（SqStack）"><a href="#顺序栈（SqStack）" class="headerlink" title="顺序栈（SqStack）"></a>顺序栈（SqStack）</h1><p>注：SqStack为简写，完整名为Sequential Stack。</p>
-<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ul>
-<li>栈也是一种线性表。</li>
-<li>只允许在一端进行插入和删除的线性表。</li>
-<li>先进后出。</li>
-</ul>
-<h2 id="完整代码实现"><a href="#完整代码实现" class="headerlink" title="完整代码实现"></a>完整代码实现</h2><h3 id="代码结构"><a href="#代码结构" class="headerlink" title="代码结构"></a>代码结构</h3><ul>
-<li>定义顺序栈结构</li>
-<li>初始化顺序栈</li>
-<li>判断顺序栈空方法</li>
-<li>顺序栈的进栈方法</li>
-<li>顺序栈的出栈方法</li>
-<li>顺序栈的读取栈顶元素方法</li>
-<li>主函数用以测试</li>
-</ul>
-<h3 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;string&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">	顺序栈表</span><br><span class="hljs-comment">*/</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> MAXSIZE 10 <span class="hljs-comment">//栈元素的最大个数</span></span><br><br><span class="hljs-comment">/* 顺序栈表存储结构 */</span><br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> <br>&#123;<br>	<span class="hljs-type">int</span> data[MAXSIZE];  <span class="hljs-comment">//静态数组存放栈中元素</span><br>	<span class="hljs-type">int</span> top;  <span class="hljs-comment">//栈顶指针</span><br>&#125;SqStack; <br><br><span class="hljs-comment">/* 初始化栈 */</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">InitStack</span><span class="hljs-params">(SqStack &amp;S)</span></span><br><span class="hljs-function"></span>&#123;<br>	S.top = <span class="hljs-number">-1</span>;<br>&#125;<br><br><span class="hljs-comment">/* 判断栈空 */</span><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">StackEmpty</span><span class="hljs-params">(SqStack S)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">if</span> (S.top == <span class="hljs-number">-1</span>)<br>	&#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>	&#125;<br>	<span class="hljs-keyword">else</span> &#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>	&#125;<br>&#125;<br><br><span class="hljs-comment">/* 进栈 */</span><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">Push</span><span class="hljs-params">(SqStack&amp; S, <span class="hljs-type">int</span> e)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">if</span> (S.top == MAXSIZE<span class="hljs-number">-1</span>)<span class="hljs-comment">//top指的是数组的下标位置</span><br>	&#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>	&#125;<br>	S.top++;			<span class="hljs-comment">//指针先+1</span><br>	S.data[S.top] = e; <span class="hljs-comment">//新元素入栈</span><br>	<span class="hljs-comment">//或者上两步合并</span><br>	<span class="hljs-comment">//S.data[++S.top] = e;</span><br>	<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>&#125;<br><br><span class="hljs-comment">/* 出栈 */</span><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">Pop</span><span class="hljs-params">(SqStack&amp; S, <span class="hljs-type">int</span> &amp;e)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">if</span> (S.top == <span class="hljs-number">-1</span>)<br>	&#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>	&#125;<br>	e = S.data[S.top];<br>	S.top--;<br>	<span class="hljs-comment">//或者上两步合并</span><br>	<span class="hljs-comment">//S.data[S.top--] = e;</span><br>	<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>&#125;<br><br><span class="hljs-comment">/* 读取栈顶元素 */</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">GetTop</span><span class="hljs-params">(SqStack S,<span class="hljs-type">int</span> &amp;e)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">if</span> (S.top == <span class="hljs-number">-1</span>)<br>	&#123;<br>		<span class="hljs-keyword">return</span>;<br>	&#125;<br>	e = S.data[S.top];<br>&#125;<br><br><span class="hljs-comment">/* 主函数 */</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	SqStack S; <span class="hljs-comment">//实例化栈</span><br>	<span class="hljs-built_in">InitStack</span>(S);  <span class="hljs-comment">//初始化栈</span><br>	cout &lt;&lt;<span class="hljs-string">&quot;栈是否为空：&quot;</span> &lt;&lt; <span class="hljs-built_in">StackEmpty</span>(S) &lt;&lt; endl; <span class="hljs-comment">//判断栈空</span><br>	<span class="hljs-type">int</span> a = <span class="hljs-number">10</span>; <span class="hljs-comment">//定义入栈元素a</span><br>	<span class="hljs-type">int</span> b;    <span class="hljs-comment">//定义接收栈顶元素b</span><br>	<br>	cout &lt;&lt; <span class="hljs-string">&quot;入栈：&quot;</span> &lt;&lt; <span class="hljs-built_in">Push</span>(S, a)&lt;&lt; endl;<br>	<span class="hljs-built_in">GetTop</span>(S, b);<br>	cout&lt;&lt;<span class="hljs-string">&quot;读取栈顶元素：&quot;</span> &lt;&lt;b &lt;&lt;endl;<br>	cout &lt;&lt; <span class="hljs-string">&quot;出栈：&quot;</span> &lt;&lt; <span class="hljs-built_in">Pop</span>(S, a) &lt;&lt; endl;<br>	cout &lt;&lt; <span class="hljs-string">&quot;栈是否为空：&quot;</span> &lt;&lt; <span class="hljs-built_in">StackEmpty</span>(S) &lt;&lt; endl;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h1 id="共享顺序栈"><a href="#共享顺序栈" class="headerlink" title="共享顺序栈"></a>共享顺序栈</h1><h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><p>两个顺序栈用一个数组空间，可看作单通道的隧道停车厂，一边占用的空间多了，另一边的剩余空间就少了。</p>
+<h2 id="完整代码实现"><a href="#完整代码实现" class="headerlink" title="完整代码实现"></a>完整代码实现</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;string&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">	共享栈：两个栈用一个数组空间</span><br><span class="hljs-comment">*/</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> MAXSIZE 10 <span class="hljs-comment">//栈元素的最大个数</span></span><br><br><span class="hljs-comment">/* 顺序栈表存储结构 */</span><br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span><br>&#123;<br>	<span class="hljs-type">int</span> data[MAXSIZE];  <span class="hljs-comment">//静态数组存放栈中元素</span><br>	<span class="hljs-type">int</span> top1;  <span class="hljs-comment">//1号栈顶指针</span><br>	<span class="hljs-type">int</span> top2; <span class="hljs-comment">//2号栈顶指针</span><br>&#125;SqStack;<br><br><span class="hljs-comment">//初始化栈</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">InitStack</span><span class="hljs-params">(SqStack&amp; S)</span></span><br><span class="hljs-function"></span>&#123;<br>	S.top1 = <span class="hljs-number">-1</span>;<br>	S.top2 = MAXSIZE;<br>&#125;<br><br><span class="hljs-comment">//判断栈空</span><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">StackEmpty</span><span class="hljs-params">(SqStack S)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">if</span> (S.top1 == <span class="hljs-number">-1</span> || S.top2 == MAXSIZE)<br>	&#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>	&#125;<br>	<span class="hljs-keyword">else</span> &#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>	&#125;<br>&#125;<br><br><span class="hljs-comment">//进1号栈</span><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">Push1</span><span class="hljs-params">(SqStack&amp; S, <span class="hljs-type">int</span> e)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">if</span> (S.top1 +<span class="hljs-number">1</span> == S.top2)<span class="hljs-comment">//top指的是数组的下标位置</span><br>	&#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>	&#125;<br>	S.top1++;			<span class="hljs-comment">//指针先+1</span><br>	S.data[S.top1] = e; <span class="hljs-comment">//新元素入栈</span><br>	<span class="hljs-comment">//或者上两步合并</span><br>	<span class="hljs-comment">//S.data[++S.top1] = e;</span><br>	<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>&#125;<br><span class="hljs-comment">//进2号栈</span><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">Push2</span><span class="hljs-params">(SqStack&amp; S, <span class="hljs-type">int</span> e)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">if</span> (S.top1 + <span class="hljs-number">1</span> == S.top2)<span class="hljs-comment">//top指的是数组的下标位置</span><br>	&#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>	&#125;<br>	S.top2--;			<span class="hljs-comment">//指针先-1</span><br>	S.data[S.top2] = e; <span class="hljs-comment">//新元素入栈</span><br>	<span class="hljs-comment">//或者上两步合并</span><br>	<span class="hljs-comment">//S.data[--S.top2] = e;</span><br>	<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>&#125;<br><br><span class="hljs-comment">//出1号栈</span><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">Pop1</span><span class="hljs-params">(SqStack&amp; S, <span class="hljs-type">int</span>&amp; e)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">if</span> (S.top1 == <span class="hljs-number">-1</span>)<br>	&#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>	&#125;<br>	e = S.data[S.top1];<br>	S.top1--;<br>	<span class="hljs-comment">//或者上两步合并</span><br>	<span class="hljs-comment">//S.data[S.top--] = e;</span><br>	<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>&#125;<br><br><span class="hljs-comment">//出2号栈</span><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">Pop2</span><span class="hljs-params">(SqStack&amp; S, <span class="hljs-type">int</span>&amp; e)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">if</span> (S.top2 == MAXSIZE)<br>	&#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>	&#125;<br>	e = S.data[S.top2];<br>	S.top2++;<br>	<span class="hljs-comment">//或者上两步合并</span><br>	<span class="hljs-comment">//S.data[S.top2++] = e;</span><br>	<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>&#125;<br><br><span class="hljs-comment">//读取1号栈顶元素</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">GetTop1</span><span class="hljs-params">(SqStack S, <span class="hljs-type">int</span>&amp; e)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">if</span> (S.top1 == <span class="hljs-number">-1</span>)<br>	&#123;<br>		<span class="hljs-keyword">return</span>;<br>	&#125;<br>	e = S.data[S.top1];<br>&#125;<br><br><span class="hljs-comment">//读取2号栈顶元素</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">GetTop2</span><span class="hljs-params">(SqStack S, <span class="hljs-type">int</span>&amp; e)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">if</span> (S.top2 == MAXSIZE)<br>	&#123;<br>		<span class="hljs-keyword">return</span>;<br>	&#125;<br>	e = S.data[S.top2];<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	SqStack S;<br>	<span class="hljs-built_in">InitStack</span>(S);<br>	cout &lt;&lt; <span class="hljs-string">&quot;栈是否为空：&quot;</span> &lt;&lt; <span class="hljs-built_in">StackEmpty</span>(S) &lt;&lt; endl;<br>	<span class="hljs-type">int</span> a = <span class="hljs-number">10</span>;<br>	<span class="hljs-type">int</span> b;<br><br>	cout &lt;&lt; <span class="hljs-string">&quot;入1号栈：&quot;</span> &lt;&lt; <span class="hljs-built_in">Push1</span>(S, a) &lt;&lt; endl;<br>	<span class="hljs-built_in">GetTop1</span>(S, b);<br>	cout &lt;&lt; <span class="hljs-string">&quot;读取1号栈顶元素：&quot;</span> &lt;&lt; b &lt;&lt; endl;<br>	cout &lt;&lt; <span class="hljs-string">&quot;出1号栈：&quot;</span> &lt;&lt; <span class="hljs-built_in">Pop1</span>(S, a) &lt;&lt; endl;<br>	cout &lt;&lt; <span class="hljs-string">&quot;栈是否为空：&quot;</span> &lt;&lt; <span class="hljs-built_in">StackEmpty</span>(S) &lt;&lt; endl;<br>	cout &lt;&lt; <span class="hljs-string">&quot;入2号栈：&quot;</span> &lt;&lt; <span class="hljs-built_in">Push2</span>(S, a) &lt;&lt; endl;<br>	<span class="hljs-built_in">GetTop2</span>(S, b);<br>	cout &lt;&lt; <span class="hljs-string">&quot;读取2号栈顶元素：&quot;</span> &lt;&lt; b &lt;&lt; endl;<br>	cout &lt;&lt; <span class="hljs-string">&quot;出2号栈：&quot;</span> &lt;&lt; <span class="hljs-built_in">Pop2</span>(S, a) &lt;&lt; endl;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -391,8 +377,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>顺序栈（SqStack）</div>
-      <div>https://superlovelace.top/2023/10/11/SqStack/</div>
+      <div>共享顺序栈</div>
+      <div>https://superlovelace.top/2023/10/11/ShareSqStack/</div>
     </div>
     <div class="license-meta">
       
@@ -448,18 +434,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/10/11/ShareSqStack/" title="共享顺序栈">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">共享顺序栈</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/10/10/RadixSort/" title="基数排序（Radix Sort）">
-                        <span class="hidden-mobile">基数排序（Radix Sort）</span>
+                      <a href="/2023/10/11/SqStack/" title="顺序栈（SqStack）">
+                        <span class="hidden-mobile">顺序栈（SqStack）</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -482,7 +462,7 @@
         var options = Object.assign(
           {"clientID":"6d64389efece8b9c1308","clientSecret":"f04c4adce3a9521c1fa339ac3af8fc085157328a","repo":"gitalk","owner":"superlovelace","admin":["superlovelace"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
           {
-            id: '82affe06e199352d358b0d270084a056'
+            id: 'a3a6906d4b2195b3669b9060d0a6d01e'
           }
         )
         var gitalk = new Gitalk(options);
