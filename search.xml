@@ -58,17 +58,17 @@
     <title>交换排序之冒泡排序（Bubble Sort）</title>
     <url>/2023/09/29/BubbleSort/</url>
     <content><![CDATA[<blockquote>
-<p>冒泡排序的介绍，包括选择排序的特点、原理和完整代码实现。</p>
+<p>冒泡排序的介绍，包括选择排序的特点、原理和完整实现代码。</p>
 </blockquote>
 <span id="more"></span>
 
-<h1 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h1><h2 id="1、过程"><a href="#1、过程" class="headerlink" title="1、过程"></a>1、过程</h2><p>从后往前两两比较相邻元素值，若为逆序就交换，直到序列比较完成。每一趟可以使一个元素移动到最终位置，已经确定的元素，之后无需再次对比。若一趟下来未发生交换，则算法可提前结束。</p>
-<h2 id="2、特点"><a href="#2、特点" class="headerlink" title="2、特点"></a>2、特点</h2><ul>
+<h1 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h1><h2 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h2><p>从后往前两两比较相邻元素值，若为逆序就交换，直到序列比较完成。每一趟可以使一个元素移动到最终位置，已经确定的元素，之后无需再次对比。若一趟下来未发生交换，则算法可提前结束。</p>
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ul>
 <li>空间复杂度：O(1)</li>
 <li>平均时间复杂度：O(n^2)</li>
 <li>算法稳定，顺序表和链表都可用</li>
 </ul>
-<h2 id="3、完整代码实现"><a href="#3、完整代码实现" class="headerlink" title="3、完整代码实现"></a>3、完整代码实现</h2><figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">/* 冒泡排序 */</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">BubbleSort</span><span class="hljs-params">(<span class="hljs-type">int</span> * arr ,<span class="hljs-type">int</span> len)</span><span class="hljs-comment">//升序排列</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; len<span class="hljs-number">-1</span>; i++) <br>    &#123;<br>		<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; len - <span class="hljs-number">1</span> - i; j++) <span class="hljs-comment">//每次确定一个最大值在后面</span><br>        &#123;<br>			<span class="hljs-keyword">if</span> (arr[j] &gt; arr[j+<span class="hljs-number">1</span>]) <span class="hljs-comment">//前一个比后一个大就交换</span><br>            &#123;<br>				<span class="hljs-type">int</span> temp = arr[j];<br>				arr[j] = arr[j+<span class="hljs-number">1</span>];<br>				arr[j+<span class="hljs-number">1</span>] = temp;<br>			&#125;<br>		&#125;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="完整实现代码"><a href="#完整实现代码" class="headerlink" title="完整实现代码"></a>完整实现代码</h2><figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">/* 冒泡排序 */</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">BubbleSort</span><span class="hljs-params">(<span class="hljs-type">int</span> * arr ,<span class="hljs-type">int</span> len)</span><span class="hljs-comment">//升序排列</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; len<span class="hljs-number">-1</span>; i++) <br>    &#123;<br>		<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; len - <span class="hljs-number">1</span> - i; j++) <span class="hljs-comment">//每次确定一个最大值在后面</span><br>        &#123;<br>			<span class="hljs-keyword">if</span> (arr[j] &gt; arr[j+<span class="hljs-number">1</span>]) <span class="hljs-comment">//前一个比后一个大就交换</span><br>            &#123;<br>				<span class="hljs-type">int</span> temp = arr[j];<br>				arr[j] = arr[j+<span class="hljs-number">1</span>];<br>				arr[j+<span class="hljs-number">1</span>] = temp;<br>			&#125;<br>		&#125;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h1 id="补充内容"><a href="#补充内容" class="headerlink" title="补充内容"></a>补充内容</h1><p><a href="https://visualgo.net/zh/sorting">排序动画演示</a></p>
 ]]></content>
@@ -256,7 +256,7 @@
 <h2 id="CNPM安装教程（Windows系统版）"><a href="#CNPM安装教程（Windows系统版）" class="headerlink" title="CNPM安装教程（Windows系统版）"></a>CNPM安装教程（Windows系统版）</h2><p><strong>CNPM淘宝镜像官网：</strong><a href="https://npmmirror.com/">https://npmmirror.com/</a></p>
 <h3 id="1、打开CNPM淘宝镜像官网"><a href="#1、打开CNPM淘宝镜像官网" class="headerlink" title="1、打开CNPM淘宝镜像官网"></a>1、打开CNPM淘宝镜像官网</h3><p>有很多信息：</p>
 <ul>
-<li>当前 <a href="https://npmmirror.com/">npmmirror.com</a> 运行版本是: <a href="mailto:&#x63;&#x6e;&#112;&#x6d;&#99;&#111;&#114;&#101;&#x40;&#x33;&#x2e;&#x32;&#x30;&#46;&#51;">&#x63;&#x6e;&#112;&#x6d;&#99;&#111;&#114;&#101;&#x40;&#x33;&#x2e;&#x32;&#x30;&#46;&#51;</a></li>
+<li>当前 <a href="https://npmmirror.com/">npmmirror.com</a> 运行版本是: <a href="mailto:&#99;&#110;&#112;&#x6d;&#x63;&#x6f;&#114;&#101;&#x40;&#x33;&#x2e;&#50;&#x30;&#46;&#51;">&#99;&#110;&#112;&#x6d;&#x63;&#x6f;&#114;&#101;&#x40;&#x33;&#x2e;&#50;&#x30;&#46;&#51;</a></li>
 <li>本系统运行在 <a href="https://nodejs.org/?spm=a2c6h.24755359.0.0.6d446e513fj62f">Node.js</a>@v18.16.0 上</li>
 <li>开源镜像: <a href="https://npmmirror.com/mirrors/">https://npmmirror.com/mirrors/</a></li>
 <li>Node.js 镜像: <a href="https://npmmirror.com/mirrors/node/">https://npmmirror.com/mirrors/node/</a></li>
