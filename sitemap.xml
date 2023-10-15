@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://superlovelace.top/2023/10/07/DuLinkList/</loc>
+    
+    <lastmod>2023-10-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://superlovelace.top/2023/10/06/CircularLinkList/</loc>
     
     <lastmod>2023-10-15</lastmod>
@@ -147,15 +156,6 @@
   
   <url>
     <loc>https://superlovelace.top/2022/11/25/Github-https/</loc>
-    
-    <lastmod>2023-10-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://superlovelace.top/2023/10/07/DuLinkList/</loc>
     
     <lastmod>2023-10-07</lastmod>
     
