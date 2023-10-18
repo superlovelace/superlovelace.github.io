@@ -256,7 +256,7 @@
 <h2 id="CNPM安装教程（Windows系统版）"><a href="#CNPM安装教程（Windows系统版）" class="headerlink" title="CNPM安装教程（Windows系统版）"></a>CNPM安装教程（Windows系统版）</h2><p><strong>CNPM淘宝镜像官网：</strong><a href="https://npmmirror.com/">https://npmmirror.com/</a></p>
 <h3 id="1、打开CNPM淘宝镜像官网"><a href="#1、打开CNPM淘宝镜像官网" class="headerlink" title="1、打开CNPM淘宝镜像官网"></a>1、打开CNPM淘宝镜像官网</h3><p>有很多信息：</p>
 <ul>
-<li>当前 <a href="https://npmmirror.com/">npmmirror.com</a> 运行版本是: <a href="mailto:&#x63;&#110;&#x70;&#109;&#99;&#111;&#114;&#x65;&#64;&#51;&#x2e;&#50;&#48;&#46;&#x33;">&#x63;&#110;&#x70;&#109;&#99;&#111;&#114;&#x65;&#64;&#51;&#x2e;&#50;&#48;&#46;&#x33;</a></li>
+<li>当前 <a href="https://npmmirror.com/">npmmirror.com</a> 运行版本是: <a href="mailto:&#x63;&#110;&#112;&#109;&#x63;&#x6f;&#x72;&#x65;&#64;&#51;&#x2e;&#50;&#48;&#x2e;&#51;">&#x63;&#110;&#112;&#109;&#x63;&#x6f;&#x72;&#x65;&#64;&#51;&#x2e;&#50;&#48;&#x2e;&#51;</a></li>
 <li>本系统运行在 <a href="https://nodejs.org/?spm=a2c6h.24755359.0.0.6d446e513fj62f">Node.js</a>@v18.16.0 上</li>
 <li>开源镜像: <a href="https://npmmirror.com/mirrors/">https://npmmirror.com/mirrors/</a></li>
 <li>Node.js 镜像: <a href="https://npmmirror.com/mirrors/node/">https://npmmirror.com/mirrors/node/</a></li>
@@ -1337,7 +1337,7 @@
     <title>循环队列（链式存储结构）</title>
     <url>/2023/10/13/LinkQueue/</url>
     <content><![CDATA[<blockquote>
-<p>循环队列的链式存储结构形式完整实现代码。</p>
+<p>本文主要总结了循环队列的另一种实现形式，即循环队列的链式存储结构形式，主要是完整实现代码。</p>
 </blockquote>
 <span id="more"></span>
 
