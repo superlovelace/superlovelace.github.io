@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://superlovelace.top/2023/09/29/HeapSort/</loc>
+    <lastmod>2023-10-20</lastmod>
+  </url>
+  <url>
     <loc>https://superlovelace.top/2023/09/29/BubbleSort/</loc>
     <lastmod>2023-10-20</lastmod>
   </url>
@@ -27,10 +31,6 @@
   <url>
     <loc>https://superlovelace.top/2023/10/08/InsertSort/</loc>
     <lastmod>2023-10-17</lastmod>
-  </url>
-  <url>
-    <loc>https://superlovelace.top/2023/09/29/HeapSort/</loc>
-    <lastmod>2023-10-16</lastmod>
   </url>
   <url>
     <loc>https://superlovelace.top/2023/10/07/DuLinkList/</loc>
