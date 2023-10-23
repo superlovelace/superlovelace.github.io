@@ -256,7 +256,7 @@
 <h2 id="CNPM安装教程（Windows系统版）"><a href="#CNPM安装教程（Windows系统版）" class="headerlink" title="CNPM安装教程（Windows系统版）"></a>CNPM安装教程（Windows系统版）</h2><p><strong>CNPM淘宝镜像官网：</strong><a href="https://npmmirror.com/">https://npmmirror.com/</a></p>
 <h3 id="1、打开CNPM淘宝镜像官网"><a href="#1、打开CNPM淘宝镜像官网" class="headerlink" title="1、打开CNPM淘宝镜像官网"></a>1、打开CNPM淘宝镜像官网</h3><p>有很多信息：</p>
 <ul>
-<li>当前 <a href="https://npmmirror.com/">npmmirror.com</a> 运行版本是: <a href="mailto:&#x63;&#x6e;&#x70;&#x6d;&#x63;&#111;&#x72;&#x65;&#x40;&#x33;&#x2e;&#50;&#x30;&#46;&#51;">&#x63;&#x6e;&#x70;&#x6d;&#x63;&#111;&#x72;&#x65;&#x40;&#x33;&#x2e;&#50;&#x30;&#46;&#51;</a></li>
+<li>当前 <a href="https://npmmirror.com/">npmmirror.com</a> 运行版本是: <a href="mailto:&#x63;&#110;&#x70;&#x6d;&#x63;&#x6f;&#x72;&#101;&#64;&#51;&#x2e;&#x32;&#48;&#46;&#51;">&#x63;&#110;&#x70;&#x6d;&#x63;&#x6f;&#x72;&#101;&#64;&#51;&#x2e;&#x32;&#48;&#46;&#51;</a></li>
 <li>本系统运行在 <a href="https://nodejs.org/?spm=a2c6h.24755359.0.0.6d446e513fj62f">Node.js</a>@v18.16.0 上</li>
 <li>开源镜像: <a href="https://npmmirror.com/mirrors/">https://npmmirror.com/mirrors/</a></li>
 <li>Node.js 镜像: <a href="https://npmmirror.com/mirrors/node/">https://npmmirror.com/mirrors/node/</a></li>
@@ -560,6 +560,119 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git克隆和提交代码</title>
+    <url>/2023/10/23/Gituse/</url>
+    <content><![CDATA[<blockquote>
+<p>本文主要总结了git初次使用克隆和提交代码。包括git的安装和配置，项目库的创建、项目的克隆和提交。</p>
+</blockquote>
+<span id="more"></span>
+
+<h1 id="Git克隆和提交代码"><a href="#Git克隆和提交代码" class="headerlink" title="Git克隆和提交代码"></a>Git克隆和提交代码</h1><p>Progit中文版书籍：<a href="https://www.progit.cn/">https://www.progit.cn/</a></p>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ul>
+<li>windows系统先下载git，官方下载页：<a href="https://git-scm.com/download/win">https://git-scm.com/download/win</a></li>
+<li>创建本地项目文件夹存储库并进入</li>
+</ul>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>右键打开git bash，执行仓库初始化命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">git init <span class="hljs-comment">#然后回车</span><br></code></pre></td></tr></table></figure>
+
+<p>此时会在项目存储库生成<code>.git</code>文件夹及其内容 </p>
+<h3 id="设置个人信息"><a href="#设置个人信息" class="headerlink" title="设置个人信息"></a>设置个人信息</h3><p>设置用户名：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">git config --global user.name <span class="hljs-string">&quot;myName&quot;</span>  <br></code></pre></td></tr></table></figure>
+
+<p>查看用户名：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">git config user.name<br></code></pre></td></tr></table></figure>
+
+<p>设置邮箱：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">git config --global user.email <span class="hljs-string">&quot;email@example.com&quot;</span>  <br></code></pre></td></tr></table></figure>
+
+<p>查看邮箱：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">git config user.email<br></code></pre></td></tr></table></figure>
+
+<p>查看配置信息：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">git config --list <span class="hljs-comment">#可查看当前用户信息以及其他的一些信息</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="生成SSH密钥"><a href="#生成SSH密钥" class="headerlink" title="生成SSH密钥"></a>生成SSH密钥</h3><p>指定文件名生成密钥（方便查看公钥以后要用的地方），否则文件名将用默认名称</p>
+<p>指定密钥文件名为<code>gitee_id_rsa</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">ssh-keygen -t rsa -C <span class="hljs-string">&#x27;Gitee SSH Key&#x27;</span> -f ~/.ssh/gitee_id_rsa<br></code></pre></td></tr></table></figure>
+
+<p>指定密钥文件名为<code>github_id_rsa</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">ssh-keygen -t rsa -C <span class="hljs-string">&#x27;Github SSH Key&#x27;</span> -f ~/.ssh/github_id_rsa<br></code></pre></td></tr></table></figure>
+
+<hr>
+<p>常用参数注释：</p>
+<p>-t 加&#x2F;解密算法类型（rsa、ed25519等）</p>
+<p>-b 秘钥长度,rsa默认秘钥长度的为 2048</p>
+<p>-C 注释，一般是填写用户名</p>
+<p>-f 指定生成的秘钥文件名，如果不提供此参数则使用默认文件名，如rsa私钥默认文件名 ~&#x2F;.ssh&#x2F;id_rsa ，公钥默认文件名 ~&#x2F;.ssh&#x2F;id_rsa.pub</p>
+<hr>
+<p>首次生成SSH密钥会有三次询问，根据需要设置，想免密推送就不设置密码</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">user@DESKTOP MINGW64 ~/Desktop<br>$ ssh-keygen -t rsa -C <span class="hljs-string">&#x27;Gitee SSH Key&#x27;</span> -f ~/.ssh/gitee_id_rsa<br>//生成一对RSA密钥<br>Generating public/private rsa key pair.<br>//密钥文件存储位置，直接回车使用默认路径<br>Enter file <span class="hljs-keyword">in</span> <span class="hljs-built_in">which</span> to save the key (/Users/user/.ssh/gitee_id_rsa):<br>//设置密码，若直接回车则不设置密码<br>Enter passphrase (empty <span class="hljs-keyword">for</span> no passphrase):<br>//确认密码，和上步操作相同<br>Enter same passphrase again:<br>//文件存储位置<br>Your identification has been saved <span class="hljs-keyword">in</span> /c/Users/user/.ssh/gitee_id_rsa<br>Your public key has been saved <span class="hljs-keyword">in</span> /c/Users/user/.ssh/gitee_id_rsa.pub<br><br>The key fingerprint is:<br>SHA256:wXKzkWFbVONiEtSWPXjcjVy0oONsMYbBU59h7mlMwes Gitee SSH Key<br>The key<span class="hljs-string">&#x27;s randomart image is:</span><br><span class="hljs-string">+---[RSA 3072]----+</span><br><span class="hljs-string">|       .*++B+B =o|</span><br><span class="hljs-string">|       o OB.XoO o|</span><br><span class="hljs-string">|      . Xo+B.*.. |</span><br><span class="hljs-string">|       o B+.B..  |</span><br><span class="hljs-string">|        S  +.=   |</span><br><span class="hljs-string">|          . .E   |</span><br><span class="hljs-string">|                 |</span><br><span class="hljs-string">|                 |</span><br><span class="hljs-string">|                 |</span><br><span class="hljs-string">+----[SHA256]-----+</span><br><span class="hljs-string"></span><br><span class="hljs-string">user@DESKTOP MINGW64 ~/Desktop</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="创建config文件"><a href="#创建config文件" class="headerlink" title="创建config文件"></a>创建<code>config</code>文件</h3><p>进入生成的密钥文件夹，创建文件，文件名为<code>config</code>，没有后缀。然后添加以下内容：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># gitee</span><br>Host gitee.com<br>HostName gitee.com<br>PreferredAuthentications publickey<br>IdentityFile ~/.ssh/gitee_id_rsa<br><span class="hljs-comment"># github</span><br>Host github.com<br>HostName github.com<br>PreferredAuthentications publickey<br>IdentityFile ~/.ssh/github_id_rsa<br></code></pre></td></tr></table></figure>
+
+<p>注：<code>Host </code>和<code>HostName</code> 填写 git 服务器的域名，<code>IdentityFile</code> 指定私钥的路径</p>
+<p>配置公钥到<code>Gitee</code>或<code>Github</code>：</p>
+<ul>
+<li>Gitee SSH配置地址在：个人资料的安全设置–&gt;SSH公钥</li>
+<li>Github SSH配置地址在：用户头像–&gt;右侧边栏–&gt;Settings–&gt;Access–&gt;SSH and GPG keys</li>
+</ul>
+<p>查看生成的SSH公钥：</p>
+<p>方式一：用记事本打开公钥文件，全选复制。</p>
+<p>方式二：用<code>gitbash</code>查看</p>
+<p>查看<code>.ssh</code>文件夹内的所有文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">ls</span> ~/.ssh/<br></code></pre></td></tr></table></figure>
+
+<p>输出内容：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">user@DESKTOP MINGW64 ~/Desktop<br>$ <span class="hljs-built_in">ls</span> ~/.ssh/<br>config        gitee_id_rsa.pub  github_id_rsa.pub  gitee_id_rsa  github_id_rsa<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>公钥文件为：<code>gitee_id_rsa.pub</code> 和<code>github_id_rsa.pub</code>，</li>
+<li>私钥文件为：<code>gitee_id_rsa</code> 和<code>github_id_rsa</code></li>
+</ul>
+<p>查看公钥内容：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cat</span> ~/.ssh/gitee_id_rsa.pub<br></code></pre></td></tr></table></figure>
+
+<p>输出内容：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">user@DESKTOP MINGW64 ~/Desktop<br>$ <span class="hljs-built_in">cat</span> ~/.ssh/gitee_id_rsa.pub<br>ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDchWfkihfqZgdV6/431en8mUN2dk5FtAJ0TkCYQJXq07nn51c9+3qNjbvxxygFDSOFIyG7nb34H2vAk8RL/drODtBPSxNhtxt/IuKSNNHF7hYt+nh8VqbNTMi9fJVEN6+bS7k7gLTY1IVDd4sUjEKw0mYzPgdHCAyubSARUYzATx2SOn9+6UAo1Iq2Ftt0OVMmoWueIe5E9nQWd8IANbrnvs9VbPYVP5fyPQez+/YT4HxGib5+hYXVEsFh/qN3JxbY3uK34mX3jJtz++ULcQPtS8w0AQWR94po6EH1TJvUWMlTOT8liGd9aebuFrZjjVibvQ6kVcApTtEDJXzeb00fqh3waNc8+vTTwpyzHXy8ictcLCbnAFHzgOJpS0tMgkof0U4p3pHrY4umQ5IHkq5aS2WDch6IHVy3mwRdzK91BAzIcNHMnVKAC528WT4KZ3ZdFjC6XxCoiwf6d8MBCxhMnMbm4i284RoQa9LYEuZtzWCcheYpTN7/knfDksrLiEE= Gitee SSH Key<br></code></pre></td></tr></table></figure>
+
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>配置完成后回到<code>git bash</code>，测试配置的信息</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">ssh -T git@gitee.com<br>ssh -T git@github.com<br></code></pre></td></tr></table></figure>
+
+<p>成功后，显示如下内容：</p>
+<p>测试<code>gitee</code>:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">user@DESKTOP MINGW64 ~/Desktop<br>$ ssh -T git@gitee.com<br>Hi user! You<span class="hljs-string">&#x27;ve successfully authenticated, but GITEE.COM does not provide shell access.</span><br></code></pre></td></tr></table></figure>
+
+<p>测试<code>github</code>:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">user@DESKTOP MINGW64 ~/Desktop<br>$ ssh -T git@github.com<br>Hi user! You<span class="hljs-string">&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="克隆项目到本地"><a href="#克隆项目到本地" class="headerlink" title="克隆项目到本地"></a>克隆项目到本地</h2><p>先进入之前创建的项目文件夹</p>
+<h3 id="链接到远程库"><a href="#链接到远程库" class="headerlink" title="链接到远程库"></a>链接到远程库</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">git remote add origin https://git.oschina.net/xxxxxx/xxxxxx.git<br></code></pre></td></tr></table></figure>
+
+<h3 id="克隆项目"><a href="#克隆项目" class="headerlink" title="克隆项目"></a>克隆项目</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> git@gitee.com:AprilDawn/AprilDawn.gitee.io.git<br></code></pre></td></tr></table></figure>
+
+<p>这样项目就下载到项目仓库了，现在就可以打开项目写代码了。</p>
+<h2 id="项目提交"><a href="#项目提交" class="headerlink" title="项目提交"></a>项目提交</h2><p>当完成代码后，进入克隆的项目里。</p>
+<h3 id="添加文件"><a href="#添加文件" class="headerlink" title="添加文件"></a>添加文件</h3><p>添加项目中新增或改动的文件到缓存</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">git add . <br></code></pre></td></tr></table></figure>
+
+<p>注：点表示添加目录下所有文件到缓存库,如果只添加某个文件,只需把 . 换成你要添加的文件名即可;</p>
+<h3 id="添加注释"><a href="#添加注释" class="headerlink" title="添加注释"></a>添加注释</h3><p>用以说明此次提交更改了哪些信息</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">git commit -m <span class="hljs-string">&quot;新增什么功能，修复了什么BUG等等&quot;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="推送提交到远程仓库"><a href="#推送提交到远程仓库" class="headerlink" title="推送提交到远程仓库"></a>推送提交到远程仓库</h3><p>这是默认推送到master分支</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">git push<br></code></pre></td></tr></table></figure>
+
+<p>推送到指定分支</p>
+<figure class="highlight maxima"><table><tr><td class="code"><pre><code class="hljs maxima">git <span class="hljs-built_in">push</span> <span class="hljs-built_in">origin</span> 分支名<br></code></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
       </tags>
   </entry>
   <entry>
