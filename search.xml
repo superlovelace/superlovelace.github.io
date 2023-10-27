@@ -81,171 +81,6 @@
       </tags>
   </entry>
   <entry>
-    <title>优化C++控制台输出字体颜色方法</title>
-    <url>/2023/10/01/C++ConsoleTextColor/</url>
-    <content><![CDATA[<blockquote>
-<p>C++的系统调用输出颜色的方法参数很冗长，而且没有中文注释，很不方便，所以进行了优化处理，各位可以直接复制保存使用。</p>
-</blockquote>
-<span id="more"></span>
-
-<h1 id="优化C-控制台输出字体颜色方法"><a href="#优化C-控制台输出字体颜色方法" class="headerlink" title="优化C++控制台输出字体颜色方法"></a>优化C++控制台输出字体颜色方法</h1><blockquote>
-<p>所用工具为：Microsoft Virtual Studio</p>
-</blockquote>
-<h2 id="原版"><a href="#原版" class="headerlink" title="原版"></a>原版</h2><h3 id="字体颜色："><a href="#字体颜色：" class="headerlink" title="字体颜色："></a>字体颜色：</h3><p>使用方法：先包含windows头文件<code>Windows.h</code></p>
-<p>必须在方法体内：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">//调用此方法设置参数</span><br><span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), FOREGROUND_RED);<br><span class="hljs-comment">//颜色参数之间用|分隔</span><br><span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_RED);<br></code></pre></td></tr></table></figure>
-
-
-
-<table>
-<thead>
-<tr>
-<th align="center">文本颜色</th>
-<th align="center">参数</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">红色</td>
-<td align="center">FOREGROUND_RED</td>
-</tr>
-<tr>
-<td align="center">绿色</td>
-<td align="center">FOREGROUND_GREEN</td>
-</tr>
-<tr>
-<td align="center">蓝色</td>
-<td align="center">FOREGROUND_BLUE</td>
-</tr>
-<tr>
-<td align="center">白色</td>
-<td align="center">FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_RED</td>
-</tr>
-<tr>
-<td align="center">天蓝色</td>
-<td align="center">FOREGROUND_BLUE | FOREGROUND_GREEN</td>
-</tr>
-<tr>
-<td align="center">黄色</td>
-<td align="center">FOREGROUND_GREEN | FOREGROUND_RED</td>
-</tr>
-<tr>
-<td align="center">粉色</td>
-<td align="center">FOREGROUND_RED | FOREGROUND_BLUE</td>
-</tr>
-<tr>
-<td align="center">颜色增强</td>
-<td align="center">FOREGROUND_INTENSITY</td>
-</tr>
-</tbody></table>
-<h3 id="字体背景颜色："><a href="#字体背景颜色：" class="headerlink" title="字体背景颜色："></a>字体背景颜色：</h3><p>使用方法同字体颜色，主要是参数不一样</p>
-<p>使用方法：先包含windows头文件<code>Windows.h</code></p>
-<p>必须在方法体内：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">//调用此方法设置参数</span><br><span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), BACKGROUND_RED);<br><span class="hljs-comment">//颜色参数之间用|分隔</span><br><span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), BACKGROUND_BLUE | BACKGROUND_GREEN | BACKGROUND_RED);<br></code></pre></td></tr></table></figure>
-
-<p>注：相关参数源码是用宏定义的，不可修改</p>
-<table>
-<thead>
-<tr>
-<th align="center">背景颜色</th>
-<th align="center">参数</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">红色</td>
-<td align="center">BACKGROUND_RED</td>
-</tr>
-<tr>
-<td align="center">绿色</td>
-<td align="center">BACKGROUND_GREEN</td>
-</tr>
-<tr>
-<td align="center">蓝色</td>
-<td align="center">BACKGROUND_BLUE</td>
-</tr>
-<tr>
-<td align="center">白色</td>
-<td align="center">BACKGROUND_BLUE | BACKGROUND_GREEN |BACKGROUND_RED</td>
-</tr>
-<tr>
-<td align="center">天蓝色</td>
-<td align="center">BACKGROUND_BLUE | BACKGROUND_GREEN</td>
-</tr>
-<tr>
-<td align="center">黄色</td>
-<td align="center">BACKGROUND_GREEN | BACKGROUND_RED</td>
-</tr>
-<tr>
-<td align="center">粉色</td>
-<td align="center">BACKGROUND_RED | BACKGROUND_BLUE</td>
-</tr>
-<tr>
-<td align="center">颜色增强</td>
-<td align="center">BACKGROUND_INTENSITY</td>
-</tr>
-</tbody></table>
-<p>注：</p>
-<ul>
-<li>相关参数源码是用宏定义的，不可修改。</li>
-<li>颜色为三基色，且不可与非颜色增强的混合搭配，即要么都增强，要么都不增强</li>
-<li>设置后，后面的就全是这个颜色了</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">//</span><br><span class="hljs-comment">// Attributes flags:</span><br><span class="hljs-comment">//</span><br><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> FOREGROUND_BLUE      0x0001 <span class="hljs-comment">// text color contains blue.</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> FOREGROUND_GREEN     0x0002 <span class="hljs-comment">// text color contains green.</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> FOREGROUND_RED       0x0004 <span class="hljs-comment">// text color contains red.</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> FOREGROUND_INTENSITY 0x0008 <span class="hljs-comment">// text color is intensified.</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> BACKGROUND_BLUE      0x0010 <span class="hljs-comment">// background color contains blue.</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> BACKGROUND_GREEN     0x0020 <span class="hljs-comment">// background color contains green.</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> BACKGROUND_RED       0x0040 <span class="hljs-comment">// background color contains red.</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> BACKGROUND_INTENSITY 0x0080 <span class="hljs-comment">// background color is intensified.</span></span><br></code></pre></td></tr></table></figure>
-
-
-
-<h2 id="简化版"><a href="#简化版" class="headerlink" title="简化版"></a>简化版</h2><p>由于方法参数很长，不便使用，因此进行了简化。</p>
-<p>使用方法：</p>
-<ul>
-<li>只需要创建个头文件，名称自定义，例如<code>printcolor</code>，然后复制下面的代码粘贴。</li>
-<li>在源文件内包含此头文件<code>printcolor.h</code>，然后打印输出前调用方法<code>setTextColor()</code>设置字体颜色，调用方法<code>setTextBackgroundColor()</code>设置字体背景颜色，传入相应的<code>string</code>类型的英文颜色字符串即可。</li>
-</ul>
-<p>代码：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">pragma</span> once<span class="hljs-comment">//防止头文件重复包含</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;Windows.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">	注意：</span><br><span class="hljs-comment">        设置后，在此之后输出的都将是设置的颜色。</span><br><span class="hljs-comment">        若再想恢复默认颜色，可通过不传参数执行此方法恢复默认颜色。</span><br><span class="hljs-comment">*/</span><br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">    设置字体颜色：</span><br><span class="hljs-comment">        方法支持15种颜色（请传入相应的英文参数）：</span><br><span class="hljs-comment">            0、浅白色：littlewhite</span><br><span class="hljs-comment">            1、红色：red      2、绿色：green     3、蓝色：blue</span><br><span class="hljs-comment">            4、白色: white    5、天蓝色：skyblue   6、黄色：yellow</span><br><span class="hljs-comment">            7、粉色: pink</span><br><span class="hljs-comment">            11、亮红色：lightred      12、亮绿色：lightgreen     13、亮蓝色：lightblue</span><br><span class="hljs-comment">            14、亮白色: lightwhite    15、亮天蓝色：lightskyblue   16、亮黄色：lightyellow</span><br><span class="hljs-comment">            17、亮粉色: lightpink</span><br><span class="hljs-comment">            其它参数或不传参数：默认色(白色)</span><br><span class="hljs-comment">*/</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">setTextColor</span><span class="hljs-params">(string color = <span class="hljs-string">&quot;white&quot;</span>)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-comment">//设置Windows控制台打印颜色</span><br>    <span class="hljs-type">int</span> num = <span class="hljs-number">4</span>;<br>    <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;littlewhite&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">0</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;red&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">1</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;green&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">2</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;blue&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">3</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;white&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">4</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;skyblue&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">5</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;yellow&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">6</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;pink&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">7</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;lightred&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">11</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;lightgreen&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">12</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;lightblue&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">13</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;lightwhite&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">14</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;lightskyblue&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">15</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;lightyellow&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">16</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;lightpink&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">17</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span><br>    &#123;<br>        num = <span class="hljs-number">4</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">switch</span> (num)<br>    &#123;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">0</span>:<span class="hljs-comment">//浅白色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), FOREGROUND_INTENSITY);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:<span class="hljs-comment">//红色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), FOREGROUND_RED);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:<span class="hljs-comment">//绿色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), FOREGROUND_GREEN);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:<span class="hljs-comment">//蓝色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), FOREGROUND_BLUE);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">4</span>:<span class="hljs-comment">//白色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_RED);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">5</span>:<span class="hljs-comment">//天蓝色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), FOREGROUND_BLUE | FOREGROUND_GREEN);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">6</span>:<span class="hljs-comment">//黄色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), FOREGROUND_GREEN | FOREGROUND_RED);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">7</span>:<span class="hljs-comment">//粉色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), FOREGROUND_BLUE | FOREGROUND_RED);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">11</span>:<span class="hljs-comment">//增强红色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), FOREGROUND_INTENSITY | FOREGROUND_RED);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">12</span>:<span class="hljs-comment">//增强绿色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), FOREGROUND_INTENSITY | FOREGROUND_GREEN);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">13</span>:<span class="hljs-comment">//增强蓝色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), FOREGROUND_INTENSITY | FOREGROUND_BLUE);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">14</span>:<span class="hljs-comment">//增强白色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), FOREGROUND_INTENSITY | FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_RED);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">15</span>:<span class="hljs-comment">//增强天蓝色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), FOREGROUND_INTENSITY | FOREGROUND_BLUE | FOREGROUND_GREEN);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">16</span>:<span class="hljs-comment">//增强黄色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), FOREGROUND_INTENSITY | FOREGROUND_GREEN | FOREGROUND_RED);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">17</span>:<span class="hljs-comment">//增强粉色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), FOREGROUND_INTENSITY | FOREGROUND_BLUE | FOREGROUND_RED);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">default</span>:<span class="hljs-comment">//默认</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_RED);<br>        <span class="hljs-keyword">break</span>;<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">    设置字体背景色：</span><br><span class="hljs-comment">        方法支持15种颜色（请传入相应的英文参数）：</span><br><span class="hljs-comment">            0、浅白色：littlewhite</span><br><span class="hljs-comment">            1、红色：red      2、绿色：green     3、蓝色：blue</span><br><span class="hljs-comment">            4、白色: white    5、天蓝色：skyblue   6、黄色：yellow</span><br><span class="hljs-comment">            7、粉色: pink</span><br><span class="hljs-comment">            11、亮红色：lightred      12、亮绿色：lightgreen     13、亮蓝色：lightblue</span><br><span class="hljs-comment">            14、亮白色: lightwhite    15、亮天蓝色：lightskyblue   16、亮黄色：lightyellow</span><br><span class="hljs-comment">            17、亮粉色: lightpink</span><br><span class="hljs-comment">    注意：背景色一旦设置，就恢复不了原来的黑色字体背景了，除非不设置背景色</span><br><span class="hljs-comment">*/</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">setTextBackgroundColor</span><span class="hljs-params">(string color = <span class="hljs-string">&quot;white&quot;</span>)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-comment">//设置Windows控制台打印颜色</span><br>    <span class="hljs-type">int</span> num = <span class="hljs-number">4</span>;<br>    <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;littlewhite&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">0</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;red&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">1</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;green&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">2</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;blue&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">3</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;white&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">4</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;skyblue&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">5</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;yellow&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">6</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;pink&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">7</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;lightred&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">11</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;lightgreen&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">12</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;lightblue&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">13</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;lightwhite&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">14</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;lightskyblue&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">15</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;lightyellow&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">16</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;lightpink&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">17</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span><br>    &#123;<br>        num = <span class="hljs-number">4</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">switch</span> (num)<br>    &#123;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">0</span>:<span class="hljs-comment">//浅白色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), BACKGROUND_INTENSITY);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:<span class="hljs-comment">//红色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), BACKGROUND_RED);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:<span class="hljs-comment">//绿色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), BACKGROUND_GREEN);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:<span class="hljs-comment">//蓝色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), BACKGROUND_BLUE);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">4</span>:<span class="hljs-comment">//白色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), BACKGROUND_BLUE | BACKGROUND_GREEN | BACKGROUND_RED);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">5</span>:<span class="hljs-comment">//天蓝色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), BACKGROUND_BLUE | BACKGROUND_GREEN);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">6</span>:<span class="hljs-comment">//黄色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), BACKGROUND_GREEN | BACKGROUND_RED);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">7</span>:<span class="hljs-comment">//粉色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), BACKGROUND_BLUE | BACKGROUND_RED);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">11</span>:<span class="hljs-comment">//增强红色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), BACKGROUND_INTENSITY | BACKGROUND_RED);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">12</span>:<span class="hljs-comment">//增强绿色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), BACKGROUND_INTENSITY | BACKGROUND_GREEN);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">13</span>:<span class="hljs-comment">//增强蓝色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), BACKGROUND_INTENSITY | BACKGROUND_BLUE);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">14</span>:<span class="hljs-comment">//增强白色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), BACKGROUND_INTENSITY | BACKGROUND_BLUE | BACKGROUND_GREEN | BACKGROUND_RED);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">15</span>:<span class="hljs-comment">//增强天蓝色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), BACKGROUND_INTENSITY | BACKGROUND_BLUE | BACKGROUND_GREEN);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">16</span>:<span class="hljs-comment">//增强黄色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), BACKGROUND_INTENSITY | BACKGROUND_GREEN | BACKGROUND_RED);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">17</span>:<span class="hljs-comment">//增强粉色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), BACKGROUND_INTENSITY | BACKGROUND_BLUE | BACKGROUND_RED);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">default</span>:<span class="hljs-comment">//默认</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), BACKGROUND_BLUE | BACKGROUND_GREEN | BACKGROUND_RED);<br>        <span class="hljs-keyword">break</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p>示例：源文件demo.cpp</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&quot;printcolor.h&quot;</span></span><br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">test</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-built_in">setTextColor</span>(<span class="hljs-string">&quot;red&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;红色字体：***************&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-built_in">setTextColor</span>(<span class="hljs-string">&quot;green&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;绿色字体：***************&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-built_in">setTextColor</span>(<span class="hljs-string">&quot;blue&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;蓝色字体：***************&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-built_in">setTextColor</span>(<span class="hljs-string">&quot;white&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;白色字体：***************&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-built_in">setTextColor</span>(<span class="hljs-string">&quot;skyblue&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;天蓝色字体：***************&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-built_in">setTextColor</span>(<span class="hljs-string">&quot;yellow&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;黄色字体：***************&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-built_in">setTextColor</span>(<span class="hljs-string">&quot;pink&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;粉色字体：***************&quot;</span> &lt;&lt; endl;<br><br>    <span class="hljs-built_in">setTextColor</span>(<span class="hljs-string">&quot;lightred&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;亮红色字体：***************&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-built_in">setTextColor</span>(<span class="hljs-string">&quot;lightgreen&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;亮绿色字体：***************&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-built_in">setTextColor</span>(<span class="hljs-string">&quot;lightblue&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;亮蓝色字体：***************&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-built_in">setTextColor</span>(<span class="hljs-string">&quot;lightwhite&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;亮白色字体：***************&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-built_in">setTextColor</span>(<span class="hljs-string">&quot;lightskyblue&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;亮天蓝色字体：***************&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-built_in">setTextColor</span>(<span class="hljs-string">&quot;lightyellow&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;亮黄色字体：***************&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-built_in">setTextColor</span>(<span class="hljs-string">&quot;lightpink&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;亮粉色字体：***************&quot;</span> &lt;&lt; endl;<br><br><br>    <span class="hljs-built_in">setTextBackgroundColor</span>(<span class="hljs-string">&quot;red&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;字体红色背景：***************&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-built_in">setTextBackgroundColor</span>(<span class="hljs-string">&quot;green&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;字体绿色背景：***************&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-built_in">setTextBackgroundColor</span>(<span class="hljs-string">&quot;blue&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;字体蓝色背景：***************&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-built_in">setTextBackgroundColor</span>(<span class="hljs-string">&quot;white&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;字体白色背景：***************&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-built_in">setTextBackgroundColor</span>(<span class="hljs-string">&quot;skyblue&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;字体天蓝色背景：***************&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-built_in">setTextBackgroundColor</span>(<span class="hljs-string">&quot;yellow&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;字体黄色背景：***************&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-built_in">setTextBackgroundColor</span>(<span class="hljs-string">&quot;pink&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;字体粉色背景：***************&quot;</span> &lt;&lt; endl;<br><br>    <span class="hljs-built_in">setTextBackgroundColor</span>(<span class="hljs-string">&quot;lightred&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;字体亮红色背景：***************&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-built_in">setTextBackgroundColor</span>(<span class="hljs-string">&quot;lightgreen&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;字体亮绿色背景：***************&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-built_in">setTextBackgroundColor</span>(<span class="hljs-string">&quot;lightblue&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;字体亮蓝色背景：***************&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-built_in">setTextBackgroundColor</span>(<span class="hljs-string">&quot;lightwhite&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;字体亮白色背景：***************&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-built_in">setTextBackgroundColor</span>(<span class="hljs-string">&quot;lightskyblue&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;字体亮天蓝色背景：***************&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-built_in">setTextBackgroundColor</span>(<span class="hljs-string">&quot;lightyellow&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;字体亮黄色背景：***************&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-built_in">setTextBackgroundColor</span>(<span class="hljs-string">&quot;lightpink&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;字体亮粉色背景：***************&quot;</span> &lt;&lt; endl;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-built_in">test</span>();<br>    <span class="hljs-built_in">system</span>(<span class="hljs-string">&quot;pause&quot;</span>);<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>程序优化</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>循环链表（Circular Link List）</title>
-    <url>/2023/10/06/CircularLinkList/</url>
-    <content><![CDATA[<blockquote>
-<p>循环链表与单链表的主要区别和完整实现代码。</p>
-</blockquote>
-<span id="more"></span>
-
-<hr>
-<p>前置文章：<a href="https://superlovelace.top/2022/12/10/LinkList/">单链表</a></p>
-<h1 id="循环链表-Circular-Link-List"><a href="#循环链表-Circular-Link-List" class="headerlink" title="循环链表(Circular Link List)"></a>循环链表(Circular Link List)</h1><p>初始循环链表的头结点的后继指向自己</p>
-<h2 id="与单链表主要区别"><a href="#与单链表主要区别" class="headerlink" title="与单链表主要区别"></a>与单链表主要区别</h2><ul>
-<li>在遍历时判断结点是否为头结点 而不是 是否为空</li>
-<li>空的双向循环链表的头结点的前驱和后继都指向自己</li>
-<li>两个循环链表可以合并为一个，循环链表A、B 定义指针 p</li>
-<li>p指向B链表的最后一个结点指向的下下个结点的地址，即B的头结点指向的第一个数据</li>
-<li>把A链表的最后一个结点的后继（A的头结点）赋值给 B链表的最后一个结点的后继（B的头结点）</li>
-<li>把p的地址赋值给A链表的最后一个结点的后继</li>
-<li>p &#x3D; B-&gt;next-&gt;next;&#x2F;&#x2F;把B的头结点地址指向给p</li>
-<li>B-&gt;next &#x3D; A-&gt;next; &#x2F;&#x2F;把B的尾结点地址指向A的头结点</li>
-<li>A-&gt;next &#x3D; p;&#x2F;&#x2F;把A的尾结点地址指向B的头结点指向的地址（B的第一个有值结点）</li>
-</ul>
-<h2 id="代码不同处"><a href="#代码不同处" class="headerlink" title="代码不同处"></a>代码不同处</h2><figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">//初始化 有头结点</span><br><span class="hljs-function">Status <span class="hljs-title">InitList</span><span class="hljs-params">(LinkList &amp;L)</span></span><br><span class="hljs-function"></span>&#123;<br>	L = <span class="hljs-keyword">new</span> LNode;<br>	L-&gt;next = L;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>&#125;<br><br><span class="hljs-function">Status <span class="hljs-title">GetElem</span><span class="hljs-params">(LinkList L,<span class="hljs-type">int</span> i,ElemType &amp;e)</span></span><br><span class="hljs-function"></span>&#123;<br>	LNode *p = L-&gt;next;<br>	<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>;<br>	<span class="hljs-keyword">while</span> (p!=L &amp;&amp; j&lt;i)<span class="hljs-comment">//这里的改动！类似这种循环遍历的地方都要改</span><br>	&#123;<br>		p = p-&gt;next;<br>		j++;<br>	&#125;<br>	<span class="hljs-keyword">if</span> (p==L || j &gt; i) <br>	&#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>	&#125;<br>	e = p-&gt;data;<br>	<span class="hljs-keyword">return</span> p-&gt;data;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h2 id="完整实现代码"><a href="#完整实现代码" class="headerlink" title="完整实现代码"></a>完整实现代码</h2><figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;string&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">	循环链表 Circular Link List</span><br><span class="hljs-comment">*/</span><br><br><br><span class="hljs-keyword">typedef</span> <span class="hljs-type">int</span> ElemType;<br><span class="hljs-keyword">typedef</span> <span class="hljs-type">int</span> Status;<br><br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> <span class="hljs-title class_">LNode</span><br>&#123;<br>	ElemType data;<br>	<span class="hljs-keyword">struct</span> <span class="hljs-title class_">LNode</span>* next;<br>&#125;LNode,*LinkList;<br><br><span class="hljs-comment">//初始化循环链表 有头结点</span><br><span class="hljs-function">Status <span class="hljs-title">InitList</span><span class="hljs-params">(LinkList &amp;L)</span></span><br><span class="hljs-function"></span>&#123;<br>	L = <span class="hljs-keyword">new</span> LNode;<br>	L-&gt;next = L;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>&#125;<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">	循环链表的取值（按位查找）: 时间复杂度O(n)</span><br><span class="hljs-comment">	参数一：要取值的循环链表</span><br><span class="hljs-comment">	参数二：要取值的位置</span><br><span class="hljs-comment">	参数三：待保存的对象</span><br><span class="hljs-comment">	注意：成功：返回1；失败：返回0。</span><br><span class="hljs-comment">*/</span><br><span class="hljs-function">Status <span class="hljs-title">GetElem</span><span class="hljs-params">(LinkList L,<span class="hljs-type">int</span> i,ElemType &amp;e)</span></span><br><span class="hljs-function"></span>&#123;<br>	LNode *p = L-&gt;next;<br>	<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>;<br>	<span class="hljs-keyword">while</span> (p!=L &amp;&amp; j&lt;i)<span class="hljs-comment">//循环链表修改处！！！</span><br>	&#123;<br>		p = p-&gt;next;<br>		j++;<br>	&#125;<br>	<span class="hljs-keyword">if</span> (p==L || j &gt; i) <span class="hljs-comment">//循环链表修改处！！！</span><br>	&#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>	&#125;<br>	e = p-&gt;data;<br>	<span class="hljs-keyword">return</span> p-&gt;data;<br>&#125;<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">	循环链表的查找（按值查找）:   时间复杂度O(n)</span><br><span class="hljs-comment">	参数一：要查找的循环链表</span><br><span class="hljs-comment">	参数二：要查找的数据</span><br><span class="hljs-comment">	注意：成功：返回下标地址；失败：返回NULL。</span><br><span class="hljs-comment">*/</span><br><span class="hljs-function">LNode* <span class="hljs-title">LocateElem</span><span class="hljs-params">(LinkList L, ElemType e)</span></span><br><span class="hljs-function"></span>&#123;<br>	LNode* p = L-&gt;next;<span class="hljs-comment">//创建新结点，并指向第一块数据</span><br>	<span class="hljs-keyword">while</span> (p &amp;&amp; p-&gt;data!=e)<span class="hljs-comment">//如果p不为空且data == e,返回p的地址</span><br>	&#123;<br>		p = p-&gt;next;<br>	&#125;<br>	<span class="hljs-keyword">return</span> p;<br>&#125;<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">	循环链表的插入（按位序插入）:时间复杂度O(n)</span><br><span class="hljs-comment">	参数一：要插入的循环链表</span><br><span class="hljs-comment">	参数二：要插入的位置</span><br><span class="hljs-comment">	参数三：要插入的数据</span><br><span class="hljs-comment">	注意：成功：返回1；失败：返回0。</span><br><span class="hljs-comment">*/</span><br><span class="hljs-function">Status <span class="hljs-title">ListInsert</span><span class="hljs-params">(LinkList&amp; L, <span class="hljs-type">int</span> i, ElemType e)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">if</span> (i&lt;<span class="hljs-number">1</span>)<br>	&#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>	&#125;<br>	LNode* p = L;<span class="hljs-comment">//创建临时结点指向头结点，头结点不存数据</span><br>	<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>;<span class="hljs-comment">//记录p指向的是第几个结点，第0个结点为头结点，头结点不存数据，只存地址</span><br>	<span class="hljs-comment">//循环链表修改处！！！</span><br>	<span class="hljs-keyword">while</span> (p-&gt;next!=L &amp;&amp; (j&lt;i<span class="hljs-number">-1</span>))<span class="hljs-comment">//循环找到第i-1个结点</span><br>	&#123;<br>		p = p-&gt;next;<br>		j++;<br>	&#125;<br>	<span class="hljs-comment">//循环链表修改处！！！</span><br>	<span class="hljs-keyword">if</span> (p==L || j&gt;i<span class="hljs-number">-1</span>)<span class="hljs-comment">//如果地址p为NULL就退出，头结点的地址也不为空</span><br>	&#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>	&#125;<br>	LNode* s = <span class="hljs-keyword">new</span> LNode; <span class="hljs-comment">//创建新结点</span><br>	s-&gt;data = e;<span class="hljs-comment">//新结点存放新数据e</span><br>	s-&gt;next = p-&gt;next;<span class="hljs-comment">//将p的指针指向的下一个数据地址赋值给新结点s的指针</span><br>	p-&gt;next = s;<span class="hljs-comment">//p的指针指向新节点s</span><br><br>	<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>&#125;<br><br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">	循环链表的删除:   时间复杂度O(n)</span><br><span class="hljs-comment">	参数一：要删除的循环链表</span><br><span class="hljs-comment">	参数二：要删除的位置</span><br><span class="hljs-comment">	注意：成功：返回1；失败：返回0。</span><br><span class="hljs-comment">*/</span><br><span class="hljs-function">Status <span class="hljs-title">ListDelete</span><span class="hljs-params">(LinkList&amp; L, <span class="hljs-type">int</span> i)</span></span><br><span class="hljs-function"></span>&#123;<br>	LNode* p = L;<span class="hljs-comment">//创建临时结点指向头结点，头结点不存数据</span><br>	<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>;<span class="hljs-comment">//记录p指向的是第几个结点，第0个结点为头结点，头结点不存数据，只存地址</span><br>	<span class="hljs-comment">//循环链表修改处！！！</span><br>	<span class="hljs-keyword">while</span> (p-&gt;next != L &amp;&amp;(j&lt;i<span class="hljs-number">-1</span>))<span class="hljs-comment">//循环找到第i-1个结点的前一个结点</span><br>	&#123;<br>		p = p-&gt;next;<br>		j++;<br>	&#125;<br>	<span class="hljs-comment">//循环链表修改处！！！</span><br>	<span class="hljs-keyword">if</span> (p-&gt;next == L||(j&gt;i<span class="hljs-number">-1</span>))<br>	&#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>	&#125;<br>	LNode* q = p-&gt;next;<span class="hljs-comment">//创建新结点q,指向要删除的数据内存地址</span><br>	p-&gt;next = q-&gt;next;<span class="hljs-comment">//p的指针指向q的指针指向的下一个数据地址</span><br>	<span class="hljs-keyword">delete</span> q;<span class="hljs-comment">//释放q结点</span><br><br>	<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>&#125;<br><br><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	LinkList L;<br>	<span class="hljs-comment">//初始化循环链表</span><br>	<span class="hljs-built_in">InitList</span>(L);<br>	<span class="hljs-comment">//插入循环链表</span><br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt; <span class="hljs-number">6</span>; i++)<br>	&#123;<br>		<span class="hljs-built_in">ListInsert</span>(L, <span class="hljs-number">1</span>, i);<br>	&#125;<br>	<span class="hljs-comment">//取值</span><br>	<span class="hljs-type">int</span> e;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">5</span>; i++)<br>	&#123;<br>		cout &lt;&lt; <span class="hljs-built_in">GetElem</span>(L, i, e) &lt;&lt; endl;<br>	&#125;<br>	<br>	<span class="hljs-comment">//查找</span><br>	cout &lt;&lt; <span class="hljs-string">&quot;5的地址为：&quot;</span> &lt;&lt; <span class="hljs-built_in">LocateElem</span>(L, <span class="hljs-number">5</span>) &lt;&lt; endl;<br>	<span class="hljs-comment">//删除</span><br>	<span class="hljs-built_in">ListDelete</span>(L, <span class="hljs-number">1</span>);<br>	cout &lt;&lt; <span class="hljs-string">&quot;删除第一个元素5：&quot;</span> &lt;&lt; endl;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt; <span class="hljs-number">5</span>; i++)<br>	&#123;<br>		cout &lt;&lt; <span class="hljs-built_in">GetElem</span>(L, i, e) &lt;&lt; endl;<br>	&#125;<br>	<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>数据结构</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CNPM安装指南（Windows）</title>
     <url>/2023/10/01/Cnpm-install/</url>
     <content><![CDATA[<blockquote>
@@ -256,7 +91,7 @@
 <h2 id="CNPM安装教程（Windows系统版）"><a href="#CNPM安装教程（Windows系统版）" class="headerlink" title="CNPM安装教程（Windows系统版）"></a>CNPM安装教程（Windows系统版）</h2><p><strong>CNPM淘宝镜像官网：</strong><a href="https://npmmirror.com/">https://npmmirror.com/</a></p>
 <h3 id="1、打开CNPM淘宝镜像官网"><a href="#1、打开CNPM淘宝镜像官网" class="headerlink" title="1、打开CNPM淘宝镜像官网"></a>1、打开CNPM淘宝镜像官网</h3><p>有很多信息：</p>
 <ul>
-<li>当前 <a href="https://npmmirror.com/">npmmirror.com</a> 运行版本是: <a href="mailto:&#x63;&#110;&#x70;&#109;&#x63;&#111;&#x72;&#101;&#x40;&#51;&#x2e;&#50;&#48;&#x2e;&#x33;">&#x63;&#110;&#x70;&#109;&#x63;&#111;&#x72;&#101;&#x40;&#51;&#x2e;&#50;&#48;&#x2e;&#x33;</a></li>
+<li>当前 <a href="https://npmmirror.com/">npmmirror.com</a> 运行版本是: <a href="mailto:&#x63;&#x6e;&#x70;&#x6d;&#x63;&#111;&#114;&#x65;&#x40;&#x33;&#x2e;&#50;&#x30;&#46;&#51;">&#x63;&#x6e;&#x70;&#x6d;&#x63;&#111;&#114;&#x65;&#x40;&#x33;&#x2e;&#50;&#x30;&#46;&#51;</a></li>
 <li>本系统运行在 <a href="https://nodejs.org/?spm=a2c6h.24755359.0.0.6d446e513fj62f">Node.js</a>@v18.16.0 上</li>
 <li>开源镜像: <a href="https://npmmirror.com/mirrors/">https://npmmirror.com/mirrors/</a></li>
 <li>Node.js 镜像: <a href="https://npmmirror.com/mirrors/node/">https://npmmirror.com/mirrors/node/</a></li>
@@ -404,105 +239,6 @@
       </categories>
       <tags>
         <tag>数据结构</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>英语语法综述</title>
-    <url>/2023/09/30/EnglishGrammar/</url>
-    <content><![CDATA[<blockquote>
-<p>英语语法学习笔记，包括谓语动词、非谓语动词、句子成分、词类和时态等。</p>
-</blockquote>
-<span id="more"></span>
-
-<p>注：本文为学习笔记，视频学习地址为：<a href="https://www.bilibili.com/video/BV1XY411J7aG/">英语语法精讲合集 (全面, 通俗, 有趣 | 从零打造系统语法体系)</a>，更多英语学习视频请关注B站UP主：<a href="https://space.bilibili.com/483162496">英语兔</a></p>
-<h1 id="英语语法综述"><a href="#英语语法综述" class="headerlink" title="英语语法综述"></a>英语语法综述</h1><p>当句子拆分到不能拆的时候，大都是以下此类句型：</p>
-<p>主语(人&#x2F;物) + 谓语(动作&#x2F;发生了什么事)</p>
-<p>此刻的动作是广义的动作，即动词</p>
-<h2 id="一、谓语动词"><a href="#一、谓语动词" class="headerlink" title="一、谓语动词"></a>一、谓语动词</h2><h3 id="1、可以独立完成的动作（不及物动词）"><a href="#1、可以独立完成的动作（不及物动词）" class="headerlink" title="1、可以独立完成的动作（不及物动词）"></a>1、可以独立完成的动作（不及物动词）</h3><p>例如：<code>Papa Rabbit sleeps.</code> (译文：兔老爹睡觉。)</p>
-<p>动词<code>sleep</code> 没有承受者，是不及物动词。</p>
-<h6 id="对应句型：主语-动词"><a href="#对应句型：主语-动词" class="headerlink" title="对应句型：主语+动词"></a>对应句型：<code>主语+动词</code></h6><h3 id="2、有1个动作的承受者（单及物动词）"><a href="#2、有1个动作的承受者（单及物动词）" class="headerlink" title="2、有1个动作的承受者（单及物动词）"></a>2、有<code>1</code>个动作的承受者（单及物动词）</h3><p>例如：<code>Papa Rabbit like you.</code> (译文：兔老爹喜欢你。)</p>
-<p>动词<code>like</code> 为及物动词，若只是<code>Papa Rabbit like</code> 兔老爹喜欢，喜欢什么呢，我们会觉得意思不完整，或者没有意义。而此例句的动作承受着<code>you</code>就是宾语。</p>
-<h6 id="对应句型：主语-单及物动词-宾语"><a href="#对应句型：主语-单及物动词-宾语" class="headerlink" title="对应句型：主语+单及物动词+宾语"></a>对应句型：<code>主语+单及物动词+宾语</code></h6><h3 id="3、有2个动作的承受者（双及物动词）"><a href="#3、有2个动作的承受者（双及物动词）" class="headerlink" title="3、有2个动作的承受者（双及物动词）"></a>3、有<code>2</code>个动作的承受者（双及物动词）</h3><p>例如：<code>Papa Rabbit teaches you English.</code> (译文：兔老爹教你英语。)</p>
-<p>此句有两个承受者，其中，核心词为<code>teach </code>教，教的知识是<code>English</code>英语，知识的接受对象是<code>you </code>你。动词的这两个承受者被称为直接宾语和间接宾语。若只是<code>Papa Rabbit teaches English</code> 兔老爹教英语，句意已经完整了，而<code>Papa Rabbit teaches you</code> 兔老爹教你，则不完整，仍需补充，所以<code>English</code>为直接宾语，<code>you</code>为间接宾语。</p>
-<h6 id="对应句型：主语-双及物动词-间接宾语-直接宾语"><a href="#对应句型：主语-双及物动词-间接宾语-直接宾语" class="headerlink" title="对应句型：主语+双及物动词+间接宾语+直接宾语"></a>对应句型：<code>主语+双及物动词+间接宾语+直接宾语</code></h6><h3 id="4、只有1个动作的承受者但需补充说明（复杂及物动词）"><a href="#4、只有1个动作的承受者但需补充说明（复杂及物动词）" class="headerlink" title="4、只有1个动作的承受者但需补充说明（复杂及物动词）"></a>4、只有<code>1</code>个动作的承受者但需补充说明（复杂及物动词）</h3><p>例如：<code>Papa Rabbit considers you smart.</code> (译文：兔老爹认为你聪明。)</p>
-<p><code>you</code>为动作承受者，是宾语。而<code>smart</code>为形容词，并不能是动作承受者，在英语中，宾语只包含名词和代词。但只是认为你，意义不完整，需要补充，而<code>smart</code>在这里充当补语，用来说明认为的状态。这种需要补语的动词被称为复杂及物动词。</p>
-<h6 id="对应句型：主语-复杂及物动词-宾语-宾语-补语"><a href="#对应句型：主语-复杂及物动词-宾语-宾语-补语" class="headerlink" title="对应句型：主语+复杂及物动词+宾语+(宾语)补语"></a>对应句型：<code>主语+复杂及物动词+宾语+(宾语)补语</code></h6><h3 id="5、非动作（系动词）"><a href="#5、非动作（系动词）" class="headerlink" title="5、非动作（系动词）"></a>5、非动作（系动词）</h3><p>例如：<code>Papa Rabbit is tall.</code> (译文：兔老爹很高。)</p>
-<p><code>is</code> 通常翻译成 ” 是 “，在这里只是把<code>tall</code>(高的)这个信息赋予<code>Papa Rabbit</code>，大白话就是把两者连系起来，所以这类词被称为连系动词。系动词后的补充信息就是补语，更精确说是主语补语，主语补语又称为表语。</p>
-<h6 id="对应句型：主语-系动词-主语-补语-表语"><a href="#对应句型：主语-系动词-主语-补语-表语" class="headerlink" title="对应句型：主语+系动词+(主语)补语/表语"></a>对应句型：<code>主语+系动词+(主语)补语/表语</code></h6><h2 id="二、句子成分"><a href="#二、句子成分" class="headerlink" title="二、句子成分"></a>二、句子成分</h2><p>以上已经提到了5种句子成分：</p>
-<ol>
-<li>主语</li>
-<li>谓语动词</li>
-<li>宾语</li>
-<li>宾语补语</li>
-<li>主语补语</li>
-</ol>
-<p>6、定语（主要用来主语和宾语）</p>
-<p>例如：<code>The little white rabbit ate a large carrot.</code>译文：这只小白兔吃了一根大胡萝卜。</p>
-<p>其中，<code>The little white</code> 就是主语<code>rabbit</code>的定语，而<code>a large</code>就是宾语<code>carrot</code>的定语</p>
-<p>7、状语（主要用来修饰谓语动词）</p>
-<p>例如：<code>The rabbit ate quickly.</code>译文：兔子快速地吃。</p>
-<p><code>quickly</code>就是<code>ate</code>的状语</p>
-<p>8、同位语（主要是把主语或宾语换个说法再说一遍）</p>
-<p><code>Papa Rabbit，an English teacher，eats carrots.</code>译文：兔老爹，一个英语老师，吃胡萝卜。</p>
-<p><code>an English teacher</code>就是把<code>Papa Rabbit</code>换个方式说了一遍，与主语同等地位。</p>
-<h2 id="三、简单句"><a href="#三、简单句" class="headerlink" title="三、简单句"></a>三、简单句</h2><p>以上皆为简单句，而简单句的简单相加就变成了复合句，而简单句的嵌套就组成了复杂句。</p>
-<p>一个句子套一个句子——&gt;主句+从句(嵌套的句子)，而从句本质上就是修改简单句成为另一个句子的句子成分。</p>
-<p>名词性从句：</p>
-<ul>
-<li>简单句作主语–&gt;主语从句</li>
-<li>简单句作宾语–&gt;宾语从句</li>
-<li>简单句作表语–&gt;表语从句</li>
-<li>简单句作同位语–&gt;同位语从句</li>
-</ul>
-<p>简单句作定语–&gt;定语从句</p>
-<p>简单句作状语–&gt;状语从句</p>
-<h2 id="四、词类（充当句子成分）"><a href="#四、词类（充当句子成分）" class="headerlink" title="四、词类（充当句子成分）"></a>四、词类（充当句子成分）</h2><ol>
-<li>动词（表示动作行为）</li>
-<li>名词（表示人和物）</li>
-<li>冠词（说明人和物）<code>a</code>、<code>an</code>和<code>the</code></li>
-<li>代词（替代人和物）<code>he</code>、<code>she</code>、<code>I</code>、<code>they</code>、<code>it</code>等等</li>
-<li>形容词（形容人和物）</li>
-<li>数词（表数量）</li>
-<li>副词（修饰动词或形容词）</li>
-<li>介词（表示和其他词关系的词）</li>
-<li>叹词（表感叹）</li>
-<li>连词（连接词和句）<code>and</code>、<code>because</code>等等</li>
-</ol>
-<h2 id="五、时态"><a href="#五、时态" class="headerlink" title="五、时态"></a>五、时态</h2><p>谓语动词的”三大本领“：</p>
-<ol>
-<li>动作时间（过去、现在、将来和过去将来）</li>
-<li>动作状态（一般，进行、完成和完成进行）</li>
-<li>动作假设，情感…（语气）</li>
-</ol>
-<p>时态 &#x3D;&#x3D; 动作时间 + 动作状态</p>
-<p>谓语动词本身并不能直接把其本领表示出来，需要借助助动词来完成。</p>
-<h2 id="六、助动词"><a href="#六、助动词" class="headerlink" title="六、助动词"></a>六、助动词</h2><p>例如<code>eat</code>吃：</p>
-<ul>
-<li>(协助)表示 ”吃过了“（完成）–&gt; <code>have</code> –&gt; <code>have eaten</code></li>
-<li>(协助)表示 ”正在吃“（进行）–&gt; <code>be</code> –&gt; <code>is eating</code></li>
-<li>(协助)表示 ”被吃“–&gt; <code>be</code> –&gt; <code>is eaten</code></li>
-<li>(协助)表示 ”有能力吃“–&gt; <code>can</code>–&gt; <code>can eat</code></li>
-<li>(协助)表示 ”有可能吃“ –&gt; <code>might</code>–&gt; <code>might eat</code></li>
-<li>(协助)表示 ”有义务吃“–&gt; <code>must</code>–&gt; <code>must eat</code></li>
-<li>(协助)表示 ”不吃“（否定）–&gt; <code>do</code> –&gt; <code>do not eat</code></li>
-</ul>
-<p>这些词做助动词时，没有实际意义，只是帮助作用。</p>
-<p>但是这些词本身作为实义动词还是有具体意义的，甚至具有其它词性：</p>
-<p><code>can</code>可以是 ”易拉罐“、<code>be</code>可以是 “存在”、<code>might</code>可以是 ”力量“、<code>musty</code>可以是发霉的、<code>do</code>可以是 ”做某事“、<code>have</code>可以是拥有等等…</p>
-<h2 id="七、非谓语动词"><a href="#七、非谓语动词" class="headerlink" title="七、非谓语动词"></a>七、非谓语动词</h2><p>几乎可以取代所有从句，从而简化句子，但此类动词丧失了表示<strong>动作时间</strong>，<strong>状态</strong>，<strong>语态语气</strong>的功能，即没有时态的变化。</p>
-<p>有以下四种：</p>
-<ul>
-<li>动词不定式（形式为 to do）</li>
-<li>现在分词（形式为 动词+ing）</li>
-<li>动名词（形式为 动词+ing）</li>
-<li>过去分词（形式为 动词+ed）</li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>英语语法</tag>
       </tags>
   </entry>
   <entry>
@@ -3039,6 +2775,270 @@
       </categories>
       <tags>
         <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>优化C++控制台输出字体颜色方法</title>
+    <url>/2023/10/01/C++ConsoleTextColor/</url>
+    <content><![CDATA[<blockquote>
+<p>C++的系统调用输出颜色的方法参数很冗长，而且没有中文注释，很不方便，所以进行了优化处理，各位可以直接复制保存使用。</p>
+</blockquote>
+<span id="more"></span>
+
+<h1 id="优化C-控制台输出字体颜色方法"><a href="#优化C-控制台输出字体颜色方法" class="headerlink" title="优化C++控制台输出字体颜色方法"></a>优化C++控制台输出字体颜色方法</h1><blockquote>
+<p>所用工具为：Microsoft Virtual Studio</p>
+</blockquote>
+<h2 id="原版"><a href="#原版" class="headerlink" title="原版"></a>原版</h2><h3 id="字体颜色："><a href="#字体颜色：" class="headerlink" title="字体颜色："></a>字体颜色：</h3><p>使用方法：先包含windows头文件<code>Windows.h</code></p>
+<p>必须在方法体内：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">//调用此方法设置参数</span><br><span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), FOREGROUND_RED);<br><span class="hljs-comment">//颜色参数之间用|分隔</span><br><span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_RED);<br></code></pre></td></tr></table></figure>
+
+
+
+<table>
+<thead>
+<tr>
+<th align="center">文本颜色</th>
+<th align="center">参数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">红色</td>
+<td align="center">FOREGROUND_RED</td>
+</tr>
+<tr>
+<td align="center">绿色</td>
+<td align="center">FOREGROUND_GREEN</td>
+</tr>
+<tr>
+<td align="center">蓝色</td>
+<td align="center">FOREGROUND_BLUE</td>
+</tr>
+<tr>
+<td align="center">白色</td>
+<td align="center">FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_RED</td>
+</tr>
+<tr>
+<td align="center">天蓝色</td>
+<td align="center">FOREGROUND_BLUE | FOREGROUND_GREEN</td>
+</tr>
+<tr>
+<td align="center">黄色</td>
+<td align="center">FOREGROUND_GREEN | FOREGROUND_RED</td>
+</tr>
+<tr>
+<td align="center">粉色</td>
+<td align="center">FOREGROUND_RED | FOREGROUND_BLUE</td>
+</tr>
+<tr>
+<td align="center">颜色增强</td>
+<td align="center">FOREGROUND_INTENSITY</td>
+</tr>
+</tbody></table>
+<h3 id="字体背景颜色："><a href="#字体背景颜色：" class="headerlink" title="字体背景颜色："></a>字体背景颜色：</h3><p>使用方法同字体颜色，主要是参数不一样</p>
+<p>使用方法：先包含windows头文件<code>Windows.h</code></p>
+<p>必须在方法体内：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">//调用此方法设置参数</span><br><span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), BACKGROUND_RED);<br><span class="hljs-comment">//颜色参数之间用|分隔</span><br><span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), BACKGROUND_BLUE | BACKGROUND_GREEN | BACKGROUND_RED);<br></code></pre></td></tr></table></figure>
+
+<p>注：相关参数源码是用宏定义的，不可修改</p>
+<table>
+<thead>
+<tr>
+<th align="center">背景颜色</th>
+<th align="center">参数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">红色</td>
+<td align="center">BACKGROUND_RED</td>
+</tr>
+<tr>
+<td align="center">绿色</td>
+<td align="center">BACKGROUND_GREEN</td>
+</tr>
+<tr>
+<td align="center">蓝色</td>
+<td align="center">BACKGROUND_BLUE</td>
+</tr>
+<tr>
+<td align="center">白色</td>
+<td align="center">BACKGROUND_BLUE | BACKGROUND_GREEN |BACKGROUND_RED</td>
+</tr>
+<tr>
+<td align="center">天蓝色</td>
+<td align="center">BACKGROUND_BLUE | BACKGROUND_GREEN</td>
+</tr>
+<tr>
+<td align="center">黄色</td>
+<td align="center">BACKGROUND_GREEN | BACKGROUND_RED</td>
+</tr>
+<tr>
+<td align="center">粉色</td>
+<td align="center">BACKGROUND_RED | BACKGROUND_BLUE</td>
+</tr>
+<tr>
+<td align="center">颜色增强</td>
+<td align="center">BACKGROUND_INTENSITY</td>
+</tr>
+</tbody></table>
+<p>注：</p>
+<ul>
+<li>相关参数源码是用宏定义的，不可修改。</li>
+<li>颜色为三基色，且不可与非颜色增强的混合搭配，即要么都增强，要么都不增强</li>
+<li>设置后，后面的就全是这个颜色了</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">//</span><br><span class="hljs-comment">// Attributes flags:</span><br><span class="hljs-comment">//</span><br><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> FOREGROUND_BLUE      0x0001 <span class="hljs-comment">// text color contains blue.</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> FOREGROUND_GREEN     0x0002 <span class="hljs-comment">// text color contains green.</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> FOREGROUND_RED       0x0004 <span class="hljs-comment">// text color contains red.</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> FOREGROUND_INTENSITY 0x0008 <span class="hljs-comment">// text color is intensified.</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> BACKGROUND_BLUE      0x0010 <span class="hljs-comment">// background color contains blue.</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> BACKGROUND_GREEN     0x0020 <span class="hljs-comment">// background color contains green.</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> BACKGROUND_RED       0x0040 <span class="hljs-comment">// background color contains red.</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> BACKGROUND_INTENSITY 0x0080 <span class="hljs-comment">// background color is intensified.</span></span><br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="简化版"><a href="#简化版" class="headerlink" title="简化版"></a>简化版</h2><p>由于方法参数很长，不便使用，因此进行了简化。</p>
+<p>使用方法：</p>
+<ul>
+<li>只需要创建个头文件，名称自定义，例如<code>printcolor</code>，然后复制下面的代码粘贴。</li>
+<li>在源文件内包含此头文件<code>printcolor.h</code>，然后打印输出前调用方法<code>setTextColor()</code>设置字体颜色，调用方法<code>setTextBackgroundColor()</code>设置字体背景颜色，传入相应的<code>string</code>类型的英文颜色字符串即可。</li>
+</ul>
+<p>代码：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">pragma</span> once<span class="hljs-comment">//防止头文件重复包含</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;Windows.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">	注意：</span><br><span class="hljs-comment">        设置后，在此之后输出的都将是设置的颜色。</span><br><span class="hljs-comment">        若再想恢复默认颜色，可通过不传参数执行此方法恢复默认颜色。</span><br><span class="hljs-comment">*/</span><br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">    设置字体颜色：</span><br><span class="hljs-comment">        方法支持15种颜色（请传入相应的英文参数）：</span><br><span class="hljs-comment">            0、浅白色：littlewhite</span><br><span class="hljs-comment">            1、红色：red      2、绿色：green     3、蓝色：blue</span><br><span class="hljs-comment">            4、白色: white    5、天蓝色：skyblue   6、黄色：yellow</span><br><span class="hljs-comment">            7、粉色: pink</span><br><span class="hljs-comment">            11、亮红色：lightred      12、亮绿色：lightgreen     13、亮蓝色：lightblue</span><br><span class="hljs-comment">            14、亮白色: lightwhite    15、亮天蓝色：lightskyblue   16、亮黄色：lightyellow</span><br><span class="hljs-comment">            17、亮粉色: lightpink</span><br><span class="hljs-comment">            其它参数或不传参数：默认色(白色)</span><br><span class="hljs-comment">*/</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">setTextColor</span><span class="hljs-params">(string color = <span class="hljs-string">&quot;white&quot;</span>)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-comment">//设置Windows控制台打印颜色</span><br>    <span class="hljs-type">int</span> num = <span class="hljs-number">4</span>;<br>    <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;littlewhite&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">0</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;red&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">1</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;green&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">2</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;blue&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">3</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;white&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">4</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;skyblue&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">5</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;yellow&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">6</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;pink&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">7</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;lightred&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">11</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;lightgreen&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">12</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;lightblue&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">13</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;lightwhite&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">14</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;lightskyblue&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">15</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;lightyellow&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">16</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;lightpink&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">17</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span><br>    &#123;<br>        num = <span class="hljs-number">4</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">switch</span> (num)<br>    &#123;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">0</span>:<span class="hljs-comment">//浅白色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), FOREGROUND_INTENSITY);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:<span class="hljs-comment">//红色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), FOREGROUND_RED);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:<span class="hljs-comment">//绿色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), FOREGROUND_GREEN);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:<span class="hljs-comment">//蓝色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), FOREGROUND_BLUE);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">4</span>:<span class="hljs-comment">//白色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_RED);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">5</span>:<span class="hljs-comment">//天蓝色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), FOREGROUND_BLUE | FOREGROUND_GREEN);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">6</span>:<span class="hljs-comment">//黄色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), FOREGROUND_GREEN | FOREGROUND_RED);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">7</span>:<span class="hljs-comment">//粉色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), FOREGROUND_BLUE | FOREGROUND_RED);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">11</span>:<span class="hljs-comment">//增强红色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), FOREGROUND_INTENSITY | FOREGROUND_RED);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">12</span>:<span class="hljs-comment">//增强绿色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), FOREGROUND_INTENSITY | FOREGROUND_GREEN);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">13</span>:<span class="hljs-comment">//增强蓝色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), FOREGROUND_INTENSITY | FOREGROUND_BLUE);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">14</span>:<span class="hljs-comment">//增强白色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), FOREGROUND_INTENSITY | FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_RED);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">15</span>:<span class="hljs-comment">//增强天蓝色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), FOREGROUND_INTENSITY | FOREGROUND_BLUE | FOREGROUND_GREEN);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">16</span>:<span class="hljs-comment">//增强黄色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), FOREGROUND_INTENSITY | FOREGROUND_GREEN | FOREGROUND_RED);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">17</span>:<span class="hljs-comment">//增强粉色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), FOREGROUND_INTENSITY | FOREGROUND_BLUE | FOREGROUND_RED);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">default</span>:<span class="hljs-comment">//默认</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_RED);<br>        <span class="hljs-keyword">break</span>;<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">    设置字体背景色：</span><br><span class="hljs-comment">        方法支持15种颜色（请传入相应的英文参数）：</span><br><span class="hljs-comment">            0、浅白色：littlewhite</span><br><span class="hljs-comment">            1、红色：red      2、绿色：green     3、蓝色：blue</span><br><span class="hljs-comment">            4、白色: white    5、天蓝色：skyblue   6、黄色：yellow</span><br><span class="hljs-comment">            7、粉色: pink</span><br><span class="hljs-comment">            11、亮红色：lightred      12、亮绿色：lightgreen     13、亮蓝色：lightblue</span><br><span class="hljs-comment">            14、亮白色: lightwhite    15、亮天蓝色：lightskyblue   16、亮黄色：lightyellow</span><br><span class="hljs-comment">            17、亮粉色: lightpink</span><br><span class="hljs-comment">    注意：背景色一旦设置，就恢复不了原来的黑色字体背景了，除非不设置背景色</span><br><span class="hljs-comment">*/</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">setTextBackgroundColor</span><span class="hljs-params">(string color = <span class="hljs-string">&quot;white&quot;</span>)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-comment">//设置Windows控制台打印颜色</span><br>    <span class="hljs-type">int</span> num = <span class="hljs-number">4</span>;<br>    <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;littlewhite&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">0</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;red&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">1</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;green&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">2</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;blue&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">3</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;white&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">4</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;skyblue&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">5</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;yellow&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">6</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;pink&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">7</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;lightred&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">11</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;lightgreen&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">12</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;lightblue&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">13</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;lightwhite&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">14</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;lightskyblue&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">15</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;lightyellow&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">16</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color == <span class="hljs-string">&quot;lightpink&quot;</span>)<br>    &#123;<br>        num = <span class="hljs-number">17</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span><br>    &#123;<br>        num = <span class="hljs-number">4</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">switch</span> (num)<br>    &#123;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">0</span>:<span class="hljs-comment">//浅白色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), BACKGROUND_INTENSITY);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:<span class="hljs-comment">//红色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), BACKGROUND_RED);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:<span class="hljs-comment">//绿色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), BACKGROUND_GREEN);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:<span class="hljs-comment">//蓝色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), BACKGROUND_BLUE);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">4</span>:<span class="hljs-comment">//白色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), BACKGROUND_BLUE | BACKGROUND_GREEN | BACKGROUND_RED);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">5</span>:<span class="hljs-comment">//天蓝色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), BACKGROUND_BLUE | BACKGROUND_GREEN);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">6</span>:<span class="hljs-comment">//黄色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), BACKGROUND_GREEN | BACKGROUND_RED);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">7</span>:<span class="hljs-comment">//粉色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), BACKGROUND_BLUE | BACKGROUND_RED);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">11</span>:<span class="hljs-comment">//增强红色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), BACKGROUND_INTENSITY | BACKGROUND_RED);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">12</span>:<span class="hljs-comment">//增强绿色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), BACKGROUND_INTENSITY | BACKGROUND_GREEN);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">13</span>:<span class="hljs-comment">//增强蓝色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), BACKGROUND_INTENSITY | BACKGROUND_BLUE);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">14</span>:<span class="hljs-comment">//增强白色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), BACKGROUND_INTENSITY | BACKGROUND_BLUE | BACKGROUND_GREEN | BACKGROUND_RED);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">15</span>:<span class="hljs-comment">//增强天蓝色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), BACKGROUND_INTENSITY | BACKGROUND_BLUE | BACKGROUND_GREEN);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">16</span>:<span class="hljs-comment">//增强黄色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), BACKGROUND_INTENSITY | BACKGROUND_GREEN | BACKGROUND_RED);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> <span class="hljs-number">17</span>:<span class="hljs-comment">//增强粉色</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), BACKGROUND_INTENSITY | BACKGROUND_BLUE | BACKGROUND_RED);<br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">default</span>:<span class="hljs-comment">//默认</span><br>        <span class="hljs-built_in">SetConsoleTextAttribute</span>(<span class="hljs-built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE), BACKGROUND_BLUE | BACKGROUND_GREEN | BACKGROUND_RED);<br>        <span class="hljs-keyword">break</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>示例：源文件demo.cpp</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&quot;printcolor.h&quot;</span></span><br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">test</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-built_in">setTextColor</span>(<span class="hljs-string">&quot;red&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;红色字体：***************&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-built_in">setTextColor</span>(<span class="hljs-string">&quot;green&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;绿色字体：***************&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-built_in">setTextColor</span>(<span class="hljs-string">&quot;blue&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;蓝色字体：***************&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-built_in">setTextColor</span>(<span class="hljs-string">&quot;white&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;白色字体：***************&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-built_in">setTextColor</span>(<span class="hljs-string">&quot;skyblue&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;天蓝色字体：***************&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-built_in">setTextColor</span>(<span class="hljs-string">&quot;yellow&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;黄色字体：***************&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-built_in">setTextColor</span>(<span class="hljs-string">&quot;pink&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;粉色字体：***************&quot;</span> &lt;&lt; endl;<br><br>    <span class="hljs-built_in">setTextColor</span>(<span class="hljs-string">&quot;lightred&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;亮红色字体：***************&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-built_in">setTextColor</span>(<span class="hljs-string">&quot;lightgreen&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;亮绿色字体：***************&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-built_in">setTextColor</span>(<span class="hljs-string">&quot;lightblue&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;亮蓝色字体：***************&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-built_in">setTextColor</span>(<span class="hljs-string">&quot;lightwhite&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;亮白色字体：***************&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-built_in">setTextColor</span>(<span class="hljs-string">&quot;lightskyblue&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;亮天蓝色字体：***************&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-built_in">setTextColor</span>(<span class="hljs-string">&quot;lightyellow&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;亮黄色字体：***************&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-built_in">setTextColor</span>(<span class="hljs-string">&quot;lightpink&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;亮粉色字体：***************&quot;</span> &lt;&lt; endl;<br><br><br>    <span class="hljs-built_in">setTextBackgroundColor</span>(<span class="hljs-string">&quot;red&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;字体红色背景：***************&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-built_in">setTextBackgroundColor</span>(<span class="hljs-string">&quot;green&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;字体绿色背景：***************&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-built_in">setTextBackgroundColor</span>(<span class="hljs-string">&quot;blue&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;字体蓝色背景：***************&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-built_in">setTextBackgroundColor</span>(<span class="hljs-string">&quot;white&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;字体白色背景：***************&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-built_in">setTextBackgroundColor</span>(<span class="hljs-string">&quot;skyblue&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;字体天蓝色背景：***************&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-built_in">setTextBackgroundColor</span>(<span class="hljs-string">&quot;yellow&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;字体黄色背景：***************&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-built_in">setTextBackgroundColor</span>(<span class="hljs-string">&quot;pink&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;字体粉色背景：***************&quot;</span> &lt;&lt; endl;<br><br>    <span class="hljs-built_in">setTextBackgroundColor</span>(<span class="hljs-string">&quot;lightred&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;字体亮红色背景：***************&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-built_in">setTextBackgroundColor</span>(<span class="hljs-string">&quot;lightgreen&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;字体亮绿色背景：***************&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-built_in">setTextBackgroundColor</span>(<span class="hljs-string">&quot;lightblue&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;字体亮蓝色背景：***************&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-built_in">setTextBackgroundColor</span>(<span class="hljs-string">&quot;lightwhite&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;字体亮白色背景：***************&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-built_in">setTextBackgroundColor</span>(<span class="hljs-string">&quot;lightskyblue&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;字体亮天蓝色背景：***************&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-built_in">setTextBackgroundColor</span>(<span class="hljs-string">&quot;lightyellow&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;字体亮黄色背景：***************&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-built_in">setTextBackgroundColor</span>(<span class="hljs-string">&quot;lightpink&quot;</span>);<br>    cout &lt;&lt; <span class="hljs-string">&quot;字体亮粉色背景：***************&quot;</span> &lt;&lt; endl;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-built_in">test</span>();<br>    <span class="hljs-built_in">system</span>(<span class="hljs-string">&quot;pause&quot;</span>);<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>程序优化</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>循环链表（Circular Link List）</title>
+    <url>/2023/10/06/CircularLinkList/</url>
+    <content><![CDATA[<blockquote>
+<p>循环链表与单链表的主要区别和完整实现代码。</p>
+</blockquote>
+<span id="more"></span>
+
+<hr>
+<p>前置文章：<a href="https://superlovelace.top/2022/12/10/LinkList/">单链表</a></p>
+<h1 id="循环链表-Circular-Link-List"><a href="#循环链表-Circular-Link-List" class="headerlink" title="循环链表(Circular Link List)"></a>循环链表(Circular Link List)</h1><p>初始循环链表的头结点的后继指向自己</p>
+<h2 id="与单链表主要区别"><a href="#与单链表主要区别" class="headerlink" title="与单链表主要区别"></a>与单链表主要区别</h2><ul>
+<li>在遍历时判断结点是否为头结点 而不是 是否为空</li>
+<li>空的双向循环链表的头结点的前驱和后继都指向自己</li>
+<li>两个循环链表可以合并为一个，循环链表A、B 定义指针 p</li>
+<li>p指向B链表的最后一个结点指向的下下个结点的地址，即B的头结点指向的第一个数据</li>
+<li>把A链表的最后一个结点的后继（A的头结点）赋值给 B链表的最后一个结点的后继（B的头结点）</li>
+<li>把p的地址赋值给A链表的最后一个结点的后继</li>
+<li>p &#x3D; B-&gt;next-&gt;next;&#x2F;&#x2F;把B的头结点地址指向给p</li>
+<li>B-&gt;next &#x3D; A-&gt;next; &#x2F;&#x2F;把B的尾结点地址指向A的头结点</li>
+<li>A-&gt;next &#x3D; p;&#x2F;&#x2F;把A的尾结点地址指向B的头结点指向的地址（B的第一个有值结点）</li>
+</ul>
+<h2 id="代码不同处"><a href="#代码不同处" class="headerlink" title="代码不同处"></a>代码不同处</h2><figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">//初始化 有头结点</span><br><span class="hljs-function">Status <span class="hljs-title">InitList</span><span class="hljs-params">(LinkList &amp;L)</span></span><br><span class="hljs-function"></span>&#123;<br>	L = <span class="hljs-keyword">new</span> LNode;<br>	L-&gt;next = L;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>&#125;<br><br><span class="hljs-function">Status <span class="hljs-title">GetElem</span><span class="hljs-params">(LinkList L,<span class="hljs-type">int</span> i,ElemType &amp;e)</span></span><br><span class="hljs-function"></span>&#123;<br>	LNode *p = L-&gt;next;<br>	<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>;<br>	<span class="hljs-keyword">while</span> (p!=L &amp;&amp; j&lt;i)<span class="hljs-comment">//这里的改动！类似这种循环遍历的地方都要改</span><br>	&#123;<br>		p = p-&gt;next;<br>		j++;<br>	&#125;<br>	<span class="hljs-keyword">if</span> (p==L || j &gt; i) <br>	&#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>	&#125;<br>	e = p-&gt;data;<br>	<span class="hljs-keyword">return</span> p-&gt;data;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="完整实现代码"><a href="#完整实现代码" class="headerlink" title="完整实现代码"></a>完整实现代码</h2><figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;string&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">	循环链表 Circular Link List</span><br><span class="hljs-comment">*/</span><br><br><br><span class="hljs-keyword">typedef</span> <span class="hljs-type">int</span> ElemType;<br><span class="hljs-keyword">typedef</span> <span class="hljs-type">int</span> Status;<br><br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> <span class="hljs-title class_">LNode</span><br>&#123;<br>	ElemType data;<br>	<span class="hljs-keyword">struct</span> <span class="hljs-title class_">LNode</span>* next;<br>&#125;LNode,*LinkList;<br><br><span class="hljs-comment">//初始化循环链表 有头结点</span><br><span class="hljs-function">Status <span class="hljs-title">InitList</span><span class="hljs-params">(LinkList &amp;L)</span></span><br><span class="hljs-function"></span>&#123;<br>	L = <span class="hljs-keyword">new</span> LNode;<br>	L-&gt;next = L;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>&#125;<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">	循环链表的取值（按位查找）: 时间复杂度O(n)</span><br><span class="hljs-comment">	参数一：要取值的循环链表</span><br><span class="hljs-comment">	参数二：要取值的位置</span><br><span class="hljs-comment">	参数三：待保存的对象</span><br><span class="hljs-comment">	注意：成功：返回1；失败：返回0。</span><br><span class="hljs-comment">*/</span><br><span class="hljs-function">Status <span class="hljs-title">GetElem</span><span class="hljs-params">(LinkList L,<span class="hljs-type">int</span> i,ElemType &amp;e)</span></span><br><span class="hljs-function"></span>&#123;<br>	LNode *p = L-&gt;next;<br>	<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>;<br>	<span class="hljs-keyword">while</span> (p!=L &amp;&amp; j&lt;i)<span class="hljs-comment">//循环链表修改处！！！</span><br>	&#123;<br>		p = p-&gt;next;<br>		j++;<br>	&#125;<br>	<span class="hljs-keyword">if</span> (p==L || j &gt; i) <span class="hljs-comment">//循环链表修改处！！！</span><br>	&#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>	&#125;<br>	e = p-&gt;data;<br>	<span class="hljs-keyword">return</span> p-&gt;data;<br>&#125;<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">	循环链表的查找（按值查找）:   时间复杂度O(n)</span><br><span class="hljs-comment">	参数一：要查找的循环链表</span><br><span class="hljs-comment">	参数二：要查找的数据</span><br><span class="hljs-comment">	注意：成功：返回下标地址；失败：返回NULL。</span><br><span class="hljs-comment">*/</span><br><span class="hljs-function">LNode* <span class="hljs-title">LocateElem</span><span class="hljs-params">(LinkList L, ElemType e)</span></span><br><span class="hljs-function"></span>&#123;<br>	LNode* p = L-&gt;next;<span class="hljs-comment">//创建新结点，并指向第一块数据</span><br>	<span class="hljs-keyword">while</span> (p &amp;&amp; p-&gt;data!=e)<span class="hljs-comment">//如果p不为空且data == e,返回p的地址</span><br>	&#123;<br>		p = p-&gt;next;<br>	&#125;<br>	<span class="hljs-keyword">return</span> p;<br>&#125;<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">	循环链表的插入（按位序插入）:时间复杂度O(n)</span><br><span class="hljs-comment">	参数一：要插入的循环链表</span><br><span class="hljs-comment">	参数二：要插入的位置</span><br><span class="hljs-comment">	参数三：要插入的数据</span><br><span class="hljs-comment">	注意：成功：返回1；失败：返回0。</span><br><span class="hljs-comment">*/</span><br><span class="hljs-function">Status <span class="hljs-title">ListInsert</span><span class="hljs-params">(LinkList&amp; L, <span class="hljs-type">int</span> i, ElemType e)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">if</span> (i&lt;<span class="hljs-number">1</span>)<br>	&#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>	&#125;<br>	LNode* p = L;<span class="hljs-comment">//创建临时结点指向头结点，头结点不存数据</span><br>	<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>;<span class="hljs-comment">//记录p指向的是第几个结点，第0个结点为头结点，头结点不存数据，只存地址</span><br>	<span class="hljs-comment">//循环链表修改处！！！</span><br>	<span class="hljs-keyword">while</span> (p-&gt;next!=L &amp;&amp; (j&lt;i<span class="hljs-number">-1</span>))<span class="hljs-comment">//循环找到第i-1个结点</span><br>	&#123;<br>		p = p-&gt;next;<br>		j++;<br>	&#125;<br>	<span class="hljs-comment">//循环链表修改处！！！</span><br>	<span class="hljs-keyword">if</span> (p==L || j&gt;i<span class="hljs-number">-1</span>)<span class="hljs-comment">//如果地址p为NULL就退出，头结点的地址也不为空</span><br>	&#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>	&#125;<br>	LNode* s = <span class="hljs-keyword">new</span> LNode; <span class="hljs-comment">//创建新结点</span><br>	s-&gt;data = e;<span class="hljs-comment">//新结点存放新数据e</span><br>	s-&gt;next = p-&gt;next;<span class="hljs-comment">//将p的指针指向的下一个数据地址赋值给新结点s的指针</span><br>	p-&gt;next = s;<span class="hljs-comment">//p的指针指向新节点s</span><br><br>	<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>&#125;<br><br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">	循环链表的删除:   时间复杂度O(n)</span><br><span class="hljs-comment">	参数一：要删除的循环链表</span><br><span class="hljs-comment">	参数二：要删除的位置</span><br><span class="hljs-comment">	注意：成功：返回1；失败：返回0。</span><br><span class="hljs-comment">*/</span><br><span class="hljs-function">Status <span class="hljs-title">ListDelete</span><span class="hljs-params">(LinkList&amp; L, <span class="hljs-type">int</span> i)</span></span><br><span class="hljs-function"></span>&#123;<br>	LNode* p = L;<span class="hljs-comment">//创建临时结点指向头结点，头结点不存数据</span><br>	<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>;<span class="hljs-comment">//记录p指向的是第几个结点，第0个结点为头结点，头结点不存数据，只存地址</span><br>	<span class="hljs-comment">//循环链表修改处！！！</span><br>	<span class="hljs-keyword">while</span> (p-&gt;next != L &amp;&amp;(j&lt;i<span class="hljs-number">-1</span>))<span class="hljs-comment">//循环找到第i-1个结点的前一个结点</span><br>	&#123;<br>		p = p-&gt;next;<br>		j++;<br>	&#125;<br>	<span class="hljs-comment">//循环链表修改处！！！</span><br>	<span class="hljs-keyword">if</span> (p-&gt;next == L||(j&gt;i<span class="hljs-number">-1</span>))<br>	&#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>	&#125;<br>	LNode* q = p-&gt;next;<span class="hljs-comment">//创建新结点q,指向要删除的数据内存地址</span><br>	p-&gt;next = q-&gt;next;<span class="hljs-comment">//p的指针指向q的指针指向的下一个数据地址</span><br>	<span class="hljs-keyword">delete</span> q;<span class="hljs-comment">//释放q结点</span><br><br>	<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>&#125;<br><br><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	LinkList L;<br>	<span class="hljs-comment">//初始化循环链表</span><br>	<span class="hljs-built_in">InitList</span>(L);<br>	<span class="hljs-comment">//插入循环链表</span><br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt; <span class="hljs-number">6</span>; i++)<br>	&#123;<br>		<span class="hljs-built_in">ListInsert</span>(L, <span class="hljs-number">1</span>, i);<br>	&#125;<br>	<span class="hljs-comment">//取值</span><br>	<span class="hljs-type">int</span> e;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">5</span>; i++)<br>	&#123;<br>		cout &lt;&lt; <span class="hljs-built_in">GetElem</span>(L, i, e) &lt;&lt; endl;<br>	&#125;<br>	<br>	<span class="hljs-comment">//查找</span><br>	cout &lt;&lt; <span class="hljs-string">&quot;5的地址为：&quot;</span> &lt;&lt; <span class="hljs-built_in">LocateElem</span>(L, <span class="hljs-number">5</span>) &lt;&lt; endl;<br>	<span class="hljs-comment">//删除</span><br>	<span class="hljs-built_in">ListDelete</span>(L, <span class="hljs-number">1</span>);<br>	cout &lt;&lt; <span class="hljs-string">&quot;删除第一个元素5：&quot;</span> &lt;&lt; endl;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt; <span class="hljs-number">5</span>; i++)<br>	&#123;<br>		cout &lt;&lt; <span class="hljs-built_in">GetElem</span>(L, i, e) &lt;&lt; endl;<br>	&#125;<br>	<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>英语语法综述</title>
+    <url>/2023/09/30/EnglishGrammar/</url>
+    <content><![CDATA[<blockquote>
+<p>英语语法学习笔记，包括谓语动词、非谓语动词、句子成分、词类和时态等。</p>
+</blockquote>
+<span id="more"></span>
+
+<p>注：本文为学习笔记，视频学习地址为：<a href="https://www.bilibili.com/video/BV1XY411J7aG/">英语语法精讲合集 (全面, 通俗, 有趣 | 从零打造系统语法体系)</a>，更多英语学习视频请关注B站UP主：<a href="https://space.bilibili.com/483162496">英语兔</a></p>
+<h1 id="英语语法综述"><a href="#英语语法综述" class="headerlink" title="英语语法综述"></a>英语语法综述</h1><p>当句子拆分到不能拆的时候，大都是以下此类句型：</p>
+<p>主语(人&#x2F;物) + 谓语(动作&#x2F;发生了什么事)</p>
+<p>此刻的动作是广义的动作，即动词</p>
+<h2 id="一、谓语动词"><a href="#一、谓语动词" class="headerlink" title="一、谓语动词"></a>一、谓语动词</h2><h3 id="1、可以独立完成的动作（不及物动词）"><a href="#1、可以独立完成的动作（不及物动词）" class="headerlink" title="1、可以独立完成的动作（不及物动词）"></a>1、可以独立完成的动作（不及物动词）</h3><p>例如：<code>Papa Rabbit sleeps.</code> (译文：兔老爹睡觉。)</p>
+<p>动词<code>sleep</code> 没有承受者，是不及物动词。</p>
+<h6 id="对应句型：主语-动词"><a href="#对应句型：主语-动词" class="headerlink" title="对应句型：主语+动词"></a>对应句型：<code>主语+动词</code></h6><h3 id="2、有1个动作的承受者（单及物动词）"><a href="#2、有1个动作的承受者（单及物动词）" class="headerlink" title="2、有1个动作的承受者（单及物动词）"></a>2、有<code>1</code>个动作的承受者（单及物动词）</h3><p>例如：<code>Papa Rabbit like you.</code> (译文：兔老爹喜欢你。)</p>
+<p>动词<code>like</code> 为及物动词，若只是<code>Papa Rabbit like</code> 兔老爹喜欢，喜欢什么呢，我们会觉得意思不完整，或者没有意义。而此例句的动作承受着<code>you</code>就是宾语。</p>
+<h6 id="对应句型：主语-单及物动词-宾语"><a href="#对应句型：主语-单及物动词-宾语" class="headerlink" title="对应句型：主语+单及物动词+宾语"></a>对应句型：<code>主语+单及物动词+宾语</code></h6><h3 id="3、有2个动作的承受者（双及物动词）"><a href="#3、有2个动作的承受者（双及物动词）" class="headerlink" title="3、有2个动作的承受者（双及物动词）"></a>3、有<code>2</code>个动作的承受者（双及物动词）</h3><p>例如：<code>Papa Rabbit teaches you English.</code> (译文：兔老爹教你英语。)</p>
+<p>此句有两个承受者，其中，核心词为<code>teach </code>教，教的知识是<code>English</code>英语，知识的接受对象是<code>you </code>你。动词的这两个承受者被称为直接宾语和间接宾语。若只是<code>Papa Rabbit teaches English</code> 兔老爹教英语，句意已经完整了，而<code>Papa Rabbit teaches you</code> 兔老爹教你，则不完整，仍需补充，所以<code>English</code>为直接宾语，<code>you</code>为间接宾语。</p>
+<h6 id="对应句型：主语-双及物动词-间接宾语-直接宾语"><a href="#对应句型：主语-双及物动词-间接宾语-直接宾语" class="headerlink" title="对应句型：主语+双及物动词+间接宾语+直接宾语"></a>对应句型：<code>主语+双及物动词+间接宾语+直接宾语</code></h6><h3 id="4、只有1个动作的承受者但需补充说明（复杂及物动词）"><a href="#4、只有1个动作的承受者但需补充说明（复杂及物动词）" class="headerlink" title="4、只有1个动作的承受者但需补充说明（复杂及物动词）"></a>4、只有<code>1</code>个动作的承受者但需补充说明（复杂及物动词）</h3><p>例如：<code>Papa Rabbit considers you smart.</code> (译文：兔老爹认为你聪明。)</p>
+<p><code>you</code>为动作承受者，是宾语。而<code>smart</code>为形容词，并不能是动作承受者，在英语中，宾语只包含名词和代词。但只是认为你，意义不完整，需要补充，而<code>smart</code>在这里充当补语，用来说明认为的状态。这种需要补语的动词被称为复杂及物动词。</p>
+<h6 id="对应句型：主语-复杂及物动词-宾语-宾语-补语"><a href="#对应句型：主语-复杂及物动词-宾语-宾语-补语" class="headerlink" title="对应句型：主语+复杂及物动词+宾语+(宾语)补语"></a>对应句型：<code>主语+复杂及物动词+宾语+(宾语)补语</code></h6><h3 id="5、非动作（系动词）"><a href="#5、非动作（系动词）" class="headerlink" title="5、非动作（系动词）"></a>5、非动作（系动词）</h3><p>例如：<code>Papa Rabbit is tall.</code> (译文：兔老爹很高。)</p>
+<p><code>is</code> 通常翻译成 ” 是 “，在这里只是把<code>tall</code>(高的)这个信息赋予<code>Papa Rabbit</code>，大白话就是把两者连系起来，所以这类词被称为连系动词。系动词后的补充信息就是补语，更精确说是主语补语，主语补语又称为表语。</p>
+<h6 id="对应句型：主语-系动词-主语-补语-表语"><a href="#对应句型：主语-系动词-主语-补语-表语" class="headerlink" title="对应句型：主语+系动词+(主语)补语/表语"></a>对应句型：<code>主语+系动词+(主语)补语/表语</code></h6><h2 id="二、句子成分"><a href="#二、句子成分" class="headerlink" title="二、句子成分"></a>二、句子成分</h2><p>以上已经提到了5种句子成分：</p>
+<ol>
+<li>主语</li>
+<li>谓语动词</li>
+<li>宾语</li>
+<li>宾语补语</li>
+<li>主语补语</li>
+</ol>
+<p>6、定语（主要用来主语和宾语）</p>
+<p>例如：<code>The little white rabbit ate a large carrot.</code>译文：这只小白兔吃了一根大胡萝卜。</p>
+<p>其中，<code>The little white</code> 就是主语<code>rabbit</code>的定语，而<code>a large</code>就是宾语<code>carrot</code>的定语</p>
+<p>7、状语（主要用来修饰谓语动词）</p>
+<p>例如：<code>The rabbit ate quickly.</code>译文：兔子快速地吃。</p>
+<p><code>quickly</code>就是<code>ate</code>的状语</p>
+<p>8、同位语（主要是把主语或宾语换个说法再说一遍）</p>
+<p><code>Papa Rabbit，an English teacher，eats carrots.</code>译文：兔老爹，一个英语老师，吃胡萝卜。</p>
+<p><code>an English teacher</code>就是把<code>Papa Rabbit</code>换个方式说了一遍，与主语同等地位。</p>
+<h2 id="三、简单句"><a href="#三、简单句" class="headerlink" title="三、简单句"></a>三、简单句</h2><p>以上皆为简单句，而简单句的简单相加就变成了复合句，而简单句的嵌套就组成了复杂句。</p>
+<p>一个句子套一个句子——&gt;主句+从句(嵌套的句子)，而从句本质上就是修改简单句成为另一个句子的句子成分。</p>
+<p>名词性从句：</p>
+<ul>
+<li>简单句作主语–&gt;主语从句</li>
+<li>简单句作宾语–&gt;宾语从句</li>
+<li>简单句作表语–&gt;表语从句</li>
+<li>简单句作同位语–&gt;同位语从句</li>
+</ul>
+<p>简单句作定语–&gt;定语从句</p>
+<p>简单句作状语–&gt;状语从句</p>
+<h2 id="四、词类（充当句子成分）"><a href="#四、词类（充当句子成分）" class="headerlink" title="四、词类（充当句子成分）"></a>四、词类（充当句子成分）</h2><ol>
+<li>动词（表示动作行为）</li>
+<li>名词（表示人和物）</li>
+<li>冠词（说明人和物）<code>a</code>、<code>an</code>和<code>the</code></li>
+<li>代词（替代人和物）<code>he</code>、<code>she</code>、<code>I</code>、<code>they</code>、<code>it</code>等等</li>
+<li>形容词（形容人和物）</li>
+<li>数词（表数量）</li>
+<li>副词（修饰动词或形容词）</li>
+<li>介词（表示和其他词关系的词）</li>
+<li>叹词（表感叹）</li>
+<li>连词（连接词和句）<code>and</code>、<code>because</code>等等</li>
+</ol>
+<h2 id="五、时态"><a href="#五、时态" class="headerlink" title="五、时态"></a>五、时态</h2><p>谓语动词的”三大本领“：</p>
+<ol>
+<li>动作时间（过去、现在、将来和过去将来）</li>
+<li>动作状态（一般，进行、完成和完成进行）</li>
+<li>动作假设，情感…（语气）</li>
+</ol>
+<p>时态 &#x3D;&#x3D; 动作时间 + 动作状态</p>
+<p>谓语动词本身并不能直接把其本领表示出来，需要借助助动词来完成。</p>
+<h2 id="六、助动词"><a href="#六、助动词" class="headerlink" title="六、助动词"></a>六、助动词</h2><p>例如<code>eat</code>吃：</p>
+<ul>
+<li>(协助)表示 ”吃过了“（完成）–&gt; <code>have</code> –&gt; <code>have eaten</code></li>
+<li>(协助)表示 ”正在吃“（进行）–&gt; <code>be</code> –&gt; <code>is eating</code></li>
+<li>(协助)表示 ”被吃“–&gt; <code>be</code> –&gt; <code>is eaten</code></li>
+<li>(协助)表示 ”有能力吃“–&gt; <code>can</code>–&gt; <code>can eat</code></li>
+<li>(协助)表示 ”有可能吃“ –&gt; <code>might</code>–&gt; <code>might eat</code></li>
+<li>(协助)表示 ”有义务吃“–&gt; <code>must</code>–&gt; <code>must eat</code></li>
+<li>(协助)表示 ”不吃“（否定）–&gt; <code>do</code> –&gt; <code>do not eat</code></li>
+</ul>
+<p>这些词做助动词时，没有实际意义，只是帮助作用。</p>
+<p>但是这些词本身作为实义动词还是有具体意义的，甚至具有其它词性：</p>
+<p><code>can</code>可以是 ”易拉罐“、<code>be</code>可以是 “存在”、<code>might</code>可以是 ”力量“、<code>musty</code>可以是发霉的、<code>do</code>可以是 ”做某事“、<code>have</code>可以是拥有等等…</p>
+<h2 id="七、非谓语动词"><a href="#七、非谓语动词" class="headerlink" title="七、非谓语动词"></a>七、非谓语动词</h2><p>几乎可以取代所有从句，从而简化句子，但此类动词丧失了表示<strong>动作时间</strong>，<strong>状态</strong>，<strong>语态语气</strong>的功能，即没有时态的变化。</p>
+<p>有以下四种：</p>
+<ul>
+<li>动词不定式（形式为 to do）</li>
+<li>现在分词（形式为 动词+ing）</li>
+<li>动名词（形式为 动词+ing）</li>
+<li>过去分词（形式为 动词+ed）</li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>英语语法</tag>
       </tags>
   </entry>
 </search>
