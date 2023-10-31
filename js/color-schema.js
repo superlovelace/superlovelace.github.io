@@ -3,6 +3,20 @@
 /**
  * Modified from https://blog.skk.moe/post/hello-darkmode-my-old-friend/
  */
+
+document.addEventListener('visibilitychange', function () {
+if (document.visibilityState == 'hidden') {
+normal_title = document.title;
+document.title = '去忙吧..';
+} else {
+    document.title = '好诶，终于回来了..';
+    setTimeout(() => {
+        document.title = normal_title;
+    }, 2000);
+}
+});
+
+
 (function(window, document) {
   var rootElement = document.documentElement;
   var colorSchemaStorageKey = 'Fluid_Color_Scheme';
