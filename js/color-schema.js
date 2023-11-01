@@ -12,7 +12,7 @@ document.title = '去忙吧..';
     document.title = '好诶，终于回来了..';
     setTimeout(() => {
         document.title = normal_title;
-    }, 2000);
+    }, 500);
 }
 });
 
