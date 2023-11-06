@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://superlovelace.top/2023/11/06/InstallMySQL/</loc>
+    <loc>https://superlovelace.top/2023/10/01/Vue-install/</loc>
+    <lastmod>2023-11-06</lastmod>
+  </url>
+  <url>
+    <loc>https://superlovelace.top/2023/10/01/Cnpm-install/</loc>
+    <lastmod>2023-11-06</lastmod>
+  </url>
+  <url>
+    <loc>https://superlovelace.top/2023/10/02/NTP/</loc>
     <lastmod>2023-11-06</lastmod>
   </url>
   <url>
     <loc>https://superlovelace.top/2023/10/03/VSCodeAlert/</loc>
+    <lastmod>2023-11-06</lastmod>
+  </url>
+  <url>
+    <loc>https://superlovelace.top/2023/11/06/InstallMySQL/</loc>
     <lastmod>2023-11-06</lastmod>
   </url>
   <url>
@@ -14,10 +26,6 @@
   </url>
   <url>
     <loc>https://superlovelace.top/2023/10/03/VueStartFail/</loc>
-    <lastmod>2023-10-31</lastmod>
-  </url>
-  <url>
-    <loc>https://superlovelace.top/2023/10/01/Vue-install/</loc>
     <lastmod>2023-10-31</lastmod>
   </url>
   <url>
@@ -62,10 +70,6 @@
   </url>
   <url>
     <loc>https://superlovelace.top/2022/11/23/Next-use/</loc>
-    <lastmod>2023-10-31</lastmod>
-  </url>
-  <url>
-    <loc>https://superlovelace.top/2023/10/02/NTP/</loc>
     <lastmod>2023-10-31</lastmod>
   </url>
   <url>
@@ -146,10 +150,6 @@
   </url>
   <url>
     <loc>https://superlovelace.top/2023/10/05/DjangoStartError/</loc>
-    <lastmod>2023-10-31</lastmod>
-  </url>
-  <url>
-    <loc>https://superlovelace.top/2023/10/01/Cnpm-install/</loc>
     <lastmod>2023-10-31</lastmod>
   </url>
   <url>
