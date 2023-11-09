@@ -1,3 +1,4 @@
+https://superlovelace.top/2023/10/05/MergeSort/
 https://superlovelace.top/2023/10/08/InsertSort/
 https://superlovelace.top/2023/09/29/HeapSort/
 https://superlovelace.top/2023/09/29/BubbleSort/
@@ -7,4 +8,3 @@ https://superlovelace.top/2023/10/01/Vue-install/
 https://superlovelace.top/2023/10/01/Cnpm-install/
 https://superlovelace.top/2023/10/02/NTP/
 https://superlovelace.top/2023/10/03/VSCodeAlert/
-https://superlovelace.top/2023/11/06/InstallMySQL/
