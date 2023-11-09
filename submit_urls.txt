@@ -1,10 +1,10 @@
+https://superlovelace.top/2023/09/29/HeapSort/
+https://superlovelace.top/2023/09/29/BubbleSort/
+https://superlovelace.top/2023/10/09/BInsertSort/
 https://superlovelace.top/2022/11/25/Github-https/
 https://superlovelace.top/2023/10/01/Vue-install/
 https://superlovelace.top/2023/10/01/Cnpm-install/
 https://superlovelace.top/2023/10/02/NTP/
 https://superlovelace.top/2023/10/03/VSCodeAlert/
 https://superlovelace.top/2023/11/06/InstallMySQL/
-https://superlovelace.top/2023/10/09/BInsertSort/
 https://superlovelace.top/2023/10/03/VueStartFail/
-https://superlovelace.top/2023/10/02/VerbCategories/
-https://superlovelace.top/2023/10/11/SqStack/
