@@ -47,6 +47,8 @@
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
+
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -490,7 +492,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：13 天前
+                    本文最后更新于：15 天前
                   
                 
               </p>
@@ -502,20 +504,21 @@
 <p>ImportError: Couldn’t import Django. Are you sure it’s installed and available on your PYTHONPATH environment variable? Did you forget to activate a virtual environment?</p>
 </blockquote>
 <span id="more"></span>
-
-<h2 id="错误信息："><a href="#错误信息：" class="headerlink" title="错误信息："></a>错误信息：</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python">PS F:\mysite\mysite&gt; python manage.py runserver<br>Traceback (most recent call last):<br>  File <span class="hljs-string">&quot;manage.py&quot;</span>, line <span class="hljs-number">8</span>, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    <span class="hljs-keyword">from</span> django.core.management <span class="hljs-keyword">import</span> execute_from_command_line<br>ModuleNotFoundError: No module named <span class="hljs-string">&#x27;django&#x27;</span><br><br>The above exception was the direct cause of the following exception:<br><br>Traceback (most recent call last):<br>  File <span class="hljs-string">&quot;manage.py&quot;</span>, line <span class="hljs-number">10</span>, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    <span class="hljs-keyword">raise</span> ImportError(<br>ImportError: Couldn<span class="hljs-string">&#x27;t import Django. Are you sure it&#x27;</span>s installed <span class="hljs-keyword">and</span> available on your PYTHONPATH environment variable? Did you forget to activate a virtual environment?<br>PS F:\mysite\mysite&gt; <br></code></pre></td></tr></table></figure>
-
+<h2 id="错误信息：">错误信息：</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python">PS F:\mysite\mysite&gt; python manage.py runserver<br>Traceback (most recent call last):<br>  File <span class="hljs-string">&quot;manage.py&quot;</span>, line <span class="hljs-number">8</span>, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    <span class="hljs-keyword">from</span> django.core.management <span class="hljs-keyword">import</span> execute_from_command_line<br>ModuleNotFoundError: No module named <span class="hljs-string">&#x27;django&#x27;</span><br><br>The above exception was the direct cause of the following exception:<br><br>Traceback (most recent call last):<br>  File <span class="hljs-string">&quot;manage.py&quot;</span>, line <span class="hljs-number">10</span>, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    <span class="hljs-keyword">raise</span> ImportError(<br>ImportError: Couldn<span class="hljs-string">&#x27;t import Django. Are you sure it&#x27;</span>s installed <span class="hljs-keyword">and</span> available on your PYTHONPATH environment variable? Did you forget to activate a virtual environment?<br>PS F:\mysite\mysite&gt; <br></code></pre></td></tr></table></figure>
 <p>错误信息翻译：</p>
 <p>不能导入Django，您确定PYTHONPATH环境变量已安装并可用吗？您是否忘记激活虚拟环境？</p>
 <hr>
-<h2 id="查看环境变量"><a href="#查看环境变量" class="headerlink" title="查看环境变量"></a>查看环境变量</h2><p>发现系统的环境变量PATH里没有python，然后去用户环境变量，发现PAYH内容如下：</p>
+<h2 id="查看环境变量">查看环境变量</h2>
+<p>发现系统的环境变量PATH里没有python，然后去用户环境变量，发现PAYH内容如下：</p>
 <table>
 <thead>
 <tr>
 <th>用户PATH内容</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>D:\anaconda3</td>
 </tr>
 <tr>
@@ -536,17 +539,20 @@
 <tr>
 <td>D:\python\</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>这样先找的就是anaconda里的python</p>
 <hr>
-<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>将D:\python\上移到第一个，然后确定。</p>
+<h2 id="解决方法">解决方法</h2>
+<p>将D:\python\上移到第一个，然后确定。</p>
 <table>
 <thead>
 <tr>
 <th>用户PATH更改后</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>D:\python\</td>
 </tr>
 <tr>
@@ -570,9 +576,10 @@
 <tr>
 <td></td>
 </tr>
-</tbody></table>
-<h2 id="重启VSCode"><a href="#重启VSCode" class="headerlink" title="重启VSCode"></a>重启VSCode</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python">PS F:\mysite\mysite&gt; python manage.py runserver<br>Watching <span class="hljs-keyword">for</span> file changes <span class="hljs-keyword">with</span> StatReloader<br>Performing system checks...<br><br>System check identified no issues (<span class="hljs-number">0</span> silenced).<br>October <span class="hljs-number">13</span>, <span class="hljs-number">2021</span> - <span class="hljs-number">11</span>:<span class="hljs-number">25</span>:<span class="hljs-number">26</span><br>Django version <span class="hljs-number">3.0</span>, using settings <span class="hljs-string">&#x27;mysite.settings&#x27;</span> <br>Starting development server at http://<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">8000</span>/<br>Quit the server <span class="hljs-keyword">with</span> CTRL-BREAK.<br><br></code></pre></td></tr></table></figure>
-
+</tbody>
+</table>
+<h2 id="重启VSCode">重启VSCode</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python">PS F:\mysite\mysite&gt; python manage.py runserver<br>Watching <span class="hljs-keyword">for</span> file changes <span class="hljs-keyword">with</span> StatReloader<br>Performing system checks...<br><br>System check identified no issues (<span class="hljs-number">0</span> silenced).<br>October <span class="hljs-number">13</span>, <span class="hljs-number">2021</span> - <span class="hljs-number">11</span>:<span class="hljs-number">25</span>:<span class="hljs-number">26</span><br>Django version <span class="hljs-number">3.0</span>, using settings <span class="hljs-string">&#x27;mysite.settings&#x27;</span> <br>Starting development server at http://<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">8000</span>/<br>Quit the server <span class="hljs-keyword">with</span> CTRL-BREAK.<br><br></code></pre></td></tr></table></figure>
 <p>OK，启动成功！</p>
 
                 
@@ -781,6 +788,11 @@
 
 
   
+
+
+  
+  
+
 
 
 

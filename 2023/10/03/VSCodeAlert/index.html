@@ -47,6 +47,8 @@
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
+
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -490,7 +492,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：7 天前
+                    本文最后更新于：8 天前
                   
                 
               </p>
@@ -502,33 +504,30 @@
 <p>VSCode启动后弹窗警告：The environment variable ‘Path’ seems to…</p>
 </blockquote>
 <span id="more"></span>
-
-<h2 id="警告详细信息："><a href="#警告详细信息：" class="headerlink" title="警告详细信息："></a>警告详细信息：</h2><blockquote>
-<p>The environment variable ‘Path’ seems to have some paths containing the ‘“‘ character. The existence of such a character is known to have caused the Python extension to not load. If the extension fails to load please modify your paths to remove this ‘“‘ character.</p>
+<h2 id="警告详细信息：">警告详细信息：</h2>
+<blockquote>
+<p>The environment variable ‘Path’ seems to have some paths containing the ‘&quot;’ character. The existence of such a character is known to have caused the Python extension to not load. If the extension fails to load please modify your paths to remove this ‘&quot;’ character.</p>
 </blockquote>
 <p>中文含义：</p>
 <blockquote>
 <p>环境变量“Path”的某些路径似乎包含“”字符。已知存在这样的字符导致Python扩展无法加载。如果扩展无法加载，请修改路径以删除此“”字符。</p>
 </blockquote>
-<p>这里的 “ “指的是环境变量存在引号，这里可以通过启动<code>cmd</code>命令提示符，输入命令<code>path</code>查看。</p>
+<p>这里的 &quot; &quot;指的是环境变量存在引号，这里可以通过启动<code>cmd</code>命令提示符，输入命令<code>path</code>查看。</p>
 <p>示例：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell">Microsoft Windows [版本 10.0.19044.2728]<br>(c) Microsoft Corporation。保留所有权利。<br><br>C:\Users\user&gt;path<br>PATH=C:\Program Files\Java\jdk1.8.0_251\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\System32;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Windows\System32;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;D:\mysql\bin;C:\WINDOWS\System32\OpenSSH\;D:\Program Files\MongoDB\bin;D:\Program Files\Git\cmd;D:\Program Files\微信web开发者工具\dll;D:\Program Files\MATLAB\R2017a\runtime\win64;D:\Program Files\MATLAB\R2017a\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;&quot;;D:\Program Files\MATLAB\R2017a\runtime\win64;D:\Program Files\MATLAB\R2017a\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\&quot;;D:\python\;D:\python\Scripts\;D:\anaconda3;D:\anaconda3\Library\mingw-w64\bin;D:\anaconda3\Library\usr\bin;D:\anaconda3\Library\bin;D:\anaconda3\Scripts;C:\Users\user\AppData\Local\Microsoft\WindowsApps;D:\web\apache-maven-3.6.0\bin;D:\Program Files\Microsoft VS Code\bin;C:\Program Files (x86)\Tencent\QQGameTempest\Hall.57938\;<br><br>C:\Users\user&gt;<br></code></pre></td></tr></table></figure>
-
 <p>仔细观察一下，即可看到有路径被引号包括了。这里之所以被引号包括是因为在<code>path</code>编辑环境变量里，有一行或多行的路径栏里，把众多路径用<code>;</code>给合并到一栏了，类似这样：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">;D:\Program Files\MATLAB\R2017a\runtime\win64;D:\Program Files\MATLAB\R2017a\bin;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;%SYSTEMROOT%\System32\OpenSSH\<br></code></pre></td></tr></table></figure>
-
-<h2 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h2><p>去系统Path环境变量，将合并在一起的路径拆分成单个的，分别新建一栏存放，然后点击确定，重启<code>VSCode</code>即可。</p>
+<h2 id="解决方法：">解决方法：</h2>
+<p>去系统Path环境变量，将合并在一起的路径拆分成单个的，分别新建一栏存放，然后点击确定，重启<code>VSCode</code>即可。</p>
 <p>示例：</p>
 <ul>
 <li>拆分前（一栏就这么多）：</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">;D:\Program Files\MATLAB\R2017a\runtime\win64;D:\Program Files\MATLAB\R2017a\bin;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;%SYSTEMROOT%\System32\OpenSSH\<br></code></pre></td></tr></table></figure>
-
 <ul>
 <li>拆分后（分成了七栏）：</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell">D:\Program Files\MATLAB\R2017a\runtime\win64<br>D:\Program Files\MATLAB\R2017a\bin<br><span class="hljs-meta prompt_">%</span><span class="language-bash">SystemRoot%\system32</span><br><span class="hljs-meta prompt_">%</span><span class="language-bash">SystemRoot%</span><br><span class="hljs-meta prompt_">%</span><span class="language-bash">SystemRoot%\System32\Wbem</span><br><span class="hljs-meta prompt_">%</span><span class="language-bash">SYSTEMROOT%\System32\WindowsPowerShell\v1.0\</span><br><span class="language-bash">%SYSTEMROOT%\System32\OpenSSH\</span><br></code></pre></td></tr></table></figure>
-
 
                 
               </div>
@@ -736,6 +735,11 @@
 
 
   
+
+
+  
+  
+
 
 
 

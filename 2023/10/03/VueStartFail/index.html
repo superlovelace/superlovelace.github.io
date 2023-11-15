@@ -47,6 +47,8 @@
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
+
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -350,7 +352,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.8k 字
+          1.7k 字
         
       </span>
     
@@ -490,7 +492,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：13 天前
+                    本文最后更新于：15 天前
                   
                 
               </p>
@@ -502,35 +504,40 @@
 <p>Vue UI 在VS Code终端启动失败</p>
 </blockquote>
 <span id="more"></span>
-
-<h1 id="Vue-UI-在VS-Code终端启动失败"><a href="#Vue-UI-在VS-Code终端启动失败" class="headerlink" title="Vue UI 在VS Code终端启动失败"></a>Vue UI 在VS Code终端启动失败</h1><h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h2><p>错误信息：</p>
+<h1>Vue UI 在VS Code终端启动失败</h1>
+<h2 id="问题分析">问题分析</h2>
+<p>错误信息：</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">PS</span> F:\myblog\myblog&gt; vue ui<br>vue : 无法加载文件 C:\Users\user\AppData\Roaming\npm\vue.ps1，因为在此系统上禁止运行脚本。有关详细信息，请参 <br>阅 https:/go.microsoft.com/fwlink/?LinkID=<span class="hljs-number">135170</span> 中的 about_Execution_Policies。<br>所在位置 行:<span class="hljs-number">1</span> 字符: <span class="hljs-number">1</span><br>+ vue ui<br>+ ~~~<br>    + CategoryInfo          : SecurityError: (:) []，PSSecurityException<br>    + FullyQualifiedErrorId : UnauthorizedAccess<br><span class="hljs-built_in">PS</span> F:\myblog\myblog&gt; <br></code></pre></td></tr></table></figure>
-
 <p>分析：</p>
-<p>点开地址：https:&#x2F;go.microsoft.com&#x2F;fwlink&#x2F;?LinkID&#x3D;135170</p>
+<p>点开地址：https:/go.microsoft.com/fwlink/?LinkID=135170</p>
 <p>发现此处信息</p>
-<h3 id="Default"><a href="#Default" class="headerlink" title="Default"></a>Default</h3><ul>
+<h3 id="Default">Default</h3>
+<ul>
 <li>设置默认执行策略。</li>
 <li><strong>Restricted</strong> 适用于 Windows 客户端的 。</li>
 <li>适用于 Windows 服务器的 <strong>RemoteSigned</strong>。</li>
 </ul>
 <p>此处说明，在Windows 客户端，我们的策略默认是<strong>Restricted</strong></p>
 <p>查看相应文本信息：</p>
-<h3 id="Restricted"><a href="#Restricted" class="headerlink" title="Restricted"></a>Restricted</h3><ul>
+<h3 id="Restricted">Restricted</h3>
+<ul>
 <li>Windows 客户端计算机的默认执行策略。</li>
 <li>允许单个命令，但不允许脚本。</li>
 <li>阻止运行所有脚本文件，包括格式化和配置文件 () <code>.ps1xml</code> 、模块脚本文件 (<code>.psm1</code>) ，以及 PowerShell 配置文件 () <code>.ps1</code> 。</li>
 </ul>
 <p>上面说  配置文件 () <code>.ps1</code> 的文件也会被阻止运行，而我们需要运行的<code>vue.ps1</code>正好属于此项。</p>
 <p>OK，问题已查明，要解决问题需要更改执行策略。</p>
-<h2 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h2><p>查看其他几个策略，寻找允许脚本运行的策略：</p>
-<h3 id="AllSigned"><a href="#AllSigned" class="headerlink" title="AllSigned"></a>AllSigned</h3><ul>
+<h2 id="问题解决">问题解决</h2>
+<p>查看其他几个策略，寻找允许脚本运行的策略：</p>
+<h3 id="AllSigned">AllSigned</h3>
+<ul>
 <li>脚本可以运行。</li>
 <li>要求所有脚本和配置文件都由受信任的发布者签名，包括在本地计算机上编写的脚本。</li>
 <li>从尚未分类为受信任或不受信任的发布者运行脚本之前，会提示你。</li>
 <li>运行已签名但恶意脚本的风险。</li>
 </ul>
-<h3 id="RemoteSigned"><a href="#RemoteSigned" class="headerlink" title="RemoteSigned"></a>RemoteSigned</h3><ul>
+<h3 id="RemoteSigned">RemoteSigned</h3>
+<ul>
 <li>Windows Server 计算机的默认执行策略。</li>
 <li>脚本可以运行。</li>
 <li>需要受信任的发布者对从 Internet 下载的脚本和配置文件（包括电子邮件和即时消息程序）的数字签名。</li>
@@ -542,14 +549,11 @@
 <p><strong>用管理员身份打开PowerShell</strong></p>
 <p>输入命令（设置执行策略为：RemoteSigned）：</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">set-ExecutionPolicy</span> RemoteSigned<br></code></pre></td></tr></table></figure>
-
 <p>然后输入Y，确定更改。</p>
 <p>示例：</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs powershell">Windows PowerShell<br>版权所有 (C) Microsoft Corporation。保留所有权利。<br><br>尝试新的跨平台 PowerShell https://aka.ms/pscore6<br><br><span class="hljs-built_in">PS</span> C:\WINDOWS\system32&gt; <span class="hljs-built_in">set-ExecutionPolicy</span> RemoteSigned<br><br>执行策略更改<br>执行策略可帮助你防止执行不信任的脚本。更改执行策略可能会产生安全风险，如 https:/go.microsoft.com/fwlink/?LinkID=<span class="hljs-number">135170</span><br>中的 about_Execution_Policies 帮助主题所述。是否要更改执行策略?<br>[<span class="hljs-type">Y</span>] 是(Y)  [<span class="hljs-type">A</span>] 全是(A)  [<span class="hljs-type">N</span>] 否(N)  [<span class="hljs-type">L</span>] 全否(L)  [<span class="hljs-type">S</span>] 暂停(S)  [?] 帮助 (默认值为“N”): Y<br><span class="hljs-built_in">PS</span> C:\WINDOWS\system32&gt;<br></code></pre></td></tr></table></figure>
-
 <p>OK，再次在VSCode中执行终端命令：</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">PS</span> F:\myblog\myblog&gt; vue ui<br>🚀  Starting GUI...<br>🌠  Ready on http://localhost:<span class="hljs-number">8000</span><br><br></code></pre></td></tr></table></figure>
-
 <p>发现已成功启动！</p>
 <p>OK，问题已解决，去开启你的奇妙之旅吧！</p>
 <hr>
@@ -761,6 +765,11 @@
 
 
   
+
+
+  
+  
+
 
 
 

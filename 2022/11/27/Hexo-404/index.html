@@ -47,6 +47,8 @@
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
+
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -679,7 +681,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：13 天前
+                    本文最后更新于：15 天前
                   
                 
               </p>
@@ -694,12 +696,12 @@
 <html>
 <div class="box1">
          <span class="leftline"></span>
-         <span class="text">正文部分</span>
-         <span class="rightline"></span>
-     </div>
+		 <span class="text">正文部分</span>
+		 <span class="rightline"></span>
+	 </div>
 </html>
-
-<p>自定义404文件非常简单，你需要去source文件夹下，创建一个404文件夹，然后创建index.md<br>然后写入文件头信息：</p>
+<p>自定义404文件非常简单，你需要去source文件夹下，创建一个404文件夹，<a target="_blank" rel="noopener" href="http://xn--index-ll6hm0je43ajq1b.md">然后创建index.md</a><br>
+然后写入文件头信息：</p>
 <html>
 <div class="warpper">
     <div class="mac b1"></div>
@@ -707,9 +709,7 @@
     <div class="mac b3"></div>
 </div>
 </html>
-
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs shell">---<br>title: &#x27;404&#x27;<br>layout: false<br>permalink: /404.html<br>---<br>上面是文档标题，不使用主题布局，permalink: 是404页面必须的<br><br>这里把你写的404HTML代码复制过来就好了，注意不要外链引入相对地址的css，<br>不然容易在其他页面找不到引入的相关文件。<br>代码标签别有大换行，不然下面会被md识别成代码块，从而导致网页不完整。<br></code></pre></td></tr></table></figure>
-
 <html>
 <div class="box1">
     <span class="leftline"></span>
@@ -923,6 +923,11 @@
 
 
   
+
+
+  
+  
+
 
 
 

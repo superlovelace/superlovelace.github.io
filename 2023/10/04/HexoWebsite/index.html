@@ -47,6 +47,8 @@
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
+
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -679,7 +681,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：13 天前
+                    本文最后更新于：15 天前
                   
                 
               </p>
@@ -691,21 +693,22 @@
 <p>Hexo下载相关插件，以完成自动生成网站地图。</p>
 </blockquote>
 <span id="more"></span>
-
-<h1 id="Hexo添加网站地图"><a href="#Hexo添加网站地图" class="headerlink" title="Hexo添加网站地图"></a>Hexo添加网站地图</h1><h2 id="先进入你的网站根目录"><a href="#先进入你的网站根目录" class="headerlink" title="先进入你的网站根目录"></a>先进入你的网站根目录</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">cd hexo<br></code></pre></td></tr></table></figure>
-
-<h2 id="安装地图生成插件"><a href="#安装地图生成插件" class="headerlink" title="安装地图生成插件"></a>安装地图生成插件</h2><h3 id="谷歌地图生成器："><a href="#谷歌地图生成器：" class="headerlink" title="谷歌地图生成器："></a>谷歌地图生成器：</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">npm install hexo-generator-sitemap --save<br></code></pre></td></tr></table></figure>
-
-<h3 id="百度地图生成器："><a href="#百度地图生成器：" class="headerlink" title="百度地图生成器："></a>百度地图生成器：</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">npm install hexo-generator-baidu-sitemap --save<br></code></pre></td></tr></table></figure>
-
-<h3 id="修改-hexo-配置文件-config-yml"><a href="#修改-hexo-配置文件-config-yml" class="headerlink" title="修改 hexo 配置文件 _config.yml"></a>修改 hexo 配置文件 <code>_config.yml</code></h3><p>注意：这里不是主题里的配置文件。</p>
+<h1>Hexo添加网站地图</h1>
+<h2 id="先进入你的网站根目录">先进入你的网站根目录</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">cd hexo<br></code></pre></td></tr></table></figure>
+<h2 id="安装地图生成插件">安装地图生成插件</h2>
+<h3 id="谷歌地图生成器：">谷歌地图生成器：</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">npm install hexo-generator-sitemap --save<br></code></pre></td></tr></table></figure>
+<h3 id="百度地图生成器：">百度地图生成器：</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">npm install hexo-generator-baidu-sitemap --save<br></code></pre></td></tr></table></figure>
+<h3 id="修改-hexo-配置文件-config-yml">修改 hexo 配置文件 <code>_config.yml</code></h3>
+<p>注意：这里不是主题里的配置文件。</p>
 <p>找个空位置，添加如下代码：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">自动生成sitemap，生成路径path一定要缩进，不然报错</span><br>sitemap:<br>	path: sitemap.xml<br>baidusitemap:<br>	path: baidusitemap.xml<br></code></pre></td></tr></table></figure>
-
 <p>保存文件。这样你再次生成的时候就可以在<code>public</code>文件夹内看到了3</p>
-<h2 id="添加robots-txt"><a href="#添加robots-txt" class="headerlink" title="添加robots.txt"></a>添加<code>robots.txt</code></h2><p>在source文件夹下创建<code>robots.txt</code>，并写入类似下面的配置，来规范搜索引擎的行为。</p>
+<h2 id="添加robots-txt">添加<code>robots.txt</code></h2>
+<p>在source文件夹下创建<code>robots.txt</code>，并写入类似下面的配置，来规范搜索引擎的行为。</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs txt">User-agent: *<br>Allow: /<br>Allow: /archives/<br>Allow: /categories/<br>Allow: /tags/<br>Disallow: /about/<br>Disallow: /*.jpg$<br>Disallow: /*.jpeg$<br>Disallow: /*.gif$<br>Disallow: /*.png$<br>Disallow: /*.bmp$<br><br>Sitemap: https://你的网址/sitemap.xml<br>Sitemap: https://你的网址/baidusitemap.xml<br></code></pre></td></tr></table></figure>
-
 
                 
               </div>
@@ -913,6 +916,11 @@
 
 
   
+
+
+  
+  
+
 
 
 

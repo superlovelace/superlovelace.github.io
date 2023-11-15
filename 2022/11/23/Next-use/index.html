@@ -47,6 +47,8 @@
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
+
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -350,7 +352,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.3k 字
+          3.2k 字
         
       </span>
     
@@ -679,7 +681,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：13 天前
+                    本文最后更新于：15 天前
                   
                 
               </p>
@@ -698,21 +700,18 @@
     <span class="rightline"></span>
 </div>
 </html>
-
-
-
-
-<h1 id="Next主题日常使用"><a href="#Next主题日常使用" class="headerlink" title="Next主题日常使用"></a>Next主题日常使用</h1><h2 id="一、分类和文章"><a href="#一、分类和文章" class="headerlink" title="一、分类和文章"></a>一、分类和文章</h2><h3 id="1、创建分类页面"><a href="#1、创建分类页面" class="headerlink" title="1、创建分类页面"></a>1、创建分类页面</h3><html>
+<h1>Next主题日常使用</h1>
+<h2 id="一、分类和文章">一、分类和文章</h2>
+<h3 id="1、创建分类页面">1、创建分类页面</h3>
+<html>
 <div class="warpper">
     <div class="mac b1"></div>
     <div class="mac b2"></div>
     <div class="mac b3"></div>
 </div>
 </html>
-
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo new page categories<br></code></pre></td></tr></table></figure>
-
-<p>修改categories文件夹下的 index.md</p>
+<p>修改categories文件夹下的 <a target="_blank" rel="noopener" href="http://index.md">index.md</a></p>
 <html>
 <div class="warpper">
     <div class="mac b1"></div>
@@ -720,22 +719,17 @@
     <div class="mac b3"></div>
 </div>
 </html>
-
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js">---<br><span class="hljs-attr">title</span>: 文章分类<br><span class="hljs-attr">date</span>: <span class="hljs-number">2022</span>-<span class="hljs-number">11</span>-<span class="hljs-number">23</span> <span class="hljs-number">01</span>:<span class="hljs-number">03</span>:<span class="hljs-number">20</span><br><span class="hljs-attr">type</span>: <span class="hljs-string">&quot;categories&quot;</span><br>---<br></code></pre></td></tr></table></figure>
-
-
-
-<h3 id="2、创建标签页面"><a href="#2、创建标签页面" class="headerlink" title="2、创建标签页面"></a>2、创建标签页面</h3><html>
+<h3 id="2、创建标签页面">2、创建标签页面</h3>
+<html>
 <div class="warpper">
     <div class="mac b1"></div>
     <div class="mac b2"></div>
     <div class="mac b3"></div>
 </div>
 </html>
-
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo new page tags<br></code></pre></td></tr></table></figure>
-
-<p>修改tags文件夹下的 index.md</p>
+<p>修改tags文件夹下的 <a target="_blank" rel="noopener" href="http://index.md">index.md</a></p>
 <html>
 <div class="warpper">
     <div class="mac b1"></div>
@@ -743,22 +737,8 @@
     <div class="mac b3"></div>
 </div>
 </html>
-
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">---<br>title: 文章标签<br><span class="hljs-built_in">date</span>: 2022-11-23 01:03:20<br><span class="hljs-built_in">type</span>: <span class="hljs-string">&quot;tags&quot;</span><br>---<br></code></pre></td></tr></table></figure>
-
-
-
-<h3 id="3、创建关于页面"><a href="#3、创建关于页面" class="headerlink" title="3、创建关于页面"></a>3、创建关于页面</h3><html>
-<div class="warpper">
-    <div class="mac b1"></div>
-    <div class="mac b2"></div>
-    <div class="mac b3"></div>
-</div>
-</html>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo new page about<br></code></pre></td></tr></table></figure>
-
-<p>修改about文件夹下的 index.md</p>
+<h3 id="3、创建关于页面">3、创建关于页面</h3>
 <html>
 <div class="warpper">
     <div class="mac b1"></div>
@@ -766,19 +746,25 @@
     <div class="mac b3"></div>
 </div>
 </html>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">---<br>title: 关于<br><span class="hljs-built_in">date</span>: 2022-11-23 01:03:20<br><span class="hljs-built_in">type</span>: <span class="hljs-string">&quot;about&quot;</span><br>---<br></code></pre></td></tr></table></figure>
-
-<h3 id="4、创建文章"><a href="#4、创建文章" class="headerlink" title="4、创建文章"></a>4、创建文章</h3><html>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo new page about<br></code></pre></td></tr></table></figure>
+<p>修改about文件夹下的 <a target="_blank" rel="noopener" href="http://index.md">index.md</a></p>
+<html>
 <div class="warpper">
     <div class="mac b1"></div>
     <div class="mac b2"></div>
     <div class="mac b3"></div>
 </div>
 </html>
-
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">---<br>title: 关于<br><span class="hljs-built_in">date</span>: 2022-11-23 01:03:20<br><span class="hljs-built_in">type</span>: <span class="hljs-string">&quot;about&quot;</span><br>---<br></code></pre></td></tr></table></figure>
+<h3 id="4、创建文章">4、创建文章</h3>
+<html>
+<div class="warpper">
+    <div class="mac b1"></div>
+    <div class="mac b2"></div>
+    <div class="mac b3"></div>
+</div>
+</html>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo new 新文章<br></code></pre></td></tr></table></figure>
-
 <p>在_post文件夹下就出现了新文章了</p>
 <html>
 <div class="warpper">
@@ -787,12 +773,10 @@
     <div class="mac b3"></div>
 </div>
 </html>
-
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash">---<br>title: 关于<br><span class="hljs-built_in">date</span>: 2022-11-23 01:03:20<br><span class="hljs-built_in">type</span>: <span class="hljs-string">&quot;about&quot;</span><br>---<br>我是摘要内容.<br>&lt;!-- more --&gt;<br>我是正文内容...<br><br>132123131321<br></code></pre></td></tr></table></figure>
-
-
-
-<h2 id="二、运行Hexo"><a href="#二、运行Hexo" class="headerlink" title="二、运行Hexo"></a>二、运行Hexo</h2><p>安装服务器：Hexo 3.0 把服务器独立成了个别模块，我们必须得在站点文件夹根目录下安装之后才能使用。<br>在命令行中打开我们的工作站文件夹，键入以下命令，以将 hexo-server 安装到我们的工作站文件夹：</p>
+<h2 id="二、运行Hexo">二、运行Hexo</h2>
+<p>安装服务器：Hexo 3.0 把服务器独立成了个别模块，我们必须得在站点文件夹根目录下安装之后才能使用。<br>
+在命令行中打开我们的工作站文件夹，键入以下命令，以将 hexo-server 安装到我们的工作站文件夹：</p>
 <html>
 <div class="warpper">
     <div class="mac b1"></div>
@@ -800,9 +784,7 @@
     <div class="mac b3"></div>
 </div>
 </html>
-
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install hexo-server --save<br></code></pre></td></tr></table></figure>
-
 <p>cd进网站根目录，</p>
 <p>清除缓存文件</p>
 <html>
@@ -812,9 +794,7 @@
     <div class="mac b3"></div>
 </div>
 </html>
-
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo clean<br></code></pre></td></tr></table></figure>
-
 <p>生成的静态网页以及相关资源</p>
 <html>
 <div class="warpper">
@@ -823,9 +803,7 @@
     <div class="mac b3"></div>
 </div>
 </html>
-
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo generate<br></code></pre></td></tr></table></figure>
-
 <p>启动服务器</p>
 <html>
 <div class="warpper">
@@ -834,9 +812,7 @@
     <div class="mac b3"></div>
 </div>
 </html>
-
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo server<br></code></pre></td></tr></table></figure>
-
 <p>指定端口启动服务器</p>
 <html>
 <div class="warpper">
@@ -846,10 +822,8 @@
 </div>
 </html>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo server -p 5000<br></code></pre></td></tr></table></figure>
-
-
-
-<h2 id="三、利用pm2让Hexo后台运行"><a href="#三、利用pm2让Hexo后台运行" class="headerlink" title="三、利用pm2让Hexo后台运行"></a>三、利用<code>pm2</code>让Hexo后台运行</h2><p>1、安装：</p>
+<h2 id="三、利用pm2让Hexo后台运行">三、利用<code>pm2</code>让Hexo后台运行</h2>
+<p>1、安装：</p>
 <html>
 <div class="warpper">
     <div class="mac b1"></div>
@@ -857,9 +831,7 @@
     <div class="mac b3"></div>
 </div>
 </html>
-
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install -g pm2<br></code></pre></td></tr></table></figure>
-
 <p>2、<strong>编写一个执行脚本 —— 在博客根目录下创建一个文件 run.js</strong></p>
 <html>
 <div class="warpper">
@@ -868,9 +840,7 @@
     <div class="mac b3"></div>
 </div>
 </html>
-
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> &#123; exec &#125; = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;child_process&#x27;</span>)<br><span class="hljs-title function_">exec</span>(<span class="hljs-string">&#x27;hexo server -p 指定端口&#x27;</span>,<span class="hljs-function">(<span class="hljs-params">error, stdout, stderr</span>) =&gt;</span> &#123;<br><span class="hljs-keyword">if</span>(error)&#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;exec error: $&#123;error&#125;&#x27;</span>)<br>        <span class="hljs-keyword">return</span><br>&#125;<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;stdout: $&#123;stdout&#125;&#x27;</span>);<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;stderr: $&#123;stderr&#125;&#x27;</span>);<br>&#125;)<br></code></pre></td></tr></table></figure>
-
 <p><strong>3、使用pm2运行脚本 run.js</strong></p>
 <html>
 <div class="warpper">
@@ -879,9 +849,7 @@
     <div class="mac b3"></div>
 </div>
 </html>
-
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pm2 start run.js<br></code></pre></td></tr></table></figure>
-
 <p>停止进程</p>
 <html>
 <div class="warpper">
@@ -890,10 +858,9 @@
     <div class="mac b3"></div>
 </div>
 </html>
-
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pm2 stop pm的保护进程<span class="hljs-built_in">id</span><br></code></pre></td></tr></table></figure>
-
-<h2 id="四、PM2相关命令"><a href="#四、PM2相关命令" class="headerlink" title="四、PM2相关命令"></a>四、PM2相关命令</h2><p>1.安装pm2</p>
+<h2 id="四、PM2相关命令">四、PM2相关命令</h2>
+<p>1.安装pm2</p>
 <html>
 <div class="warpper">
     <div class="mac b1"></div>
@@ -901,9 +868,7 @@
     <div class="mac b3"></div>
 </div>
 </html>
-
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ npm install pm2 -g<br></code></pre></td></tr></table></figure>
-
 <p>2.更新pm2</p>
 <html>
 <div class="warpper">
@@ -912,9 +877,7 @@
     <div class="mac b3"></div>
 </div>
 </html>
-
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ pm2 update<br></code></pre></td></tr></table></figure>
-
 <p>3.启动进程</p>
 <html>
 <div class="warpper">
@@ -923,9 +886,7 @@
     <div class="mac b3"></div>
 </div>
 </html>
-
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ pm2 start bin/www pm2 start app.js<br></code></pre></td></tr></table></figure>
-
 <p>4.重命名进程</p>
 <html>
 <div class="warpper">
@@ -934,9 +895,7 @@
     <div class="mac b3"></div>
 </div>
 </html>
-
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ pm2 start app.js --name pro1<br></code></pre></td></tr></table></figure>
-
 <p>5.监控进程（当文件改变的时候，重启一个应用）</p>
 <html>
 <div class="warpper">
@@ -945,9 +904,7 @@
     <div class="mac b3"></div>
 </div>
 </html>
-
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ pm2 start app.js --watch<br></code></pre></td></tr></table></figure>
-
 <p>6.结束指定pm2进程</p>
 <html>
 <div class="warpper">
@@ -956,9 +913,7 @@
     <div class="mac b3"></div>
 </div>
 </html>
-
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ pm2 stop www<br></code></pre></td></tr></table></figure>
-
 <p>7.结束所有pm2进程</p>
 <html>
 <div class="warpper">
@@ -967,9 +922,7 @@
     <div class="mac b3"></div>
 </div>
 </html>
-
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ pm2 stop all<br></code></pre></td></tr></table></figure>
-
 <p>8.删除指定pm2进程</p>
 <html>
 <div class="warpper">
@@ -978,9 +931,7 @@
     <div class="mac b3"></div>
 </div>
 </html>
-
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ pm2 delete www<br></code></pre></td></tr></table></figure>
-
 <p>9.删除所有pm2进程</p>
 <html>
 <div class="warpper">
@@ -989,9 +940,7 @@
     <div class="mac b3"></div>
 </div>
 </html>
-
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ pm2 delete all<br></code></pre></td></tr></table></figure>
-
 <p>10.列出所有用pm2启动的进程</p>
 <html>
 <div class="warpper">
@@ -1000,9 +949,7 @@
     <div class="mac b3"></div>
 </div>
 </html>
-
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ pm2 list<br></code></pre></td></tr></table></figure>
-
 <p>11.查看某个pm2进程具体情况</p>
 <html>
 <div class="warpper">
@@ -1011,9 +958,7 @@
     <div class="mac b3"></div>
 </div>
 </html>
-
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ pm2 monit<br></code></pre></td></tr></table></figure>
-
 <p>12.查看pm2所有进程占用的cpu和内存</p>
 <html>
 <div class="warpper">
@@ -1022,9 +967,7 @@
     <div class="mac b3"></div>
 </div>
 </html>
-
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ pm2 show www<br></code></pre></td></tr></table></figure>
-
 <p>13.显示指定pm2进程所有的信息</p>
 <html>
 <div class="warpper">
@@ -1033,9 +976,7 @@
     <div class="mac b3"></div>
 </div>
 </html>
-
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ pm2 show www<br></code></pre></td></tr></table></figure>
-
 <p>14.查看pm2所有进程的日志</p>
 <html>
 <div class="warpper">
@@ -1044,9 +985,7 @@
     <div class="mac b3"></div>
 </div>
 </html>
-
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ pm2 logs<br></code></pre></td></tr></table></figure>
-
 <p>15.查看pm2指定进程的日志</p>
 <html>
 <div class="warpper">
@@ -1055,9 +994,7 @@
     <div class="mac b3"></div>
 </div>
 </html>
-
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ pm2 logs www<br></code></pre></td></tr></table></figure>
-
 <p>16.json化日志</p>
 <html>
 <div class="warpper">
@@ -1066,9 +1003,7 @@
     <div class="mac b3"></div>
 </div>
 </html>
-
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ pm2 logs --json<br></code></pre></td></tr></table></figure>
-
 <p>17.重新启动指定pm2进程</p>
 <html>
 <div class="warpper">
@@ -1077,9 +1012,7 @@
     <div class="mac b3"></div>
 </div>
 </html>
-
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ pm2 restart www<br></code></pre></td></tr></table></figure>
-
 <p>18.重新启动所有pm2进程</p>
 <html>
 <div class="warpper">
@@ -1088,11 +1021,14 @@
     <div class="mac b3"></div>
 </div>
 </html>
-
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ pm2 restart all<br></code></pre></td></tr></table></figure>
-
-<h2 id="五、用git把项目托管到github"><a href="#五、用git把项目托管到github" class="headerlink" title="五、用git把项目托管到github"></a>五、用git把项目托管到github</h2><p>打开github并登录:<br>点开个人信息—-&gt; your repositories(你的存储库)—-&gt; 点击新建(新建一个xxxxx.github.io)<br>注意 这里xxxxx的仓库名必须和你的github账号名称相同,这里github默认只给这个名称的存储库提供免费域名</p>
-<p>OK,存储库建立完成之后,需要将服务器中之前安装的git让其生成一个SSH密钥<br>(git和github仓库是默认通过这个密钥进行用户权限身份识别的)<br>在命令行中输入:</p>
+<h2 id="五、用git把项目托管到github">五、用git把项目托管到github</h2>
+<p>打开github并登录:<br>
+点开个人信息----&gt; your repositories(你的存储库)----&gt; 点击新建(<a target="_blank" rel="noopener" href="http://xn--xxxxx-fg1hyjh10j0vm.github.io">新建一个xxxxx.github.io</a>)<br>
+注意 这里xxxxx的仓库名必须和你的github账号名称相同,这里github默认只给这个名称的存储库提供免费域名</p>
+<p>OK,存储库建立完成之后,需要将服务器中之前安装的git让其生成一个SSH密钥<br>
+(git和github仓库是默认通过这个密钥进行用户权限身份识别的)<br>
+在命令行中输入:</p>
 <html>
 <div class="warpper">
     <div class="mac b1"></div>
@@ -1100,11 +1036,8 @@
     <div class="mac b3"></div>
 </div>
 </html>
-
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">git config --global user.name <span class="hljs-string">&quot;yourname&quot;</span><br>git config --global user.email <span class="hljs-string">&quot;youremail&quot;</span><br></code></pre></td></tr></table></figure>
-
-
-<p>&#x2F; 这里的yourname输入你的GitHub用户名，youremail输入你GitHub的邮箱。&#x2F;</p>
+<p>/ 这里的yourname输入你的GitHub用户名，youremail输入你GitHub的邮箱。/</p>
 <p>这里的yourname输入你的GitHub用户名，youremail输入你GitHub的邮箱。</p>
 <p>##输入以下两条检验是否输入正确:</p>
 <html>
@@ -1114,9 +1047,7 @@
     <div class="mac b3"></div>
 </div>
 </html>
-
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">git config user.name<br>git config user.email<br></code></pre></td></tr></table></figure>
-
 <p>生成密钥指令 :</p>
 <html>
 <div class="warpper">
@@ -1125,13 +1056,13 @@
     <div class="mac b3"></div>
 </div>
 </html>
-
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh-keygen -t rsa -C <span class="hljs-string">&quot;youremail&quot;</span><br></code></pre></td></tr></table></figure>
-
 <p>然后一直回车，直到出现你能输入命令为止</p>
 <p>这时能看到存放位置：<code>root/_ssh/rsa</code></p>
-<p>ssh，简单来讲，就是一个秘钥，其中，id_rsa是你这台电脑的私人秘钥，不能给别人看的，id_rsa.pub是公共秘钥，可以随便给别人看。<br>把这个公钥放在GitHub上，这样当你链接GitHub自己的账户时，它就会根据公钥匹配你的私钥，当能够相互匹配时，才能够顺利的通过git上传你的文件到GitHub上。<br>进入目录，打开公钥文件，复制内容</p>
-<p>输入命令行:  </p>
+<p>ssh，简单来讲，就是一个秘钥，其中，id_rsa是你这台电脑的私人秘钥，不能给别人看的，id_rsa.pub是公共秘钥，可以随便给别人看。<br>
+把这个公钥放在GitHub上，这样当你链接GitHub自己的账户时，它就会根据公钥匹配你的私钥，当能够相互匹配时，才能够顺利的通过git上传你的文件到GitHub上。<br>
+进入目录，打开公钥文件，复制内容</p>
+<p>输入命令行:</p>
 <html>
 <div class="warpper">
     <div class="mac b1"></div>
@@ -1139,10 +1070,9 @@
     <div class="mac b3"></div>
 </div>
 </html>
-
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">vim id_rsa.pub <br></code></pre></td></tr></table></figure>
-
-<p>然后切换到本机的github网页,在github网页用户信息 —&gt; settings —– &gt; SSH &amp; GPJ密钥选项 —-&gt;<br>点击New SSH key把你的id_rsa.pub里面的信息复制进去。</p>
+<p>然后切换到本机的github网页,在github网页用户信息 —&gt; settings ----- &gt; SSH &amp; GPJ密钥选项 ----&gt;<br>
+点击New SSH key把你的id_rsa.pub里面的信息复制进去。</p>
 <p>在终端查看连接是否成功</p>
 <html>
 <div class="warpper">
@@ -1151,9 +1081,7 @@
     <div class="mac b3"></div>
 </div>
 </html>
-
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh -T git@github.com<br></code></pre></td></tr></table></figure>
-
 <p>将hexo部署到GitHub</p>
 <p>这一步，我们就可以将hexo和GitHub关联起来，也就是将hexo生成的文章部署到GitHub上</p>
 <p>进入hexo部署的根目录修改<code> _config.yml</code>。</p>
@@ -1164,11 +1092,7 @@
     <div class="mac b3"></div>
 </div>
 </html>
-
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">deploy:</span><br>  <span class="hljs-attr">type:</span> <span class="hljs-string">git</span><br>  <span class="hljs-attr">repo:</span> <span class="hljs-string">https://github.com/YourgithubName/YourgithubName.github.io.git</span><br>  <span class="hljs-attr">branch:</span> <span class="hljs-string">master</span><br></code></pre></td></tr></table></figure>
-
-
-
 <p>###这个时候需要先安装deploy-git ，也就是部署的命令,这样你才能用命令部署到GitHub。</p>
 <html>
 <div class="warpper">
@@ -1177,13 +1101,9 @@
     <div class="mac b3"></div>
 </div>
 </html>
-
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install hexo-deployer-git --save<br></code></pre></td></tr></table></figure>
-
-
-
 <p>###然后执行:</p>
-<p>&#x2F;&#x2F;清除缓存,建议更新代码前都执行下此操作。</p>
+<p>//清除缓存,建议更新代码前都执行下此操作。</p>
 <html>
 <div class="warpper">
     <div class="mac b1"></div>
@@ -1191,9 +1111,7 @@
     <div class="mac b3"></div>
 </div>
 </html>
-
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo clean<br></code></pre></td></tr></table></figure>
-
 <p>生成静态文章，可以用 hexo g缩写</p>
 <html>
 <div class="warpper">
@@ -1202,9 +1120,7 @@
     <div class="mac b3"></div>
 </div>
 </html>
-
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo generate<br></code></pre></td></tr></table></figure>
-
 <p>部署文章，可以用hexo d缩写</p>
 <html>
 <div class="warpper">
@@ -1213,9 +1129,7 @@
     <div class="mac b3"></div>
 </div>
 </html>
-
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo deploy<br></code></pre></td></tr></table></figure>
-
 <p>然后会提示输入github登录名和密码</p>
 <p>输入成功后就开始部署了，但是我在这里出错了<code>err: Error: Spawn failed</code></p>
 <p>然后把repo地址从Http改为SSH的方式</p>
@@ -1226,11 +1140,9 @@
     <div class="mac b3"></div>
 </div>
 </html>
-
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">deploy:<br><span class="hljs-built_in">type</span>: git<br>repo: git@github.com:yourname/yourname.github.io.git<br>branch: master<br></code></pre></td></tr></table></figure>
-
 <p>然后再清除缓存，静态文章，部署文章，就成功了。</p>
-<p>部署成功后你就可以在<a href="http://yourname.github.io中看到你的个人博客了…(可能需要等待一段时间)">http://yourname.github.io中看到你的个人博客了…(可能需要等待一段时间)</a></p>
+<p>部署成功后你就可以在<a target="_blank" rel="noopener" href="http://yourname.github.xn--io-iy2cla06b6j33bt6mz0cz36a2s1ehlb">http://yourname.github.io中看到你的个人博客了</a>…(可能需要等待一段时间)</p>
 <html>
 <div class="box1">
     <span class="leftline"></span>
@@ -1445,6 +1357,11 @@
 
 
   
+
+
+  
+  
+
 
 
 

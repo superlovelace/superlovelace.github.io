@@ -1,3 +1,4 @@
+https://superlovelace.top/2023/11/15/WhyWLANDoubleSpeed/
 https://superlovelace.top/2023/09/28/SelectSort/
 https://superlovelace.top/2023/10/10/RadixSort/
 https://superlovelace.top/2023/09/29/QuickSort/
@@ -7,4 +8,3 @@ https://superlovelace.top/2023/09/29/HeapSort/
 https://superlovelace.top/2023/09/29/BubbleSort/
 https://superlovelace.top/2023/10/09/BInsertSort/
 https://superlovelace.top/2022/11/25/Github-https/
-https://superlovelace.top/2023/10/01/Vue-install/

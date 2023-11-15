@@ -48,6 +48,8 @@
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
+
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -527,7 +529,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：18 小时前
+                    本文最后更新于：3 天前
                   
                 
               </p>
@@ -539,16 +541,19 @@
 <p>简单选择排序的介绍，包括选择排序的特点、原理和完整代码实现。</p>
 </blockquote>
 <span id="more"></span>
-
-<h1 id="简单选择排序"><a href="#简单选择排序" class="headerlink" title="简单选择排序"></a>简单选择排序</h1><h2 id="1、特点"><a href="#1、特点" class="headerlink" title="1、特点"></a>1、特点</h2><ul>
+<h1>简单选择排序</h1>
+<h2 id="1、特点">1、特点</h2>
+<ul>
 <li>交换记录导致排序方法是不稳定的</li>
 <li>可用于链式存储结构</li>
 <li>移动记录次数较少，当每一记录占用的空间较多时，此方法比直接插入排序快</li>
 </ul>
-<h2 id="2、过程-原理"><a href="#2、过程-原理" class="headerlink" title="2、过程(原理)"></a>2、过程(原理)</h2><p>首先在未排序序列中找到最小（大）元素，存放到排序序列的起始位置，然后，再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾。以此类推，直到所有元素均排序完毕。</p>
-<h2 id="3、完整代码实现"><a href="#3、完整代码实现" class="headerlink" title="3、完整代码实现"></a>3、完整代码实现</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">SelectSort</span><span class="hljs-params">(<span class="hljs-type">int</span> arr[],<span class="hljs-type">int</span> len)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; len<span class="hljs-number">-1</span>; i++)<br>	&#123;<br>		<span class="hljs-type">int</span> min = i;<span class="hljs-comment">//标志位</span><br>		<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = i+<span class="hljs-number">1</span>; j &lt; len; j++)<br>		&#123;<br>			<span class="hljs-keyword">if</span> (arr[min] &gt; arr[j])<span class="hljs-comment">//比较大小，如果比最小值小，就获取对方的下标给min</span><br>			&#123;<br>				min = j;<br>			&#125;<br>		&#125;<br>        <span class="hljs-keyword">if</span>(min == i)<span class="hljs-comment">//一轮搜索后最小值仍然是标志位，则直接进行下一轮比对</span><br>        &#123;<br>            <span class="hljs-keyword">continue</span>;<br>        &#125;<br>        <span class="hljs-comment">//把最小值和刚开始的标志位交换</span><br>		<span class="hljs-type">int</span> temp = arr[i];<br>		arr[i] = arr[min];<br>		arr[min] = temp;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h1 id="补充内容"><a href="#补充内容" class="headerlink" title="补充内容"></a>补充内容</h1><p><a target="_blank" rel="noopener" href="https://visualgo.net/zh/sorting">排序动画演示</a></p>
+<h2 id="2、过程-原理">2、过程(原理)</h2>
+<p>首先在未排序序列中找到最小（大）元素，存放到排序序列的起始位置，然后，再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾。以此类推，直到所有元素均排序完毕。</p>
+<h2 id="3、完整代码实现">3、完整代码实现</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">SelectSort</span><span class="hljs-params">(<span class="hljs-type">int</span> arr[],<span class="hljs-type">int</span> len)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; len<span class="hljs-number">-1</span>; i++)<br>	&#123;<br>		<span class="hljs-type">int</span> min = i;<span class="hljs-comment">//标志位</span><br>		<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = i+<span class="hljs-number">1</span>; j &lt; len; j++)<br>		&#123;<br>			<span class="hljs-keyword">if</span> (arr[min] &gt; arr[j])<span class="hljs-comment">//比较大小，如果比最小值小，就获取对方的下标给min</span><br>			&#123;<br>				min = j;<br>			&#125;<br>		&#125;<br>        <span class="hljs-keyword">if</span>(min == i)<span class="hljs-comment">//一轮搜索后最小值仍然是标志位，则直接进行下一轮比对</span><br>        &#123;<br>            <span class="hljs-keyword">continue</span>;<br>        &#125;<br>        <span class="hljs-comment">//把最小值和刚开始的标志位交换</span><br>		<span class="hljs-type">int</span> temp = arr[i];<br>		arr[i] = arr[min];<br>		arr[min] = temp;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h1>补充内容</h1>
+<p><a target="_blank" rel="noopener" href="https://visualgo.net/zh/sorting">排序动画演示</a></p>
 
                 
               </div>
@@ -758,6 +763,11 @@
 
 
   
+
+
+  
+  
+
 
 
 

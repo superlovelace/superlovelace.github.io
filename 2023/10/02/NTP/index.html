@@ -48,6 +48,8 @@
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
+
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -491,7 +493,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：7 天前
+                    本文最后更新于：8 天前
                   
                 
               </p>
@@ -503,32 +505,29 @@
 <p>Linux系统每次启动时间都不正确，若每次手动修改则很不便，安装NTP时间同步服务即可自动同步时间。</p>
 </blockquote>
 <span id="more"></span>
-
-<h1 id="Linux安装NTP时间同步服务"><a href="#Linux安装NTP时间同步服务" class="headerlink" title="Linux安装NTP时间同步服务"></a>Linux安装NTP时间同步服务</h1><h3 id="安装命令："><a href="#安装命令：" class="headerlink" title="安装命令："></a>安装命令：</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">yum -y install ntp<br></code></pre></td></tr></table></figure>
-
-<h3 id="启动NTP服务："><a href="#启动NTP服务：" class="headerlink" title="启动NTP服务："></a>启动NTP服务：</h3><figure class="highlight nsis"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs nsis"><span class="hljs-params">system</span>ctl start ntpd<br><span class="hljs-params">system</span>ctl enable ntpd<br></code></pre></td></tr></table></figure>
-
-<h3 id="查看NTP服务运行状态："><a href="#查看NTP服务运行状态：" class="headerlink" title="查看NTP服务运行状态："></a>查看NTP服务运行状态：</h3><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">systemctl status ntpd</span><br></code></pre></td></tr></table></figure>
-
-<h3 id="修改配置文件："><a href="#修改配置文件：" class="headerlink" title="修改配置文件："></a>修改配置文件：</h3><p>我这里没有安装<code>vim</code>，所以用<code>vi</code>，<code>vim</code>也一样只是换个名。</p>
+<h1>Linux安装NTP时间同步服务</h1>
+<h3 id="安装命令：">安装命令：</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">yum -y install ntp<br></code></pre></td></tr></table></figure>
+<h3 id="启动NTP服务：">启动NTP服务：</h3>
+<figure class="highlight nsis"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs nsis"><span class="hljs-params">system</span>ctl start ntpd<br><span class="hljs-params">system</span>ctl enable ntpd<br></code></pre></td></tr></table></figure>
+<h3 id="查看NTP服务运行状态：">查看NTP服务运行状态：</h3>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">systemctl status ntpd</span><br></code></pre></td></tr></table></figure>
+<h3 id="修改配置文件：">修改配置文件：</h3>
+<p>我这里没有安装<code>vim</code>，所以用<code>vi</code>，<code>vim</code>也一样只是换个名。</p>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">vi <span class="hljs-regexp">/etc/</span>ntp.conf<br></code></pre></td></tr></table></figure>
-
-<p>我这里有个问题，找不到配置文件，但是用文件查找命令发现就在那里，也许是被隐藏了吧。<br>ntp配置文件查找命令：</p>
+<p>我这里有个问题，找不到配置文件，但是用文件查找命令发现就在那里，也许是被隐藏了吧。<br>
+ntp配置文件查找命令：</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">sudo <span class="hljs-built_in">find</span> / -name ntp.conf<br></code></pre></td></tr></table></figure>
-
-
 <p>修改内容：新增阿里云时间服务器</p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus">server ntp<span class="hljs-selector-class">.aliyun</span><span class="hljs-selector-class">.com</span> iburst<br></code></pre></td></tr></table></figure>
-
-<h3 id="查看配置文件中设置的NTP授时服务器"><a href="#查看配置文件中设置的NTP授时服务器" class="headerlink" title="查看配置文件中设置的NTP授时服务器"></a>查看配置文件中设置的NTP授时服务器</h3><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gradle"><span class="hljs-keyword">grep</span> server <span class="hljs-regexp">/etc/</span>ntp.conf <br></code></pre></td></tr></table></figure>
+<h3 id="查看配置文件中设置的NTP授时服务器">查看配置文件中设置的NTP授时服务器</h3>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gradle"><span class="hljs-keyword">grep</span> server <span class="hljs-regexp">/etc/</span>ntp.conf <br></code></pre></td></tr></table></figure>
 <p>终端显示：</p>
 <figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"># Use <span class="hljs-built_in">public</span> servers <span class="hljs-keyword">from</span> the pool.ntp.org project.<br><span class="hljs-keyword">server</span> <span class="hljs-number">0.</span>centos.pool.ntp.org iburst<br><span class="hljs-keyword">server</span> <span class="hljs-number">1.</span>centos.pool.ntp.org iburst<br><span class="hljs-keyword">server</span> <span class="hljs-number">2.</span>centos.pool.ntp.org iburst<br><span class="hljs-keyword">server</span> <span class="hljs-number">3.</span>centos.pool.ntp.org iburst<br><span class="hljs-keyword">server</span> ntp.aliyun.com iburst<br><span class="hljs-meta">#broadcast 192.168.1.255 autokey        # broadcast server</span><br><span class="hljs-meta">#broadcast 224.0.1.1 autokey            # multicast server</span><br><span class="hljs-meta">#manycastserver 239.255.254.254         # manycast server</span><br></code></pre></td></tr></table></figure>
-
-
-<h3 id="重启NTP服务："><a href="#重启NTP服务：" class="headerlink" title="重启NTP服务："></a>重启NTP服务：</h3><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">systemctl restart ntpd</span><br></code></pre></td></tr></table></figure>
-
-<h3 id="查看同步状态："><a href="#查看同步状态：" class="headerlink" title="查看同步状态："></a>查看同步状态：</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css">ntpq -<span class="hljs-selector-tag">p</span><br></code></pre></td></tr></table></figure>
-
+<h3 id="重启NTP服务：">重启NTP服务：</h3>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">systemctl restart ntpd</span><br></code></pre></td></tr></table></figure>
+<h3 id="查看同步状态：">查看同步状态：</h3>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css">ntpq -<span class="hljs-selector-tag">p</span><br></code></pre></td></tr></table></figure>
 <p>这样再次重启，时间也不会乱了。</p>
 <hr>
 <p>详细安装信息：</p>
@@ -741,6 +740,11 @@
 
 
   
+
+
+  
+  
+
 
 
 
