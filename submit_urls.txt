@@ -1,3 +1,4 @@
+https://superlovelace.top/2023/10/04/HexoBlogBuild/
 https://superlovelace.top/2023/11/15/WhyWLANDoubleSpeed/
 https://superlovelace.top/2023/10/09/ShellSort/
 https://superlovelace.top/2023/09/28/SelectSort/
@@ -7,4 +8,3 @@ https://superlovelace.top/2023/10/05/MergeSort/
 https://superlovelace.top/2023/10/08/InsertSort/
 https://superlovelace.top/2023/09/29/HeapSort/
 https://superlovelace.top/2023/09/29/BubbleSort/
-https://superlovelace.top/2023/10/09/BInsertSort/
