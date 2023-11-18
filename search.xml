@@ -1422,7 +1422,7 @@ CNAME	www	<a href="http://username.github.io">username.github.io</a></p>
       </tags>
   </entry>
   <entry>
-    <title>Hexo网站地图</title>
+    <title>Hexo添加网站地图</title>
     <url>/2023/10/04/HexoWebsite/</url>
     <content><![CDATA[<blockquote>
 <p>Hexo下载相关插件，以完成自动生成网站地图。</p>
@@ -1446,7 +1446,7 @@ CNAME	www	<a href="http://username.github.io">username.github.io</a></p>
 <figure class="highlight txt"><table><tr><td class="code"><pre><code class="hljs txt">User-agent: *<br>Allow: /<br>Allow: /archives/<br>Allow: /categories/<br>Allow: /tags/<br>Disallow: /about/<br>Disallow: /*.jpg$<br>Disallow: /*.jpeg$<br>Disallow: /*.gif$<br>Disallow: /*.png$<br>Disallow: /*.bmp$<br><br>Sitemap: https://你的网址/sitemap.xml<br>Sitemap: https://你的网址/baidusitemap.xml<br></code></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>笔记</category>
+        <category>博客搭建</category>
       </categories>
       <tags>
         <tag>Hexo</tag>
