@@ -1,3 +1,4 @@
+https://superlovelace.top/2022/11/27/Hexo-404/
 https://superlovelace.top/2022/11/29/Git-error/
 https://superlovelace.top/2023/10/04/HexoWebsite/
 https://superlovelace.top/2023/10/04/HexoBlogBuild/
@@ -7,4 +8,3 @@ https://superlovelace.top/2023/09/28/SelectSort/
 https://superlovelace.top/2023/10/10/RadixSort/
 https://superlovelace.top/2023/09/29/QuickSort/
 https://superlovelace.top/2023/10/05/MergeSort/
-https://superlovelace.top/2023/10/08/InsertSort/
