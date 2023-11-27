@@ -425,6 +425,36 @@
       </tags>
   </entry>
   <entry>
+    <title>Scanner无法输入问题</title>
+    <url>/2023/11/27/EclipseCannotInput/</url>
+    <content><![CDATA[<h1>Scanner无法输入问题</h1>
+<h2 id="问题复现：">问题复现：</h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> test;<br><br><span class="hljs-keyword">import</span> java.util.Scanner;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Tests</span> &#123;<br><br>	<span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>		<span class="hljs-comment">// TODO 自动生成的方法存根</span><br>		System.out.println(<span class="hljs-string">&quot;请输入数字：&quot;</span>);<br>		<span class="hljs-type">Scanner</span> <span class="hljs-variable">scanner</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(System.in);<br>		<span class="hljs-comment">//标志位</span><br>		<span class="hljs-type">int</span> <span class="hljs-variable">flag</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>		<span class="hljs-keyword">while</span>(flag++&lt;<span class="hljs-number">3</span>)&#123; <span class="hljs-comment">//有效次数为3</span><br>			<span class="hljs-type">int</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>			<span class="hljs-keyword">try</span> &#123;<br>				a = scanner.nextInt();<span class="hljs-comment">//获取输入内容</span><br>			&#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>				<span class="hljs-comment">//捕获异常，忽略本次，执行下一次输入</span><br>                flag--;<span class="hljs-comment">//回滚标志位，保证有效输入次数</span><br>                System.out.println(<span class="hljs-string">&quot;非法输入，请重新输入！&quot;</span>);<br>                <span class="hljs-keyword">continue</span>;<span class="hljs-comment">//修复错误，执行下一次循环</span><br>			&#125;<br>			System.out.println(<span class="hljs-string">&quot;输入内容为: &quot;</span>+a);<br>		&#125;<br>		scanner.close();<span class="hljs-comment">//关闭扫描器</span><br>        System.out.println(<span class="hljs-string">&quot;程序结束！&quot;</span>);<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>当输入非数字时，控制台输出：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell">请输入数字：<br>a<br>非法输入，请重新输入！ <br>非法输入，请重新输入！ <br>非法输入，请重新输入！ <br>...<br></code></pre></td></tr></table></figure>
+<p>问题：为什么捕获异常后，下次循环就不让重新输入内容，而仍是获取上次的数据呢？</p>
+<p>回答：主要是因为scanner的机制是：scanner会扫描输入栈缓冲区，每次会先判断缓冲区内有没有输入的数据，如果有就执行next方法弹出并返回栈顶数据。如果没有，则等待用户输入数据。在这里，由于用户输入了字符，但数据返回的格式是整型数据，导致字符无法返回出来，所以缓冲区内就一直没清空，有数据就不会开启输入，每次调用都会返回栈顶元素却因格式不对弹不出来，栈顶元素与返回格式不一致，就会一直出现上次的错误。</p>
+<h2 id="解决方法：">解决方法：</h2>
+<h3 id="方法一：用string类型把数据输入栈缓冲区的栈顶数据取出来。">方法一：用string类型把数据输入栈缓冲区的栈顶数据取出来。</h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> test;<br><br><span class="hljs-keyword">import</span> java.util.Scanner;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Tests</span> &#123;<br>	<br>	<span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>		<span class="hljs-comment">// TODO 自动生成的方法存根</span><br>		System.out.println(<span class="hljs-string">&quot;请输入数字：&quot;</span>);	<br>        <span class="hljs-comment">//实例化Scanner</span><br>		<span class="hljs-type">Scanner</span> <span class="hljs-variable">scanner</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(System.in);<br>		<span class="hljs-comment">//标志位</span><br>		<span class="hljs-type">int</span> <span class="hljs-variable">flag</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>		<span class="hljs-keyword">while</span>(flag++&lt;<span class="hljs-number">3</span>)&#123;<span class="hljs-comment">//有效次数为3</span><br>			<span class="hljs-type">int</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>			<span class="hljs-type">String</span> <span class="hljs-variable">b</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;<br>			<span class="hljs-keyword">try</span> &#123;<br>				a = scanner.nextInt();<span class="hljs-comment">//获取数字</span><br>			&#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>				<span class="hljs-comment">// 用字符型取出缓冲区栈顶的数据</span><br>				b = scanner.next();<br>                flag--;<span class="hljs-comment">//回滚标志位，保证有效输入次数</span><br>				System.out.println(<span class="hljs-string">&quot;非法输入，请重新输入！非法数据：&quot;</span>+b);<br>                <span class="hljs-keyword">continue</span>;<span class="hljs-comment">//修复错误，执行下一次循环</span><br>			&#125;<br>			System.out.println(<span class="hljs-string">&quot;输入内容为: &quot;</span>+a);<br>		&#125;<br>		scanner.close();<span class="hljs-comment">//关闭扫描器</span><br>		System.out.println(<span class="hljs-string">&quot;程序结束！&quot;</span>);<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">请输入数字：<br><span class="hljs-number">1</span><br>输入内容为: <span class="hljs-number">1</span><br>a<br>非法输入，请重新输入！非法数据: a<br><span class="hljs-number">2</span><br>输入内容为: <span class="hljs-number">2</span><br><span class="hljs-number">3</span><br>输入内容为: <span class="hljs-number">3</span><br>程序结束！<br></code></pre></td></tr></table></figure>
+<h3 id="方法二：重置scanner">方法二：重置scanner</h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> test;<br><br><span class="hljs-keyword">import</span> java.util.Scanner;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Tests</span> &#123;<br>	<br>	<span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>		<span class="hljs-comment">// TODO 自动生成的方法存根</span><br>		System.out.println(<span class="hljs-string">&quot;请输入数字：&quot;</span>);<br>        <span class="hljs-comment">//实例化Scanner</span><br>		<span class="hljs-type">Scanner</span> <span class="hljs-variable">scanner</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(System.in);<br>		<span class="hljs-comment">//标志位</span><br>		<span class="hljs-type">int</span> <span class="hljs-variable">flag</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>		<span class="hljs-keyword">while</span>(flag++&lt;<span class="hljs-number">3</span>)&#123;<span class="hljs-comment">//有效次数为3</span><br>			<span class="hljs-type">int</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>			<span class="hljs-keyword">try</span> &#123;<br>				a = scanner.nextInt();<span class="hljs-comment">//获取数字</span><br>			&#125; <span class="hljs-keyword">catch</span> (Exception e) &#123; <span class="hljs-comment">//捕获非法输入</span><br>				<span class="hljs-comment">// <span class="hljs-doctag">TODO:</span> handle exception</span><br>				scanner.reset();<span class="hljs-comment">//重置扫描器</span><br>				scanner = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(System.in);<br>				System.out.println(<span class="hljs-string">&quot;非法输入，请重新输入！ &quot;</span>);<br>				flag--;<span class="hljs-comment">//回滚标志位，保证有效输入次数</span><br>				<span class="hljs-keyword">continue</span>;<span class="hljs-comment">//修复错误，执行下一次循环</span><br>			&#125;<br>			System.out.println(<span class="hljs-string">&quot;输入内容为: &quot;</span>+a);			<br>		&#125;<br>		scanner.close();<span class="hljs-comment">//关闭扫描器</span><br>		System.out.println(<span class="hljs-string">&quot;程序结束！&quot;</span>);<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">请输入数字：<br><span class="hljs-number">1</span><br>输入内容为: <span class="hljs-number">1</span><br>a<br>非法输入，请重新输入！ <br><span class="hljs-number">1</span><br>输入内容为: <span class="hljs-number">1</span><br><span class="hljs-number">2</span><br>输入内容为: <span class="hljs-number">2</span><br>程序结束！<br></code></pre></td></tr></table></figure>
+<h3 id=""></h3>
+]]></content>
+      <categories>
+        <category>异常处理</category>
+        <category>十万个为什么</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Eclipse</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>英语语法综述</title>
     <url>/2023/09/30/EnglishGrammar/</url>
     <content><![CDATA[<blockquote>
@@ -1810,8 +1840,8 @@ CNAME	www	<a href="http://username.github.io">username.github.io</a></p>
         <category>笔记</category>
       </categories>
       <tags>
-        <tag>Mybatis</tag>
         <tag>Java</tag>
+        <tag>Mybatis</tag>
       </tags>
   </entry>
   <entry>
@@ -2183,8 +2213,8 @@ CNAME	www	<a href="http://username.github.io">username.github.io</a></p>
         <category>笔记</category>
       </categories>
       <tags>
-        <tag>Mybatis</tag>
         <tag>Java</tag>
+        <tag>Mybatis</tag>
       </tags>
   </entry>
   <entry>
