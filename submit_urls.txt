@@ -1,3 +1,4 @@
+https://superlovelace.top/2024/01/12/MavenInstall/
 https://superlovelace.top/2023/11/27/EclipseCannotInput/
 https://superlovelace.top/2022/11/22/Hexo-Next/
 https://superlovelace.top/2022/11/27/Hexo-404/
@@ -7,4 +8,3 @@ https://superlovelace.top/2023/10/04/HexoBlogBuild/
 https://superlovelace.top/2023/11/15/WhyWLANDoubleSpeed/
 https://superlovelace.top/2023/10/09/ShellSort/
 https://superlovelace.top/2023/09/28/SelectSort/
-https://superlovelace.top/2023/10/10/RadixSort/
