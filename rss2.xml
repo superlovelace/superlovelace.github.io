@@ -9,8 +9,36 @@
     <atom:link href="https://superlovelace.top/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>记录日常学习内容，分享问题解决方法。主要内容包括Java、Python、C++、爬虫和数据结构等相关知识。其中，技术框架包括Java框架Spring、SpringBoot、SpringMVC和Mybatis；Python框架Django、Flask等。此外还有服务器搭建、项目部署，静态博客的搭建等知识总结，不定时更新中...</description>
-    <pubDate>Fri, 12 Jan 2024 06:08:21 GMT</pubDate>
+    <pubDate>Wed, 31 Jan 2024 14:15:03 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>冬夜畅想</title>
+      <link>https://superlovelace.top/2024/01/31/SnowNight/</link>
+      <guid>https://superlovelace.top/2024/01/31/SnowNight/</guid>
+      <pubDate>Wed, 31 Jan 2024 14:11:43 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;雪夜，&lt;br&gt;
+该有多少点燃的蜡烛，在倾听着天空飘洒的言语；&lt;br&gt;
+该有多少诗人升腾着灵感的火焰，澎湃着艺术的激情，吟唱着”千树万树梨花开“的壮美；&lt;br&gt;
+该有多少跃跃欲试的画家无力画出雪洁白的精神；&lt;br&gt;
+该有多少涌动的琴声用音符描绘着春的到来，再巧的手指又怎能弹出</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<p>雪夜，<br>该有多少点燃的蜡烛，在倾听着天空飘洒的言语；<br>该有多少诗人升腾着灵感的火焰，澎湃着艺术的激情，吟唱着”千树万树梨花开“的壮美；<br>该有多少跃跃欲试的画家无力画出雪洁白的精神；<br>该有多少涌动的琴声用音符描绘着春的到来，再巧的手指又怎能弹出落雪美妙的音韵。<br>该有多少美妙的迎春花藤伸出梦境之外，每一处结开的苞蕾都酝酿着春的经历；<br>该有多少爱雪的人，想象落雪的情景喜悦如雨,，潮湿的心灵，长出新绿的叶片；<br>该有多少情人，借每一片雪花，飘飞着对爱情和人生的祝福。<br>——《落雪》</p>]]></content:encoded>
+      
+      
+      <category domain="https://superlovelace.top/categories/%E9%9A%8F%E7%AC%94/">随笔</category>
+      
+      
+      
+      <comments>https://superlovelace.top/2024/01/31/SnowNight/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Maven快速安装与配置指南</title>
@@ -259,31 +287,6 @@
       
       
       <comments>https://superlovelace.top/2023/10/13/LinkQueue/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>循环队列（顺序存储结构）</title>
-      <link>https://superlovelace.top/2023/10/13/SqQueue/</link>
-      <guid>https://superlovelace.top/2023/10/13/SqQueue/</guid>
-      <pubDate>Fri, 13 Oct 2023 15:44:05 GMT</pubDate>
-      
-      <description>&lt;blockquote&gt;
-&lt;p&gt;循环队列的定义、特点和完整代码实现。&lt;/p&gt;
-&lt;/blockquote&gt;</description>
-      
-      
-      
-      <content:encoded><![CDATA[<blockquote><p>循环队列的定义、特点和完整代码实现。</p></blockquote><span id="more"></span><h1>循环队列（顺序存储结构）</h1><h2 id="定义">定义</h2><p>顺序表类型的队列，定义了两个指针，头指针和尾指针。当入队满的时候，每出队一个头指针都要后移，这样到最后就无法入队新元素了，在入队会导致假溢出。为了解决这一问题，入队和出队后，队头队尾对MAXSIZE取模，这样队列就变成了环形，类似于旋转木马，即循环队列，</p><h2 id="特点">特点</h2><p>可以有效的利用资源</p><h2 id="基本算法">基本算法</h2><p>主要是判断队列是否为空所采取的方法：</p><ul><li>牺牲一个存储单元</li><li>增加size属性记录元素个数</li><li>增加标志位，判断最近的一次操作是入队还是出队（只有入队会导致队满）</li></ul><h2 id="完整代码实现">完整代码实现</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;string&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">循环队列  顺序实现</span><br><span class="hljs-comment">*/</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> MAXSIZE 2 <span class="hljs-comment">//队列元素的最大个数</span></span><br><br><span class="hljs-comment">/* 顺序队列存储结构 */</span><br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> <br>&#123;<br><span class="hljs-type">int</span> data[MAXSIZE];  <span class="hljs-comment">//静态数组存放队列元素</span><br><span class="hljs-type">int</span> front;  <span class="hljs-comment">//队头指针</span><br><span class="hljs-type">int</span> rear;<span class="hljs-comment">//队尾指针</span><br><span class="hljs-type">int</span> size;  <span class="hljs-comment">//队列元素个数</span><br>&#125;SqQueue; <br><br><span class="hljs-comment">//初始化队列</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">InitQueue</span><span class="hljs-params">(SqQueue &amp;S)</span></span><br><span class="hljs-function"></span>&#123;<br>S.front = <span class="hljs-number">0</span>;<br>S.rear = <span class="hljs-number">0</span>;<br>S.size = <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-comment">//判断队列是否空</span><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">QueueEmpty</span><span class="hljs-params">(SqQueue S)</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-keyword">if</span> (S.size == <span class="hljs-number">0</span>)<br>&#123;<br><span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>&#125;<br><span class="hljs-keyword">else</span> <br>&#123;<br><span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>&#125;<br>&#125;<br><br><span class="hljs-comment">//入队列</span><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">Push</span><span class="hljs-params">(SqQueue&amp; S, <span class="hljs-type">int</span> e)</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-keyword">if</span> (S.size == MAXSIZE)<br>&#123;<br><span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>&#125;<br>S.data[S.rear] = e;<br>S.rear = (S.rear+<span class="hljs-number">1</span>)%MAXSIZE;<br>S.size++;<br><span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>&#125;<br><br><span class="hljs-comment">//出队列</span><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">Pop</span><span class="hljs-params">(SqQueue&amp; S, <span class="hljs-type">int</span> &amp;e)</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-keyword">if</span> (S.size == <span class="hljs-number">0</span>)<br>&#123;<br><span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>&#125;<br>e = S.data[S.front];<br>S.front=(S.front+<span class="hljs-number">1</span>)% MAXSIZE;<br>S.size--;<br><span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>&#125;<br><br><span class="hljs-comment">//读取队列顶元素</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">GetElem</span><span class="hljs-params">(SqQueue S,<span class="hljs-type">int</span> &amp;e)</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-keyword">if</span> (S.size == <span class="hljs-number">0</span>)<br>&#123;<br><span class="hljs-keyword">return</span>;<br>&#125;<br>e = S.data[S.front];<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>SqQueue S;<br><span class="hljs-built_in">InitQueue</span>(S);<br>cout &lt;&lt;<span class="hljs-string">&quot;队列是否为空：&quot;</span> &lt;&lt; <span class="hljs-built_in">QueueEmpty</span>(S) &lt;&lt; endl;<br><span class="hljs-type">int</span> a1 = <span class="hljs-number">10</span>;<br><span class="hljs-type">int</span> a2 = <span class="hljs-number">20</span>;<br><span class="hljs-type">int</span> b;<br><br>cout &lt;&lt; <span class="hljs-string">&quot;入队列：&quot;</span> &lt;&lt; <span class="hljs-built_in">Push</span>(S, a1)&lt;&lt; endl;<br>cout &lt;&lt; <span class="hljs-string">&quot;入队列：&quot;</span> &lt;&lt; <span class="hljs-built_in">Push</span>(S, a2) &lt;&lt; endl;<br><span class="hljs-built_in">GetElem</span>(S, b);<br>cout&lt;&lt;<span class="hljs-string">&quot;读取队列顶元素：&quot;</span> &lt;&lt;b &lt;&lt;endl;<br>cout &lt;&lt; <span class="hljs-string">&quot;队列大小：&quot;</span> &lt;&lt; S.size &lt;&lt; endl;<br>cout &lt;&lt; <span class="hljs-string">&quot;出队列：&quot;</span> &lt;&lt; <span class="hljs-built_in">Pop</span>(S, b) &lt;&lt; endl;<br>cout &lt;&lt; <span class="hljs-string">&quot;出队列：&quot;</span> &lt;&lt; <span class="hljs-built_in">Pop</span>(S, b) &lt;&lt; endl;<br>cout &lt;&lt; <span class="hljs-string">&quot;队列大小：&quot;</span> &lt;&lt; S.size &lt;&lt; endl;<br>cout &lt;&lt; <span class="hljs-string">&quot;队列是否为空：&quot;</span> &lt;&lt; <span class="hljs-built_in">QueueEmpty</span>(S) &lt;&lt; endl;<br>cout &lt;&lt; <span class="hljs-string">&quot;入队列：&quot;</span> &lt;&lt; <span class="hljs-built_in">Push</span>(S, a1) &lt;&lt; endl;<br>cout &lt;&lt; <span class="hljs-string">&quot;入队列：&quot;</span> &lt;&lt; <span class="hljs-built_in">Push</span>(S, a2) &lt;&lt; endl;<br>cout &lt;&lt; <span class="hljs-string">&quot;队列大小：&quot;</span> &lt;&lt; S.size &lt;&lt; endl;<br><span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content:encoded>
-      
-      
-      <category domain="https://superlovelace.top/categories/%E7%AC%94%E8%AE%B0/">笔记</category>
-      
-      
-      <category domain="https://superlovelace.top/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</category>
-      
-      
-      <comments>https://superlovelace.top/2023/10/13/SqQueue/#disqus_thread</comments>
       
     </item>
     
