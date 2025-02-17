@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>SSL：WRONG_VERSION_NUMBER</title>
+    <link href="/2025/02/17/SSL%EF%BC%9AWRONG_VERSION_NUMBER/"/>
+    <url>/2025/02/17/SSL%EF%BC%9AWRONG_VERSION_NUMBER/</url>
+    
+    <content type="html"><![CDATA[<h2 id="SSL：WRONG-VERSION-NUMBER">SSL：WRONG_VERSION_NUMBER</h2><p>记录一次SSL部署成功后，接口请求依然报SSL错误的问题。</p><p>首先排除SSL证据链不足，系统时间不正确，TLS配置不正确等问题。</p><p>浏览器直接访问可以打开网站，但是postman等接口访问就一直报SSL异常：</p><p>类似参考资料中的这种异常代码：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">write EPROTO 8936192:error:100000f7:SSL routines:OPENSSL_internal:WRONG_VERSION_NUMBER:..\..\third_party\boringssl\src\ssl\tls_record.cc:231:<br></code></pre></td></tr></table></figure><p>通常通过域名访问80端口，出现阻断页，这里是关键！</p><p>参考资料中的是被上海蓝云阻断，</p><p>我这里遇到的是被当前服务器提供商机房拦截阻断。原因与参考资料中的阻断原因不同，这里是因为对应的景安备案系统中没有当前域名相关信息，域名是在阿里云的而且是在阿里云备案的。根据提示：1是没有在此系统备案，2是没有加入白名单，3是网站存在不适宜传播的内容。显然，3是不符合的。所以就去添加白名单，添加30分钟左右后，postman已可以成功访问。【但提示说未在此系统备案的需尽快完善信息，否则会在几天后将白名单的信息删除】，所以还是需要在此备案系统备案。已经备案的去转入即可。相关信息：<a href="https://beian.zzidc.com/main/help/showHelpContent?id=32">https://beian.zzidc.com/main/help/showHelpContent?id=32</a></p><p>参考资料：<a href="https://www.cnblogs.com/lulight/p/18292669">https://www.cnblogs.com/lulight/p/18292669</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>异常记录</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>冬夜畅想</title>
     <link href="/2024/01/31/SnowNight/"/>
     <url>/2024/01/31/SnowNight/</url>

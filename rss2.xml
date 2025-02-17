@@ -9,8 +9,34 @@
     <atom:link href="https://superlovelace.top/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>记录日常学习内容，分享问题解决方法。主要内容包括Java、Python、C++、爬虫和数据结构等相关知识。其中，技术框架包括Java框架Spring、SpringBoot、SpringMVC和Mybatis；Python框架Django、Flask等。此外还有服务器搭建、项目部署，静态博客的搭建等知识总结，不定时更新中...</description>
-    <pubDate>Wed, 31 Jan 2024 14:15:03 GMT</pubDate>
+    <pubDate>Mon, 17 Feb 2025 12:32:31 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>SSL：WRONG_VERSION_NUMBER</title>
+      <link>https://superlovelace.top/2025/02/17/SSL%EF%BC%9AWRONG_VERSION_NUMBER/</link>
+      <guid>https://superlovelace.top/2025/02/17/SSL%EF%BC%9AWRONG_VERSION_NUMBER/</guid>
+      <pubDate>Mon, 17 Feb 2025 14:11:43 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;SSL：WRONG-VERSION-NUMBER&quot;&gt;SSL：WRONG_VERSION_NUMBER&lt;/h2&gt;
+&lt;p&gt;记录一次SSL部署成功后，接口请求依然报SSL错误的问题。&lt;/p&gt;
+&lt;p&gt;首先排除SSL证据链不足，系统时间不正确，TLS配置不正确等问题。&lt;/p</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h2 id="SSL：WRONG-VERSION-NUMBER">SSL：WRONG_VERSION_NUMBER</h2><p>记录一次SSL部署成功后，接口请求依然报SSL错误的问题。</p><p>首先排除SSL证据链不足，系统时间不正确，TLS配置不正确等问题。</p><p>浏览器直接访问可以打开网站，但是postman等接口访问就一直报SSL异常：</p><p>类似参考资料中的这种异常代码：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">write EPROTO 8936192:error:100000f7:SSL routines:OPENSSL_internal:WRONG_VERSION_NUMBER:..\..\third_party\boringssl\src\ssl\tls_record.cc:231:<br></code></pre></td></tr></table></figure><p>通常通过域名访问80端口，出现阻断页，这里是关键！</p><p>参考资料中的是被上海蓝云阻断，</p><p>我这里遇到的是被当前服务器提供商机房拦截阻断。原因与参考资料中的阻断原因不同，这里是因为对应的景安备案系统中没有当前域名相关信息，域名是在阿里云的而且是在阿里云备案的。根据提示：1是没有在此系统备案，2是没有加入白名单，3是网站存在不适宜传播的内容。显然，3是不符合的。所以就去添加白名单，添加30分钟左右后，postman已可以成功访问。【但提示说未在此系统备案的需尽快完善信息，否则会在几天后将白名单的信息删除】，所以还是需要在此备案系统备案。已经备案的去转入即可。相关信息：<a href="https://beian.zzidc.com/main/help/showHelpContent?id=32">https://beian.zzidc.com/main/help/showHelpContent?id=32</a></p><p>参考资料：<a href="https://www.cnblogs.com/lulight/p/18292669">https://www.cnblogs.com/lulight/p/18292669</a></p>]]></content:encoded>
+      
+      
+      <category domain="https://superlovelace.top/categories/%E5%BC%82%E5%B8%B8%E8%AE%B0%E5%BD%95/">异常记录</category>
+      
+      
+      
+      <comments>https://superlovelace.top/2025/02/17/SSL%EF%BC%9AWRONG_VERSION_NUMBER/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>冬夜畅想</title>
@@ -262,31 +288,6 @@
       
       
       <comments>https://superlovelace.top/2023/10/14/BiTree/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>循环队列（链式存储结构）</title>
-      <link>https://superlovelace.top/2023/10/13/LinkQueue/</link>
-      <guid>https://superlovelace.top/2023/10/13/LinkQueue/</guid>
-      <pubDate>Fri, 13 Oct 2023 15:52:21 GMT</pubDate>
-      
-      <description>&lt;blockquote&gt;
-&lt;p&gt;本文主要总结了循环队列的另一种实现形式，即循环队列的链式存储结构形式，主要是完整实现代码。&lt;/p&gt;
-&lt;/blockquote&gt;</description>
-      
-      
-      
-      <content:encoded><![CDATA[<blockquote><p>本文主要总结了循环队列的另一种实现形式，即循环队列的链式存储结构形式，主要是完整实现代码。</p></blockquote><span id="more"></span><h1>循环队列（链式存储结构）</h1><h2 id="完整代码实现">完整代码实现</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;string&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">循环队列的链式实现</span><br><span class="hljs-comment">*/</span><br><br><span class="hljs-comment">/* 链队列存储结构 */</span><br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> <span class="hljs-title class_">SNode</span><br>&#123;<br><span class="hljs-type">int</span> data;  <br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">SNode</span> * next;<br>&#125;SNode,*SqQueue;<br><br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span><br>&#123;<br>SqQueue front;<br>SqQueue rear;<br>&#125;LinkQueue;<br><br><span class="hljs-comment">//初始化队列(有头结点)</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">InitQueue</span><span class="hljs-params">(LinkQueue&amp; S)</span></span><br><span class="hljs-function"></span>&#123;<br>S.front = S.rear = <span class="hljs-keyword">new</span> SNode;<br>S.front-&gt;next = <span class="hljs-literal">NULL</span>;<br>&#125;<br><br><span class="hljs-comment">//判断队列空</span><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">QueueEmpty</span><span class="hljs-params">(LinkQueue S)</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-keyword">if</span> (S.front == S.rear)<br>&#123;<br><span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>&#125;<br><span class="hljs-keyword">else</span> &#123;<br><span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>&#125;<br>&#125;<br><br><span class="hljs-comment">//进队列(每次都插在头结点后面)</span><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">Push</span><span class="hljs-params">(LinkQueue&amp; S, <span class="hljs-type">int</span> e)</span></span><br><span class="hljs-function"></span>&#123;<br>SNode* p = <span class="hljs-keyword">new</span> SNode;<br>p-&gt;data = e;<br>p-&gt;next = <span class="hljs-literal">NULL</span>;<br>S.rear-&gt;next = p; <span class="hljs-comment">//修改后继指针</span><br>S.rear = p;<br><span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>&#125;<br><br><span class="hljs-comment">//出队列</span><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">Pop</span><span class="hljs-params">(LinkQueue&amp; S, <span class="hljs-type">int</span>&amp; e)</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-keyword">if</span> (<span class="hljs-built_in">QueueEmpty</span>(S))<br>&#123;<br><span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>&#125;<br>e = S.front-&gt;next-&gt;data;<br>SNode* p = S.front-&gt;next;<br>S.front-&gt;next = p-&gt;next;<br><span class="hljs-keyword">if</span> (S.rear == p)<br>&#123;<br>S.rear = S.front;<br>&#125;<br><span class="hljs-keyword">delete</span> p;<br><span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>&#125;<br><br><span class="hljs-comment">//读取队列顶元素</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">GetTop</span><span class="hljs-params">(LinkQueue S, <span class="hljs-type">int</span>&amp; e)</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-keyword">if</span> (<span class="hljs-built_in">QueueEmpty</span>(S))<br>&#123;<br><span class="hljs-keyword">return</span>;<br>&#125;<br>e = S.front-&gt;next-&gt;data;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>LinkQueue S;<br><span class="hljs-built_in">InitQueue</span>(S);<br>cout &lt;&lt; <span class="hljs-string">&quot;队列是否为空：&quot;</span> &lt;&lt; <span class="hljs-built_in">QueueEmpty</span>(S) &lt;&lt; endl;<br><span class="hljs-type">int</span> a = <span class="hljs-number">10</span>;<br><span class="hljs-type">int</span> b;<br><br>cout &lt;&lt; <span class="hljs-string">&quot;入队列：&quot;</span> &lt;&lt; <span class="hljs-built_in">Push</span>(S, a) &lt;&lt; endl;<br><span class="hljs-built_in">GetTop</span>(S, b);<br>cout &lt;&lt; <span class="hljs-string">&quot;读取队列顶元素：&quot;</span> &lt;&lt; b &lt;&lt; endl;<br>cout &lt;&lt; <span class="hljs-string">&quot;出队列：&quot;</span> &lt;&lt; <span class="hljs-built_in">Pop</span>(S, b) &lt;&lt; endl;<br>cout &lt;&lt; <span class="hljs-string">&quot;队列是否为空：&quot;</span> &lt;&lt; <span class="hljs-built_in">QueueEmpty</span>(S) &lt;&lt; endl;<br><span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content:encoded>
-      
-      
-      <category domain="https://superlovelace.top/categories/%E7%AC%94%E8%AE%B0/">笔记</category>
-      
-      
-      <category domain="https://superlovelace.top/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</category>
-      
-      
-      <comments>https://superlovelace.top/2023/10/13/LinkQueue/#disqus_thread</comments>
       
     </item>
     
