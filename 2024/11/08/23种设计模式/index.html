@@ -1,0 +1,1105 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+<script type="text/javascript" src="/vvd_js/jquery.js"></script>
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/1.jpg">
+  <link rel="icon" href="/img/1.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="棱境">
+  <meta name="keywords" content="棱境,superlovelace,超爱蕾丝,超爱蕾丝个人博客,超爱蕾丝博客站点,棱境的个人博客,SuperLovelace,superlovelace博客站点,superlovelace个人博客,SuperLovelace博客站点,SuperLovelace个人博客，四月黎明，四月黎明博客站点">
+  
+    <meta name="description" content="详细介绍23种设计模式是为了解决哪些问题，以及哪些设计模式是常用的以及模式的应用场景。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="23种设计模式">
+<meta property="og:url" content="https://superlovelace.top/2024/11/08/23%E7%A7%8D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.html">
+<meta property="og:site_name" content="四月黎明 | 棱境的个人博客站点">
+<meta property="og:description" content="详细介绍23种设计模式是为了解决哪些问题，以及哪些设计模式是常用的以及模式的应用场景。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://superlovelace.top/img/post/1005.jpg">
+<meta property="article:published_time" content="2024-11-08T03:13:59.000Z">
+<meta property="article:modified_time" content="2025-02-18T07:50:02.100Z">
+<meta property="article:author" content="棱境">
+<meta property="article:tag" content="设计模式">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://superlovelace.top/img/post/1005.jpg">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>23种设计模式 - 四月黎明 | 棱境的个人博客站点</title>
+  
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"superlovelace.top","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":"G-V7XHLRYKFR"},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"IX85WXZ5BZ7cgp7sgj8ONFCR-gzGzoHsz","app_key":"XQfrnQLL3IrNoQ77ZPPk7KLk","server_url":"https://ix85wxz5.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=G-V7XHLRYKFR", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', 'G-V7XHLRYKFR');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/rss2.xml" title="四月黎明 | 棱境的个人博客站点" type="application/rss+xml">
+</head>
+
+
+<body>
+
+    <div>
+    	<div class='real_mask'></div>
+    	<div id="banner_video_insert">
+    	</div>	
+    	<div id='vvd_banner_img'>
+    	</div>
+    </div>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>四月黎明</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/post/1006.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+  
+    
+		<script>
+			var ua = navigator.userAgent;
+			var ipad = ua.match(/(iPad).*OS\s([\d_]+)/),
+				isIphone = !ipad && ua.match(/(iPhone\sOS)\s([\d_]+)/),
+				isAndroid = ua.match(/(Android)\s+([\d.]+)/),
+				isMobile = isIphone || isAndroid;
+
+			function set_video_attr(id){
+
+				var height = document.body.clientHeight
+				var width = document.body.clientWidth
+				var video_item = document.getElementById(id);
+
+				if (height / width < 0.56){
+					video_item.setAttribute('width', '100%');
+					video_item.setAttribute('height', 'auto');
+				} else {
+					video_item.setAttribute('height', '100%');
+					video_item.setAttribute('width', 'auto');
+				}
+			}
+
+			$.getJSON('/vvd_js/video_url.json', function(data){
+				if (!isMobile){
+					var video_list_length = data.length
+					var seed = Math.random()
+					index = Math.floor(seed * video_list_length)
+					
+					video_url = data[index][0]
+					pre_show_image_url = data[index][1]
+					
+					banner_obj = document.getElementById("banner")
+					banner_obj.style.cssText = "background: url('" + pre_show_image_url + "') no-repeat; background-size: cover;"
+
+					vvd_banner_obj = document.getElementById("vvd_banner_img")
+
+					vvd_banner_content = "<img id='banner_img_item' src='" + pre_show_image_url + "' style='height: 100%; position: fixed; z-index: -999'>"
+					vvd_banner_obj.innerHTML = vvd_banner_content
+
+					video_html_res = "<video id='video_item' style='position: fixed; z-index: -888;'  muted='muted' src=" + video_url + " autoplay='autoplay' loop='loop'></video>"
+					document.getElementById("banner_video_insert").innerHTML = video_html_res;
+
+					set_video_attr('video_item')
+					set_video_attr('banner_img_item')
+				}
+			});
+
+			if (!isMobile){
+				window.onresize = function(){
+					set_video_attr('video_item')
+				}
+			}
+		</script>
+	
+  
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="23种设计模式"></span>
+          
+          <h1></h1>
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        棱境
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-11-08 11:13" pubdate>
+          2024年11月8日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          5.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          43 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">23种设计模式</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：25 分钟前
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="23种设计模式">23种设计模式</h2>
+<h3 id="按问题类型划分">按问题类型划分</h3>
+<h4 id="1-创建型设计模式（解决对象创建过程中的问题）">1. <strong>创建型设计模式</strong>（解决对象创建过程中的问题）</h4>
+<p>这些设计模式关注如何创建对象，确保系统在创建对象时具备灵活性和可扩展性，减少对象创建时的复杂度。</p>
+<ul>
+<li><strong>单例模式 (Singleton)</strong><br>
+<strong>问题</strong>：需要确保一个类只有一个实例，并提供全局访问点。<br>
+<strong>解决</strong>：通过控制实例的创建过程来保证类只有一个实例。</li>
+<li><strong>工厂方法模式 (Factory Method)</strong><br>
+<strong>问题</strong>：不知道在运行时需要创建哪些类的实例。<br>
+<strong>解决</strong>：通过定义一个创建对象的接口，让子类决定实例化哪个类。</li>
+<li><strong>抽象工厂模式 (Abstract Factory)</strong><br>
+<strong>问题</strong>：需要创建一组相关的对象，但不想指定它们的具体类。<br>
+<strong>解决</strong>：提供一个接口来创建一系列相关或依赖的对象，而不具体指定它们的类。</li>
+<li><strong>建造者模式 (Builder)</strong><br>
+<strong>问题</strong>：创建一个复杂对象时，构建过程非常复杂，或者创建过程中的多个步骤独立。<br>
+<strong>解决</strong>：通过分步构建，逐步创建复杂的对象。</li>
+<li><strong>原型模式 (Prototype)</strong><br>
+<strong>问题</strong>：创建新对象时性能较低或对象创建比较复杂。<br>
+<strong>解决</strong>：通过克隆现有对象来创建新对象，避免重复的创建操作。</li>
+</ul>
+<h4 id="2-结构型设计模式（解决类或对象之间的关系问题）">2. <strong>结构型设计模式</strong>（解决类或对象之间的关系问题）</h4>
+<p>这些模式主要处理类或对象的组成方式，帮助设计更加高效、灵活的系统结构。</p>
+<ul>
+<li><strong>适配器模式 (Adapter)</strong><br>
+<strong>问题</strong>：需要使用某个现有的接口，但它的接口与当前系统不兼容。<br>
+<strong>解决</strong>：通过创建一个适配器类，将现有接口转换为需要的接口。</li>
+<li><strong>桥接模式 (Bridge)</strong><br>
+<strong>问题</strong>：在不同的维度上扩展类（如功能与实现分离）时，导致类的数量急剧增加。<br>
+<strong>解决</strong>：将功能和实现分离，让它们独立变化，从而降低系统复杂性。</li>
+<li><strong>组合模式 (Composite)</strong><br>
+<strong>问题</strong>：处理部分与整体的层级结构时。<br>
+<strong>解决</strong>：通过将对象组合成树形结构，使得客户端可以一致地对待单个对象和组合对象。</li>
+<li><strong>装饰器模式 (Decorator)</strong><br>
+<strong>问题</strong>：需要动态地为对象添加职责，但不能通过继承来扩展。<br>
+<strong>解决</strong>：通过包装原始对象，动态添加新的功能。</li>
+<li><strong>外观模式 (Facade)</strong><br>
+<strong>问题</strong>：系统中的子系统复杂且不易使用。<br>
+<strong>解决</strong>：提供一个统一的接口，简化子系统的操作。</li>
+<li><strong>享元模式 (Flyweight)</strong><br>
+<strong>问题</strong>：对象数量过多，导致内存消耗过大。<br>
+<strong>解决</strong>：通过共享已存在的对象来减少内存消耗。</li>
+<li><strong>代理模式 (Proxy)</strong><br>
+<strong>问题</strong>：控制对一个对象的访问，提供对某个对象的间接访问。<br>
+<strong>解决</strong>：通过代理对象控制对目标对象的访问（可以是延迟加载、访问控制等）。</li>
+</ul>
+<h4 id="3-行为型设计模式（解决对象之间的交互和职责分配问题）">3. <strong>行为型设计模式</strong>（解决对象之间的交互和职责分配问题）</h4>
+<p>这些设计模式主要关注类与类之间如何交互，如何分配责任，以及如何使得对象之间的交互更加灵活和解耦。</p>
+<ul>
+<li><strong>责任链模式 (Chain of Responsibility)</strong><br>
+<strong>问题</strong>：请求的处理者不确定，或者处理者的顺序不确定。<br>
+<strong>解决</strong>：通过创建一个链表结构的处理对象，让每个对象负责处理特定的请求，直到某个对象处理完毕。</li>
+<li><strong>命令模式 (Command)</strong><br>
+<strong>问题</strong>：请求的发送者和请求的接收者之间高度耦合。<br>
+<strong>解决</strong>：将请求封装成一个命令对象，从而解耦请求的发送者和接收者。</li>
+<li><strong>解释器模式 (Interpreter)</strong><br>
+<strong>问题</strong>：需要对语言进行解析和解释。<br>
+<strong>解决</strong>：为特定的语言或表达式创建解释器，通过定义文法规则来解释和计算输入。</li>
+<li><strong>迭代器模式 (Iterator)</strong><br>
+<strong>问题</strong>：需要遍历一个容器中的元素，而不暴露容器的内部结构。<br>
+<strong>解决</strong>：提供一个迭代器对象，允许客户端按顺序访问集合元素。</li>
+<li><strong>中介者模式 (Mediator)</strong><br>
+<strong>问题</strong>：多个对象之间有复杂的交互，导致系统非常复杂。<br>
+<strong>解决</strong>：通过引入中介者对象，所有的交互都通过中介者进行，从而简化对象之间的关系。</li>
+<li><strong>备忘录模式 (Memento)</strong><br>
+<strong>问题</strong>：需要保存和恢复对象的状态，但又不能暴露对象的内部结构。<br>
+<strong>解决</strong>：通过备忘录对象保存对象的状态，以便以后恢复。</li>
+<li><strong>观察者模式 (Observer)</strong><br>
+<strong>问题</strong>：一个对象的状态变化需要通知其他依赖的对象。<br>
+<strong>解决</strong>：定义一种一对多的依赖关系，当一个对象的状态发生变化时，所有依赖它的对象都会自动得到通知。</li>
+<li><strong>状态模式 (State)</strong><br>
+<strong>问题</strong>：一个对象的行为取决于它的状态，而且状态之间的切换逻辑较为复杂。<br>
+<strong>解决</strong>：通过将不同的状态抽象为状态对象，每个状态对象定义自己的行为，并在状态之间进行切换。</li>
+<li><strong>策略模式 (Strategy)</strong><br>
+<strong>问题</strong>：需要根据不同的条件选择不同的算法或行为。<br>
+<strong>解决</strong>：将每个算法或行为封装成一个策略对象，客户端可以根据需要选择不同的策略。</li>
+<li><strong>模板方法模式 (Template Method)</strong><br>
+<strong>问题</strong>：子类需要按照特定顺序执行一些步骤，但这些步骤中的某些操作是可变的。<br>
+<strong>解决</strong>：通过在父类中定义一个模板方法，调用一些可变的步骤，由子类来实现具体的步骤。</li>
+<li><strong>访问者模式 (Visitor)</strong><br>
+<strong>问题</strong>：对象结构中的元素需要不同的操作，但它们通常很难扩展。<br>
+<strong>解决</strong>：通过访问者对象来定义对不同元素的操作，将操作与对象结构解耦。</li>
+</ul>
+<h4 id="总结">总结</h4>
+<ul>
+<li><strong>创建型模式</strong>：主要解决对象创建的问题。</li>
+<li><strong>结构型模式</strong>：主要解决对象的组成结构和类之间的关系。</li>
+<li><strong>行为型模式</strong>：主要解决对象之间的交互、职责分配和行为变化问题。</li>
+</ul>
+<h3 id="按使用频率划分">按使用频率划分</h3>
+<h4 id="设计模式【常用】">设计模式【常用】</h4>
+<h5 id="1-单例模式-Singleton">1. <strong>单例模式 (Singleton)</strong></h5>
+<ul>
+<li><strong>用途</strong>：确保一个类只有一个实例，并提供一个全局访问点。</li>
+<li><strong>应用场景</strong>：数据库连接池、日志管理器、线程池、配置管理等场景中需要全局共享的资源。</li>
+<li><strong>常见度</strong>：非常常见，尤其在需要管理全局状态或系统资源时。</li>
+</ul>
+<h5 id="2-工厂方法模式-Factory-Method-和-简单工厂-Simple-Factory">2. <strong>工厂方法模式 (Factory Method) 和 简单工厂 (Simple Factory)</strong></h5>
+<ul>
+<li><strong>用途</strong>：定义一个创建对象的接口，让子类决定要实例化的类。</li>
+<li><strong>应用场景</strong>：当系统中存在多种类的对象时，通过工厂方法模式来创建对象，使代码解耦。</li>
+<li><strong>常见度</strong>：非常常见，用于实例化可能变化的类。</li>
+</ul>
+<h5 id="3-策略模式-Strategy">3. <strong>策略模式 (Strategy)</strong></h5>
+<ul>
+<li><strong>用途</strong>：定义一系列算法，将它们封装起来，并使它们可以互相替换。</li>
+<li><strong>应用场景</strong>：实现不同的业务逻辑或算法，比如支付方式的选择、日志记录方式的不同策略等。</li>
+<li><strong>常见度</strong>：常见，尤其在需要在运行时动态选择算法或逻辑时使用。</li>
+</ul>
+<h5 id="4-观察者模式-Observer">4. <strong>观察者模式 (Observer)</strong></h5>
+<ul>
+<li><strong>用途</strong>：当对象状态发生变化时，自动通知并更新依赖的对象。</li>
+<li><strong>应用场景</strong>：事件驱动系统、UI组件的状态联动、MVC架构中的视图更新等。</li>
+<li><strong>常见度</strong>：非常常见，特别在订阅/发布模式中。</li>
+</ul>
+<h5 id="5-装饰器模式-Decorator">5. <strong>装饰器模式 (Decorator)</strong></h5>
+<ul>
+<li><strong>用途</strong>：动态地为对象添加额外的职责，而不影响其他对象。</li>
+<li><strong>应用场景</strong>：为对象添加功能，比如为文件输入流/输出流添加加密功能、数据校验等。</li>
+<li><strong>常见度</strong>：在需要扩展对象功能时非常常见，尤其是在流式处理和中间件的构建中。</li>
+</ul>
+<h5 id="6-模板方法模式-Template-Method">6. <strong>模板方法模式 (Template Method)</strong></h5>
+<ul>
+<li><strong>用途</strong>：在父类中定义算法的骨架，子类可以覆盖某些步骤。</li>
+<li><strong>应用场景</strong>：处理具有一致流程的业务逻辑，但其中某些步骤是可变的，比如订单处理、数据处理等。</li>
+<li><strong>常见度</strong>：常见，尤其在具有类似业务流程的场景中。</li>
+</ul>
+<h5 id="7-代理模式-Proxy">7. <strong>代理模式 (Proxy)</strong></h5>
+<ul>
+<li><strong>用途</strong>：为其他对象提供一种代理，以控制对这个对象的访问。</li>
+<li><strong>应用场景</strong>：远程代理（如RMI）、虚拟代理（如懒加载）、保护代理（如访问控制）。</li>
+<li><strong>常见度</strong>：常见，尤其在需要控制对对象访问的场景中，比如远程方法调用或权限控制。</li>
+</ul>
+<h5 id="8-责任链模式-Chain-of-Responsibility">8. <strong>责任链模式 (Chain of Responsibility)</strong></h5>
+<ul>
+<li><strong>用途</strong>：为请求创建一条处理链，每个对象沿链判断是否需要处理该请求。</li>
+<li><strong>应用场景</strong>：事件处理链、审批流程、日志处理（不同级别的日志处理器链）。</li>
+<li><strong>常见度</strong>：常见，尤其在多级处理系统或审批流程中。</li>
+</ul>
+<h5 id="9-建造者模式-Builder">9. <strong>建造者模式 (Builder)</strong></h5>
+<ul>
+<li><strong>用途</strong>：分步骤构造一个复杂对象，而不依赖于其他对象的内部表示。</li>
+<li><strong>应用场景</strong>：构建复杂对象，如创建具有多参数的对象、SQL查询、构建UI界面等，避免构造器或工厂方法带来的大量参数，使代码更简洁。</li>
+<li><strong>适用场景</strong>：当需要分步骤构造对象且构造过程复杂时，如创建带有多个可选参数的对象或当初始化需要多步设置时（例如SQL查询构建器、HTTP请求构建器）。</li>
+<li><strong>常见度</strong>：常见，尤其在对象属性较多且构造过程较复杂时。</li>
+<li><strong>使用频率</strong>：在构造复杂对象时非常常见，尤其在构造过程需要分步骤并且有多个可选参数的场景下。Java中的<code>StringBuilder</code>、<code>StringBuffer</code>类和<code>HttpRequest.Builder</code>就是典型的生成器模式应用。</li>
+</ul>
+<h5 id="10-外观模式-Facade">10. <strong>外观模式 (Facade)</strong></h5>
+<ul>
+<li><strong>用途</strong>：为一组复杂的子系统提供一个简单的接口，简化客户端对这些子系统的访问。</li>
+<li><strong>应用场景</strong>：为复杂的系统（如服务层）提供统一接口，如数据库操作、Web服务接口等。</li>
+<li><strong>常见度</strong>：较为常见，特别是当需要简化系统接口时。</li>
+</ul>
+<hr>
+<h5 id="总结-2">总结</h5>
+<ul>
+<li><strong>最常见的设计模式</strong>：单例模式、工厂模式、策略模式和观察者模式，通常在日常开发和常规业务逻辑实现中最常用。</li>
+<li><strong>场景驱动的模式</strong>：装饰器、模板方法、代理模式和责任链模式，主要在特定业务或需求时使用。</li>
+</ul>
+<h4 id="设计模式【不常用】">设计模式【不常用】</h4>
+<h5 id="1-抽象工厂模式-Abstract-Factory">1. <strong>抽象工厂模式 (Abstract Factory)</strong></h5>
+<ul>
+<li><strong>用途</strong>：提供一个创建一系列相关或依赖对象的接口，而无需指定具体类。</li>
+<li><strong>应用场景</strong>：跨平台应用开发（如GUI库的跨平台支持）、生产不同风格的一组产品（如不同品牌的UI控件）。</li>
+<li><strong>适用场景</strong>：在需要创建一组相关联的对象时使用，比如前端组件库的不同主题下的一系列组件。</li>
+</ul>
+<h5 id="2-享元模式-Flyweight">2. <strong>享元模式 (Flyweight)</strong></h5>
+<ul>
+<li><strong>用途</strong>：通过共享减少大量细粒度对象带来的内存开销。</li>
+<li><strong>应用场景</strong>：文字处理系统中的字符对象、地图应用中的图标对象、缓存系统等。</li>
+<li><strong>适用场景</strong>：在系统中有大量相似对象时使用，以减少内存使用，如大量重复数据的游戏对象或界面元素。</li>
+</ul>
+<h5 id="3-中介者模式-Mediator">3. <strong>中介者模式 (Mediator)</strong></h5>
+<ul>
+<li><strong>用途</strong>：用一个中介对象封装一系列对象交互，避免对象之间的直接引用，解耦系统。</li>
+<li><strong>应用场景</strong>：聊天系统、MVC架构中的控制器、UI组件的事件处理。</li>
+<li><strong>适用场景</strong>：当系统中存在大量对象之间的复杂通信时，通过中介者简化交互逻辑。</li>
+</ul>
+<h5 id="4-命令模式-Command">4. <strong>命令模式 (Command)</strong></h5>
+<ul>
+<li><strong>用途</strong>：将请求封装为对象，使得用户可以用不同请求来参数化对象，支持撤销和重做操作。</li>
+<li><strong>应用场景</strong>：事务操作（如数据库操作的撤销与恢复）、任务调度系统、菜单命令。</li>
+<li><strong>适用场景</strong>：在系统中需要执行请求队列、记录操作日志或支持撤销/重做功能时使用。</li>
+</ul>
+<h5 id="5-备忘录模式-Memento">5. <strong>备忘录模式 (Memento)</strong></h5>
+<ul>
+<li><strong>用途</strong>：在不破坏封装的前提下，捕获并存储对象的内部状态，以便之后恢复。</li>
+<li><strong>应用场景</strong>：数据恢复功能（如编辑器的撤销操作）、游戏存档功能。</li>
+<li><strong>适用场景</strong>：在需要记录对象状态以便稍后恢复时使用，比如文本编辑器的多步撤销功能。</li>
+</ul>
+<h5 id="6-状态模式-State">6. <strong>状态模式 (State)</strong></h5>
+<ul>
+<li><strong>用途</strong>：允许对象在内部状态改变时改变其行为。</li>
+<li><strong>应用场景</strong>：状态驱动的系统（如工单流程的状态转移）、状态机、游戏角色状态（如攻击、防御、逃跑）。</li>
+<li><strong>适用场景</strong>：在对象的行为随状态变化时使用，比如订单状态流转系统或工作流系统。</li>
+</ul>
+<h5 id="7-原型模式-Prototype">7. <strong>原型模式 (Prototype)</strong></h5>
+<ul>
+<li><strong>用途</strong>：通过克隆现有对象来创建新对象，而不依赖于具体类。</li>
+<li><strong>应用场景</strong>：需要频繁创建对象但对象初始化成本高时、对象结构较复杂。</li>
+<li><strong>适用场景</strong>：在对象初始化成本较高，且希望通过复制已有对象来提高性能时使用，比如拷贝一张复杂数据结构的文档。</li>
+</ul>
+<h5 id="8-桥接模式-Bridge">8. <strong>桥接模式 (Bridge)</strong></h5>
+<ul>
+<li><strong>用途</strong>：将抽象部分与实现部分分离，使它们可以独立变化。</li>
+<li><strong>应用场景</strong>：图形绘制系统中的不同形状和渲染方式、文件转换系统。</li>
+<li><strong>适用场景</strong>：当需要跨多个维度扩展时使用，比如支持多种数据库和多种缓存策略的系统。</li>
+</ul>
+<h5 id="9-组合模式-Composite">9. <strong>组合模式 (Composite)</strong></h5>
+<ul>
+<li><strong>用途</strong>：将对象组合成树形结构以表示“部分-整体”的层次结构。</li>
+<li><strong>应用场景</strong>：文件系统、GUI界面（如树状菜单和控件）、组织结构。</li>
+<li><strong>适用场景</strong>：在需要处理树形结构或递归结构的系统中使用，比如图形界面中的复合控件。</li>
+</ul>
+<h5 id="10-访问者模式-Visitor">10. <strong>访问者模式 (Visitor)</strong></h5>
+<ul>
+<li><strong>用途</strong>：为对象结构增加新的操作，而无需更改对象结构本身。</li>
+<li><strong>应用场景</strong>：编译器中的语法树操作、对象序列化与反序列化。</li>
+<li><strong>适用场景</strong>：在需要对对象结构添加新操作但不希望更改对象结构时使用。</li>
+</ul>
+<h5 id="11-解释器模式-Interpreter">11. <strong>解释器模式 (Interpreter)</strong></h5>
+<ul>
+<li><strong>用途</strong>：给定一个语言，定义它的语法表示，并实现一个解释器来解释语法。</li>
+<li><strong>应用场景</strong>：SQL解析、表达式求值、规则引擎、脚本解释器。</li>
+<li><strong>适用场景</strong>：在需要解释和执行自定义语言或表达式的场景中使用，比如规则引擎和数学表达式解析器。</li>
+</ul>
+<hr>
+<h5 id="总结-3">总结</h5>
+<p>较少使用的设计模式通常解决的是较特殊或复杂的需求。例如：</p>
+<ul>
+<li><strong>享元模式</strong>和<strong>组合模式</strong>多用于性能优化或树结构管理。</li>
+<li><strong>访问者模式</strong>和<strong>解释器模式</strong>用于需要扩展操作或语言解析的系统。</li>
+<li><strong>状态模式</strong>和<strong>中介者模式</strong>在实现状态机或复杂的对象通信时非常实用。</li>
+</ul>
+<h4 id="设计模式【补充】">设计模式【补充】</h4>
+<h5 id="1-迭代器模式-Iterator">1. <strong>迭代器模式 (Iterator)</strong></h5>
+<ul>
+<li><strong>用途</strong>：提供一种方法顺序访问一个聚合对象中的各个元素，而不暴露该对象的内部表示。</li>
+<li><strong>应用场景</strong>：遍历容器（如列表、集合、树形结构）中的元素。</li>
+<li><strong>适用场景</strong>：当需要在不同的数据结构上实现一致的访问方式时使用。例如，实现自定义集合类时，可通过迭代器模式为集合提供一致的遍历方式。</li>
+<li><strong>使用频率</strong>：非常高，尤其在Java、C#等语言中，该模式被集合框架广泛使用。<code>for-each</code>循环和各种<code>Iterator</code>接口本质上都实现了迭代器模式。</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%AC%94%E8%AE%B0/" class="category-chain-item">笔记</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="print-no-link">#设计模式</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>23种设计模式</div>
+      <div>https://superlovelace.top/2024/11/08/23种设计模式/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>棱境</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年11月8日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2025年2月18日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/11/12/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%B7%A5%E5%85%B7%E7%B1%BB/" title="数字+字符的随机工具">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">数字+字符的随机工具</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/11/07/swagger%E5%8D%87%E7%BA%A7%E5%88%B0openapi/" title="Swagger2 升级到 openapi3">
+                        <span class="hidden-mobile">Swagger2 升级到 openapi3</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="waline"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#waline', function() {
+      Fluid.utils.createCssLink('https://cdn.staticfile.org/waline/2.15.5/waline.min.css')
+      Fluid.utils.createScript('https://cdn.staticfile.org/waline/2.15.5/waline.min.js', function() {
+        var options = Object.assign(
+          {"serverURL":"waline.superlovelace.top","path":"window.location.pathname","meta":["nick","mail","link"],"requiredMeta":["nick"],"lang":"zh-CN","emoji":["https://unpkg.com/@waline/emojis@1.2.0/bilibili","https://unpkg.com/@waline/emojis@1.2.0/alus","https://unpkg.com/@waline/emojis@1.2.0/bmoji"],"dark":"html[data-user-color-scheme=\"dark\"]","wordLimit":0,"pageSize":10},
+          {
+            el: '#waline',
+            path: window.location.pathname
+          }
+        )
+        Waline.init(options);
+        Fluid.utils.waitElementVisible('#waline .vcontent', () => {
+          var imgSelector = '#waline .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <link rel="stylesheet" href="https://at.alicdn.com/t/c/font_4304126_jer9pua37ro.css"> <script src="https://kit.fontawesome.com/c7908fed97.js" crossorigin="anonymous"></script> <i class="fa-solid fa-heart fa-beat-fade" style="color: red;"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br> <p>版权所有 © 2022 - 2025 <a target="_blank" href="https://github.com/superlovelace">棱境</a>. 保留所有权利</p> <a style="text-decoration:none;color:skyblue;" href="https://travel.moe/go.html?travel=on" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank"><img src="https://travel.moe/images/icon/icon64.png" srcset="/img/loading.gif" lazyload style="width:24px;height:24px">异次元之旅</a> <br> <a href="https://icp.gov.moe/?keyword=20237774" target="_blank">萌ICP备20237774号</a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

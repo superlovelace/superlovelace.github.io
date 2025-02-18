@@ -1,0 +1,996 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+<script type="text/javascript" src="/vvd_js/jquery.js"></script>
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/1.jpg">
+  <link rel="icon" href="/img/1.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="棱境">
+  <meta name="keywords" content="棱境,superlovelace,超爱蕾丝,超爱蕾丝个人博客,超爱蕾丝博客站点,棱境的个人博客,SuperLovelace,superlovelace博客站点,superlovelace个人博客,SuperLovelace博客站点,SuperLovelace个人博客，四月黎明，四月黎明博客站点">
+  
+    <meta name="description" content="详细解读反射的使用方法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java反射笔记">
+<meta property="og:url" content="https://superlovelace.top/2024/06/08/%E5%8F%8D%E5%B0%84/index.html">
+<meta property="og:site_name" content="四月黎明 | 棱境的个人博客站点">
+<meta property="og:description" content="详细解读反射的使用方法。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://superlovelace.top/img/post/1024.jpg">
+<meta property="article:published_time" content="2024-06-08T08:04:18.000Z">
+<meta property="article:modified_time" content="2025-02-18T07:47:22.682Z">
+<meta property="article:author" content="棱境">
+<meta property="article:tag" content="反射">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://superlovelace.top/img/post/1024.jpg">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>java反射笔记 - 四月黎明 | 棱境的个人博客站点</title>
+  
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"superlovelace.top","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":"G-V7XHLRYKFR"},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"IX85WXZ5BZ7cgp7sgj8ONFCR-gzGzoHsz","app_key":"XQfrnQLL3IrNoQ77ZPPk7KLk","server_url":"https://ix85wxz5.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=G-V7XHLRYKFR", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', 'G-V7XHLRYKFR');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/rss2.xml" title="四月黎明 | 棱境的个人博客站点" type="application/rss+xml">
+</head>
+
+
+<body>
+
+    <div>
+    	<div class='real_mask'></div>
+    	<div id="banner_video_insert">
+    	</div>	
+    	<div id='vvd_banner_img'>
+    	</div>
+    </div>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>四月黎明</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/post/1006.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+  
+    
+		<script>
+			var ua = navigator.userAgent;
+			var ipad = ua.match(/(iPad).*OS\s([\d_]+)/),
+				isIphone = !ipad && ua.match(/(iPhone\sOS)\s([\d_]+)/),
+				isAndroid = ua.match(/(Android)\s+([\d.]+)/),
+				isMobile = isIphone || isAndroid;
+
+			function set_video_attr(id){
+
+				var height = document.body.clientHeight
+				var width = document.body.clientWidth
+				var video_item = document.getElementById(id);
+
+				if (height / width < 0.56){
+					video_item.setAttribute('width', '100%');
+					video_item.setAttribute('height', 'auto');
+				} else {
+					video_item.setAttribute('height', '100%');
+					video_item.setAttribute('width', 'auto');
+				}
+			}
+
+			$.getJSON('/vvd_js/video_url.json', function(data){
+				if (!isMobile){
+					var video_list_length = data.length
+					var seed = Math.random()
+					index = Math.floor(seed * video_list_length)
+					
+					video_url = data[index][0]
+					pre_show_image_url = data[index][1]
+					
+					banner_obj = document.getElementById("banner")
+					banner_obj.style.cssText = "background: url('" + pre_show_image_url + "') no-repeat; background-size: cover;"
+
+					vvd_banner_obj = document.getElementById("vvd_banner_img")
+
+					vvd_banner_content = "<img id='banner_img_item' src='" + pre_show_image_url + "' style='height: 100%; position: fixed; z-index: -999'>"
+					vvd_banner_obj.innerHTML = vvd_banner_content
+
+					video_html_res = "<video id='video_item' style='position: fixed; z-index: -888;'  muted='muted' src=" + video_url + " autoplay='autoplay' loop='loop'></video>"
+					document.getElementById("banner_video_insert").innerHTML = video_html_res;
+
+					set_video_attr('video_item')
+					set_video_attr('banner_img_item')
+				}
+			});
+
+			if (!isMobile){
+				window.onresize = function(){
+					set_video_attr('video_item')
+				}
+			}
+		</script>
+	
+  
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="java反射笔记"></span>
+          
+          <h1></h1>
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        棱境
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-06-08 16:04" pubdate>
+          2024年6月8日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          5.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          45 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">java反射笔记</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：28 分钟前
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="反射">反射</h2>
+<h3 id="修饰符返回值">修饰符返回值</h3>
+<p>虚拟机规范表4.1、4.4、4.5和4.7中的访问修饰符标志常量</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">修饰符类型</th>
+<th style="text-align:center">修饰符名称</th>
+<th style="text-align:center">标志值（十进制）</th>
+<th style="text-align:center">标志值（十六进制）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">PUBLIC</td>
+<td style="text-align:center">公共</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center"><code>0x00000001</code></td>
+</tr>
+<tr>
+<td style="text-align:center">PRIVATE</td>
+<td style="text-align:center">私有</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center"><code>0x00000002</code></td>
+</tr>
+<tr>
+<td style="text-align:center">PROTECTED</td>
+<td style="text-align:center">保护</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center"><code>0x00000004</code></td>
+</tr>
+<tr>
+<td style="text-align:center">STATIC</td>
+<td style="text-align:center">静态</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center"><code>0x00000008</code></td>
+</tr>
+<tr>
+<td style="text-align:center">FINAL</td>
+<td style="text-align:center">不可变</td>
+<td style="text-align:center">16</td>
+<td style="text-align:center"><code>0x00000010</code></td>
+</tr>
+<tr>
+<td style="text-align:center">SYNCHRONIZED</td>
+<td style="text-align:center">同步</td>
+<td style="text-align:center">32</td>
+<td style="text-align:center"><code>0x00000020</code></td>
+</tr>
+<tr>
+<td style="text-align:center">VOLATILE</td>
+<td style="text-align:center">可变</td>
+<td style="text-align:center">64</td>
+<td style="text-align:center"><code>0x00000040</code></td>
+</tr>
+<tr>
+<td style="text-align:center">TRANSIENT</td>
+<td style="text-align:center">非序列化</td>
+<td style="text-align:center">128</td>
+<td style="text-align:center"><code>0x00000080</code></td>
+</tr>
+<tr>
+<td style="text-align:center">NATIVE</td>
+<td style="text-align:center">本地</td>
+<td style="text-align:center">256</td>
+<td style="text-align:center"><code>0x00000100</code></td>
+</tr>
+<tr>
+<td style="text-align:center">INTERFACE</td>
+<td style="text-align:center">接口</td>
+<td style="text-align:center">512</td>
+<td style="text-align:center"><code>0x00000200</code></td>
+</tr>
+<tr>
+<td style="text-align:center">ABSTRACT</td>
+<td style="text-align:center">抽象</td>
+<td style="text-align:center">1024</td>
+<td style="text-align:center"><code>0x00000400</code></td>
+</tr>
+<tr>
+<td style="text-align:center">STRICT</td>
+<td style="text-align:center">严格浮点运算</td>
+<td style="text-align:center">2048</td>
+<td style="text-align:center"><code>0x00000800</code></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>源码出处：<code>package java.lang.reflect.Modifier</code>;</p>
+<p>虚拟机规范表4.1、4.4、4.5和4.7中的访问修饰符标志常量</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/*</span><br><span class="hljs-comment"> * Access modifier flag constants from tables 4.1, 4.4, 4.5, and 4.7 of</span><br><span class="hljs-comment"> * &lt;cite&gt;The Java&amp;trade; Virtual Machine Specification&lt;/cite&gt;</span><br><span class="hljs-comment"> */</span><br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * The &#123;<span class="hljs-doctag">@code</span> int&#125; value representing the &#123;<span class="hljs-doctag">@code</span> public&#125;</span><br><span class="hljs-comment"> * modifier.</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">int</span> <span class="hljs-variable">PUBLIC</span>           <span class="hljs-operator">=</span> <span class="hljs-number">0x00000001</span>;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * The &#123;<span class="hljs-doctag">@code</span> int&#125; value representing the &#123;<span class="hljs-doctag">@code</span> private&#125;</span><br><span class="hljs-comment"> * modifier.</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">int</span> <span class="hljs-variable">PRIVATE</span>          <span class="hljs-operator">=</span> <span class="hljs-number">0x00000002</span>;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * The &#123;<span class="hljs-doctag">@code</span> int&#125; value representing the &#123;<span class="hljs-doctag">@code</span> protected&#125;</span><br><span class="hljs-comment"> * modifier.</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">int</span> <span class="hljs-variable">PROTECTED</span>        <span class="hljs-operator">=</span> <span class="hljs-number">0x00000004</span>;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * The &#123;<span class="hljs-doctag">@code</span> int&#125; value representing the &#123;<span class="hljs-doctag">@code</span> static&#125;</span><br><span class="hljs-comment"> * modifier.</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">int</span> <span class="hljs-variable">STATIC</span>           <span class="hljs-operator">=</span> <span class="hljs-number">0x00000008</span>;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * The &#123;<span class="hljs-doctag">@code</span> int&#125; value representing the &#123;<span class="hljs-doctag">@code</span> final&#125;</span><br><span class="hljs-comment"> * modifier.</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">int</span> <span class="hljs-variable">FINAL</span>            <span class="hljs-operator">=</span> <span class="hljs-number">0x00000010</span>;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * The &#123;<span class="hljs-doctag">@code</span> int&#125; value representing the &#123;<span class="hljs-doctag">@code</span> synchronized&#125;</span><br><span class="hljs-comment"> * modifier.</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">int</span> <span class="hljs-variable">SYNCHRONIZED</span>     <span class="hljs-operator">=</span> <span class="hljs-number">0x00000020</span>;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * The &#123;<span class="hljs-doctag">@code</span> int&#125; value representing the &#123;<span class="hljs-doctag">@code</span> volatile&#125;</span><br><span class="hljs-comment"> * modifier.</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">int</span> <span class="hljs-variable">VOLATILE</span>         <span class="hljs-operator">=</span> <span class="hljs-number">0x00000040</span>;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * The &#123;<span class="hljs-doctag">@code</span> int&#125; value representing the &#123;<span class="hljs-doctag">@code</span> transient&#125;</span><br><span class="hljs-comment"> * modifier.</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">int</span> <span class="hljs-variable">TRANSIENT</span>        <span class="hljs-operator">=</span> <span class="hljs-number">0x00000080</span>;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * The &#123;<span class="hljs-doctag">@code</span> int&#125; value representing the &#123;<span class="hljs-doctag">@code</span> native&#125;</span><br><span class="hljs-comment"> * modifier.</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">int</span> <span class="hljs-variable">NATIVE</span>           <span class="hljs-operator">=</span> <span class="hljs-number">0x00000100</span>;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * The &#123;<span class="hljs-doctag">@code</span> int&#125; value representing the &#123;<span class="hljs-doctag">@code</span> interface&#125;</span><br><span class="hljs-comment"> * modifier.</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">int</span> <span class="hljs-variable">INTERFACE</span>        <span class="hljs-operator">=</span> <span class="hljs-number">0x00000200</span>;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * The &#123;<span class="hljs-doctag">@code</span> int&#125; value representing the &#123;<span class="hljs-doctag">@code</span> abstract&#125;</span><br><span class="hljs-comment"> * modifier.</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">int</span> <span class="hljs-variable">ABSTRACT</span>         <span class="hljs-operator">=</span> <span class="hljs-number">0x00000400</span>;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * The &#123;<span class="hljs-doctag">@code</span> int&#125; value representing the &#123;<span class="hljs-doctag">@code</span> strictfp&#125;</span><br><span class="hljs-comment"> * modifier.</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">int</span> <span class="hljs-variable">STRICT</span>           <span class="hljs-operator">=</span> <span class="hljs-number">0x00000800</span>;<br></code></pre></td></tr></table></figure>
+<h3 id="推荐写法">推荐写法</h3>
+<p>注意：当有多个不同种类的修饰符时，实际返回值为多个修饰符的值相加的和</p>
+<p>比如方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//简单示例方法</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">synchronized</span> String <span class="hljs-title function_">getName</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-keyword">return</span> name;<br>&#125;<br><span class="hljs-comment">//获取方法修饰符（打印的主要代码）</span><br>System.out.println(method.getModifiers());<br></code></pre></td></tr></table></figure>
+<p>这个方法的修饰符返回值就是 33，即 public + synchronized  :   1 + 32 = 33</p>
+<p>直接获取修饰符返回值不直观，我们更推荐这样获取修饰符：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//推荐获取方法修饰符的写法</span><br>System.out.println(Modifier.toString(method.getModifiers()));<br><br><span class="hljs-comment">//控制台输出</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">synchronized</span><br></code></pre></td></tr></table></figure>
+<p>方法源码出处：<code>package java.lang.reflect.Modifier</code>;</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title function_">toString</span><span class="hljs-params">(<span class="hljs-type">int</span> mod)</span> &#123;<br>    <span class="hljs-type">StringBuilder</span> <span class="hljs-variable">sb</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>();<br>    <span class="hljs-type">int</span> len;<br><br>    <span class="hljs-keyword">if</span> ((mod &amp; PUBLIC) != <span class="hljs-number">0</span>)        sb.append(<span class="hljs-string">&quot;public &quot;</span>);<br>    <span class="hljs-keyword">if</span> ((mod &amp; PROTECTED) != <span class="hljs-number">0</span>)     sb.append(<span class="hljs-string">&quot;protected &quot;</span>);<br>    <span class="hljs-keyword">if</span> ((mod &amp; PRIVATE) != <span class="hljs-number">0</span>)       sb.append(<span class="hljs-string">&quot;private &quot;</span>);<br><br>    <span class="hljs-comment">/* Canonical order */</span><br>    <span class="hljs-keyword">if</span> ((mod &amp; ABSTRACT) != <span class="hljs-number">0</span>)      sb.append(<span class="hljs-string">&quot;abstract &quot;</span>);<br>    <span class="hljs-keyword">if</span> ((mod &amp; STATIC) != <span class="hljs-number">0</span>)        sb.append(<span class="hljs-string">&quot;static &quot;</span>);<br>    <span class="hljs-keyword">if</span> ((mod &amp; FINAL) != <span class="hljs-number">0</span>)         sb.append(<span class="hljs-string">&quot;final &quot;</span>);<br>    <span class="hljs-keyword">if</span> ((mod &amp; TRANSIENT) != <span class="hljs-number">0</span>)     sb.append(<span class="hljs-string">&quot;transient &quot;</span>);<br>    <span class="hljs-keyword">if</span> ((mod &amp; VOLATILE) != <span class="hljs-number">0</span>)      sb.append(<span class="hljs-string">&quot;volatile &quot;</span>);<br>    <span class="hljs-keyword">if</span> ((mod &amp; SYNCHRONIZED) != <span class="hljs-number">0</span>)  sb.append(<span class="hljs-string">&quot;synchronized &quot;</span>);<br>    <span class="hljs-keyword">if</span> ((mod &amp; NATIVE) != <span class="hljs-number">0</span>)        sb.append(<span class="hljs-string">&quot;native &quot;</span>);<br>    <span class="hljs-keyword">if</span> ((mod &amp; STRICT) != <span class="hljs-number">0</span>)        sb.append(<span class="hljs-string">&quot;strictfp &quot;</span>);<br>    <span class="hljs-keyword">if</span> ((mod &amp; INTERFACE) != <span class="hljs-number">0</span>)     sb.append(<span class="hljs-string">&quot;interface &quot;</span>);<br><br>    <span class="hljs-keyword">if</span> ((len = sb.length()) &gt; <span class="hljs-number">0</span>)    <span class="hljs-comment">/* trim trailing space */</span><br>        <span class="hljs-keyword">return</span> sb.toString().substring(<span class="hljs-number">0</span>, len-<span class="hljs-number">1</span>);<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;&quot;</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="补充：源码中定义的其他常量信息">补充：源码中定义的其他常量信息</h3>
+<blockquote>
+<p>未（尚未）在公共<code>API</code>中公开的位，因为它们对字段和方法有不同的含义，并且没有区分这类中两者的方法，或者因为它们不是<code>Java</code>编程语言关键字</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// Bits not (yet) exposed in the public API either because they</span><br><span class="hljs-comment">// have different meanings for fields and methods and there is no</span><br><span class="hljs-comment">// way to distinguish between the two in this class, or because</span><br><span class="hljs-comment">// they are not Java programming language keywords</span><br><span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">int</span> <span class="hljs-variable">BRIDGE</span>    <span class="hljs-operator">=</span> <span class="hljs-number">0x00000040</span>;<br><span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">int</span> <span class="hljs-variable">VARARGS</span>   <span class="hljs-operator">=</span> <span class="hljs-number">0x00000080</span>;<br><span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">int</span> <span class="hljs-variable">SYNTHETIC</span> <span class="hljs-operator">=</span> <span class="hljs-number">0x00001000</span>;<br><span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">int</span> <span class="hljs-variable">ANNOTATION</span>  <span class="hljs-operator">=</span> <span class="hljs-number">0x00002000</span>;<br><span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">int</span> <span class="hljs-variable">ENUM</span>      <span class="hljs-operator">=</span> <span class="hljs-number">0x00004000</span>;<br><span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">int</span> <span class="hljs-variable">MANDATED</span>  <span class="hljs-operator">=</span> <span class="hljs-number">0x00008000</span>;<br></code></pre></td></tr></table></figure>
+<p><code>VARARGS</code></p>
+<blockquote>
+<p>在Java中，<code>varargs</code>是一种修饰符，它允许方法接受数量可变的参数。这是通过在参数列表中最后一个参数类型后面加上省略号（<code>...</code>）实现的。</p>
+<p><code>VARARGS</code>修饰符在<code>Java</code>中并不存在，这可能是你误解了<code>varargs</code>的概念。在<code>Java</code>中，<code>varargs</code>修饰符是通过在方法参数列表中的最后一个参数类型后面加上<code>...</code>来实现的。</p>
+<p>以下是一个使用<code>varargs</code>的<code>Java</code>方法的例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">VarargsExample</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">printVarargs</span><span class="hljs-params">(String... varargs)</span> &#123;<br>        <span class="hljs-keyword">for</span> (String str : varargs) &#123;<br>            System.out.println(str);<br>        &#125;<br>    &#125;<br> <br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        printVarargs(<span class="hljs-string">&quot;Hello&quot;</span>, <span class="hljs-string">&quot;World&quot;</span>, <span class="hljs-string">&quot;Java&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>在上述代码中，<code>printVarargs</code>方法接受一个可变参数，即一个字符串数组。在<code>main</code>方法中，我们调用<code>printVarargs</code>方法并传递了三个字符串作为参数。</p>
+<p>注意：<code>varargs</code>只能应用于最后一个参数，而且方法中只能有一个<code>varargs</code>参数。</p>
+</blockquote>
+<p><code>SYNTHETIC</code></p>
+<blockquote>
+<p><code>SYNTHETIC</code>是<code>Java</code>字节码中的一个修饰符，它表示该字段或方法并非由用户代码显式声明，而是由编译器自动生成的。例如，内部类的引用到外部类的实例会被标记为<code>SYNTHETIC</code>字段。</p>
+<p>如果你在查看<code>Java</code>类文件时看到带有<code>SYNTHETIC</code>标记的字段或方法，通常意味着它是由编译器自动生成的，并不需要用户手动编写。</p>
+<p>解决方法：</p>
+<ol>
+<li>如果你在分析或者调试代码时遇到了带有<code>SYNTHETIC</code>标记的成员，可以理解这些成员是由编译器添加的，通常不需要用户干预。</li>
+<li>如果你正在使用反射<code>API</code>来访问这些成员，并且想要确保只访问用户定义的字段和方法，可以通过检查成员的<code>isSynthetic()</code>方法来过滤这些自动生成的成员。</li>
+<li>如果你是<code>Java</code>字节码的修改者或生成者，确保不要错误地生成了<code>SYNTHETIC</code>标记，除非你有特殊的需求需要让这部分代码对编译器可见。</li>
+</ol>
+</blockquote>
+<p><code>MANDATED</code></p>
+<blockquote>
+<p><code>MANDATED</code> 是<code>Java</code>中用于指示<code>JVM</code>如何使用特定的<code>Java</code>类或接口的修饰符。这个修饰符通常与<code>JNI（Java Native Interface）</code>相关的代码或者<code>Java</code>平台的内部类和接口有关。它是一个由<code>JVM</code>内部使用的标志，并不是开发者直接可控制或使用的。</p>
+<p>如果你在代码中看到了 <code>MANDATED</code> 关键字，很可能是因为你正在查看的是<code>Java</code>的内部类或接口，或者是由<code>JNI</code>代码生成的类。</p>
+<p>如果你遇到了包含 <code>MANDATED</code> 关键字的错误，通常这意味着你正在尝试访问或操作一个不应该直接被用户代码访问或操作的<code>Java</code>类。解决这类问题通常需要你避免直接操作这些内部类或接口。</p>
+<p>如果你是在阅读<code>Java</code>的源码或者<code>JVM</code>的实现时遇到了 <code>MANDATED</code> 关键字，你可以理解为这个类或接口是被<code>JVM</code>的某些特定部分或是<code>JNI</code>调用的，而不是普通的用户代码。</p>
+<p>如果你需要进一步的帮助来理解如何处理特定的 <code>MANDATED</code> 修饰符的问题，你需要提供更多的上下文信息，例如，你正在运行的具体代码、错误信息的完整内容，或者你正在使用的<code>Java</code>版本和<code>JVM</code>实现。</p>
+</blockquote>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/java%E6%8A%80%E6%9C%AF%E6%A0%88/" class="category-chain-item">java技术栈</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%8F%8D%E5%B0%84/" class="print-no-link">#反射</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>java反射笔记</div>
+      <div>https://superlovelace.top/2024/06/08/反射/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>棱境</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年6月8日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2025年2月18日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/06/12/Try-with-resource%E7%94%A8%E6%B3%95%E8%AF%A6%E8%A7%A3/" title="try-with-resources使用详解">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">try-with-resources使用详解</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/06/07/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" title="Java多线程笔记">
+                        <span class="hidden-mobile">Java多线程笔记</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="waline"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#waline', function() {
+      Fluid.utils.createCssLink('https://cdn.staticfile.org/waline/2.15.5/waline.min.css')
+      Fluid.utils.createScript('https://cdn.staticfile.org/waline/2.15.5/waline.min.js', function() {
+        var options = Object.assign(
+          {"serverURL":"waline.superlovelace.top","path":"window.location.pathname","meta":["nick","mail","link"],"requiredMeta":["nick"],"lang":"zh-CN","emoji":["https://unpkg.com/@waline/emojis@1.2.0/bilibili","https://unpkg.com/@waline/emojis@1.2.0/alus","https://unpkg.com/@waline/emojis@1.2.0/bmoji"],"dark":"html[data-user-color-scheme=\"dark\"]","wordLimit":0,"pageSize":10},
+          {
+            el: '#waline',
+            path: window.location.pathname
+          }
+        )
+        Waline.init(options);
+        Fluid.utils.waitElementVisible('#waline .vcontent', () => {
+          var imgSelector = '#waline .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <link rel="stylesheet" href="https://at.alicdn.com/t/c/font_4304126_jer9pua37ro.css"> <script src="https://kit.fontawesome.com/c7908fed97.js" crossorigin="anonymous"></script> <i class="fa-solid fa-heart fa-beat-fade" style="color: red;"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br> <p>版权所有 © 2022 - 2025 <a target="_blank" href="https://github.com/superlovelace">棱境</a>. 保留所有权利</p> <a style="text-decoration:none;color:skyblue;" href="https://travel.moe/go.html?travel=on" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank"><img src="https://travel.moe/images/icon/icon64.png" srcset="/img/loading.gif" lazyload style="width:24px;height:24px">异次元之旅</a> <br> <a href="https://icp.gov.moe/?keyword=20237774" target="_blank">萌ICP备20237774号</a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

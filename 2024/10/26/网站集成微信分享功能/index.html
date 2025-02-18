@@ -1,0 +1,964 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+<script type="text/javascript" src="/vvd_js/jquery.js"></script>
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/1.jpg">
+  <link rel="icon" href="/img/1.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="棱境">
+  <meta name="keywords" content="棱境,superlovelace,超爱蕾丝,超爱蕾丝个人博客,超爱蕾丝博客站点,棱境的个人博客,SuperLovelace,superlovelace博客站点,superlovelace个人博客,SuperLovelace博客站点,SuperLovelace个人博客，四月黎明，四月黎明博客站点">
+  
+    <meta name="description" content="分享的链接具有标题，描述和图标的卡片效果。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网站集成微信分享功能">
+<meta property="og:url" content="https://superlovelace.top/2024/10/26/%E7%BD%91%E7%AB%99%E9%9B%86%E6%88%90%E5%BE%AE%E4%BF%A1%E5%88%86%E4%BA%AB%E5%8A%9F%E8%83%BD/index.html">
+<meta property="og:site_name" content="四月黎明 | 棱境的个人博客站点">
+<meta property="og:description" content="分享的链接具有标题，描述和图标的卡片效果。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://superlovelace.top/img/post/1031.jpg">
+<meta property="article:published_time" content="2024-10-26T01:03:57.000Z">
+<meta property="article:modified_time" content="2025-02-18T07:48:55.862Z">
+<meta property="article:author" content="棱境">
+<meta property="article:tag" content="微信卡片分享">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://superlovelace.top/img/post/1031.jpg">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>网站集成微信分享功能 - 四月黎明 | 棱境的个人博客站点</title>
+  
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"superlovelace.top","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":"G-V7XHLRYKFR"},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"IX85WXZ5BZ7cgp7sgj8ONFCR-gzGzoHsz","app_key":"XQfrnQLL3IrNoQ77ZPPk7KLk","server_url":"https://ix85wxz5.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=G-V7XHLRYKFR", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', 'G-V7XHLRYKFR');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/rss2.xml" title="四月黎明 | 棱境的个人博客站点" type="application/rss+xml">
+</head>
+
+
+<body>
+
+    <div>
+    	<div class='real_mask'></div>
+    	<div id="banner_video_insert">
+    	</div>	
+    	<div id='vvd_banner_img'>
+    	</div>
+    </div>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>四月黎明</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/post/1006.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+  
+    
+		<script>
+			var ua = navigator.userAgent;
+			var ipad = ua.match(/(iPad).*OS\s([\d_]+)/),
+				isIphone = !ipad && ua.match(/(iPhone\sOS)\s([\d_]+)/),
+				isAndroid = ua.match(/(Android)\s+([\d.]+)/),
+				isMobile = isIphone || isAndroid;
+
+			function set_video_attr(id){
+
+				var height = document.body.clientHeight
+				var width = document.body.clientWidth
+				var video_item = document.getElementById(id);
+
+				if (height / width < 0.56){
+					video_item.setAttribute('width', '100%');
+					video_item.setAttribute('height', 'auto');
+				} else {
+					video_item.setAttribute('height', '100%');
+					video_item.setAttribute('width', 'auto');
+				}
+			}
+
+			$.getJSON('/vvd_js/video_url.json', function(data){
+				if (!isMobile){
+					var video_list_length = data.length
+					var seed = Math.random()
+					index = Math.floor(seed * video_list_length)
+					
+					video_url = data[index][0]
+					pre_show_image_url = data[index][1]
+					
+					banner_obj = document.getElementById("banner")
+					banner_obj.style.cssText = "background: url('" + pre_show_image_url + "') no-repeat; background-size: cover;"
+
+					vvd_banner_obj = document.getElementById("vvd_banner_img")
+
+					vvd_banner_content = "<img id='banner_img_item' src='" + pre_show_image_url + "' style='height: 100%; position: fixed; z-index: -999'>"
+					vvd_banner_obj.innerHTML = vvd_banner_content
+
+					video_html_res = "<video id='video_item' style='position: fixed; z-index: -888;'  muted='muted' src=" + video_url + " autoplay='autoplay' loop='loop'></video>"
+					document.getElementById("banner_video_insert").innerHTML = video_html_res;
+
+					set_video_attr('video_item')
+					set_video_attr('banner_img_item')
+				}
+			});
+
+			if (!isMobile){
+				window.onresize = function(){
+					set_video_attr('video_item')
+				}
+			}
+		</script>
+	
+  
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="网站集成微信分享功能"></span>
+          
+          <h1></h1>
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        棱境
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-10-26 09:03" pubdate>
+          2024年10月26日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          13k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          108 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">网站集成微信分享功能</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：27 分钟前
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="网站集成微信分享功能">网站集成微信分享功能</h2>
+<blockquote>
+<p>说明：文章具有时效性，若您此刻的时间距离文章发布时间过长，无法保证此文章依旧有效，请自行斟酌。本文写于<code>2024/10/26</code></p>
+</blockquote>
+<h3 id="序言">序言</h3>
+<p><strong>写在前面的话</strong>：</p>
+<p>要想实现在微信分享出去的链接携带有<strong>网站图标</strong>，<strong>网站标题</strong>和<strong>网站描述</strong>。只能按照<a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/iOS_WKWebview.html"><strong>微信官方文档</strong></a>中的要求，使用微信<code>js</code>文件的<code>SDK</code>。</p>
+<p>这种必须是在微信中用<strong>微信自带的浏览器</strong>打开的网页下才能生效。**而且不能是直接复制链接发送给好友然后点开网站的方式进去，这种状态下即便进去，分享网站后，出来的内容也只有一条网址而已。对于已经生成带有图标标题和描述的分享卡片，这种类型的链接点进去打开网站是可以正常分享出这种效果的。**普通网站想分享还是应该采用二维码展示的方式。</p>
+<p>如果你的网站要适配移动端，希望在微信打开后方便分享给其他微信用户或者朋友圈，那我这篇文章将会有所帮助。</p>
+<h3 id="准备">准备</h3>
+<h4 id="一、微信服务号">一、微信服务号</h4>
+<p>首先，要实现这种类似的功能需要一个企业认证的微信服务号，而且认证必须在有效期内。若只是个人测试学习，可以申请使用<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=sandbox/login&amp;token=1061624296&amp;lang=zh_CN"><strong>公众平台测试号</strong></a>。测试号拥有全部功能，会生成一个虚拟的微信公众号，需要关注这个号，才能正常使用。</p>
+<h4 id="二、服务器">二、服务器</h4>
+<p>一台拥有公网<code>IP</code>的服务器。**因为微信公众平台需要测试你要引入此功能的项目地址是可用的。**若是个人测试，为了尽量节省开销，可以考虑开通个按量付费的服务器，<strong>选择停机不收费</strong>，用的时候打开，不用的时候关掉就好了，只不过每次启用公网<code>IP</code>地址都会变。按自己需求来吧，这里不再赘述。</p>
+<h3 id="配置">配置</h3>
+<p>测试号与微信服务号信息位置对照表</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">测试号</th>
+<th style="text-align:center">服务号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">测试号信息</td>
+<td style="text-align:center">设置与开发 &gt; 开发接口管理 &gt; 基本配置 &gt; 公众号开发信息</td>
+</tr>
+<tr>
+<td style="text-align:center">接口配置信息</td>
+<td style="text-align:center">设置与开发 &gt; 开发接口管理 &gt; 基本配置 &gt; 服务器配置</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>JS</code>接口安全域名</td>
+<td style="text-align:center">设置与开发 &gt; 公众号设置 &gt; 功能设置 &gt; <code>JS</code>接口安全域名</td>
+</tr>
+</tbody>
+</table>
+<h4 id="微信服务器接口配置">微信服务器接口配置</h4>
+<p>这里需要你的项目中开放一个供微信请求的接口，微信通过成功调用这个接口来判断你的项目是否可用。</p>
+<p>注：由于测试号无法指定令牌加密方式，所以接下来就以<strong>明文模式</strong>来展示后端接口的示例。</p>
+<p>其他加密模式请参阅<a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/doc/offiaccount/Message_Management/Message_encryption_and_decryption_instructions.html"><strong>官方文档</strong></a>自行实现。当然你不验证<code>token</code>直接返回<code>echostr</code>，也能直接验证成功！成功后，即便再次启动项目，接口配置信息也无需再次配置。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 此接口用于给微信验证服务器是否可用【微信接口配置信息 &gt;&gt;&gt; 验证消息的确来自微信服务器】</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> signature 签名，微信加密签名，signature结合了开发者填写的token参数和请求中的timestamp参数、nonce参数。</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> timestamp 时间戳</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> nonce 随机数</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> echostr 随机字符串</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@return</span> 原样返回微信请求携带的随机字符串,即可通过微信的服务器验证</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@see</span> &lt;a href=&quot;https://developers.weixin.qq.com/doc/offiaccount/Basic_Information/Access_Overview.html#%E7%AC%AC%E4%BA%8C%E6%AD%A5%EF%BC%9A%E9%AA%8C%E8%AF%81%E6%B6%88%E6%81%AF%E7%9A%84%E7%A1%AE%E6%9D%A5%E8%87%AA%E5%BE%AE%E4%BF%A1%E6%9C%8D%E5%8A%A1%E5%99%A8&quot;&gt;验证消息的确来自微信服务器&lt;/a&gt;</span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">@GetMapping(&quot;/wxCheck&quot;)</span><br><span class="hljs-keyword">public</span> String <span class="hljs-title function_">wxCheck</span><span class="hljs-params">(</span><br><span class="hljs-params">        <span class="hljs-meta">@RequestParam(value = &quot;signature&quot;)</span></span><br><span class="hljs-params">        String signature,</span><br><span class="hljs-params">        <span class="hljs-meta">@RequestParam(value = &quot;timestamp&quot;)</span></span><br><span class="hljs-params">        String timestamp,</span><br><span class="hljs-params">        <span class="hljs-meta">@RequestParam(value = &quot;nonce&quot;)</span></span><br><span class="hljs-params">        String nonce,</span><br><span class="hljs-params">        <span class="hljs-meta">@RequestParam(value = &quot;echostr&quot;)</span></span><br><span class="hljs-params">        String echostr</span><br><span class="hljs-params">)</span>&#123;<br>    <span class="hljs-comment">// 验证消息是否来自微信服务器</span><br>    <span class="hljs-type">String</span> <span class="hljs-variable">token</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;myWXToken&quot;</span>;<br>    String[] arr = &#123;token, timestamp, nonce&#125;;<br><br>    <span class="hljs-comment">// 按字典序排序</span><br>    Arrays.sort(arr);<br><br>    <span class="hljs-comment">// 使用StringBuilder进行拼接</span><br>    <span class="hljs-type">StringBuilder</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>();<br>    <span class="hljs-keyword">for</span> (String s : arr) &#123;<br>        result.append(s);<br>    &#125;<br>    <span class="hljs-comment">// 将字符串加密</span><br>    <span class="hljs-type">String</span> <span class="hljs-variable">s</span> <span class="hljs-operator">=</span> SHA1(String.valueOf(result));<br>	<span class="hljs-comment">// 将加密后的密文与签名匹配，失败则说明项目内的token与服务器配置的token不一致！</span><br>    <span class="hljs-keyword">if</span> (!s.equals(signature)) &#123;<br>        System.out.println(<span class="hljs-string">&quot;Token值匹配失败！&quot;</span>);<br>        <span class="hljs-comment">// 返回给微信空值，说明验证不通过</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>    &#125;<br>    System.out.println(<span class="hljs-string">&quot;Token值匹配成功！&quot;</span>);<br>    <span class="hljs-comment">// 将请求携带的参数加入Map集合</span><br>    Map&lt;String,Object&gt; map = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;();<br>    map.put(<span class="hljs-string">&quot;signature&quot;</span>,signature);<br>    map.put(<span class="hljs-string">&quot;timestamp&quot;</span>,timestamp);<br>    map.put(<span class="hljs-string">&quot;nonce&quot;</span>,nonce);<br>    map.put(<span class="hljs-string">&quot;echostr&quot;</span>,echostr);<br>    <span class="hljs-comment">// 打印Map集合查看微信的消息</span><br>    System.out.println(<span class="hljs-string">&quot;来自微信的消息：&quot;</span>+map);<br>    <span class="hljs-comment">// 返回给微信自己传来的随机字符串，则验证通过</span><br>    <span class="hljs-keyword">return</span> echostr;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>注意：需要先启动项目，再配置接口，因为确定配置接口时，微信会请求我们填写的请求接口。当成功返回微信本身请求携带的随机字符串给他后，验证成功！</p>
+<h4 id="JS接口安全域名"><code>JS</code>接口安全域名</h4>
+<p>这里配置服务器地址或绑定服务器的已备案的域名。</p>
+<p>这里测试号与服务号有些区别：</p>
+<h5 id="服务号的官方提示信息：">服务号的官方提示信息：</h5>
+<blockquote>
+<p>设置<code>JS</code>接口安全域名后，公众号开发者可在该域名下调用微信开放的<code>JS</code>接口。</p>
+<p>注意事项：</p>
+<p>1、可填写五个域名或路径（例：<code>wx.qq.com</code>或<code>wx.qq.com/mp</code>），需使用由字母、数字、“-”或中文组成的合法域名，不支持<code>IP</code>地址、端口号及短链域名。</p>
+<p>2、填写的域名须通过<code>ICP</code>备案的验证。</p>
+<p>3、 将文件<code>MP_verify_ffPvlU5jlXYhLLC2.txt</code>上传至填写域名或路径指向的web服务器（或虚拟主机）的目录（若填写域名，将文件放置在域名根目录下，例如<code>wx.qq.com/MP_verify_ffPvlU5jlXYhLLC2.txt</code>；若填写路径，将文件放置在路径目录下，例如<code>wx.qq.com/mp/MP_verify_ffPvlU5jlXYhLLC2.txt</code>），并确保可以访问。</p>
+<p>4、 一个自然月内最多可修改并保存五次，本月剩余保存次数：4</p>
+</blockquote>
+<p>服务号，需要项目开放静态资源路径以供微信访问，若开启了拦截器或过滤器，则需要将此放行。</p>
+<hr>
+<h5 id="测试号的提示信息：">测试号的提示信息：</h5>
+<blockquote>
+<p>设置<code>JS</code>接口安全域后，通过关注该测试号，开发者即可在该域名下调用微信开放的<code>JS</code>接口</p>
+</blockquote>
+<h5 id="IP白名单"><code>IP</code>白名单</h5>
+<p>服务号需要将服务器的<code>ip</code>地址配置在白名单里，否则会报异常。</p>
+<h3 id="流程">流程</h3>
+<ol>
+<li>引入微信<code>SDK</code>的<code>js</code>文件</li>
+<li><code>js</code>携带当前页地址参数请求后端接口</li>
+<li>后端通过<code>appid</code>和<code>appsecret</code>参数，使用<code>OAuth2.0</code>的客户端认证模式，请求获取微信<code>access_token</code></li>
+<li>后端通过<code>access_token</code>获取<code>api_ticket</code></li>
+<li>生成当前时间戳<code>timestamp</code>和随机字符串<code>nonceStr</code></li>
+<li>通过<code>SHA1</code>签名算法生成签名<code>signature</code></li>
+<li>将签名signature，时间戳timestamp，随机字符串nonceStr和appID返回给前端。</li>
+<li>前端接收到信息后，完成微信配置</li>
+<li>前端定义分享的格式。</li>
+<li>测试微信分享效果。</li>
+</ol>
+<h3 id="开始">开始</h3>
+<h4 id="前端页面完整代码示例">前端页面完整代码示例</h4>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>微信分享示例<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>欢迎使用微信分享功能！<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span><br><br><span class="hljs-comment">&lt;!-- 引入微信JS SDK --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://res.wx.qq.com/open/js/jweixin-1.6.0.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;/static/dist/js/jquery-3.6.0.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript">$.<span class="hljs-title function_">ajax</span>(&#123;</span><br><span class="language-javascript">    <span class="hljs-keyword">async</span> : <span class="hljs-literal">false</span>,</span><br><span class="language-javascript">    <span class="hljs-attr">type</span>: <span class="hljs-string">&quot;POST&quot;</span>,</span><br><span class="language-javascript">    <span class="hljs-attr">url</span>: <span class="hljs-string">&quot;/demo&quot;</span>,</span><br><span class="language-javascript">    data : &#123;</span><br><span class="language-javascript">        <span class="hljs-variable constant_">URL</span> : <span class="hljs-built_in">encodeURIComponent</span>(<span class="hljs-variable language_">window</span>.<span class="hljs-property">location</span>.<span class="hljs-property">href</span>.<span class="hljs-title function_">split</span>(<span class="hljs-string">&quot;#&quot;</span>)[<span class="hljs-number">0</span>])</span><br><span class="language-javascript">    &#125;,</span><br><span class="language-javascript">    <span class="hljs-attr">success</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">data</span>) &#123;</span><br><span class="language-javascript">        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(data);</span><br><span class="language-javascript">        <span class="hljs-comment">// 微信JS SDK配置</span></span><br><span class="language-javascript">        wx.<span class="hljs-title function_">config</span>(&#123;</span><br><span class="language-javascript">            <span class="hljs-attr">debug</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">// 开启后，微信打开网页后，会显示配置是否成功的信息</span></span><br><span class="language-javascript">            <span class="hljs-attr">appId</span>: data.<span class="hljs-property">appId</span>, <span class="hljs-comment">// 替换为您的微信公众平台App ID</span></span><br><span class="language-javascript">            <span class="hljs-attr">timestamp</span>: data.<span class="hljs-property">timestamp</span>, <span class="hljs-comment">// 替换为您的服务器时间戳</span></span><br><span class="language-javascript">            <span class="hljs-attr">nonceStr</span>: data.<span class="hljs-property">nonceStr</span>, <span class="hljs-comment">// 替换为您的随机字符串</span></span><br><span class="language-javascript">            <span class="hljs-attr">signature</span>: data.<span class="hljs-property">signature</span>, <span class="hljs-comment">// 替换为您的签名</span></span><br><span class="language-javascript">            <span class="hljs-attr">jsApiList</span>: [</span><br><span class="language-javascript">                <span class="hljs-string">&#x27;updateAppMessageShareData&#x27;</span>,</span><br><span class="language-javascript">                <span class="hljs-string">&#x27;updateTimelineShareData&#x27;</span></span><br><span class="language-javascript">            ] <span class="hljs-comment">// 需要使用的微信JS接口列表</span></span><br><span class="language-javascript">        &#125;);</span><br><span class="language-javascript">        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;wx配置结束！&quot;</span>);</span><br><span class="language-javascript">        <span class="hljs-comment">// 页面加载完成后的回调函数</span></span><br><span class="language-javascript">        wx.<span class="hljs-title function_">ready</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">            <span class="hljs-comment">// 在这里编写分享到朋友圈和分享给好友的代码</span></span><br><span class="language-javascript">            shareData = &#123; <span class="hljs-comment">// 标题和描述这里我是从localStorage取的值，可自定义</span></span><br><span class="language-javascript">                <span class="hljs-attr">title</span>: <span class="hljs-variable language_">localStorage</span>.<span class="hljs-title function_">getItem</span>(<span class="hljs-string">&quot;title&quot;</span>),  <span class="hljs-comment">// 分享标题</span></span><br><span class="language-javascript">                <span class="hljs-attr">desc</span>: <span class="hljs-variable language_">localStorage</span>.<span class="hljs-title function_">getItem</span>(<span class="hljs-string">&quot;Description&quot;</span>), <span class="hljs-comment">// 分享描述       </span></span><br><span class="language-javascript">                <span class="hljs-attr">link</span>: <span class="hljs-variable language_">window</span>.<span class="hljs-property">location</span>.<span class="hljs-property">href</span>, <span class="hljs-comment">// 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致</span></span><br><span class="language-javascript">                <span class="hljs-attr">imgUrl</span>: <span class="hljs-string">&quot;http://你的域名/你的图片.jpg&quot;</span>,  <span class="hljs-comment">// 分享图标</span></span><br><span class="language-javascript">                <span class="hljs-attr">success</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">                    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;分享成功&#x27;</span>);</span><br><span class="language-javascript">                &#125;,</span><br><span class="language-javascript">                <span class="hljs-attr">cancel</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">                    <span class="hljs-comment">// 取消分享的回调函数</span></span><br><span class="language-javascript">                    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;取消分享&#x27;</span>);</span><br><span class="language-javascript">                &#125;</span><br><span class="language-javascript">            &#125;;</span><br><span class="language-javascript">            <span class="hljs-comment">// 分享到朋友圈</span></span><br><span class="language-javascript">            wx.<span class="hljs-title function_">updateTimelineShareData</span>(shareData);</span><br><span class="language-javascript">            <span class="hljs-comment">// 分享给好友</span></span><br><span class="language-javascript">            wx.<span class="hljs-title function_">updateAppMessageShareData</span>(shareData);</span><br><span class="language-javascript">        &#125;);</span><br><span class="language-javascript"></span><br><span class="language-javascript">        <span class="hljs-comment">// 页面卸载前的回调函数，用于清理资源等操作</span></span><br><span class="language-javascript">        wx.<span class="hljs-title function_">error</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">            <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;微信JS SDK加载失败&#x27;</span>);</span><br><span class="language-javascript">        &#125;);</span><br><span class="language-javascript"></span><br><span class="language-javascript">    &#125;,</span><br><span class="language-javascript">    <span class="hljs-attr">error</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">xhr, status, error</span>) &#123;</span><br><span class="language-javascript">        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">&#x27;提交失败: &#x27;</span>, error);</span><br><span class="language-javascript">    &#125;</span><br><span class="language-javascript">&#125;)</span><br><span class="language-javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<h4 id="后端接口：">后端接口：</h4>
+<p><code>demo</code>页面控制，引入<code>thymeleaf</code>视图解析器依赖测试即可。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Controller</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">IndexController</span> &#123;<br><br>    <span class="hljs-meta">@GetMapping(&quot;/demo&quot;)</span><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">demo</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;demo&quot;</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>请求接口：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 集成微信登录控制器</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@className</span> WechatController</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@see</span> &lt;a href=&quot;https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/Wechat_webpage_authorization.html&quot;&gt;微信官方文档&lt;/a&gt;</span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">@Controller</span><br><span class="hljs-meta">@RequiredArgsConstructor</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">WxController</span> &#123;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 此接口用于给微信验证本地服务器是否可用【微信接口配置信息 &gt;&gt;&gt; 验证消息的确来自微信服务器】</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> signature 签名，微信加密签名，signature结合了开发者填写的token参数和请求中的timestamp参数、nonce参数。</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> timestamp 时间戳</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> nonce 随机数</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> echostr 随机字符串</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span> 原样返回微信请求携带的随机字符串,即可通过微信的服务器验证</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@see</span> &lt;a href=&quot;https://developers.weixin.qq.com/doc/offiaccount/Basic_Information/Access_Overview.html#%E7%AC%AC%E4%BA%8C%E6%AD%A5%EF%BC%9A%E9%AA%8C%E8%AF%81%E6%B6%88%E6%81%AF%E7%9A%84%E7%A1%AE%E6%9D%A5%E8%87%AA%E5%BE%AE%E4%BF%A1%E6%9C%8D%E5%8A%A1%E5%99%A8&quot;&gt;验证消息的确来自微信服务器&lt;/a&gt;</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-meta">@ResponseBody</span><br>    <span class="hljs-meta">@GetMapping(&quot;/wxCheck&quot;)</span><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">wxCheck</span><span class="hljs-params">(</span><br><span class="hljs-params">            <span class="hljs-meta">@ApiParam(name = &quot;signature&quot;,value = &quot;微信加密签名&quot;)</span></span><br><span class="hljs-params">            <span class="hljs-meta">@RequestParam(value = &quot;signature&quot;)</span></span><br><span class="hljs-params">            String signature,</span><br><span class="hljs-params">            <span class="hljs-meta">@ApiParam(name = &quot;timestamp&quot;,value = &quot;时间戳&quot;)</span></span><br><span class="hljs-params">            <span class="hljs-meta">@RequestParam(value = &quot;timestamp&quot;)</span></span><br><span class="hljs-params">            String timestamp,</span><br><span class="hljs-params">            <span class="hljs-meta">@ApiParam(name = &quot;nonce&quot;,value = &quot;随机数&quot;)</span></span><br><span class="hljs-params">            <span class="hljs-meta">@RequestParam(value = &quot;nonce&quot;)</span></span><br><span class="hljs-params">            String nonce,</span><br><span class="hljs-params">            <span class="hljs-meta">@ApiParam(name = &quot;echostr&quot;,value = &quot;随机字符串&quot;)</span></span><br><span class="hljs-params">            <span class="hljs-meta">@RequestParam(value = &quot;echostr&quot;)</span></span><br><span class="hljs-params">            String echostr</span><br><span class="hljs-params">    )</span>&#123;<br><br>        <span class="hljs-comment">// 验证消息是否来自微信服务器</span><br><br>        <span class="hljs-type">String</span> <span class="hljs-variable">token</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;weChatTest&quot;</span>;<br>        String[] arr = &#123;token, timestamp, nonce&#125;;<br><br>        <span class="hljs-comment">// 按字典序排序</span><br>        Arrays.sort(arr);<br><br>        <span class="hljs-comment">// 使用StringBuilder进行拼接</span><br>        <span class="hljs-type">StringBuilder</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>();<br>        <span class="hljs-keyword">for</span> (String s : arr) &#123;<br>            result.append(s);<br>        &#125;<br>        <span class="hljs-type">String</span> <span class="hljs-variable">s</span> <span class="hljs-operator">=</span> SHA1(String.valueOf(result));<br><br>        <span class="hljs-keyword">if</span> (!s.equals(signature)) &#123;<br>            System.out.println(<span class="hljs-string">&quot;Token值匹配失败！&quot;</span>);<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>        &#125;<br>        System.out.println(<span class="hljs-string">&quot;Token值匹配成功！&quot;</span>);<br><br>        <span class="hljs-comment">// 将请求携带的参数加入Map集合</span><br>        Map&lt;String,Object&gt; map = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;();<br>        map.put(<span class="hljs-string">&quot;signature&quot;</span>,signature);<br>        map.put(<span class="hljs-string">&quot;timestamp&quot;</span>,timestamp);<br>        map.put(<span class="hljs-string">&quot;nonce&quot;</span>,nonce);<br>        map.put(<span class="hljs-string">&quot;echostr&quot;</span>,echostr);<br>        <span class="hljs-comment">// 打印Map集合查看微信的消息</span><br>        System.out.println(<span class="hljs-string">&quot;来自微信的消息：&quot;</span>+map);<br>        <span class="hljs-keyword">return</span> echostr;<br>    &#125;<br><br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 微信分享专用接口</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@className</span> WechatController</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-meta">@ResponseBody</span><br>    <span class="hljs-meta">@PostMapping(&quot;demo&quot;)</span><br>    <span class="hljs-keyword">public</span> Map&lt;String,Object&gt; <span class="hljs-title function_">demo</span><span class="hljs-params">(</span><br><span class="hljs-params">        HttpSession session, String URL)</span> &#123;<br><br>        <span class="hljs-type">String</span> <span class="hljs-variable">url</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;&quot;</span>;<br>        <span class="hljs-type">String</span> <span class="hljs-variable">appId</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;你的appid&quot;</span>;<br>        <span class="hljs-type">String</span> <span class="hljs-variable">appSecret</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;你的appSecret&quot;</span>;<br>        <span class="hljs-keyword">try</span> &#123;<br>            url = java.net.URLDecoder.decode(URL,<span class="hljs-string">&quot;UTF-8&quot;</span>);<br>        &#125; <span class="hljs-keyword">catch</span> (UnsupportedEncodingException e) &#123;<br>            e.printStackTrace();<br>            System.out.println(<span class="hljs-string">&quot;UTF-8格式地址解析异常！&quot;</span>);<br>            retuen <span class="hljs-literal">null</span>;<span class="hljs-comment">// 异常就停止</span><br>        &#125;<br>        <span class="hljs-comment">// 获取access_token，这里要从存到session，生成这个参数的wx调用接口有调用次数限制。这部分存session，下面的下载文件里面没有更新，自己添加进去吧，不然接口次数很快就用完了。</span><br>        String access_token=(String) session.getAttribute(<span class="hljs-string">&quot;access_token&quot;</span>);<br>        <span class="hljs-keyword">if</span>(access_token==<span class="hljs-literal">null</span>)&#123;<br>            <span class="hljs-comment">// 若session中不存在才请求token,并将请求到的token存到session中</span><br>            access_token = getAccessToken(appId, appSecret);<br>            <span class="hljs-keyword">if</span> (access_token ==<span class="hljs-literal">null</span>)&#123;<br>                System.out.println(<span class="hljs-string">&quot;获取access_token失败！&quot;</span>);<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>            &#125;<br>            session.setAttribute(<span class="hljs-string">&quot;access_token&quot;</span>, access_token);<br>        &#125;<br>        <span class="hljs-comment">// 获取jsapi_ticket</span><br>        <span class="hljs-type">String</span> <span class="hljs-variable">jsapi_ticket</span> <span class="hljs-operator">=</span> (String) session.getAttribute(<span class="hljs-string">&quot;access_ticket&quot;</span>);<br>        <span class="hljs-keyword">if</span>(jsapi_ticket==<span class="hljs-literal">null</span>)&#123;<br>            <span class="hljs-comment">// 若session中不存在才请求api_ticket,并将请求到的api_ticket存到session中</span><br>            jsapi_ticket = getTicket(access_token);<br>            <span class="hljs-keyword">if</span> (jsapi_ticket ==<span class="hljs-literal">null</span>)&#123;<br>                System.out.println(<span class="hljs-string">&quot;获取jsapi_ticket失败！&quot;</span>);<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>            &#125;<br>            session.setAttribute(<span class="hljs-string">&quot;jsapi_ticket&quot;</span>, jsapi_ticket);<br>        &#125;<br><br>        <span class="hljs-comment">// 3、时间戳和随机字符串</span><br>        <span class="hljs-type">String</span> <span class="hljs-variable">noncestr</span> <span class="hljs-operator">=</span> UUID.randomUUID().toString().replace(<span class="hljs-string">&quot;-&quot;</span>, <span class="hljs-string">&quot;&quot;</span>).substring(<span class="hljs-number">0</span>, <span class="hljs-number">16</span>);<span class="hljs-comment">//随机字符串</span><br>        <span class="hljs-type">String</span> <span class="hljs-variable">timestamp</span> <span class="hljs-operator">=</span> String.valueOf(System.currentTimeMillis() / <span class="hljs-number">1000</span>);<span class="hljs-comment">//时间戳</span><br><br>        System.out.println(<span class="hljs-string">&quot;accessToken:&quot;</span>+access_token+<span class="hljs-string">&quot;\njsapi_ticket:&quot;</span>+jsapi_ticket+<span class="hljs-string">&quot;\n时间戳：&quot;</span>+timestamp+<span class="hljs-string">&quot;\n随机字符串：&quot;</span>+noncestr);<br><br><br>        <span class="hljs-comment">// 4、将参数排序并拼接字符串</span><br>        <span class="hljs-type">String</span> <span class="hljs-variable">str</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;jsapi_ticket=&quot;</span>+jsapi_ticket+<span class="hljs-string">&quot;&amp;noncestr=&quot;</span>+noncestr+<span class="hljs-string">&quot;&amp;timestamp=&quot;</span>+timestamp+<span class="hljs-string">&quot;&amp;url=&quot;</span>+url;<br><br>        <span class="hljs-comment">// 5、将字符串进行sha1加密</span><br>        <span class="hljs-type">String</span> <span class="hljs-variable">signature</span> <span class="hljs-operator">=</span>SHA1(str);<br>        <span class="hljs-keyword">if</span> (signature == <span class="hljs-literal">null</span>)&#123;<br>            System.out.println(<span class="hljs-string">&quot;SHA1加密失败！&quot;</span>);<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>        &#125;<br>        System.out.println(<span class="hljs-string">&quot;参数：&quot;</span>+str+<span class="hljs-string">&quot;\n签名：&quot;</span>+signature);<br>		<span class="hljs-comment">// 将参数统一放进Map集合，然后返回给前端</span><br>        Map&lt;String,Object&gt; map = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;();<br>        map.put(<span class="hljs-string">&quot;signature&quot;</span>,signature);<br>        map.put(<span class="hljs-string">&quot;appId&quot;</span>,appId);<br>        map.put(<span class="hljs-string">&quot;timestamp&quot;</span>,timestamp);<br>        map.put(<span class="hljs-string">&quot;nonceStr&quot;</span>,noncestr);<br>        <span class="hljs-keyword">return</span> map;<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 第一步：获取access_token</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title function_">getAccessToken</span><span class="hljs-params">(String appid,String secret)</span> &#123;<br><br>        <span class="hljs-keyword">try</span>(<span class="hljs-type">CloseableHttpClient</span> <span class="hljs-variable">httpClient</span> <span class="hljs-operator">=</span> HttpClients.createDefault()) &#123;<br>            <span class="hljs-comment">// 请求地址</span><br>            <span class="hljs-type">String</span> <span class="hljs-variable">url</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=&quot;</span>+appid+<span class="hljs-string">&quot;&amp;secret=&quot;</span>+secret;<br>            <span class="hljs-type">HttpGet</span> <span class="hljs-variable">httpGet</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">HttpGet</span>(url);<br>            <span class="hljs-comment">// 接收请求响应的信息</span><br>            <span class="hljs-type">CloseableHttpResponse</span> <span class="hljs-variable">response</span> <span class="hljs-operator">=</span> httpClient.execute(httpGet);<br>            System.out.println(response.getStatusLine());<br>            <span class="hljs-keyword">if</span> (response.getStatusLine().getStatusCode() == <span class="hljs-number">200</span>) &#123;<br>                <span class="hljs-type">String</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> EntityUtils.toString(response.getEntity(), <span class="hljs-string">&quot;UTF-8&quot;</span>);<br>                System.out.println(result);<br>                Map&lt;String, Object&gt; map = JSON.parseObject(result);<br>                <span class="hljs-keyword">return</span> (String) map.get(<span class="hljs-string">&quot;access_token&quot;</span>);<br>            &#125;<span class="hljs-keyword">else</span> &#123;<br>                System.out.println(<span class="hljs-string">&quot;===========&quot;</span>);<br>            &#125;<br>        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">RuntimeException</span>(e);<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 第二步：获取ticket</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title function_">getTicket</span><span class="hljs-params">(String access_token)</span> &#123;<br><br>        <span class="hljs-keyword">try</span>(<span class="hljs-type">CloseableHttpClient</span> <span class="hljs-variable">httpClient</span> <span class="hljs-operator">=</span> HttpClients.createDefault()) &#123;<br>			<span class="hljs-comment">// 请求地址</span><br>            <span class="hljs-type">String</span> <span class="hljs-variable">url</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=&quot;</span>+access_token+<span class="hljs-string">&quot;&amp;type=jsapi&quot;</span>;<br>            <span class="hljs-type">HttpGet</span> <span class="hljs-variable">httpGet</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">HttpGet</span>(url);<br>            <span class="hljs-comment">// 接收请求响应的信息</span><br>            <span class="hljs-type">CloseableHttpResponse</span> <span class="hljs-variable">response</span> <span class="hljs-operator">=</span> httpClient.execute(httpGet);<br>            System.out.println(response.getStatusLine());<br>            <span class="hljs-keyword">if</span> (response.getStatusLine().getStatusCode() == <span class="hljs-number">200</span>) &#123;<br>                <span class="hljs-type">String</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> EntityUtils.toString(response.getEntity(), <span class="hljs-string">&quot;UTF-8&quot;</span>);<br>                System.out.println(result);<br>                Map&lt;String, Object&gt; map = JSON.parseObject(result);<br>                <span class="hljs-keyword">return</span> (String) map.get(<span class="hljs-string">&quot;ticket&quot;</span>);<br>            &#125;<span class="hljs-keyword">else</span> &#123;<br>                System.out.println(<span class="hljs-string">&quot;===========&quot;</span>);<br>            &#125;<br>        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">RuntimeException</span>(e);<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 第三步：SHA1加密</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title function_">SHA1</span><span class="hljs-params">(String decript)</span> &#123;<br>        <span class="hljs-keyword">try</span> &#123;<br>            <span class="hljs-type">MessageDigest</span> <span class="hljs-variable">digest</span> <span class="hljs-operator">=</span> java.security.MessageDigest.getInstance(<span class="hljs-string">&quot;SHA-1&quot;</span>);<br>            digest.update(decript.getBytes());<br>            <span class="hljs-type">byte</span> messageDigest[] = digest.digest();<br>            <span class="hljs-comment">// Create Hex String  </span><br>            <span class="hljs-type">StringBuffer</span> <span class="hljs-variable">hexString</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuffer</span>();<br>            <span class="hljs-comment">// 字节数组转换为 十六进制 数  </span><br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; messageDigest.length; i++) &#123;<br>                <span class="hljs-type">String</span> <span class="hljs-variable">shaHex</span> <span class="hljs-operator">=</span> Integer.toHexString(messageDigest[i] &amp; <span class="hljs-number">0xFF</span>);<br>                <span class="hljs-keyword">if</span> (shaHex.length() &lt; <span class="hljs-number">2</span>) &#123;<br>                    hexString.append(<span class="hljs-number">0</span>);<br>                &#125;<br>                hexString.append(shaHex);<br>            &#125;<br>            <span class="hljs-keyword">return</span> hexString.toString();<br><br>        &#125; <span class="hljs-keyword">catch</span> (NoSuchAlgorithmException e) &#123;<br>            e.printStackTrace();<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+<h3 id="使用">使用</h3>
+<p>这里需要将地址构造成二维码的形式，再用微信扫描打开。</p>
+<p><a target="_blank" rel="noopener" href="https://cli.im/text/other"><strong>草料二维码</strong></a></p>
+<p>因为微信对直接访问直链地址有限制，直接在聊天记录里点链接打开，分享出的信息也只有直链地址，没有标题、描述和图标的。</p>
+<p>打开后，进入我们的那个<code>demo</code>页面，前端如果在微信配置中，开启了debug，那么这时就会弹出提示框：<code>errMsg：config:ok</code>这样就成功了，点击右上角然后分享给自己，就可以看到带有标题、描述和图标的分享卡片效果了。</p>
+<h3 id="最后">最后</h3>
+<p>弄好后，可以先在电脑上打开页面，这样可以在控制台看到后端请求的结果，前端数据载入情况等。</p>
+<p>控制台都正常，没有问题信息的话，再用手机扫码访问测试。</p>
+<p><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/JS-SDK.html#%E9%99%84%E5%BD%955-%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><strong>附录5-常见错误及解决方法</strong></a></p>
+<h3 id="参考资料">参考资料</h3>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_37698433/article/details/93307212?fromshare=blogdetail&amp;sharetype=blogdetail&amp;sharerId=93307212&amp;sharerefer=PC&amp;sharesource=weixin_44816404&amp;sharefrom=from_link"><strong>微信内分享网页自定义标题，图片，描述</strong></a></li>
+<li><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/doc/offiaccount/Basic_Information/Access_Overview.html"><strong>微信公众号官方文档 - 开始开发 - 接入指南</strong></a></li>
+<li><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/doc/offiaccount/Basic_Information/Requesting_an_API_Test_Account.html"><strong>微信公众号官方文档 - 开始开发 - 接口测试号申请</strong></a></li>
+<li><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/JS-SDK.html"><strong>微信公众号官方文档 - 微信网页开发 - <code>JS-SDK</code>说明文档</strong></a></li>
+</ol>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%BE%AE%E4%BF%A1%E9%9B%86%E6%88%90/" class="category-chain-item">微信集成</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%8D%A1%E7%89%87%E5%88%86%E4%BA%AB/" class="print-no-link">#微信卡片分享</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>网站集成微信分享功能</div>
+      <div>https://superlovelace.top/2024/10/26/网站集成微信分享功能/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>棱境</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年10月26日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2025年2月18日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/10/30/Jwt%E5%B7%A5%E5%85%B7%E7%B1%BB/" title="Jwt工具类">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Jwt工具类</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/10/19/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BC%A0%E5%80%BC%E5%8C%B9%E9%85%8D/" title="前后端分离 - Ajax请求和Controller接收示例">
+                        <span class="hidden-mobile">前后端分离 - Ajax请求和Controller接收示例</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="waline"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#waline', function() {
+      Fluid.utils.createCssLink('https://cdn.staticfile.org/waline/2.15.5/waline.min.css')
+      Fluid.utils.createScript('https://cdn.staticfile.org/waline/2.15.5/waline.min.js', function() {
+        var options = Object.assign(
+          {"serverURL":"waline.superlovelace.top","path":"window.location.pathname","meta":["nick","mail","link"],"requiredMeta":["nick"],"lang":"zh-CN","emoji":["https://unpkg.com/@waline/emojis@1.2.0/bilibili","https://unpkg.com/@waline/emojis@1.2.0/alus","https://unpkg.com/@waline/emojis@1.2.0/bmoji"],"dark":"html[data-user-color-scheme=\"dark\"]","wordLimit":0,"pageSize":10},
+          {
+            el: '#waline',
+            path: window.location.pathname
+          }
+        )
+        Waline.init(options);
+        Fluid.utils.waitElementVisible('#waline .vcontent', () => {
+          var imgSelector = '#waline .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <link rel="stylesheet" href="https://at.alicdn.com/t/c/font_4304126_jer9pua37ro.css"> <script src="https://kit.fontawesome.com/c7908fed97.js" crossorigin="anonymous"></script> <i class="fa-solid fa-heart fa-beat-fade" style="color: red;"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br> <p>版权所有 © 2022 - 2025 <a target="_blank" href="https://github.com/superlovelace">棱境</a>. 保留所有权利</p> <a style="text-decoration:none;color:skyblue;" href="https://travel.moe/go.html?travel=on" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank"><img src="https://travel.moe/images/icon/icon64.png" srcset="/img/loading.gif" lazyload style="width:24px;height:24px">异次元之旅</a> <br> <a href="https://icp.gov.moe/?keyword=20237774" target="_blank">萌ICP备20237774号</a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
