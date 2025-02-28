@@ -1,0 +1,1488 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+<script type="text/javascript" src="/vvd_js/jquery.js"></script>
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/1.jpg">
+  <link rel="icon" href="/img/1.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="棱境">
+  <meta name="keywords" content="棱境,superlovelace,超爱蕾丝,超爱蕾丝个人博客,超爱蕾丝博客站点,棱境的个人博客,SuperLovelace,superlovelace博客站点,superlovelace个人博客,SuperLovelace博客站点,SuperLovelace个人博客，四月黎明，四月黎明博客站点">
+  
+    <meta name="description" content="窗口函数是MySQL8.0版本新增的，相对于聚合函数把所有行聚合成一行，窗口函数可以将每一行的数据进行分别处理。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="窗口函数">
+<meta property="og:url" content="https://superlovelace.top/2025/02/27/%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0/index.html">
+<meta property="og:site_name" content="四月黎明 | 棱境的个人博客站点">
+<meta property="og:description" content="窗口函数是MySQL8.0版本新增的，相对于聚合函数把所有行聚合成一行，窗口函数可以将每一行的数据进行分别处理。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://superlovelace.top/img/post/1024.jpg">
+<meta property="article:published_time" content="2025-02-27T09:05:24.000Z">
+<meta property="article:modified_time" content="2025-02-28T17:35:12.087Z">
+<meta property="article:author" content="棱境">
+<meta property="article:tag" content="MySQL">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://superlovelace.top/img/post/1024.jpg">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>窗口函数 - 四月黎明 | 棱境的个人博客站点</title>
+  
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"superlovelace.top","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":"G-V7XHLRYKFR"},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"IX85WXZ5BZ7cgp7sgj8ONFCR-gzGzoHsz","app_key":"XQfrnQLL3IrNoQ77ZPPk7KLk","server_url":"https://ix85wxz5.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=G-V7XHLRYKFR", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', 'G-V7XHLRYKFR');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/rss2.xml" title="四月黎明 | 棱境的个人博客站点" type="application/rss+xml">
+</head>
+
+
+<body>
+
+    <div>
+    	<div class='real_mask'></div>
+    	<div id="banner_video_insert">
+    	</div>	
+    	<div id='vvd_banner_img'>
+    	</div>
+    </div>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>四月黎明</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/post/1006.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+  
+    
+		<script>
+			var ua = navigator.userAgent;
+			var ipad = ua.match(/(iPad).*OS\s([\d_]+)/),
+				isIphone = !ipad && ua.match(/(iPhone\sOS)\s([\d_]+)/),
+				isAndroid = ua.match(/(Android)\s+([\d.]+)/),
+				isMobile = isIphone || isAndroid;
+
+			function set_video_attr(id){
+
+				var height = document.body.clientHeight
+				var width = document.body.clientWidth
+				var video_item = document.getElementById(id);
+
+				if (height / width < 0.56){
+					video_item.setAttribute('width', '100%');
+					video_item.setAttribute('height', 'auto');
+				} else {
+					video_item.setAttribute('height', '100%');
+					video_item.setAttribute('width', 'auto');
+				}
+			}
+
+			$.getJSON('/vvd_js/video_url.json', function(data){
+				if (!isMobile){
+					var video_list_length = data.length
+					var seed = Math.random()
+					index = Math.floor(seed * video_list_length)
+					
+					video_url = data[index][0]
+					pre_show_image_url = data[index][1]
+					
+					banner_obj = document.getElementById("banner")
+					banner_obj.style.cssText = "background: url('" + pre_show_image_url + "') no-repeat; background-size: cover;"
+
+					vvd_banner_obj = document.getElementById("vvd_banner_img")
+
+					vvd_banner_content = "<img id='banner_img_item' src='" + pre_show_image_url + "' style='height: 100%; position: fixed; z-index: -999'>"
+					vvd_banner_obj.innerHTML = vvd_banner_content
+
+					video_html_res = "<video id='video_item' style='position: fixed; z-index: -888;'  muted='muted' src=" + video_url + " autoplay='autoplay' loop='loop'></video>"
+					document.getElementById("banner_video_insert").innerHTML = video_html_res;
+
+					set_video_attr('video_item')
+					set_video_attr('banner_img_item')
+				}
+			});
+
+			if (!isMobile){
+				window.onresize = function(){
+					set_video_attr('video_item')
+				}
+			}
+		</script>
+	
+  
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="窗口函数"></span>
+          
+          <h1></h1>
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        棱境
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-02-27 17:05" pubdate>
+          2025年2月27日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          10k 字
+        
+      </span>
+    
+
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">窗口函数</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2025年3月1日 凌晨
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="窗口函数">窗口函数</h2>
+<p>窗口函数是<code>MySQL8.0</code>版本新增的，相对于聚合函数把所有行聚合成一行，窗口函数可以将每一行的数据进行分别处理。</p>
+<h3 id="一、序号函数">一、序号函数</h3>
+<p>用来实现分组排序。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs mysql"># 格式<br>row_number() | rank() | dense_rank() over (<br>	partition by ... # 按什么字段分组/分区<br>	order by ... # 按照什么排序<br>)<br></code></pre></td></tr></table></figure>
+<p>例如：成绩表<code>Score</code>，序号函数皆以此表查询为例。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs mysql">| id | score |<br>| -- | ----- |<br>| 1  | 3.5   |<br>| 2  | 3.65  |<br>| 3  | 4     |<br>| 4  | 3.85  |<br>| 5  | 4     |<br>| 6  | 3.65  |<br></code></pre></td></tr></table></figure>
+<h4 id="1-1、ROW-NUMBER">1.1、ROW_NUMBER()</h4>
+<p>此函数进行排序时，相同的字段会分开排序。</p>
+<p>查询成绩表，按分数进行排序，相同分数的不算在同一名（分开排）</p>
+<p>如果不指定 <code>PARTITION BY</code>，窗口函数默认会将整个结果集视为一个分组，即不进行分组【全局排序】，计算基于所有行。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs mysql">SELECT <br>    score,<br>    ROW_NUMBER() OVER (ORDER BY score DESC) AS `rank`<br>FROM Scores<br>ORDER BY score DESC;<br></code></pre></td></tr></table></figure>
+<p>结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs mysql">| score | rank |<br>| ----- | ---- |<br>| 4     | 1    |  # &lt;&lt;&lt; 看这两个相同的成绩对应的排序<br>| 4     | 2    |  # &lt;&lt;&lt; 看这两个相同的成绩对应的排序<br>| 3.85  | 3    |<br>| 3.65  | 4    |<br>| 3.65  | 5    |<br>| 3.5   | 6    |<br></code></pre></td></tr></table></figure>
+<h4 id="1-2、RANK">1.2、RANK()</h4>
+<p>此函数排序时，相同的字段会排在同一名，之后的字段排名为：<code>当前字段排名+当前排名字段总数-1</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs mysql">SELECT <br>    score,<br>    RANK() OVER (ORDER BY score DESC) AS `rank`<br>FROM Scores<br>ORDER BY score DESC;<br></code></pre></td></tr></table></figure>
+<p>结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs mysql">| score | rank |<br>| ----- | ---- |<br>| 4     | 1    |  # &lt;&lt;&lt; 看这两个相同的成绩对应的排序<br>| 4     | 1    |  # &lt;&lt;&lt; 看这两个相同的成绩对应的排序<br>| 3.85  | 3    |<br>| 3.65  | 4    |<br>| 3.65  | 4    |<br>| 3.5   | 6    |<br></code></pre></td></tr></table></figure>
+<h4 id="1-3、DENSE-RANK">1.3、DENSE_RANK()</h4>
+<p>此函数排序时，相同的字段会排在同一名，之后的字段不会受当前字段重复数影响，直接就是当前排名+1</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs mysql">SELECT <br>    score,<br>    DENSE_RANK() OVER (ORDER BY score DESC) AS `rank`<br>FROM Scores<br>ORDER BY score DESC;<br></code></pre></td></tr></table></figure>
+<p>结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs mysql">| score | rank |<br>| ----- | ---- |<br>| 4     | 1    |  # &lt;&lt;&lt; 看这两个相同的成绩对应的排序<br>| 4     | 1    |  # &lt;&lt;&lt; 看这两个相同的成绩对应的排序<br>| 3.85  | 2    |<br>| 3.65  | 3    |<br>| 3.65  | 3    |<br>| 3.5   | 4    |<br></code></pre></td></tr></table></figure>
+<p>放在一起对比：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> <br>    score,<br>    <span class="hljs-built_in">ROW_NUMBER</span>() <span class="hljs-keyword">OVER</span> (<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> score <span class="hljs-keyword">DESC</span>) <span class="hljs-keyword">AS</span> `row_number`,<br>    <span class="hljs-built_in">RANK</span>() <span class="hljs-keyword">OVER</span> (<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> score <span class="hljs-keyword">DESC</span>) <span class="hljs-keyword">AS</span> `rank`,<br>    <span class="hljs-built_in">DENSE_RANK</span>() <span class="hljs-keyword">OVER</span> (<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> score <span class="hljs-keyword">DESC</span>) <span class="hljs-keyword">AS</span> `dense_rank`<br><span class="hljs-keyword">FROM</span> Scores<br><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> score <span class="hljs-keyword">DESC</span>;<br></code></pre></td></tr></table></figure>
+<p>结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs mysql">| score | row_number | rank | dense_rank |<br>| ----- | ---------- | ---- | ---------- |<br>| 4     | 1          | 1    | 1          |  # &lt;&lt;&lt; 看这两个相同的成绩对应的排序<br>| 4     | 2          | 1    | 1          |  # &lt;&lt;&lt; 看这两个相同的成绩对应的排序<br>| 3.85  | 3          | 3    | 2          |<br>| 3.65  | 4          | 4    | 3          |<br>| 3.65  | 5          | 4    | 3          |<br>| 3.5   | 6          | 6    | 4          |<br></code></pre></td></tr></table></figure>
+<p>思考：如果现在需要找出排名前3的成绩，该怎么做呢？（以<code>dense_rank()</code>排序）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs mysql">SELECT score,`rank`<br>FROM (<br>         SELECT<br>             score,<br>             DENSE_RANK() OVER (ORDER BY score DESC) AS `rank`<br>         FROM Scores<br>         ORDER BY score DESC<br>     ) as temp<br>WHERE temp.rank&lt;=3;<br></code></pre></td></tr></table></figure>
+<p>结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs mysql">| score | rank |<br>| ----- | ---- |<br>| 4     | 1    |  # &lt;&lt;&lt; 看这两个相同的成绩对应的排序<br>| 4     | 1    |  # &lt;&lt;&lt; 看这两个相同的成绩对应的排序<br>| 3.85  | 2    |<br>| 3.65  | 3    |<br>| 3.65  | 3    |<br></code></pre></td></tr></table></figure>
+<h3 id="二、分布函数">二、分布函数</h3>
+<p>应用场景：查询小于等于当前薪资的比例。</p>
+<h4 id="2-1、PERCENT-RANK-【不常用】">2.1、PERCENT_RANK() 【不常用】</h4>
+<blockquote>
+<p>在以下场景中 <code>PERCENT_RANK()</code> 非常有用：</p>
+<ol>
+<li><strong>百分位数计算</strong>：
+<ul>
+<li>当需要将数据划分为百分位数（如 90th percentile）时，<code>PERCENT_RANK()</code> 可以帮助确定每个值的相对位置。</li>
+</ul>
+</li>
+<li><strong>数据分布分析</strong>：
+<ul>
+<li>通过 <code>PERCENT_RANK()</code> 可以快速了解数据在整个数据集中的分布情况。</li>
+</ul>
+</li>
+<li><strong>性能评估</strong>：
+<ul>
+<li>在评估学生成绩、员工绩效等场景中，<code>PERCENT_RANK()</code> 可以直观地反映某个人在整体中的表现。</li>
+</ul>
+</li>
+<li><strong>数据标准化</strong>：
+<ul>
+<li>在机器学习或统计分析中，<code>PERCENT_RANK()</code> 可以用于将数据标准化到 <code>[0, 1]</code> 范围内。</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+<p>此函数基于排名的相对位置，公式为 <code>(rank - 1) / (总行数 - 1)</code>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs mysql">SELECT<br>    dname,<br>    salary,<br>    rank() OVER (partition by dname ORDER BY salary) AS `rank`,<br>    PERCENT_RANK() OVER (partition by dname ORDER BY salary) AS `percent_rank`<br>FROM user<br></code></pre></td></tr></table></figure>
+<p>结果为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs mysql">| dname | salary | rank | percent_rank |<br>| ----- | ------ | ---- | ------------ | /* 研发部总计4项*/<br>| 研发部 | 5000   | 1    | 0            | /* 0 = (1-1)/(4-1) */<br>| 研发部 | 5000   | 1    | 0            |<br>| 研发部 | 6000   | 3    | 0.6666666666 | /* 0.66 = (3-1)/(4-1) */<br>| 研发部 | 8000   | 4    | 1            |<br>| 销售部 | 3000   | 1    | 0            |<br>| 销售部 | 3000   | 1    | 0            |<br>| 销售部 | 3000   | 1    | 0            |<br>| 销售部 | 4000   | 4    | 1            |<br></code></pre></td></tr></table></figure>
+<h4 id="2-2、CUME-DIST">2.2、CUME_DIST()</h4>
+<p>此函数用于计算累积分布值，表示在有序数据集中，某一项的值小于或等于当前值的比例。</p>
+<ul>
+<li>
+<p><strong>正序（默认）</strong>：统计每一项内，小于或等于此项的值与总数的比值。</p>
+<p>公式为：</p>
+<blockquote>
+<p>CUME_DIST(x)=小于等于 x 的行数总行数CUME_DIST(<em>x</em>)=总行数小于等于 <em>x</em> 的行数</p>
+</blockquote>
+</li>
+<li>
+<p><strong>倒序</strong>：统计每一项内，大于或等于此项的值与总数的比值。</p>
+<p>公式为：</p>
+<blockquote>
+<p>CUME_DIST(x)=大于等于 x 的行数总行数CUME_DIST(<em>x</em>)=总行数大于等于 <em>x</em> 的行数</p>
+</blockquote>
+</li>
+</ul>
+<p>应用场景：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs mysql">SELECT<br>    salary,<br>    cume_dist() OVER (partition by dname ORDER BY salary) AS `cume_dist`<br>FROM user<br></code></pre></td></tr></table></figure>
+<p>结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs mysql">| salary | cume_dist |<br>| ------ | --------- |<br>| 5000   | 0.5       |<br>| 5000   | 0.5       |<br>| 6000   | 0.75      |<br>| 8000   | 1         |<br>| 3000   | 0.75 	 |<br>| 3000   | 0.75 	 |<br>| 3000   | 0.75		 |<br>| 4000   | 1 		 |<br></code></pre></td></tr></table></figure>
+<h3 id="三、前后函数">三、前后函数</h3>
+<p>用途：返回位于当前行的前n行或后n行的expr的值</p>
+<h4 id="3-1、LAG-函数">3.1、<code>LAG()</code> 函数</h4>
+<p><code>LAG()</code> 函数用于访问当前行之前的某一行的数据。</p>
+<h5 id="语法：">语法：</h5>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">LAG(column_name, offset, default_value) OVER (PARTITION BY ... ORDER BY ...)<br></code></pre></td></tr></table></figure>
+<ul>
+<li><strong><code>column_name</code></strong>：要访问的列。</li>
+<li><strong><code>offset</code></strong>：偏移量，表示要访问的行数（默认为 1，即前一行）。</li>
+<li><strong><code>default_value</code></strong>：如果偏移量超出范围（如第一行没有前一行），则返回的默认值（可选，默认为 <code>NULL</code>）。</li>
+</ul>
+<h5 id="应用场景：">应用场景：</h5>
+<ul>
+<li>计算当前行与前一行的差值。</li>
+<li>分析时间序列数据中的变化趋势。</li>
+</ul>
+<h5 id="示例：">示例：</h5>
+<p>假设有一组每日销售数据，需要计算每天的销售额与前一天的差值。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span><br>    sales_date,<br>    sales_amount,<br>    <span class="hljs-built_in">LAG</span>(sales_amount, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>) <span class="hljs-keyword">OVER</span> (<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> sales_date) <span class="hljs-keyword">AS</span> previous_sales_amount,<br>    sales_amount <span class="hljs-operator">-</span> <span class="hljs-built_in">LAG</span>(sales_amount, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>) <span class="hljs-keyword">OVER</span> (<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> sales_date) <span class="hljs-keyword">AS</span> sales_difference<br><span class="hljs-keyword">FROM</span><br>    daily_sales;<br></code></pre></td></tr></table></figure>
+<p>结果可能如下：</p>
+<table>
+<thead>
+<tr>
+<th>sales_date</th>
+<th>sales_amount</th>
+<th>previous_sales_amount</th>
+<th>sales_difference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2023-01-01</td>
+<td>100</td>
+<td>0</td>
+<td>100</td>
+</tr>
+<tr>
+<td>2023-01-02</td>
+<td>150</td>
+<td>100</td>
+<td>50</td>
+</tr>
+<tr>
+<td>2023-01-03</td>
+<td>200</td>
+<td>150</td>
+<td>50</td>
+</tr>
+<tr>
+<td>2023-01-04</td>
+<td>180</td>
+<td>200</td>
+<td>-20</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="3-2、LEAD-函数">3.2、<strong><code>LEAD()</code> 函数</strong></h4>
+<p><code>LEAD()</code> 函数用于访问当前行之后的某一行的数据。</p>
+<h5 id="语法：-2">语法：</h5>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-built_in">LEAD</span>(column_name, <span class="hljs-keyword">offset</span>, default_value) <span class="hljs-keyword">OVER</span> (<span class="hljs-keyword">PARTITION</span> <span class="hljs-keyword">BY</span> ... <span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> ...)<br></code></pre></td></tr></table></figure>
+<ul>
+<li><strong><code>column_name</code></strong>：要访问的列。</li>
+<li><strong><code>offset</code></strong>：偏移量，表示要访问的行数（默认为 1，即后一行）。</li>
+<li><strong><code>default_value</code></strong>：如果偏移量超出范围（如最后一行没有后一行），则返回的默认值（可选，默认为 <code>NULL</code>）。</li>
+</ul>
+<h5 id="应用场景：-2">应用场景：</h5>
+<ul>
+<li>计算当前行与后一行的差值。</li>
+<li>预测或分析未来趋势。</li>
+</ul>
+<h5 id="示例：-2">示例：</h5>
+<p>假设有一组每日销售数据，需要计算每天的销售额与后一天的差值。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs mysql">SQLSELECT<br>    sales_date,<br>    sales_amount,<br>    LEAD(sales_amount, 1, 0) OVER (ORDER BY sales_date) AS next_sales_amount,<br>    LEAD(sales_amount, 1, 0) OVER (ORDER BY sales_date) - sales_amount AS sales_difference<br>FROM<br>    daily_sales;<br></code></pre></td></tr></table></figure>
+<p>结果可能如下：</p>
+<table>
+<thead>
+<tr>
+<th>sales_date</th>
+<th>sales_amount</th>
+<th>next_sales_amount</th>
+<th>sales_difference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2023-01-01</td>
+<td>100</td>
+<td>150</td>
+<td>50</td>
+</tr>
+<tr>
+<td>2023-01-02</td>
+<td>150</td>
+<td>200</td>
+<td>50</td>
+</tr>
+<tr>
+<td>2023-01-03</td>
+<td>200</td>
+<td>180</td>
+<td>-20</td>
+</tr>
+<tr>
+<td>2023-01-04</td>
+<td>180</td>
+<td>0</td>
+<td>-180</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="3-3、LAG-和-LEAD-的区别">3.3、<strong><code>LAG()</code> 和 <code>LEAD()</code> 的区别</strong></h4>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>方向</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>LAG()</code></td>
+<td>向后</td>
+<td>访问当前行之前的某一行的数据。</td>
+</tr>
+<tr>
+<td><code>LEAD()</code></td>
+<td>向前</td>
+<td>访问当前行之后的某一行的数据。</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="3-4、常见应用场景">3.4、<strong>常见应用场景</strong></h4>
+<ol>
+<li><strong>时间序列分析</strong>：
+<ul>
+<li>计算每日、每月或每年的变化趋势。</li>
+<li>例如：计算每天的销售额与前一天的差值。</li>
+</ul>
+</li>
+<li><strong>相邻行比较</strong>：
+<ul>
+<li>比较当前行与相邻行的值，分析变化或异常。</li>
+<li>例如：检查库存变化或温度波动。</li>
+</ul>
+</li>
+<li><strong>预测或回填数据</strong>：
+<ul>
+<li>使用 <code>LEAD()</code> 预测未来值，或使用 <code>LAG()</code> 回填历史值。</li>
+</ul>
+</li>
+<li><strong>数据填充</strong>：
+<ul>
+<li>对于缺失值，可以使用 <code>LAG()</code> 或 <code>LEAD()</code> 从相邻行填充。</li>
+</ul>
+</li>
+</ol>
+<h3 id="总结"><strong>总结</strong></h3>
+<ul>
+<li><code>LAG()</code> 用于访问当前行之前的某一行的数据，适合分析历史趋势或回填数据。</li>
+<li><code>LEAD()</code> 用于访问当前行之后的某一行的数据，适合预测未来趋势或分析未来变化。</li>
+<li>两者在时间序列分析、相邻行比较和数据填充等场景中非常有用。如果需要分析数据的变化趋势或预测未来值，<code>LAG()</code> 和 <code>LEAD()</code> 是强大的工具。</li>
+</ul>
+<h4 id=""></h4>
+<h3 id="四、头尾函数">四、头尾函数</h3>
+<p>用于在窗口框架内访问第一行或最后一行的数据。它们通常用于计算累积值、分析趋势或提取边界值。</p>
+<hr>
+<h4 id="4-1、FIRST-VALUE-函数">4.1、<strong><code>FIRST_VALUE()</code> 函数</strong></h4>
+<p><code>FIRST_VALUE()</code> 函数返回窗口框架内第一行的值。</p>
+<h5 id="语法：-3">语法：</h5>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-built_in">FIRST_VALUE</span>(column_name) <span class="hljs-keyword">OVER</span> (<span class="hljs-keyword">PARTITION</span> <span class="hljs-keyword">BY</span> ... <span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> ... [<span class="hljs-keyword">ROWS</span> <span class="hljs-keyword">BETWEEN</span> ...])<br></code></pre></td></tr></table></figure>
+<ul>
+<li><strong><code>column_name</code></strong>：要访问的列。</li>
+<li><strong><code>PARTITION BY</code></strong>：可选，用于分组。</li>
+<li><strong><code>ORDER BY</code></strong>：指定窗口内的排序。</li>
+<li><strong><code>ROWS BETWEEN</code></strong>：可选，定义窗口框架的范围（默认为 <code>UNBOUNDED PRECEDING AND CURRENT ROW</code>）。</li>
+</ul>
+<h5 id="应用场景：-3">应用场景：</h5>
+<ul>
+<li>计算累积值（如累积销售额）。</li>
+<li>提取每组中的第一个值。</li>
+</ul>
+<h5 id="示例：-3">示例：</h5>
+<p>假设有一组每日销售数据，需要计算每天的销售额与第一天的销售额的差值。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span><br>    sales_date,<br>    sales_amount,<br>    <span class="hljs-built_in">FIRST_VALUE</span>(sales_amount) <span class="hljs-keyword">OVER</span> (<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> sales_date) <span class="hljs-keyword">AS</span> first_sales_amount,<br>    sales_amount <span class="hljs-operator">-</span> <span class="hljs-built_in">FIRST_VALUE</span>(sales_amount) <span class="hljs-keyword">OVER</span> (<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> sales_date) <span class="hljs-keyword">AS</span> sales_difference<br><span class="hljs-keyword">FROM</span><br>    daily_sales;<br></code></pre></td></tr></table></figure>
+<p>结果可能如下：</p>
+<table>
+<thead>
+<tr>
+<th>sales_date</th>
+<th>sales_amount</th>
+<th>first_sales_amount</th>
+<th>sales_difference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2023-01-01</td>
+<td>100</td>
+<td>100</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2023-01-02</td>
+<td>150</td>
+<td>100</td>
+<td>50</td>
+</tr>
+<tr>
+<td>2023-01-03</td>
+<td>200</td>
+<td>100</td>
+<td>100</td>
+</tr>
+<tr>
+<td>2023-01-04</td>
+<td>180</td>
+<td>100</td>
+<td>80</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="4-2、LAST-VALUE-函数">4.2、<strong><code>LAST_VALUE()</code> 函数</strong></h4>
+<p><code>LAST_VALUE()</code> 函数返回窗口框架内最后一行的值。</p>
+<h5 id="语法：-4">语法：</h5>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-built_in">LAST_VALUE</span>(column_name) <span class="hljs-keyword">OVER</span> (<span class="hljs-keyword">PARTITION</span> <span class="hljs-keyword">BY</span> ... <span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> ... [<span class="hljs-keyword">ROWS</span> <span class="hljs-keyword">BETWEEN</span> ...])<br></code></pre></td></tr></table></figure>
+<ul>
+<li><strong><code>column_name</code></strong>：要访问的列。</li>
+<li><strong><code>PARTITION BY</code></strong>：可选，用于分组。</li>
+<li><strong><code>ORDER BY</code></strong>：指定窗口内的排序。</li>
+<li><strong><code>ROWS BETWEEN</code></strong>：可选，定义窗口框架的范围（默认为 <code>UNBOUNDED PRECEDING AND CURRENT ROW</code>）。</li>
+</ul>
+<h5 id="注意：">注意：</h5>
+<p>默认情况下，<code>LAST_VALUE()</code> 的窗口框架是 <code>UNBOUNDED PRECEDING AND CURRENT ROW</code>，这意味着它只会返回当前行之前的值。为了获取整个窗口的最后一个值，需要将窗口框架设置为 <code>UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING</code>。</p>
+<h5 id="应用场景：-4">应用场景：</h5>
+<ul>
+<li>计算每组中的最后一个值。</li>
+<li>分析趋势或提取边界值。</li>
+</ul>
+<h5 id="示例：-4">示例：</h5>
+<p>假设有一组每日销售数据，需要计算每天的销售额与最后一天的销售额的差值。</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">SQLSELECT<br>    sales_date,<br>    sales_amount,<br>    LAST_VALUE(sales_amount) <span class="hljs-keyword">OVER</span> (<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> sales_date <span class="hljs-keyword">ROWS</span> <span class="hljs-keyword">BETWEEN</span> <span class="hljs-keyword">UNBOUNDED</span> <span class="hljs-keyword">PRECEDING</span> <span class="hljs-keyword">AND</span> <span class="hljs-keyword">UNBOUNDED</span> <span class="hljs-keyword">FOLLOWING</span>) <span class="hljs-keyword">AS</span> last_sales_amount,<br>    LAST_VALUE(sales_amount) <span class="hljs-keyword">OVER</span> (<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> sales_date <span class="hljs-keyword">ROWS</span> <span class="hljs-keyword">BETWEEN</span> <span class="hljs-keyword">UNBOUNDED</span> <span class="hljs-keyword">PRECEDING</span> <span class="hljs-keyword">AND</span> <span class="hljs-keyword">UNBOUNDED</span> <span class="hljs-keyword">FOLLOWING</span>) - sales_amount <span class="hljs-keyword">AS</span> sales_difference<br><span class="hljs-keyword">FROM</span><br>    daily_sales;<br></code></pre></td></tr></table></figure>
+<p>结果可能如下：</p>
+<table>
+<thead>
+<tr>
+<th>sales_date</th>
+<th>sales_amount</th>
+<th>last_sales_amount</th>
+<th>sales_difference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2023-01-01</td>
+<td>100</td>
+<td>180</td>
+<td>80</td>
+</tr>
+<tr>
+<td>2023-01-02</td>
+<td>150</td>
+<td>180</td>
+<td>30</td>
+</tr>
+<tr>
+<td>2023-01-03</td>
+<td>200</td>
+<td>180</td>
+<td>-20</td>
+</tr>
+<tr>
+<td>2023-01-04</td>
+<td>180</td>
+<td>180</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="4-3、FIRST-VALUE-和-LAST-VALUE-的区别">4.3、<strong><code>FIRST_VALUE()</code> 和 <code>LAST_VALUE()</code> 的区别</strong></h4>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>作用</th>
+<th>默认窗口框架</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>FIRST_VALUE()</code></td>
+<td>返回窗口框架内第一行的值。</td>
+<td><code>UNBOUNDED PRECEDING AND CURRENT ROW</code></td>
+</tr>
+<tr>
+<td><code>LAST_VALUE()</code></td>
+<td>返回窗口框架内最后一行的值。</td>
+<td><code>UNBOUNDED PRECEDING AND CURRENT ROW</code></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="4-4、常见应用场景">4.4、<strong>常见应用场景</strong></h4>
+<ol>
+<li><strong>累积值计算</strong>：
+<ul>
+<li>使用 <code>FIRST_VALUE()</code> 计算从开始到当前行的累积值。</li>
+<li>使用 <code>LAST_VALUE()</code> 计算从当前行到结束的累积值。</li>
+</ul>
+</li>
+<li><strong>趋势分析</strong>：
+<ul>
+<li>使用 <code>FIRST_VALUE()</code> 和 <code>LAST_VALUE()</code> 分析数据的起始和结束趋势。</li>
+</ul>
+</li>
+<li><strong>边界值提取</strong>：
+<ul>
+<li>使用 <code>FIRST_VALUE()</code> 提取每组中的第一个值。</li>
+<li>使用 <code>LAST_VALUE()</code> 提取每组中的最后一个值。</li>
+</ul>
+</li>
+<li><strong>数据标准化</strong>：
+<ul>
+<li>使用 <code>FIRST_VALUE()</code> 和 <code>LAST_VALUE()</code> 将数据标准化到某个范围。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h4 id="4-5、总结">4.5、<strong>总结</strong></h4>
+<ul>
+<li><code>FIRST_VALUE()</code> 用于访问窗口框架内的第一个值，适合计算累积值或提取起始值。</li>
+<li><code>LAST_VALUE()</code> 用于访问窗口框架内的最后一个值，适合分析趋势或提取边界值。</li>
+<li>两者在累积值计算、趋势分析和边界值提取等场景中非常有用。如果需要分析数据的起始或结束趋势，<code>FIRST_VALUE()</code> 和 <code>LAST_VALUE()</code> 是强大的工具。</li>
+</ul>
+<h3 id="五、其他函数">五、其他函数</h3>
+<h4 id="5-1、NTH-VALUE-函数">5.1、<strong><code>NTH_VALUE()</code> 函数</strong></h4>
+<p><code>NTH_VALUE()</code> 函数用于返回窗口框架内第 N 行的值。</p>
+<h5 id="语法：-5">语法：</h5>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-built_in">NTH_VALUE</span>(column_name, N) <span class="hljs-keyword">OVER</span> (<span class="hljs-keyword">PARTITION</span> <span class="hljs-keyword">BY</span> ... <span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> ... [<span class="hljs-keyword">ROWS</span> <span class="hljs-keyword">BETWEEN</span> ...])<br></code></pre></td></tr></table></figure>
+<ul>
+<li><strong><code>column_name</code></strong>：要访问的列。</li>
+<li><strong><code>N</code></strong>：指定要返回的行号（例如，<code>1</code> 表示第一行，<code>2</code> 表示第二行，依此类推）。</li>
+<li><strong><code>PARTITION BY</code></strong>：可选，用于分组。</li>
+<li><strong><code>ORDER BY</code></strong>：指定窗口内的排序。</li>
+<li><strong><code>ROWS BETWEEN</code></strong>：可选，定义窗口框架的范围（默认为 <code>UNBOUNDED PRECEDING AND CURRENT ROW</code>）。</li>
+</ul>
+<h5 id="应用场景：-5">应用场景：</h5>
+<ul>
+<li>提取窗口框架内指定行的值。</li>
+<li>分析数据集中特定位置的值。</li>
+</ul>
+<h5 id="示例：-5">示例：</h5>
+<p>假设有一组每日销售数据，需要获取每天销售额的第二个值。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span><br>    sales_date,<br>    sales_amount,<br>    <span class="hljs-built_in">NTH_VALUE</span>(sales_amount, <span class="hljs-number">2</span>) <span class="hljs-keyword">OVER</span> (<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> sales_date) <span class="hljs-keyword">AS</span> second_sales_amount<br><span class="hljs-keyword">FROM</span><br>    daily_sales;<br></code></pre></td></tr></table></figure>
+<p>结果可能如下：</p>
+<table>
+<thead>
+<tr>
+<th>sales_date</th>
+<th>sales_amount</th>
+<th>second_sales_amount</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2023-01-01</td>
+<td>100</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>2023-01-02</td>
+<td>150</td>
+<td>150</td>
+</tr>
+<tr>
+<td>2023-01-03</td>
+<td>200</td>
+<td>150</td>
+</tr>
+<tr>
+<td>2023-01-04</td>
+<td>180</td>
+<td>150</td>
+</tr>
+</tbody>
+</table>
+<p>注意：如果窗口框架内没有第 N 行，<code>NTH_VALUE()</code> 会返回 <code>NULL</code>。</p>
+<hr>
+<h4 id="5-2、NTILE-函数">5.2、<strong><code>NTILE()</code> 函数</strong></h4>
+<p><code>NTILE()</code> 函数用于将数据分区划分为指定数量的桶（bucket），并为每一行分配一个桶号。</p>
+<h5 id="语法：-6">语法：</h5>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-built_in">NTILE</span>(N) <span class="hljs-keyword">OVER</span> (<span class="hljs-keyword">PARTITION</span> <span class="hljs-keyword">BY</span> ... <span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> ...)<br></code></pre></td></tr></table></figure>
+<ul>
+<li><strong><code>N</code></strong>：指定要划分的桶数。</li>
+<li><strong><code>PARTITION BY</code></strong>：可选，用于分组。</li>
+<li><strong><code>ORDER BY</code></strong>：指定窗口内的排序。</li>
+</ul>
+<h5 id="应用场景：-6">应用场景：</h5>
+<ul>
+<li>将数据划分为百分位数、四分位数等。</li>
+<li>数据分箱（binning）或分组。</li>
+</ul>
+<h5 id="示例：-6">示例：</h5>
+<p>假设有一组学生成绩数据，需要将成绩分为 4 个等级（四分位数）。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span><br>    student_id,<br>    score,<br>    <span class="hljs-built_in">NTILE</span>(<span class="hljs-number">4</span>) <span class="hljs-keyword">OVER</span> (<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> score) <span class="hljs-keyword">AS</span> quartile<br><span class="hljs-keyword">FROM</span><br>    student_scores;<br></code></pre></td></tr></table></figure>
+<p>结果可能如下：</p>
+<table>
+<thead>
+<tr>
+<th>student_id</th>
+<th>score</th>
+<th>quartile</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>50</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>60</td>
+<td>1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>70</td>
+<td>2</td>
+</tr>
+<tr>
+<td>4</td>
+<td>80</td>
+<td>3</td>
+</tr>
+<tr>
+<td>5</td>
+<td>90</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="5-3、NTH-VALUE-和-NTILE-的区别">5.3、<strong><code>NTH_VALUE()</code> 和 <code>NTILE()</code> 的区别</strong></h4>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>作用</th>
+<th>主要用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>NTH_VALUE()</code></td>
+<td>返回窗口框架内第 N 行的值。</td>
+<td>提取指定位置的值。</td>
+</tr>
+<tr>
+<td><code>NTILE()</code></td>
+<td>将数据划分为 N 个桶并分配桶号。</td>
+<td>数据分箱、百分位数或分组。</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="5-4、常见应用场景">5.4、<strong>常见应用场景</strong></h4>
+<h5 id="NTH-VALUE-的应用场景"><strong><code>NTH_VALUE()</code> 的应用场景</strong></h5>
+<ol>
+<li><strong>提取特定位置的值</strong>：
+<ul>
+<li>例如，获取某个月的第二高销售额或第三低温度。</li>
+</ul>
+</li>
+<li><strong>分析数据集中特定位置的值</strong>：
+<ul>
+<li>例如，找到某个时间段的中间值。</li>
+</ul>
+</li>
+<li><strong>数据填充或回填</strong>：
+<ul>
+<li>例如，用第 N 行的值填充缺失值。</li>
+</ul>
+</li>
+</ol>
+<h5 id="NTILE-的应用场景"><strong><code>NTILE()</code> 的应用场景</strong></h5>
+<ol>
+<li><strong>百分位数计算</strong>：
+<ul>
+<li>例如，将成绩分为 100 个百分位数。</li>
+</ul>
+</li>
+<li><strong>数据分箱（Binning）</strong>：
+<ul>
+<li>例如，将销售额分为高、中、低三组。</li>
+</ul>
+</li>
+<li><strong>分组分析</strong>：
+<ul>
+<li>例如，将用户活跃度分为 5 个等级。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h4 id="5-5、总结">5.5、<strong>总结</strong></h4>
+<ul>
+<li><strong><code>NTH_VALUE()</code></strong>：用于提取窗口框架内第 N 行的值，适合分析特定位置的数据。</li>
+<li><strong><code>NTILE()</code></strong>：用于将数据划分为指定数量的桶，适合数据分箱、百分位数计算或分组分析。</li>
+</ul>
+<p>如果需要提取特定位置的值，使用 <code>NTH_VALUE()</code>；如果需要将数据划分为多个组或桶，使用 <code>NTILE()</code>。两者在数据分析和处理中都非常有用，但应用场景不同。</p>
+<h3 id="六、开窗聚合函数">六、开窗聚合函数</h3>
+<p>以此数据表为例：<code>user</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs mysql">| id    | dname | ename  | salary |<br>| ----- | ----- | -----  | ------ |<br>| 1     | 研发部 | 张三    | 5000   |  <br>| 2     | 研发部 | 李四    | 6000   |  <br>| 3     | 研发部 | 王五    | 5000   | <br>| 4     | 研发部 | 赵四    | 8000   |  <br>| 5     | 销售部 | 卡尔    | 3000   | <br>| 6     | 销售部 | 可可    | 3000   | <br>| 7     | 销售部 | 丽丽    | 4000   | <br>| 8     | 销售部 | 楠楠    | 3000   | <br></code></pre></td></tr></table></figure>
+<h4 id="6-1、SUM-聚合函数-开窗函数">6.1、SUM()聚合函数 + 开窗函数</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs mysql">SELECT<br>    salary,<br>    sum(salary) over (order by id desc) as `total`<br>FROM user<br>ORDER BY id DESC;<br></code></pre></td></tr></table></figure>
+<p>结果：每行都是把之前的所有行加起来求和</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs mysql">| salary | total  |<br>| ------ | ------ |<br>| 3000   | 3000   |  <br>| 4000   | 7000   |  /* 7000 = 3000 + 4000 */<br>| 3000   | 10000  |  /* 10000 = 7000 + 3000 */<br>| 3000   | 13000  |  /* 以此类推 */<br>| 8000   | 21000  |  <br>| 5000   | 26000  |  <br>| 6000   | 32000  |  <br>| 5000   | 37000  |  <br></code></pre></td></tr></table></figure>
+<hr>
+<p>如果不加<code>order by</code>，每一行都会显示与排序字段相同的所有行求和的最终值，可以用来对比个人与总体的数据。【这次以部门分组，这样后面的求和就是此人所在组的总值】</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs mysql">SELECT<br>    dname,<br>    salary,<br>    sum(salary) over (PARTITION BY dname) as `sum`<br>FROM user<br></code></pre></td></tr></table></figure>
+<p>结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs mysql">| dname | salary | sum    |<br>| ----- | -----  | ------ |<br>| 研发部 | 5000   | 24000  |  <br>| 研发部 | 6000   | 24000  |  <br>| 研发部 | 5000   | 24000  | <br>| 研发部 | 8000   | 24000  |  <br>| 销售部 | 3000   | 10000  | <br>| 销售部 | 3000   | 10000  | <br>| 销售部 | 4000   | 10000  | <br>| 销售部 | 3000   | 10000  | <br></code></pre></td></tr></table></figure>
+<hr>
+<p>还可以指定求和范围：</p>
+<p><code>rows between unbounded preceding and current row</code> 这个就是从起始行到当前行</p>
+<p><code>rows between 3 preceding and current row</code> 这个就是从我的前3行开始到当前行</p>
+<p><code>rows between 3 preceding and 1 following</code> 这个就是从我的前3行开始到我的后一行</p>
+<p><code>rows between current and unbounded following</code> 这个就是从当前行到最后一行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs mysql">SELECT<br>    dname,<br>    salary,<br>    sum(salary) over (partition by dname order by dname rows between unbounded preceding and current row) as `sum`<br>FROM user<br></code></pre></td></tr></table></figure>
+<p>结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs mysql">| dname | salary | sum    |<br>| ----- | -----  | ------ |<br>| 研发部 | 5000   | 5000   |  <br>| 研发部 | 6000   | 11000  |  <br>| 研发部 | 5000   | 16000  | <br>| 研发部 | 8000   | 24000  |  <br>| 销售部 | 3000   | 30000  | <br>| 销售部 | 3000   | 60000  | <br>| 销售部 | 4000   | 10000  | <br>| 销售部 | 3000   | 13000  | <br></code></pre></td></tr></table></figure>
+<h4 id="6-2、AVG-聚合函数-开窗函数">6.2、AVG()聚合函数 + 开窗函数</h4>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span><br>    salary,<br>    <span class="hljs-built_in">avg</span>(salary) <span class="hljs-keyword">over</span> (<span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> id <span class="hljs-keyword">desc</span>) <span class="hljs-keyword">as</span> `avg`<br><span class="hljs-keyword">FROM</span> <span class="hljs-keyword">user</span><br><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> id <span class="hljs-keyword">DESC</span>;<br></code></pre></td></tr></table></figure>
+<p>结果：每行都是把之前的所有行加起来求平均值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs mysql">| salary | avg       |<br>| ------ | --------- |<br>| 3000   | 3000.0000 | <br>| 4000   | 3500.0000 |  /* 7000/2  ## (7000 = 4000 + 3000) */<br>| 3000   | 3333.3333 |  /* 10000/3 ## (10000 = 7000 + 3000) */<br>| 3000   | 3250.0000 |  /* 以此类推 */<br>| 8000   | 4200.0000 |  <br>| 5000   | 4333.3333 |  <br>| 6000   | 4571.4286 |  <br>| 5000   | 4625.0000 |  <br></code></pre></td></tr></table></figure>
+<h4 id="6-3、MIN-聚合函数-开窗函数">6.3、MIN()聚合函数 + 开窗函数</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs mysql">SELECT<br>    salary,<br>    min(salary) over (order by id desc) as `min`<br>FROM user<br>ORDER BY id DESC;<br></code></pre></td></tr></table></figure>
+<p>结果：每一行都与之前的所有行相比得出最小值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs mysql">| salary |  min  |<br>| ------ | ----- |<br>| 3000   | 3000  | <br>| 4000   | 3000  |  <br>| 3000   | 3000  | <br>| 3000   | 3000  | <br>| 8000   | 3000  |  <br>| 5000   | 3000  |  <br>| 6000   | 3000  | <br>| 5000   | 3000  |  <br></code></pre></td></tr></table></figure>
+<h4 id="6-4、MAX-聚合函数-开窗函数">6.4、MAX()聚合函数 + 开窗函数</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs mysql">SELECT<br>    salary,<br>    max(salary) over (order by id desc) as `max`<br>FROM user<br>ORDER BY id DESC;<br></code></pre></td></tr></table></figure>
+<p>结果：每一行都与之前的所有行相比得出最大值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs mysql">| salary |  max  |<br>| ------ | ----- |<br>| 3000   | 3000  | <br>| 4000   | 4000  |  <br>| 3000   | 4000  | <br>| 3000   | 4000  |  <br>| 8000   | 8000  |  <br>| 5000   | 8000  |  <br>| 6000   | 8000  | <br>| 5000   | 8000  | <br></code></pre></td></tr></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="category-chain-item">数据库</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/MySQL/" class="print-no-link">#MySQL</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>窗口函数</div>
+      <div>https://superlovelace.top/2025/02/27/窗口函数/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>棱境</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年2月27日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2025年3月1日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/03/01/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%86%E5%8C%BA/" title="数据库分区">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">数据库分区</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/02/24/idea%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90/" title="idea插件推荐">
+                        <span class="hidden-mobile">idea插件推荐</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="waline"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#waline', function() {
+      Fluid.utils.createCssLink('https://cdn.staticfile.org/waline/2.15.5/waline.min.css')
+      Fluid.utils.createScript('https://cdn.staticfile.org/waline/2.15.5/waline.min.js', function() {
+        var options = Object.assign(
+          {"serverURL":"waline.superlovelace.top","path":"window.location.pathname","meta":["nick","mail","link"],"requiredMeta":["nick"],"lang":"zh-CN","emoji":["https://unpkg.com/@waline/emojis@1.2.0/bilibili","https://unpkg.com/@waline/emojis@1.2.0/alus","https://unpkg.com/@waline/emojis@1.2.0/bmoji"],"dark":"html[data-user-color-scheme=\"dark\"]","wordLimit":0,"pageSize":10},
+          {
+            el: '#waline',
+            path: window.location.pathname
+          }
+        )
+        Waline.init(options);
+        Fluid.utils.waitElementVisible('#waline .vcontent', () => {
+          var imgSelector = '#waline .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <link rel="stylesheet" href="https://at.alicdn.com/t/c/font_4304126_jer9pua37ro.css"> <script src="https://kit.fontawesome.com/c7908fed97.js" crossorigin="anonymous"></script> <i class="fa-solid fa-heart fa-beat-fade" style="color: red;"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br> <p>版权所有 © 2022 - 2025 <a target="_blank" href="https://github.com/superlovelace">棱境</a>. 保留所有权利</p> <a style="text-decoration:none;color:skyblue;" href="https://travel.moe/go.html?travel=on" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank"><img src="https://travel.moe/images/icon/icon64.png" srcset="/img/loading.gif" lazyload style="width:24px;height:24px">异次元之旅</a> <br> <a href="https://icp.gov.moe/?keyword=20237774" target="_blank">萌ICP备20237774号</a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
