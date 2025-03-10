@@ -4644,6 +4644,9 @@ ntp配置文件查找命令：</p>
 <p>插件地址：<a href="https://plugins.jetbrains.com/plugin/7017-plantuml-integration">https://plugins.jetbrains.com/plugin/7017-plantuml-integration</a></p>
 <p>简介：支持 PlantUML 绘图，用于绘制 UML 图、流程图等。通过新建<code>PlantUML File</code>使用，格式类似效果类似<code>markdown</code>，一边是编写文字，一边是显示效果。启用此插件才有显示效果，默认是没有效果的。</p>
 <p>PlantUML官方操作文档：<a href="https://plantuml.com/zh/">https://plantuml.com/zh/</a></p>
+<h3 id="十二、OpenFeign-Assistant（FeignX）">十二、OpenFeign Assistant（FeignX）</h3>
+<p>github地址：<a href="https://github.com/Halfmoonly/feignx-plugin">https://github.com/Halfmoonly/feignx-plugin</a></p>
+<p>简介：方便从feign客户端跳转到请求的Controller接口方法</p>
 ]]></content>
       <categories>
         <category>插件推荐</category>
