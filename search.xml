@@ -2378,6 +2378,32 @@ CNAME	www	<a href="http://username.github.io">username.github.io</a></p>
       </tags>
   </entry>
   <entry>
+    <title>Maven BUILD FAILURE</title>
+    <url>/2025/03/11/Maven%E6%9E%84%E5%BB%BA%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="Maven-BUILD-FAILURE">Maven BUILD FAILURE</h2>
+<h3 id="详细异常：">详细异常：</h3>
+<figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell">[INFO] ------------------------&lt; com.heima:hmall-api &gt;-------------------------<br>[INFO] Building hmall-api 1.0.0<br>[INFO] --------------------------------[ jar ]---------------------------------<br>Downloading from alimaven: http://maven.aliyun.com/nexus/content/groups/public/com/heima/hmall/1.0.0/hmall-1.0.0.pom<br>[INFO] ------------------------------------------------------------------------<br>[INFO] BUILD FAILURE<br>[INFO] ------------------------------------------------------------------------<br>[INFO] Total time:  1.563 s<br>[INFO] Finished at: 2025-03-11T21:47:49+08:00<br>[INFO] ------------------------------------------------------------------------<br>[ERROR] Failed to execute goal on project hmall-api: Could not resolve dependencies for project com.heima:hmall-api:jar:1.0.0: Failed to collect dependencies at com.heima:hmall-common:jar:1.0.0: Failed to read artifact descriptor for com.heima:hmall-common:jar:1.0.0: Could not find artifact com.heima:hmall:pom:1.0.0 in alimaven (http://maven.aliyun.com/nexus/content/groups/public/) -&gt; [Help 1]<br>[ERROR] <br>[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.<br>[ERROR] Re-run Maven using the -X switch to enable full debug logging.<br>[ERROR] <br>[ERROR] For more information about the errors and possible solutions, please read the following articles:<br>[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/DependencyResolutionException<br><br>进程已结束，退出代码为 1<br></code></pre></td></tr></table></figure>
+<h3 id="原因总结：">原因总结：</h3>
+<h4 id="问题历程：">问题历程：</h4>
+<p>我是先安装了<code>common</code>模块到本地<code>Maven</code>仓库，这个模块是直接在子模块上构建并安装的。</p>
+<p><code>api</code>模块引用了<code>common</code>模块，但是再次构建<code>api</code>子模块是发生此异常。</p>
+<h4 id="异常分析：">异常分析：</h4>
+<p><code>Maven</code>需要先找到项目父模块，然后通过父模块找到子模块安装的信息。所以需要先在父模块进行一次<code>install</code>，让<code>Maven</code>仓库有此项目的父模块的信息，这样才能通过父模块找到子模块。</p>
+<h3 id="解决方法：">解决方法：</h3>
+<p>删除本地仓库已安装的数据，重新在父模块上执行<code>install</code>即可成功解决！之后再从子模块上构建也不会出现此类问题了。</p>
+<p><strong>成功安装示例：</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell">[INFO] --- maven-install-plugin:2.4:install (default-install) @ hmall-api ---<br>[INFO] Installing D:\home\hmall\hmall-api\target\hmall-api.jar to D:\repository\com\heima\hmall-api\1.0.0\hmall-api-1.0.0.jar<br>[INFO] Installing D:\home\hmall\hmall-api\pom.xml to D:\repository\com\heima\hmall-api\1.0.0\hmall-api-1.0.0.pom<br>[INFO] ------------------------------------------------------------------------<br>[INFO] Reactor Summary for hmall 1.0.0:<br>[INFO] <br>[INFO] hmall .............................................. SUCCESS [  0.592 s]<br>[INFO] hmall-common ....................................... SUCCESS [  3.135 s]<br>[INFO] hmall-api .......................................... SUCCESS [  1.446 s]<br>[INFO] ------------------------------------------------------------------------<br>[INFO] BUILD SUCCESS<br>[INFO] ------------------------------------------------------------------------<br>[INFO] Total time:  5.498 s<br>[INFO] Finished at: 2025-03-11T22:05:38+08:00<br>[INFO] ------------------------------------------------------------------------<br></code></pre></td></tr></table></figure>
+<hr>
+<p><strong>注：为防止安装了未完善的子模块，可以在父模块先把对应子模块的信息注释掉。</strong></p>
+]]></content>
+      <categories>
+        <category>问题解决</category>
+      </categories>
+      <tags>
+        <tag>Maven</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>归并排序（Merge Sort）</title>
     <url>/2023/10/05/MergeSort/</url>
     <content><![CDATA[<blockquote>
