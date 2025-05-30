@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://superlovelace.top/img/post/1021.png">
 <meta property="article:published_time" content="2025-02-20T12:39:19.000Z">
-<meta property="article:modified_time" content="2025-02-20T12:43:01.485Z">
+<meta property="article:modified_time" content="2025-05-30T08:21:30.385Z">
 <meta property="article:author" content="棱境">
 <meta property="article:tag" content="OpenFeign">
 <meta name="twitter:card" content="summary_large_image">
@@ -340,7 +340,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          5.9k 字
+          7k 字
         
       </span>
     
@@ -392,7 +392,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2025年2月20日 晚上
+                    本文最后更新于：2025年5月30日 下午
                   
                 
               </p>
@@ -410,7 +410,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.demo;<br><br><span class="hljs-keyword">import</span> org.springframework.boot.SpringApplication;<br><span class="hljs-keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;<br><span class="hljs-keyword">import</span> org.springframework.cloud.openfeign.EnableFeignClients;<br><br><span class="hljs-comment">// 开启OpenFeign</span><br><span class="hljs-meta">@EnableFeignClients</span><br><span class="hljs-meta">@SpringBootApplication</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Main</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        SpringApplication.run(Main.class, args);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <h3 id="三、编写OpenFeign客户端">三、编写<code>OpenFeign</code>客户端</h3>
 <p>这一步类似Mapper文件，只不过数据通过远程调用从其他模块获取。而不是单体中由<code>xml</code>文件写<code>SQL</code>语句直接沟通数据库。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.demo.feign;<br><br><span class="hljs-keyword">import</span> com.demo.feign.fallback.Rest02FallBack;<br><span class="hljs-keyword">import</span> org.springframework.cloud.openfeign.FeignClient;<br><span class="hljs-keyword">import</span> org.springframework.stereotype.Repository;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.GetMapping;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * OpenFeign客户端接口请求</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> peter</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@date</span> 2025/2/19</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@className</span> test02</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@packageName</span> com.demo.feign</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@description</span> 一个客户端中对应同一业务的所有请求</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@see</span></span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">@Repository</span><br><span class="hljs-meta">@FeignClient(value = &quot;test02&quot;,fallback = Rest02FallBack.class)</span><span class="hljs-comment">// 这里的value值是微服务的名称</span><br><span class="hljs-comment">//@FeignClient(value = &quot;test01&quot;,url = &quot;https://www.baidu.com&quot;) // 若是调用第三方的api，则需指定地址</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">Rest02</span> &#123;<br><br>    <span class="hljs-meta">@GetMapping(&quot;index&quot;)</span><br>    String <span class="hljs-title function_">test002</span><span class="hljs-params">()</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> org.springframework.cloud.openfeign.FeignClient;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.GetMapping;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.RequestParam;<br><br><span class="hljs-keyword">import</span> java.util.List;<br><br><span class="hljs-meta">@FeignClient(&quot;item-service&quot;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">ItemClient</span> &#123;<br><br>    <br>    <span class="hljs-meta">@GetMapping(&quot;/items&quot;)</span><br>    List&lt;ItemDTO&gt; <span class="hljs-title function_">queryItemByIds</span><span class="hljs-params">(<span class="hljs-meta">@RequestParam(&quot;ids&quot;)</span> Collection&lt;Long&gt; ids)</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 <h3 id="四、【可选】OpenFeign日志配置">四、【可选】<code>OpenFeign</code>日志配置</h3>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.demo.config;<br><br><span class="hljs-keyword">import</span> feign.Logger;<br><span class="hljs-keyword">import</span> org.springframework.context.annotation.Bean;<br><span class="hljs-keyword">import</span> org.springframework.context.annotation.Configuration;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * OpenFeign远程调用配置类</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> peter</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@date</span> 2025/2/20</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@description</span> TODO</span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">@Configuration</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">DefaultFeignConfig</span> &#123;<br><br>    <span class="hljs-comment">// 日志配置: 显示所有级别的日志</span><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-keyword">public</span> Logger.Level <span class="hljs-title function_">feignLogLevel</span><span class="hljs-params">()</span>&#123;<br>        <span class="hljs-keyword">return</span> Logger.Level.FULL;<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
 <h3 id="五、【可选】启用日志配置">五、【可选】启用日志配置</h3>
@@ -450,6 +450,62 @@
 <p>配置文件中开启<code>sentinel</code></p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">feign:</span><br>  <span class="hljs-attr">sentinel:</span><br>    <span class="hljs-attr">enabled:</span> <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>
 <p>这样把调用的服务停止，然后去调用就会获得兜底数据了。</p>
+<h3 id="测试">测试</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java">```<br><br>## 注意事项<br><br>### 传参问题<br><br><span class="hljs-number">1.</span> **OpenFeign 默认强制使用 POST**<br><br>- **即使你声明了 `<span class="hljs-meta">@GetMapping</span>`，OpenFeign 在某些情况下仍然会强制使用 POST**（特别是请求体非空时）。<br><br>- 示例：<br><br></code></pre></td></tr></table></figure>
+<p>Java@FeignClient(name = “service-name”)<br>
+public interface MyFeignClient {<br>
+@GetMapping(“/api/data”)  // 声明 GET<br>
+String fetchData(@RequestBody RequestObj request);  // 但用了 @RequestBody → 实际发 POST<br>
+}</p>
+  <figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs autohotkey"><br>  问题：`@RequestBody`会让` OpenFeign `强制用` POST`，即使方法标注`@GetMapping`。<br><br>### <span class="hljs-number">2</span>. **Spring Boot 自动匹配错误**<br><br>- 如果 **Controller 方法没有明确指定 `method = RequestMethod.GET`**，Spring 可能会错误匹配 POST 请求。<br><br>- 示例：<br><br>  ```Java<br>  @RestController<br>  public class MyController &#123;<br>      @RequestMapping(<span class="hljs-string">&quot;/api/data&quot;</span>)  // 没有指定 GET/POST<br>      public String getData() &#123;<br>          <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;data&quot;</span><span class="hljs-comment">;</span><br>      &#125;<br>  &#125;<br></code></pre></td></tr></table></figure>
+<p>问题：<code>@RequestMapping</code>默认支持GET、POST、PUT 等，如果 OpenFeign 误发 POST，Spring 仍然会处理，但可能不是你想要的。</p>
+<h3 id="3-OpenFeign-请求体问题">3. <strong>OpenFeign 请求体问题</strong></h3>
+<ul>
+<li>
+<p><strong>即使没有 <code>@RequestBody</code>，如果参数是复杂对象（非 <code>String</code>、<code>int</code> 等简单类型），OpenFeign 可能默认用 POST</strong>。</p>
+</li>
+<li>
+<p>示例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs Java"><span class="hljs-meta">@FeignClient(name = &quot;service-name&quot;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">MyFeignClient</span> &#123;<br>    <span class="hljs-meta">@GetMapping(&quot;/api/data&quot;)</span>  <span class="hljs-comment">// 声明 GET</span><br>    String <span class="hljs-title function_">fetchData</span><span class="hljs-params">(QueryParams params)</span>;  <span class="hljs-comment">// 参数是对象 → OpenFeign 可能用 POST</span><br>&#125;<br></code></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="其他情况：">其他情况：</h3>
+<table>
+<thead>
+<tr>
+<th>情况</th>
+<th>客户端 OpenFeign</th>
+<th>服务端 Spring MVC</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>不加注解</strong></td>
+<td><code>fetchData(Long id)</code></td>
+<td><code>getData(Long id)</code></td>
+<td>❌ OpenFeign 默认用 POST</td>
+</tr>
+<tr>
+<td><strong>加 <code>@RequestParam</code></strong></td>
+<td><code>fetchData(@RequestParam Long id)</code></td>
+<td><code>getData(@RequestParam Long id)</code></td>
+<td>✅ GET + 查询参数</td>
+</tr>
+<tr>
+<td><strong>对象参数</strong></td>
+<td><code>fetchData(@SpringQueryMap FilterParams params)</code></td>
+<td><code>getData(FilterParams params)</code></td>
+<td>✅ GET + 查询参数</td>
+</tr>
+</tbody>
+</table>
+<h4 id="关键点"><strong>关键点</strong></h4>
+<ol>
+<li><strong>OpenFeign 的 GET 请求参数必须显式加 <code>@RequestParam</code></strong>，否则会被当成 Body 数据，强制用 POST。</li>
+<li><strong>对象参数要用 <code>@SpringQueryMap</code></strong>，避免默认的 <code>@RequestBody</code> 行为。</li>
+<li><strong>服务端 Controller 也要保持一致</strong>，避免混淆。</li>
+</ol>
 
                 
               </div>
@@ -514,7 +570,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2025年2月20日</div>
+          <div>2025年5月30日</div>
         </div>
       
       
