@@ -16,26 +16,26 @@
   <meta name="author" content="棱境">
   <meta name="keywords" content="棱境,superlovelace,超爱蕾丝,超爱蕾丝个人博客,超爱蕾丝博客站点,棱境的个人博客,SuperLovelace,superlovelace博客站点,superlovelace个人博客,SuperLovelace博客站点,SuperLovelace个人博客，四月黎明，四月黎明博客站点">
   
-    <meta name="description" content="当需要在项目启动时，自动创建对应的数据库表结构和数据时。以前都是通过实现&#96;CommandLineRunner&#96;的子线程，通过调用编写的&#96;mapper&#96;文件执行对应的&#96;sql&#96;语句。但这样太繁琐了，所以今天就推荐&#96;liquibase&#96;来进行数据库初始化和&#96;sql&#96;文件的版本管理。">
+    <meta name="description" content="当需要管理访问记录时，就难免需要用到ip地址查询来确定访问者大致来源。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数据库初始化工具">
-<meta property="og:url" content="https://superlovelace.top/2025/06/23/liquibase%E5%88%9D%E5%A7%8B%E5%8C%96%E6%95%B0%E6%8D%AE%E5%BA%93/index.html">
+<meta property="og:title" content="IP地址查询工具">
+<meta property="og:url" content="https://superlovelace.top/2025/06/24/ip%E5%9C%B0%E5%9D%80%E6%9F%A5%E8%AF%A2%E5%B7%A5%E5%85%B7/index.html">
 <meta property="og:site_name" content="四月黎明 | 棱境的个人博客站点">
-<meta property="og:description" content="当需要在项目启动时，自动创建对应的数据库表结构和数据时。以前都是通过实现&#96;CommandLineRunner&#96;的子线程，通过调用编写的&#96;mapper&#96;文件执行对应的&#96;sql&#96;语句。但这样太繁琐了，所以今天就推荐&#96;liquibase&#96;来进行数据库初始化和&#96;sql&#96;文件的版本管理。">
+<meta property="og:description" content="当需要管理访问记录时，就难免需要用到ip地址查询来确定访问者大致来源。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://superlovelace.top/img/post/1010.jpg">
-<meta property="article:published_time" content="2025-06-23T13:24:31.000Z">
-<meta property="article:modified_time" content="2025-06-23T15:13:08.726Z">
+<meta property="og:image" content="https://superlovelace.top/img/post/1011.jpg">
+<meta property="article:published_time" content="2025-06-24T02:39:17.000Z">
+<meta property="article:modified_time" content="2025-06-24T02:50:49.261Z">
 <meta property="article:author" content="棱境">
-<meta property="article:tag" content="liquibase">
+<meta property="article:tag" content="ip">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://superlovelace.top/img/post/1010.jpg">
+<meta name="twitter:image" content="https://superlovelace.top/img/post/1011.jpg">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>数据库初始化工具 - 四月黎明 | 棱境的个人博客站点</title>
+  <title>IP地址查询工具 - 四月黎明 | 棱境的个人博客站点</title>
   
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -311,7 +311,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="数据库初始化工具"></span>
+            <span id="subtitle" data-typed-text="IP地址查询工具"></span>
           
           <h1></h1>
         </div>
@@ -328,8 +328,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-06-23 21:24" pubdate>
-          2025年6月23日 晚上
+        <time datetime="2025-06-24 10:39" pubdate>
+          2025年6月24日 上午
         </time>
       </span>
     
@@ -340,7 +340,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.4k 字
+          4.1k 字
         
       </span>
     
@@ -387,12 +387,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">数据库初始化工具</h1>
+            <h1 id="seo-header">IP地址查询工具</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2025年6月23日 晚上
+                    本文最后更新于：2025年6月24日 上午
                   
                 
               </p>
@@ -400,22 +400,27 @@
             
               <div class="markdown-body">
                 
-                <h2 id="数据库初始化工具">数据库初始化工具</h2>
-<p>当需要在项目启动时，自动创建对应的数据库表结构和数据时。以前都是通过实现<code>CommandLineRunner</code>的子线程，通过调用编写的<code>mapper</code>文件执行对应的<code>sql</code>语句。但这样太繁琐了，所以今天就推荐<code>liquibase</code>来进行数据库初始化和<code>sql</code>文件的版本管理。</p>
-<h3 id="依赖">依赖</h3>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- 用于初始化数据库表和数据 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.liquibase<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>liquibase-core<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
-<h3 id="配置">配置</h3>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">spring:</span><br>	<span class="hljs-comment"># 数据库正常配</span><br>    <span class="hljs-attr">datasource:</span><br>        <span class="hljs-attr">type:</span> <span class="hljs-string">com.zaxxer.hikari.HikariDataSource</span><br>        <span class="hljs-attr">driver-class-name:</span> <span class="hljs-string">com.mysql.cj.jdbc.Driver</span><br>        <span class="hljs-attr">url:</span> <span class="hljs-string">jdbc:mysql://localhost:3306/security_auth?useUnicode=true&amp;characterEncoding=utf-8&amp;zeroDateTimeBehavior=convertToNull&amp;transformedBitIsBoolean=true&amp;allowMultiQueries=true&amp;useSSL=false&amp;allowPublicKeyRetrieval=true</span><br>        <span class="hljs-attr">username:</span> <span class="hljs-string">root</span><br>        <span class="hljs-attr">password:</span> <span class="hljs-number">123456</span><br>    <span class="hljs-attr">liquibase:</span><br>        <span class="hljs-attr">enabled:</span> <span class="hljs-literal">true</span><br>        <span class="hljs-comment"># 主变更日志文件</span><br>        <span class="hljs-attr">change-log:</span> <span class="hljs-string">classpath:db/changelog/db.changelog-master.yaml</span> <br>        <span class="hljs-comment"># 是否在更新时回滚</span><br>        <span class="hljs-attr">test-rollback-on-update:</span> <span class="hljs-literal">false</span> <br><br>        <span class="hljs-comment"># 若label与contexts同时配置，则需要执行的sql标识全部匹配才会执行</span><br>        <span class="hljs-attr">labels:</span> <span class="hljs-string">release_1.0</span> <span class="hljs-comment"># 指定启用的sql标签,对应labels:release_1.0</span><br>        <span class="hljs-attr">contexts:</span> <span class="hljs-string">dev</span> <span class="hljs-comment"># 指定启用的sql上下文环境，对应context:dev</span><br></code></pre></td></tr></table></figure>
-<h3 id="其他文件">其他文件</h3>
-<p><code>db/changelog/db.change-master.yaml</code></p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-comment"># db.changelog-master.yaml</span><br><span class="hljs-attr">databaseChangeLog:</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-attr">includeAll:</span><br>      <span class="hljs-attr">path:</span> <span class="hljs-string">classpath:/db/migration/</span> <span class="hljs-comment"># SQL 脚本存放目录</span><br>      <span class="hljs-attr">relativeToChangelogFile:</span> <span class="hljs-literal">false</span><br></code></pre></td></tr></table></figure>
-<p><code>sql</code>文件目录：<code>/db/migration/</code></p>
-<p><code>V1_InitDatabase.sql</code></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-comment">-- liquibase formatted sql</span><br><br><span class="hljs-comment">-- changeset peter:1 labels:release_1.0 context:dev</span><br><span class="hljs-comment">-- comment: 初始化用户表</span><br><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> IF <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">EXISTS</span> sys_user (<br>    id <span class="hljs-type">BIGINT</span> <span class="hljs-keyword">PRIMARY</span> KEY AUTO_INCREMENT COMMENT <span class="hljs-string">&#x27;用户ID&#x27;</span>,<br>    username <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">255</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> COMMENT <span class="hljs-string">&#x27;用户名&#x27;</span>,  <br>    password <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">512</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> COMMENT <span class="hljs-string">&#x27;密码&#x27;</span>,      <br>    status  TINYINT <span class="hljs-keyword">DEFAULT</span> <span class="hljs-number">0</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> COMMENT <span class="hljs-string">&#x27;状态&#x27;</span>,   <br>    version <span class="hljs-type">INTEGER</span>  <span class="hljs-keyword">DEFAULT</span> <span class="hljs-number">0</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> COMMENT <span class="hljs-string">&#x27;版本号&#x27;</span>, <br>    is_deleted TINYINT <span class="hljs-keyword">DEFAULT</span> <span class="hljs-number">0</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> COMMENT <span class="hljs-string">&#x27;逻辑删除&#x27;</span><br>);<br><span class="hljs-comment">-- rollback DROP TABLE sys_user;</span><br><br><span class="hljs-comment">-- changeset peter:2 labels:release_1.0 context:dev</span><br><span class="hljs-comment">-- comment: 初始化角色表</span><br><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> IF <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">EXISTS</span> sys_role (<br>    id <span class="hljs-type">BIGINT</span> <span class="hljs-keyword">PRIMARY</span> KEY AUTO_INCREMENT COMMENT <span class="hljs-string">&#x27;角色ID&#x27;</span>,<br>    role_code <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">255</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> COMMENT <span class="hljs-string">&#x27;角色代码&#x27;</span>,<br>    role_name <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">255</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> COMMENT <span class="hljs-string">&#x27;角色名&#x27;</span><br>);<br><span class="hljs-comment">-- rollback DROP TABLE sys_role;</span><br><br><span class="hljs-comment">-- changeset peter:3 labels:release_1.0 context:dev</span><br><span class="hljs-comment">-- comment: 初始化用户角色关系表</span><br><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> IF <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">EXISTS</span> sys_user_role (<br>     user_id <span class="hljs-type">BIGINT</span> COMMENT <span class="hljs-string">&#x27;用户ID&#x27;</span>,<br>     role_id <span class="hljs-type">BIGINT</span> COMMENT <span class="hljs-string">&#x27;角色ID&#x27;</span><br>);<br><span class="hljs-comment">-- rollback DROP TABLE sys_user_role;</span><br><br><span class="hljs-comment">-- changeset peter:4 labels:release_1.0 context:dev</span><br><span class="hljs-comment">-- comment: 初始化菜单表</span><br><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> IF <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">EXISTS</span> sys_menu (<br>    id <span class="hljs-type">BIGINT</span> <span class="hljs-keyword">PRIMARY</span> KEY AUTO_INCREMENT COMMENT <span class="hljs-string">&#x27;角色ID&#x27;</span>,<br>    parent_id <span class="hljs-type">BIGINT</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> COMMENT <span class="hljs-string">&#x27;父级菜单ID&#x27;</span>,<br>    name <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">255</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> COMMENT <span class="hljs-string">&#x27;菜单名称&#x27;</span>,<br>    type <span class="hljs-type">INTEGER</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> COMMENT <span class="hljs-string">&#x27;菜单类型&#x27;</span>,<br>    component <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">255</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> COMMENT <span class="hljs-string">&#x27;前端组件&#x27;</span>,<br>    perms <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">255</span>) COMMENT <span class="hljs-string">&#x27;权限标识&#x27;</span>,<br>    icon <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">255</span>) COMMENT <span class="hljs-string">&#x27;菜单图标&#x27;</span>,<br>    sort_value <span class="hljs-type">INTEGER</span> COMMENT <span class="hljs-string">&#x27;排序&#x27;</span>,<br>    path <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">255</span>) COMMENT <span class="hljs-string">&#x27;菜单路径&#x27;</span>,<br>    status <span class="hljs-type">INTEGER</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> COMMENT <span class="hljs-string">&#x27;菜单状态(0：禁止，1：正常)&#x27;</span>,<br>    create_time DATETIME <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> COMMENT <span class="hljs-string">&#x27;创建时间&#x27;</span>,<br>    update_time DATETIME <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> COMMENT <span class="hljs-string">&#x27;更新时间&#x27;</span>,<br>    is_deleted TINYINT <span class="hljs-keyword">DEFAULT</span> <span class="hljs-number">0</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> COMMENT <span class="hljs-string">&#x27;逻辑删除&#x27;</span><br>);<br><span class="hljs-comment">-- rollback DROP TABLE sys_menu;</span><br><br><span class="hljs-comment">-- changeset peter:5 labels:release_1.0 context:dev</span><br><span class="hljs-comment">-- comment: 初始化角色菜单关系表</span><br><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> IF <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">EXISTS</span> sys_role_menu (<br>     role_id <span class="hljs-type">BIGINT</span> COMMENT <span class="hljs-string">&#x27;角色ID&#x27;</span>,<br>     menu_id <span class="hljs-type">BIGINT</span> COMMENT <span class="hljs-string">&#x27;菜单ID&#x27;</span><br>);<br><span class="hljs-comment">-- rollback DROP TABLE sys_role_menu;</span><br></code></pre></td></tr></table></figure>
-<h3 id="注意事项">注意事项</h3>
-<p><code>liquibase</code>在项目启动后会在数据库创建对应的两个表：</p>
-<p><code>databasechangelog</code>：用来记录<code>sql</code>文件执行信息。例如：当执行过<code>V1_InitDatabase.sql</code>后，若修改此文件内容，可能会因与数据库记录的已执行文件信息不一致而报错。若仅是测试学习，可直接将对应的记录信息删除，让其重新记录。所以尽量确认无误后，再启动项目执行。</p>
-<p><code>databasechangeloglock</code>：用来锁定</p>
+                <h2 id="IP地址查询工具">IP地址查询工具</h2>
+<p>当需要管理访问记录时，就难免需要用到ip地址查询来确定访问者大致来源。</p>
+<h3 id="太平洋网络IP地址查询Web接口【推荐】">太平洋网络IP地址查询Web接口【推荐】</h3>
+<p>官方地址：<a target="_blank" rel="noopener" href="https://whois.pconline.com.cn/">https://whois.pconline.com.cn/</a></p>
+<p>请求示例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html">https://whois.pconline.com.cn/ipJson.jsp?json=true&amp;ip=192.168.100.12<br></code></pre></td></tr></table></figure>
+<h3 id="IP-API">IP-API</h3>
+<p><strong>免费只限于非商用！</strong></p>
+<p>官方地址：<a target="_blank" rel="noopener" href="https://ip-api.com/">https://ip-api.com/</a></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><code class="hljs html">http://ip-api.com/json/24.48.0.1<br><br>响应信息：<br>&#123;<br>  &quot;query&quot;: &quot;24.48.0.1&quot;, // 查询的ip<br>  &quot;status&quot;: &quot;success&quot;, // 查询状态<br>  &quot;country&quot;: &quot;Canada&quot;, // 所属国家<br>  &quot;countryCode&quot;: &quot;CA&quot;, // 国家代码<br>  &quot;region&quot;: &quot;QC&quot;, // 地区代码<br>  &quot;regionName&quot;: &quot;Quebec&quot;, // 地区<br>  &quot;city&quot;: &quot;Montreal&quot;, // 城市<br>  &quot;zip&quot;: &quot;H1L&quot;, // 邮政编码<br>  &quot;lat&quot;: 45.6026, // 经度<br>  &quot;lon&quot;: -73.5167, // 纬度<br>  &quot;timezone&quot;: &quot;America/Toronto&quot;, // 时区<br>  &quot;isp&quot;: &quot;Le Groupe Videotron Ltee&quot;, // 互联网服务提供商(简称)<br>  &quot;org&quot;: &quot;Videotron Ltee&quot;, // 互联网服务提供商(全称)<br>  &quot;as&quot;: &quot;AS5769 Videotron Ltee&quot; // <br>&#125;<br><br>更完整的请求：<br>http://ip-api.com/json/112.8.54.253?fields=66846719&amp;lang=zh-CN<br>响应：<br>&#123;<br>  &quot;status&quot;: &quot;success&quot;, // 查询状态<br>  &quot;continent&quot;: &quot;亚洲&quot;, // 所属大陆<br>  &quot;continentCode&quot;: &quot;AS&quot;, // 大陆代码（双字母）<br>  &quot;country&quot;: &quot;中国&quot;, // 所属国家<br>  &quot;countryCode&quot;: &quot;CN&quot;, // 国家代码<br>  &quot;region&quot;: &quot;SD&quot;, // 地区/省份代码<br>  &quot;regionName&quot;: &quot;山东&quot;, // 地区/省份<br>  &quot;city&quot;: &quot;济南市&quot;, // 城市<br>  &quot;district&quot;: &quot;&quot;, // 城市的分区<br>  &quot;zip&quot;: &quot;250000&quot;, // 邮政编码<br>  &quot;lat&quot;: 36.6683, // 经度<br>  &quot;lon&quot;: 117.021, // 纬度<br>  &quot;timezone&quot;: &quot;Asia/Shanghai&quot;, // 时区<br>  &quot;offset&quot;: 28800, // 时区 UTC DST 偏移量（秒）<br>  &quot;currency&quot;: &quot;CNY&quot;, // 本国货币<br>  &quot;isp&quot;: &quot;China Mobile&quot;, // ISP 互联网服务提供商(简称)<br>  &quot;org&quot;: &quot;China Mobile Communications Corporation&quot;, // 互联网服务提供商组织(全称)<br>  &quot;as&quot;: &quot;AS24444 Shandong Mobile Communication Company Limited&quot;, // 互联网服务提供商编号和组织<br>  &quot;asname&quot;: &quot;CMNET-V4shandong-AS-AP&quot;, // AS 名称<br>  &quot;reverse&quot;: &quot;&quot;, // IP 的反向 DNS（可以延迟响应）<br>  &quot;mobile&quot;: true, // 移动（蜂窝）连接<br>  &quot;proxy&quot;: false, // 代理、VPN 或 Tor 出口地址<br>  &quot;hosting&quot;: false, // 托管、托管或数据中心<br>  &quot;query&quot;: &quot;112.8.54.253&quot; // 用于查询的 IP<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="IPinfo">IPinfo</h3>
+<p>可商用，精简版无限次请求，但是地区属性较少。</p>
+<p>官方地址：<a target="_blank" rel="noopener" href="https://ipinfo.io/">https://ipinfo.io/</a></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs html">https://ipinfo.io/8.8.8.8/json<br><br>响应：<br>&#123;<br>  &quot;ip&quot;: &quot;8.8.8.8&quot;,<br>  &quot;hostname&quot;: &quot;dns.google&quot;,<br>  &quot;city&quot;: &quot;Mountain View&quot;,<br>  &quot;region&quot;: &quot;California&quot;,<br>  &quot;country&quot;: &quot;US&quot;,<br>  &quot;loc&quot;: &quot;37.4056,-122.0775&quot;,<br>  &quot;org&quot;: &quot;AS15169 Google LLC&quot;,<br>  &quot;postal&quot;: &quot;94043&quot;,<br>  &quot;timezone&quot;: &quot;America/Los_Angeles&quot;,<br>  &quot;readme&quot;: &quot;https://ipinfo.io/missingauth&quot;,<br>  &quot;anycast&quot;: true<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="ipapi">ipapi</h3>
+<p>官方地址：<a target="_blank" rel="noopener" href="https://ipapi.co/">https://ipapi.co/</a></p>
+<p>免费版30 000次每月，文章具有时效性，详情请看官网政策。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs html">https://ipapi.co/8.8.8.8/json/<br><br>响应：<br>&#123;<br>    &quot;ip&quot;: &quot;8.8.8.8&quot;,<br>    &quot;network&quot;: &quot;8.8.8.0/24&quot;,<br>    &quot;version&quot;: &quot;IPv4&quot;,<br>    &quot;city&quot;: &quot;Mountain View&quot;,<br>    &quot;region&quot;: &quot;California&quot;,<br>    &quot;region_code&quot;: &quot;CA&quot;,<br>    &quot;country&quot;: &quot;US&quot;,<br>    &quot;country_name&quot;: &quot;United States&quot;,<br>    &quot;country_code&quot;: &quot;US&quot;,<br>    &quot;country_code_iso3&quot;: &quot;USA&quot;,<br>    &quot;country_capital&quot;: &quot;Washington&quot;,<br>    &quot;country_tld&quot;: &quot;.us&quot;,<br>    &quot;continent_code&quot;: &quot;NA&quot;,<br>    &quot;in_eu&quot;: false,<br>    &quot;postal&quot;: &quot;94043&quot;,<br>    &quot;latitude&quot;: 37.42301,<br>    &quot;longitude&quot;: -122.083352,<br>    &quot;timezone&quot;: &quot;America/Los_Angeles&quot;,<br>    &quot;utc_offset&quot;: &quot;-0700&quot;,<br>    &quot;country_calling_code&quot;: &quot;+1&quot;,<br>    &quot;currency&quot;: &quot;USD&quot;,<br>    &quot;currency_name&quot;: &quot;Dollar&quot;,<br>    &quot;languages&quot;: &quot;en-US,es-US,haw,fr&quot;,<br>    &quot;country_area&quot;: 9629091.0,<br>    &quot;country_population&quot;: 327167434,<br>    &quot;asn&quot;: &quot;AS15169&quot;,<br>    &quot;org&quot;: &quot;GOOGLE&quot;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="开源离线IP地址定位数据管理框架">开源离线IP地址定位数据管理框架</h3>
+<p>官方地址：<a target="_blank" rel="noopener" href="https://ip2region.net/">https://ip2region.net/</a></p>
+<p>需要自行集成后调用本地文件数据库使用</p>
 
                 
               </div>
@@ -434,7 +439,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%9D%E5%A7%8B%E5%8C%96/" class="category-chain-item">数据库初始化</a>
+  <a href="/categories/%E5%B7%A5%E5%85%B7%E7%B1%BB/" class="category-chain-item">工具类</a>
   
   
 
@@ -449,7 +454,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/liquibase/" class="print-no-link">#liquibase</a>
+        <a href="/tags/ip/" class="print-no-link">#ip</a>
       
     </div>
   
@@ -461,8 +466,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>数据库初始化工具</div>
-      <div>https://superlovelace.top/2025/06/23/liquibase初始化数据库/</div>
+      <div>IP地址查询工具</div>
+      <div>https://superlovelace.top/2025/06/24/ip地址查询工具/</div>
     </div>
     <div class="license-meta">
       
@@ -474,13 +479,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年6月23日</div>
+          <div>2025年6月24日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2025年6月23日</div>
+          <div>2025年6月24日</div>
         </div>
       
       
@@ -523,18 +528,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/06/24/ip%E5%9C%B0%E5%9D%80%E6%9F%A5%E8%AF%A2%E5%B7%A5%E5%85%B7/" title="IP地址查询工具">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">IP地址查询工具</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/06/20/Guava%E5%AE%9E%E7%8E%B0%E6%8E%A5%E5%8F%A3%E9%99%90%E6%B5%81/" title="Guava实现接口限流">
-                        <span class="hidden-mobile">Guava实现接口限流</span>
+                      <a href="/2025/06/23/liquibase%E5%88%9D%E5%A7%8B%E5%8C%96%E6%95%B0%E6%8D%AE%E5%BA%93/" title="数据库初始化工具">
+                        <span class="hidden-mobile">数据库初始化工具</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

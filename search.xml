@@ -5574,6 +5574,38 @@ ntp配置文件查找命令：</p>
       </tags>
   </entry>
   <entry>
+    <title>IP地址查询工具</title>
+    <url>/2025/06/24/ip%E5%9C%B0%E5%9D%80%E6%9F%A5%E8%AF%A2%E5%B7%A5%E5%85%B7/</url>
+    <content><![CDATA[<h2 id="IP地址查询工具">IP地址查询工具</h2>
+<p>当需要管理访问记录时，就难免需要用到ip地址查询来确定访问者大致来源。</p>
+<h3 id="太平洋网络IP地址查询Web接口【推荐】">太平洋网络IP地址查询Web接口【推荐】</h3>
+<p>官方地址：<a href="https://whois.pconline.com.cn/">https://whois.pconline.com.cn/</a></p>
+<p>请求示例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html">https://whois.pconline.com.cn/ipJson.jsp?json=true&amp;ip=192.168.100.12<br></code></pre></td></tr></table></figure>
+<h3 id="IP-API">IP-API</h3>
+<p><strong>免费只限于非商用！</strong></p>
+<p>官方地址：<a href="https://ip-api.com/">https://ip-api.com/</a></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html">http://ip-api.com/json/24.48.0.1<br><br>响应信息：<br>&#123;<br>  &quot;query&quot;: &quot;24.48.0.1&quot;, // 查询的ip<br>  &quot;status&quot;: &quot;success&quot;, // 查询状态<br>  &quot;country&quot;: &quot;Canada&quot;, // 所属国家<br>  &quot;countryCode&quot;: &quot;CA&quot;, // 国家代码<br>  &quot;region&quot;: &quot;QC&quot;, // 地区代码<br>  &quot;regionName&quot;: &quot;Quebec&quot;, // 地区<br>  &quot;city&quot;: &quot;Montreal&quot;, // 城市<br>  &quot;zip&quot;: &quot;H1L&quot;, // 邮政编码<br>  &quot;lat&quot;: 45.6026, // 经度<br>  &quot;lon&quot;: -73.5167, // 纬度<br>  &quot;timezone&quot;: &quot;America/Toronto&quot;, // 时区<br>  &quot;isp&quot;: &quot;Le Groupe Videotron Ltee&quot;, // 互联网服务提供商(简称)<br>  &quot;org&quot;: &quot;Videotron Ltee&quot;, // 互联网服务提供商(全称)<br>  &quot;as&quot;: &quot;AS5769 Videotron Ltee&quot; // <br>&#125;<br><br>更完整的请求：<br>http://ip-api.com/json/112.8.54.253?fields=66846719&amp;lang=zh-CN<br>响应：<br>&#123;<br>  &quot;status&quot;: &quot;success&quot;, // 查询状态<br>  &quot;continent&quot;: &quot;亚洲&quot;, // 所属大陆<br>  &quot;continentCode&quot;: &quot;AS&quot;, // 大陆代码（双字母）<br>  &quot;country&quot;: &quot;中国&quot;, // 所属国家<br>  &quot;countryCode&quot;: &quot;CN&quot;, // 国家代码<br>  &quot;region&quot;: &quot;SD&quot;, // 地区/省份代码<br>  &quot;regionName&quot;: &quot;山东&quot;, // 地区/省份<br>  &quot;city&quot;: &quot;济南市&quot;, // 城市<br>  &quot;district&quot;: &quot;&quot;, // 城市的分区<br>  &quot;zip&quot;: &quot;250000&quot;, // 邮政编码<br>  &quot;lat&quot;: 36.6683, // 经度<br>  &quot;lon&quot;: 117.021, // 纬度<br>  &quot;timezone&quot;: &quot;Asia/Shanghai&quot;, // 时区<br>  &quot;offset&quot;: 28800, // 时区 UTC DST 偏移量（秒）<br>  &quot;currency&quot;: &quot;CNY&quot;, // 本国货币<br>  &quot;isp&quot;: &quot;China Mobile&quot;, // ISP 互联网服务提供商(简称)<br>  &quot;org&quot;: &quot;China Mobile Communications Corporation&quot;, // 互联网服务提供商组织(全称)<br>  &quot;as&quot;: &quot;AS24444 Shandong Mobile Communication Company Limited&quot;, // 互联网服务提供商编号和组织<br>  &quot;asname&quot;: &quot;CMNET-V4shandong-AS-AP&quot;, // AS 名称<br>  &quot;reverse&quot;: &quot;&quot;, // IP 的反向 DNS（可以延迟响应）<br>  &quot;mobile&quot;: true, // 移动（蜂窝）连接<br>  &quot;proxy&quot;: false, // 代理、VPN 或 Tor 出口地址<br>  &quot;hosting&quot;: false, // 托管、托管或数据中心<br>  &quot;query&quot;: &quot;112.8.54.253&quot; // 用于查询的 IP<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="IPinfo">IPinfo</h3>
+<p>可商用，精简版无限次请求，但是地区属性较少。</p>
+<p>官方地址：<a href="https://ipinfo.io/">https://ipinfo.io/</a></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html">https://ipinfo.io/8.8.8.8/json<br><br>响应：<br>&#123;<br>  &quot;ip&quot;: &quot;8.8.8.8&quot;,<br>  &quot;hostname&quot;: &quot;dns.google&quot;,<br>  &quot;city&quot;: &quot;Mountain View&quot;,<br>  &quot;region&quot;: &quot;California&quot;,<br>  &quot;country&quot;: &quot;US&quot;,<br>  &quot;loc&quot;: &quot;37.4056,-122.0775&quot;,<br>  &quot;org&quot;: &quot;AS15169 Google LLC&quot;,<br>  &quot;postal&quot;: &quot;94043&quot;,<br>  &quot;timezone&quot;: &quot;America/Los_Angeles&quot;,<br>  &quot;readme&quot;: &quot;https://ipinfo.io/missingauth&quot;,<br>  &quot;anycast&quot;: true<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="ipapi">ipapi</h3>
+<p>官方地址：<a href="https://ipapi.co/">https://ipapi.co/</a></p>
+<p>免费版30 000次每月，文章具有时效性，详情请看官网政策。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html">https://ipapi.co/8.8.8.8/json/<br><br>响应：<br>&#123;<br>    &quot;ip&quot;: &quot;8.8.8.8&quot;,<br>    &quot;network&quot;: &quot;8.8.8.0/24&quot;,<br>    &quot;version&quot;: &quot;IPv4&quot;,<br>    &quot;city&quot;: &quot;Mountain View&quot;,<br>    &quot;region&quot;: &quot;California&quot;,<br>    &quot;region_code&quot;: &quot;CA&quot;,<br>    &quot;country&quot;: &quot;US&quot;,<br>    &quot;country_name&quot;: &quot;United States&quot;,<br>    &quot;country_code&quot;: &quot;US&quot;,<br>    &quot;country_code_iso3&quot;: &quot;USA&quot;,<br>    &quot;country_capital&quot;: &quot;Washington&quot;,<br>    &quot;country_tld&quot;: &quot;.us&quot;,<br>    &quot;continent_code&quot;: &quot;NA&quot;,<br>    &quot;in_eu&quot;: false,<br>    &quot;postal&quot;: &quot;94043&quot;,<br>    &quot;latitude&quot;: 37.42301,<br>    &quot;longitude&quot;: -122.083352,<br>    &quot;timezone&quot;: &quot;America/Los_Angeles&quot;,<br>    &quot;utc_offset&quot;: &quot;-0700&quot;,<br>    &quot;country_calling_code&quot;: &quot;+1&quot;,<br>    &quot;currency&quot;: &quot;USD&quot;,<br>    &quot;currency_name&quot;: &quot;Dollar&quot;,<br>    &quot;languages&quot;: &quot;en-US,es-US,haw,fr&quot;,<br>    &quot;country_area&quot;: 9629091.0,<br>    &quot;country_population&quot;: 327167434,<br>    &quot;asn&quot;: &quot;AS15169&quot;,<br>    &quot;org&quot;: &quot;GOOGLE&quot;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="开源离线IP地址定位数据管理框架">开源离线IP地址定位数据管理框架</h3>
+<p>官方地址：<a href="https://ip2region.net/">https://ip2region.net/</a></p>
+<p>需要自行集成后调用本地文件数据库使用</p>
+]]></content>
+      <categories>
+        <category>工具类</category>
+      </categories>
+      <tags>
+        <tag>ip</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>junit单元测试示例</title>
     <url>/2024/11/14/junit%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/</url>
     <content><![CDATA[<h2 id="junit单元测试"><code>junit</code>单元测试</h2>
